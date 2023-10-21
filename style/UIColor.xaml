@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--background-->
+    <Color x:Key ="primary">#fff</Color>
+    <Color x:Key ="secondary">#F1F8FF</Color>
+    <SolidColorBrush x:Key ="secondaryFont">#F1F8FF</SolidColorBrush>
+    <!--button actived-->
+    <Color x:Key ="btnActived">#3497F9</Color>
+    <!--Deny-->
+    <Color x:Key ="DenyNoti">#FF9C94</Color>
+    <!--buttonText-->
+    <SolidColorBrush x:Key ="normalButton">#fff</SolidColorBrush>
+    <SolidColorBrush x:Key ="buttonText">#7F8F98</SolidColorBrush>
+    <SolidColorBrush x:Key ="btnActivedText">#3497F9</SolidColorBrush>
+    <SolidColorBrush x:Key ="btnActivedGround">#F1F8FF</SolidColorBrush>
+    <!--infoText-->
+    <SolidColorBrush x:Key ="infoText">#595959</SolidColorBrush>
+</ResourceDictionary>
+    
+    
