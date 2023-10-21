@@ -3,6 +3,7 @@
                     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp">
     
     <Style x:Key="menuButton" TargetType="RadioButton">
+        <!--các thuộc tính khi chưa hover-->
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Margin" Value="-5 0 0 5"/>
         <Setter Property="Height" Value="55"/>
@@ -20,14 +21,16 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
+    
         <Style.Triggers>
+            <!--các thuộc tính khi hover-->
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Margin" Value="0 0 0 5"/>
                 <Setter Property="Foreground" Value="{StaticResource btnActivedText}"/>
                 <Setter Property="Background" Value="{StaticResource secondaryFont}"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource= {RelativeSource Mode=Self}}"/>
             </Trigger>
+            <!--các thuộc tính khi click-->
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Margin" Value="0 0 0 5"/>
                 <Setter Property="Background" Value="{StaticResource btnActivedText}"/>
@@ -37,6 +40,8 @@
         </Style.Triggers>
     </Style>
 
+    <!--các phần dưới đây không cần phải thêm trigger vào vị thuộc tính hover hay click sẽ ăn theo RadioButton ở trên do RadioButton bao bọc các
+    thuộc tính như TextBlock, Icon,....-->
     <Style x:Key="menuButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Margin" Value="0 0 10 0"/>
         <Setter Property="Height" Value="25"/>

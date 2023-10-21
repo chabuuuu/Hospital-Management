@@ -52,7 +52,10 @@
         BorderThickness="2">
         <Grid>
             <Grid.ColumnDefinitions>
+                <!--form được chia làm 2 cột-->
+                <!--bảng nemu-->
                 <ColumnDefinition Width="213"/>
+                <!--màn hình hiển thị-->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!--menu-->
@@ -69,6 +72,7 @@
                                 Text="Logo">
                             </TextBlock>
                         </StackPanel>
+                        <!--11 nút với các chức năng-->
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -149,7 +153,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <!--main section-->
+            <!--main section (màn hình hiển thị)-->
             <Border
                 Grid.Column="1"
                 Background="#F1F8FF">
