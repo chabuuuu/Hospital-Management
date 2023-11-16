@@ -7,13 +7,48 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="View\CustomerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\HomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\toa.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Victim.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\CustomerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resource\MainResource.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="style\buttonStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="style\UIColor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\toa.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Victim.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

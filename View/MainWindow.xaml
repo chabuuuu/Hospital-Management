@@ -1,0 +1,220 @@
+﻿<Window x:Class="LTTQ_DoAn.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LTTQ_DoAn.View"
+        xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
+        mc:Ignorable="d"
+        Background="Transparent"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        Title="MainWindow" Height="768" Width="1366" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:VictimViewModel}">
+            <local:Victim/> 
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
+            <local:HomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:CustomerViewModel}">
+            <local:CustomerView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Border
+        BorderBrush="DodgerBlue"
+        BorderThickness="2">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!--form được chia làm 2 cột-->
+                <!--bảng nemu-->
+                <ColumnDefinition Width="213"/>
+                <!--màn hình hiển thị-->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--menu-->
+            <Border
+                Background="White">
+                <Grid>
+                    <StackPanel>
+                        <!--logo-->
+                        <StackPanel>
+                            <TextBlock
+                                FontSize="50"
+                                Height="90"
+                                Background="White"
+                                Text="Logo">
+                            </TextBlock>
+                        </StackPanel>
+                        <!--11 nút với các chức năng-->
+                        <RadioButton Style="{StaticResource menuButton}"
+                                     Tag="{StaticResource normalButton}"
+                                     >
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Building" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Tòa" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}"
+                                    >
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="BedPulse" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Bệnh nhân" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="UserNurse" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Y sĩ" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="PeopleLine" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Nhân viên" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="ListCheck" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Phân công" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                     Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="CirclePlus" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Phòng bệnh" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="PeopleGroup" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Tổ" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="CalendarDays" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Lịch khám" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="ArrowDownAZ" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Dịch vụ" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="MoneyCheckDollar" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Tài sản" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="RightFromBracket" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Đăng xuất" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <!--main section (màn hình hiển thị)-->
+            <Border
+                Grid.Column="1"
+                Background="#F1F8FF">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <StackPanel
+                            x:Name="controlBar"
+                            Grid.Row="0"
+                            Orientation="Horizontal"
+                            FlowDirection="RightToLeft"
+                            Background="Transparent"
+                            Margin="0 0 0 0 "
+                            MouseLeftButtonDown="pnlContolBar_MouseLeftButtonDown"
+                            MouseEnter="controlBar_MouseEnter">
+                            <Button x:Name="closeBtn"
+                                    Style="{StaticResource controlButton}"
+                                    Click="closeBtn_Click">
+                                <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                            </Button>
+                            <Button x:Name="maximumBtn"
+                                    Style="{StaticResource controlButton}"
+                                    Click="maximumBtn_Click">
+                                <fa:IconImage Icon="WindowMaximize" Style="{StaticResource controlButtonIcon}"/>
+                            </Button>
+                            <Button x:Name="minimizeBtn"
+                                    Style="{StaticResource controlButton}"
+                                    Click="minimizeBtn_Click">
+                                <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <!--chia làm 2 phần: 1 để chứa tên tài khoản, 2 để chứa các chức năng-->
+                    <!--phần chứa tài khoản-->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="0 10 120 0"
+                            Height="50"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Width="170"
+                            Background="Aqua">
+                        </StackPanel>
+                        <!--Phần hiển thị chức năng hiện tại-->
+                        <StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Bottom">
+                            <fa:IconImage
+                                Icon="{Binding Icon}"
+                                Height="30"
+                                Width="30"
+                                Foreground="{StaticResource btnActivedText}"  
+                                Margin="47 0 0 0"
+                                    />
+                            <TextBlock
+                                Text="{Binding Caption}"
+                                Margin="12 5 0 0"
+                                Foreground="{StaticResource btnActivedText}"
+                                FontFamily="Poppins"
+                                FontSize="30"
+                                FontWeight="Bold"/>
+                        </StackPanel>
+                    </Grid>
+                    <!--phần thứ 2 chứa các giao diện cho người dùng-->
+                    <ContentControl
+                        Content="{Binding CurrentChildView}"
+                        Margin="50 20 50 30"
+                        Grid.Row="2">
+                    </ContentControl>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

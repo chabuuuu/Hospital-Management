@@ -5,7 +5,7 @@
     <Color x:Key ="secondary">#F1F8FF</Color>
     <SolidColorBrush x:Key ="secondaryFont">#F1F8FF</SolidColorBrush>
     <!--button actived-->
-    <Color x:Key ="btnActived">#3497F9</Color>
+    <Color x:Key ="bActived">#3497F9</Color>
     <!--Deny-->
     <Color x:Key ="DenyNoti">#FF9C94</Color>
     <!--buttonText-->

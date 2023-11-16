@@ -5,7 +5,7 @@
     <Style x:Key="menuButton" TargetType="RadioButton">
         <!--các thuộc tính khi chưa hover-->
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="-5 0 0 5"/>
+        <Setter Property="Margin" Value="-5, 0, 0, 0"/>
         <Setter Property="Height" Value="55"/>
         <Setter Property="Width" Value="213"/>
         <Setter Property="Panel.ZIndex" Value="1"/>
@@ -16,7 +16,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Border Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -25,14 +25,14 @@
         <Style.Triggers>
             <!--các thuộc tính khi hover-->
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Margin" Value="0 0 0 5"/>
+                <Setter Property="Margin" Value="0, 5, 0, 5"/>
                 <Setter Property="Foreground" Value="{StaticResource btnActivedText}"/>
                 <Setter Property="Background" Value="{StaticResource secondaryFont}"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource= {RelativeSource Mode=Self}}"/>
             </Trigger>
             <!--các thuộc tính khi click-->
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Margin" Value="0 0 0 5"/>
+                <Setter Property="Margin" Value="0, 5, 0, 5"/>
                 <Setter Property="Background" Value="{StaticResource btnActivedText}"/>
                 <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource= {RelativeSource Mode=Self}}"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource= {RelativeSource Mode=Self}}"/>
@@ -43,7 +43,7 @@
     <!--các phần dưới đây không cần phải thêm trigger vào vị thuộc tính hover hay click sẽ ăn theo RadioButton ở trên do RadioButton bao bọc các
     thuộc tính như TextBlock, Icon,....-->
     <Style x:Key="menuButtonIcon" TargetType="fa:IconImage">
-        <Setter Property="Margin" Value="0 0 10 0"/>
+        <Setter Property="Margin" Value="10 0 10 0"/>
         <Setter Property="Height" Value="25"/>
         <Setter Property="Width" Value="25"/>
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource= {RelativeSource AncestorType=RadioButton}}"/>
@@ -56,5 +56,142 @@
         <Setter Property="FontWeight" Value="600"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource= {RelativeSource AncestorType=RadioButton}}"/>
+    </Style>
+
+    <!--cách phím đóng, phóng to, thu nhỏ cửa sổ-->
+    <Style x:Key="controlButton" TargetType="Button">
+        <Setter Property="Margin" Value="10 0 0 0"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ccc"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="controlButtonIcon" TargetType="fa:IconImage">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <Style x:Key="loginTextBox" TargetType="TextBox">
+        <Setter Property="Margin" Value="0 5 0 0"/>
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="CaretBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="0 0 0 2"/>
+        <Setter Property="HorizontalAlignment" Value="left"/>
+    </Style>
+    <Style x:Key="loginPassBox" TargetType="PasswordBox">
+        <Setter Property="Margin" Value="0 5 0 0"/>
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="CaretBrush" Value="LightGray"/>
+        <Setter Property="HorizontalAlignment" Value="left"/>
+        <Setter Property="BorderThickness" Value="0 0 0 2"/>
+    </Style>
+
+    <Style x:Key="loginButton" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="{StaticResource buttonText}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="Margin" Value="0 50 50 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border 
+                            BorderThickness="2"
+                            CornerRadius="40"
+                            Width="100"
+                            Height="35"
+                            Background="#F1F8FF">
+                        <ContentPresenter HorizontalAlignment="Right"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource btnActivedGround}"/>
+                <Setter Property="Foreground" Value="{StaticResource btnActivedText}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <!--nút thêm bệnh nhân--> 
+    <Style x:Key="BtnUserControl" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Foreground" Value="{StaticResource buttonText}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0 0 40 0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border 
+                        BorderThickness="2"
+                        CornerRadius="5"
+                        Width="150"
+                        Height="35"
+                        Background="{StaticResource btnActivedText}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="0.8"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="UserControlText" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="600"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource btnActivedGround}"/>
+    </Style>
+
+    <Style x:Key="TitleControlText" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="300"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{StaticResource btnActivedGround}"/>
+    </Style>
+
+    <Style x:Key="titleUserControl" TargetType="TextBlock">
+        <Setter Property="Margin" Value="20 20 0 0"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Medium"/>
     </Style>
 </ResourceDictionary>

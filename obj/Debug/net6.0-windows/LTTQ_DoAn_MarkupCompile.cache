@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\App.xaml
-3-1563837896
+9-1035373670
 
-3-1233169557
+21-1194887676
 207-1487054959
-MainWindow.xaml;style\buttonStyle.xaml;style\UIColor.xaml;
+Resource\MainResource.xaml;style\buttonStyle.xaml;style\UIColor.xaml;View\CustomerView.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\toa.xaml;View\Victim.xaml;
 
 False
 
