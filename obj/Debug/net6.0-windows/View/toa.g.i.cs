@@ -54,7 +54,7 @@ namespace LTTQ_DoAn.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;component/view/toa.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;V1.0.0.0;component/view/toa.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\toa.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
