@@ -23,6 +23,7 @@ namespace LTTQ_DoAn.View
         public Victim()
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -62,6 +62,7 @@ namespace LTTQ_DoAn.ViewModel
 
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowCustomerViewCommand {  get; }
+        public ICommand ShowVictimViewCommand { get; }
 
         public MainViewModel()
         {
@@ -71,6 +72,7 @@ namespace LTTQ_DoAn.ViewModel
             //khởi tạo phương thức xem view
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
+            ShowVictimViewCommand = new ViewModelCommand(ExecuteShowVictimViewCommand);
             //Khởi tạo màn hình mặc định
             ExecuteShowHomeViewCommand(null);
             //LoadCurrentUserData();
@@ -89,6 +91,14 @@ namespace LTTQ_DoAn.ViewModel
             Caption = "Dashboard";
             Icon = IconChar.Home;
         }
+
+        private void ExecuteShowVictimViewCommand(object obj)
+        {
+            CurrentChildView = new VictimViewModel();
+            Caption = "Bệnh nhân";
+            Icon = IconChar.Bed;
+        }
+
 
         /*private void LoadCurrentUserData()
         {

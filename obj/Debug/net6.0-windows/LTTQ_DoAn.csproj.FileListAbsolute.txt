@@ -25,10 +25,8 @@ C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\ne
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\style\UIColor.baml
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\style\buttonStyle.baml
-C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\toa.g.cs
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\Resource\MainResource.baml
-C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\toa.baml
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\LoginWindow.g.cs
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\LoginWindow.baml
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\Victim.g.cs
@@ -39,3 +37,5 @@ C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\ne
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\HomeView.g.cs
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\CustomerView.baml
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\HomeView.baml
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\DoctorAndNurse.g.cs
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\DoctorAndNurse.baml

@@ -138,16 +138,15 @@
         </Style.Triggers>
     </Style>
     
-    <!--nút thêm bệnh nhân--> 
+    <!--nút thêm--> 
     <Style x:Key="BtnUserControl" TargetType="Button">
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="FontSize" Value="10"/>
         <Setter Property="Foreground" Value="{StaticResource buttonText}"/>
         <Setter Property="BorderThickness" Value="3"/>
-        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="0 0 40 0"/>
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -168,6 +167,36 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    <!--nút xóa-->
+    <Style x:Key="BtnUserControl_Delete" TargetType="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="{StaticResource buttonText}"/>
+        <Setter Property="BorderThickness" Value="3"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10 0 0 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border 
+                        BorderThickness="2"
+                        CornerRadius="5"
+                        Width="80"
+                        Height="35"
+                        Background="Red">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="0.8"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 
     <Style x:Key="UserControlText" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Poppins"/>
@@ -193,5 +222,54 @@
         <Setter Property="FontFamily" Value="Poppins"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Medium"/>
+    </Style>
+    <Style x:Key="IconInUserControl" TargetType="fa:IconImage">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Width" Value="30"/>
+    </Style>
+    
+    <!--nút chuyển bác sĩ qua y sĩ-->
+    <Style x:Key="BtnUserControl_switch" TargetType="RadioButton">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Panel.ZIndex" Value="1"/>
+        <Setter Property="Foreground" Value="{StaticResource buttonText}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <!--các thuộc tính khi hover-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource btnActivedText}"/>
+            </Trigger>
+            <!--các thuộc tính khi click-->
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="BorderThickness" Value="0 0 0 2"/>
+                <Setter Property="Foreground" Value="{StaticResource btnActivedText}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource btnActivedGround}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="Switch_btn" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource= {RelativeSource AncestorType=RadioButton}}"/>
     </Style>
 </ResourceDictionary>

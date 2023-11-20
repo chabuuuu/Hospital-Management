@@ -49,17 +49,11 @@
                                 Text="Logo">
                             </TextBlock>
                         </StackPanel>
-                        <!--11 nút với các chức năng-->
-                        <RadioButton Style="{StaticResource menuButton}"
-                                     Tag="{StaticResource normalButton}"
-                                     >
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="Building" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Tòa" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </RadioButton>
+                        <!--6 nút với các chức năng-->
+                        
                         <RadioButton Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}"
+                                    
                                     >
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="BedPulse" Style="{StaticResource menuButtonIcon}"/>
@@ -73,20 +67,8 @@
                                 <TextBlock Text="Y sĩ" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                        <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="PeopleLine" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Nhân viên" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="ListCheck" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Phân công" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </RadioButton>
+                       
+                        
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -94,13 +76,7 @@
                                 <TextBlock Text="Phòng bệnh" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                        <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="PeopleGroup" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Tổ" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </RadioButton>
+                        
                         <RadioButton Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -115,15 +91,10 @@
                                 <TextBlock Text="Dịch vụ" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
+                       
                         <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="MoneyCheckDollar" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Tài sản" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
+                                    Tag="{StaticResource normalButton}"
+                                     >
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="RightFromBracket" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Đăng xuất" Style="{StaticResource menuButtonText}"/>

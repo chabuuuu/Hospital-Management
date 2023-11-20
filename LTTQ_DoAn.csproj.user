@@ -10,13 +10,13 @@
     <Compile Update="View\CustomerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\DoctorAndNurse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\toa.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Victim.xaml.cs">
@@ -25,6 +25,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\CustomerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\DoctorAndNurse.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\HomeView.xaml">
@@ -43,9 +46,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\toa.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Victim.xaml">
