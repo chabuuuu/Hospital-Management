@@ -7,10 +7,22 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\AddNurseAndDoctor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddVictim.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\appointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\CustomerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\DoctorAndNurse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\field.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\HomeView.xaml.cs">
@@ -19,15 +31,30 @@
     <Compile Update="View\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\room.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Victim.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\AddNurseAndDoctor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddVictim.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\appointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\CustomerView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\DoctorAndNurse.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\field.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\HomeView.xaml">
@@ -46,6 +73,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\room.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Victim.xaml">

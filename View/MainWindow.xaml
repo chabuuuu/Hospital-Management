@@ -61,6 +61,13 @@
                             </StackPanel>
                         </RadioButton>
                         <RadioButton Style="{StaticResource menuButton}"
+                            Tag="{StaticResource normalButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Clone" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Khoa" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="UserNurse" Style="{StaticResource menuButtonIcon}"/>
@@ -91,16 +98,15 @@
                                 <TextBlock Text="Dịch vụ" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                       
-                        <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}"
-                                     >
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="RightFromBracket" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Đăng xuất" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </RadioButton>
                     </StackPanel>
+                    <RadioButton Style="{StaticResource menuButton}"
+                                Tag="{StaticResource normalButton}"
+                                    VerticalAlignment="Bottom">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="RightFromBracket" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Đăng xuất" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
                 </Grid>
             </Border>
             <!--main section (màn hình hiển thị)-->

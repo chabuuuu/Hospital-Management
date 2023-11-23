@@ -96,10 +96,12 @@
             <DataGrid Name="PatientList" Grid.Row="1" 
                       Height="35" 
                       VerticalAlignment="top"
-                      Background="Transparent">
+                      Background="Transparent"
+                      ItemsSource="{Binding victims}">
                 <DataGrid.Columns>
+                    <!--dấu # này là cột chứa checkbox của mỗi item-->
                     <DataGridTextColumn Header="#" Width="5*">
-                        <!-- Cài đặt và binding cho cột 1 -->
+                        
                     </DataGridTextColumn>
 
                     <DataGridTextColumn Header="ID" Width="20*">
@@ -118,6 +120,7 @@
                     <DataGridTextColumn Header="Ngày nhập viện" Width="20*">
                         <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>
+                    <!--cột này để chứa các thao tác như -->
                     <DataGridTextColumn Header="Thao tác" Width="10*">
                         <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>

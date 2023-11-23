@@ -57,7 +57,7 @@
                             Style="{StaticResource BtnUserControl}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
-                                    Text="Thêm bệnh nhân"
+                                    Text="Thêm y sĩ"
                                     >
                             </TextBlock>
                         </Button>

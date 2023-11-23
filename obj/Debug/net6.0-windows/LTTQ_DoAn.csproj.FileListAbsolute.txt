@@ -39,3 +39,13 @@ C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\ne
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\HomeView.baml
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\DoctorAndNurse.g.cs
 C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\DoctorAndNurse.baml
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\appointment.g.cs
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\field.g.cs
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\room.g.cs
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\appointment.baml
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\field.baml
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\room.baml
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\AddVictim.g.cs
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\AddVictim.baml
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\AddNurseAndDoctor.g.cs
+C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\View\AddNurseAndDoctor.baml
