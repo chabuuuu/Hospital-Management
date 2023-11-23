@@ -74,7 +74,7 @@ namespace LTTQ_DoAn.ViewModel
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
             ShowVictimViewCommand = new ViewModelCommand(ExecuteShowVictimViewCommand);
             //Khởi tạo màn hình mặc định
-            ExecuteShowHomeViewCommand(null);
+            ExecuteShowHomeViewCommand(new object());
             //LoadCurrentUserData();
         }
 

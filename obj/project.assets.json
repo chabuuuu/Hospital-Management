@@ -180,19 +180,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vu Thanh Tam\\.nuget\\packages\\": {}
+    "C:\\Users\\Ha Phu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vu Thanh Tam\\Desktop\\homework\\IT007\\lý thuyết\\LTTQ_DoAn\\LTTQ_DoAn.csproj",
+      "projectUniqueName": "D:\\Workspace\\Learn\\DoAn\\UIT_LTTQ_DoAn\\LTTQ_DoAn.csproj",
       "projectName": "LTTQ_DoAn",
-      "projectPath": "C:\\Users\\Vu Thanh Tam\\Desktop\\homework\\IT007\\lý thuyết\\LTTQ_DoAn\\LTTQ_DoAn.csproj",
-      "packagesPath": "C:\\Users\\Vu Thanh Tam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vu Thanh Tam\\Desktop\\homework\\IT007\\lý thuyết\\LTTQ_DoAn\\obj\\",
+      "projectPath": "D:\\Workspace\\Learn\\DoAn\\UIT_LTTQ_DoAn\\LTTQ_DoAn.csproj",
+      "packagesPath": "C:\\Users\\Ha Phu\\.nuget\\packages\\",
+      "outputPath": "D:\\Workspace\\Learn\\DoAn\\UIT_LTTQ_DoAn\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Vu Thanh Tam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ha Phu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -250,7 +250,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

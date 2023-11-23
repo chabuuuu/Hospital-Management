@@ -50,8 +50,10 @@
                             </TextBlock>
                         </StackPanel>
                         <!--6 nút với các chức năng-->
-                        
-                        <RadioButton Style="{StaticResource menuButton}"
+                        <RadioButton 
+                            Command="{Binding ShowVictimViewCommand}"
+                   
+                            Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}"
                                     
                                     >
@@ -186,7 +188,7 @@
                     </Grid>
                     <!--phần thứ 2 chứa các giao diện cho người dùng-->
                     <ContentControl
-                        Content="{Binding CurrentChildView}"
+                        Content="{Binding CurrentChildView, UpdateSourceTrigger=PropertyChanged}"
                         Margin="50 20 50 30"
                         Grid.Row="2">
                     </ContentControl>
