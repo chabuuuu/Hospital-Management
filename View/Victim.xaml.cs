@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LTTQ_DoAn.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,10 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
             
+            /*VictimViewModel victimViewModel = new VictimViewModel();
+            this.DataContext = victimViewModel;*/
+           /* var list = victimViewModel.VictimList;
+            MessageBox.Show(list.ToString()); */
         }
     }
 }
