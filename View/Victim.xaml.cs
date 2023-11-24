@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LTTQ_DoAn.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,6 +26,13 @@ namespace LTTQ_DoAn.View
         public Victim()
         {
             InitializeComponent();
+<<<<<<< HEAD
+            
+            /*VictimViewModel victimViewModel = new VictimViewModel();
+            this.DataContext = victimViewModel;*/
+           /* var list = victimViewModel.VictimList;
+            MessageBox.Show(list.ToString()); */
+=======
             victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
             victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
             victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
@@ -50,6 +58,7 @@ namespace LTTQ_DoAn.View
             public string Sex { get; set; }
             public string Birth { get; set; }
             public string Date { get; set; }
+>>>>>>> efdc055d10dec63c66b0e7c177d7cde1098a4a82
         }
     }
 }
