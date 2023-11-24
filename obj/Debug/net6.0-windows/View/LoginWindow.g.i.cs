@@ -72,7 +72,7 @@ namespace LTTQ_DoAn.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;component/view/loginwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;V1.0.0.0;component/view/loginwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\LoginWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

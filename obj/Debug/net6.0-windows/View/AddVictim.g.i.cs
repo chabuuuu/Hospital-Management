@@ -58,7 +58,7 @@ namespace LTTQ_DoAn.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;component/view/addvictim.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;V1.0.0.0;component/view/addvictim.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\AddVictim.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
