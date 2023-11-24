@@ -9,6 +9,7 @@ using System.Windows.Input;
 
 namespace LTTQ_DoAn.ViewModel
 {
+    //Base view model
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
