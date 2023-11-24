@@ -8,6 +8,7 @@
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              Background="Transparent"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
             d:DesignHeight="624" d:DesignWidth="1049">
     <Border
         CornerRadius="20"
@@ -93,37 +94,65 @@
                 </ScrollViewer>
             </Border>
             -->
-            <DataGrid Name="PatientList" Grid.Row="1" 
+            <DataGrid x:Name="PatientList" Grid.Row="1" 
                       Height="35" 
                       VerticalAlignment="top"
-                      Background="Transparent"
-                      ItemsSource="{Binding victims}">
+                      Style="{DynamicResource DataGridStyle1}">
                 <DataGrid.Columns>
                     <!--dấu # này là cột chứa checkbox của mỗi item-->
-                    <DataGridTextColumn Header="#" Width="5*">
-                        
-                    </DataGridTextColumn>
+                    <DataGridCheckBoxColumn Width="5*"
+                                            CanUserResize="False">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox/>
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
 
-                    <DataGridTextColumn Header="ID" Width="20*">
-                        <!-- Cài đặt và binding cho cột 2 -->
-                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Header="ID" Width="20*"
+                                            IsReadOnly="True" CanUserResize="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="..." VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="25*">
+                    <DataGridTextColumn Header="Tên" Width="25*" Binding="{Binding Name}"
+                                        IsReadOnly="True" CanUserResize="False">
+                    </DataGridTextColumn>
+                        <!-- Cài đặt và binding cho cột 2 -->
+
+                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding Age}"
+                                        IsReadOnly="True" CanUserResize="False">
                         <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="tuổi" Width="10*">
+                    <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding Sex}"
+                                        IsReadOnly="True" CanUserResize="False">
                         <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Giới tính" Width="10*">
-                        <!-- Cài đặt và binding cho cột 2 -->
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*">
+                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding Birth}"
+                                        IsReadOnly="True" CanUserResize="False">
                         <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>
                     <!--cột này để chứa các thao tác như -->
-                    <DataGridTextColumn Header="Thao tác" Width="10*">
-                        <!-- Cài đặt và binding cho cột 2 -->
-                    </DataGridTextColumn>
+                    <DataGridTemplateColumn Header="Thao tác" Width="10*"
+                         IsReadOnly="True" CanUserResize="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridEditButton}">
+                                        <fa:IconImage Icon="InfoCircle"/>
+                                    </Button>
+                                    <Button Style="{StaticResource gridOpenButton}">
+                                        <fa:IconImage Icon="UpRightFromSquare"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
