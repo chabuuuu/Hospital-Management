@@ -3,32 +3,41 @@ using System.Windows.Input;
 
 namespace LTTQ_DoAn.ViewModel
 {
-    internal class ViewModelCommand : ICommand
+    public class ViewModelCommand : ICommand
     {
-        private object executeloginCommand;
-        private object value;
+        //Fields
+        private readonly Action<object> _executeAction;
+        private readonly Predicate<object> _canExecuteAction;
 
-        public ViewModelCommand(Action<object> value)
+        //Constructors
+        public ViewModelCommand(Action<object> executeAction)
         {
-            this.value = value;
+            _executeAction = executeAction;
+            _canExecuteAction = null;
         }
 
-        public ViewModelCommand(object executeloginCommand, object value)
+        public ViewModelCommand(Action<object> executeAction, Predicate<object> canExecuteAction)
         {
-            this.executeloginCommand = executeloginCommand;
-            this.value = value;
+            _executeAction = executeAction;
+            _canExecuteAction = canExecuteAction;
         }
 
-        public event EventHandler? CanExecuteChanged;
-
-        public bool CanExecute(object? parameter)
+        //Events
+        public event EventHandler CanExecuteChanged
         {
-            throw new NotImplementedException();
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public void Execute(object? parameter)
+        //Methods
+        public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return _canExecuteAction == null ? true : _canExecuteAction(parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            _executeAction(parameter);
         }
     }
 }

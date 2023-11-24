@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Jdfh2H/qSK7snyDOZ1tb4LlSXt74y1uCfEg9g8sJ6ufAvV8AXjk+OeoyoqGoEzueD3uw++NhirhL9VoOBWOHEA==",
+  "dgSpecHash": "3A3z+rxvBwnxjvQ3sJjhljJWA/yt1BWqHS+RNKfebFTHeTAbRPZ4fBOHusGocGr1OVqedZ/aEo4Wm2mWF0i5Cg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vu Thanh Tam\\Desktop\\homework\\IT007\\lý thuyết\\LTTQ_DoAn\\LTTQ_DoAn.csproj",
+  "projectFilePath": "D:\\Workspace\\Learn\\DoAn\\UIT_LTTQ_DoAn\\LTTQ_DoAn.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vu Thanh Tam\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
-    "C:\\Users\\Vu Thanh Tam\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
-    "C:\\Users\\Vu Thanh Tam\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
-    "C:\\Users\\Vu Thanh Tam\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+    "C:\\Users\\Ha Phu\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
+    "C:\\Users\\Ha Phu\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\Ha Phu\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\Ha Phu\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
   ],
   "logs": []
 }

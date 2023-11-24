@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿C:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 FC:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\App.xaml;;
 FC:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\Resource\MainResource.xaml;;
@@ -12,4 +13,20 @@ FC:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\View\LoginW
 FC:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\View\MainWindow.xaml;;
 FC:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\View\room.xaml;;
 FC:\Users\Vu Thanh Tam\Desktop\homework\IT007\lý thuyết\LTTQ_DoAn\View\Victim.xaml;;
+=======
+﻿
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\App.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\Resource\MainResource.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\AddNurseAndDoctor.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\AddVictim.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\appointment.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\CustomerView.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\DoctorAndNurse.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\field.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\HomeView.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\LoginWindow.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\MainWindow.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\room.xaml;;
+FD:\Workspace\Learn\DoAn\UIT_LTTQ_DoAn\View\Victim.xaml;;
+>>>>>>> 55add6ffd33705cf8f3dca34f25ffbf8c253b42a
 

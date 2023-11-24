@@ -10,6 +10,7 @@
 //------------------------------------------------------------------------------
 
 using LTTQ_DoAn.View;
+using LTTQ_DoAn.ViewModel;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -19,7 +20,6 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Controls.Ribbon;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms.Integration;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -54,7 +54,7 @@ namespace LTTQ_DoAn.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;component/view/room.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LTTQ_DoAn;V1.0.0.0;component/view/room.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\room.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

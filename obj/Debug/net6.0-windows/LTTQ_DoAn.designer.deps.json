@@ -6,42 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "FontAwesome.Sharp/6.3.0": {
-        "runtime": {
-          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {
-            "assemblyVersion": "6.3.0.0",
-            "fileVersion": "6.3.0.0"
-          }
-        }
-      },
-      "MaterialDesignColors/2.1.4": {
-        "runtime": {
-          "lib/net6.0/MaterialDesignColors.dll": {
-            "assemblyVersion": "2.1.4.0",
-            "fileVersion": "2.1.4.0"
-          }
-        }
-      },
+      "FontAwesome.Sharp/6.3.0": {},
+      "MaterialDesignColors/2.1.4": {},
       "MaterialDesignThemes/4.9.0": {
         "dependencies": {
           "MaterialDesignColors": "2.1.4",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
-        },
-        "runtime": {
-          "lib/net6.0/MaterialDesignThemes.Wpf.dll": {
-            "assemblyVersion": "4.9.0.0",
-            "fileVersion": "4.9.0.0"
-          }
         }
       },
-      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
-        "runtime": {
-          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.39.4716"
-          }
-        }
-      }
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {}
     }
   },
   "libraries": {
