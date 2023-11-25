@@ -4,10 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LTTQ_DoAn.View"
-             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              Background="Transparent"
-             d:DesignHeight="624" d:DesignWidth="1049">
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+            d:DesignHeight="644" d:DesignWidth="1049">
     <Border
         CornerRadius="20"
         Background="white">
@@ -39,7 +41,7 @@
                             Style="{StaticResource BtnUserControl}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
-                                    Text="Thêm lịch khám"
+                                    Text="Thêm bệnh nhân"
                                     >
                             </TextBlock>
                         </Button>
@@ -54,35 +56,64 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            
-            <DataGrid Name="PatientList" Grid.Row="1" 
-                      Height="35" 
+            <DataGrid x:Name="AppointmentList" Grid.Row="1"
                       VerticalAlignment="top"
-                      Background="Transparent">
+                      Style="{DynamicResource DataGridStyle1}"
+                      CellStyle="{DynamicResource DataGridCellStyle1}"
+                      RowStyle="{DynamicResource DataGridRowStyle1}"
+                      >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="#" Width="5*">
-                        <!-- Cài đặt và binding cho cột 1 -->
+                    <!--dấu # này là cột chứa checkbox của mỗi item-->
+                    <DataGridCheckBoxColumn Width="5*"
+                                            CanUserResize="False"
+                                            ElementStyle="{StaticResource CheckBoxStyle1}">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
+
+                    <DataGridTextColumn Header="ID" Width="20*"
+                                            IsReadOnly="True" CanUserResize="False"
+                                            Binding="{Binding appointment_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="ID" Width="20*">
-                        <!-- Cài đặt và binding cho cột 2 -->
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding appointment_Name}"
+                                        IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="25*">
-                        <!-- Cài đặt và binding cho cột 2 -->
+                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding appointment_Age}"
+                                        IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="tuổi" Width="10*">
-                        <!-- Cài đặt và binding cho cột 2 -->
+
+                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding appointment_Service}"
+                                        IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Dịch vu" Width="10*">
-                        <!-- Cài đặt và binding cho cột 2 -->
+
+                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding appointment_Date}"
+                                        IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày khám" Width="20*">
-                        <!-- Cài đặt và binding cho cột 2 -->
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Header="Thao tác" Width="10*">
-                        <!-- Cài đặt và binding cho cột 2 -->
-                    </DataGridTextColumn>
+                    
+                    <DataGridTemplateColumn Header="Thao tác" Width="10*"
+                         IsReadOnly="True" CanUserResize="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridEditButton}"
+                                            Margin="0 0 10 0">
+                                        <fa:IconImage Icon="InfoCircle"
+                                                      Height="20"
+                                                      />
+                                    </Button>
+                                    <Button Style="{StaticResource gridOpenButton}">
+                                        <fa:IconImage Icon="UpRightFromSquare"
+                                                      Height="20"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

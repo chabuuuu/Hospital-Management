@@ -52,7 +52,6 @@
                         <!--6 nút với các chức năng-->
                         <RadioButton 
                             Command="{Binding ShowVictimViewCommand}"
-                   
                             Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}"
                                     
@@ -118,7 +117,7 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
-                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
@@ -158,8 +157,8 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel
                             Grid.Column="1"
-                            Margin="0 10 120 0"
-                            Height="50"
+                            Margin="0 0 120 0"
+                            Height="30"
                             Orientation="Horizontal"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"
@@ -169,11 +168,11 @@
                         <!--Phần hiển thị chức năng hiện tại-->
                         <StackPanel Grid.Column="0"
                                     Orientation="Horizontal"
-                                    VerticalAlignment="Bottom">
+                                    VerticalAlignment="Center">
                             <fa:IconImage
                                 Icon="{Binding Icon}"
-                                Height="30"
-                                Width="30"
+                                Height="20"
+                                Width="20"
                                 Foreground="{StaticResource btnActivedText}"  
                                 Margin="47 0 0 0"
                                     />
@@ -182,7 +181,7 @@
                                 Margin="12 5 0 0"
                                 Foreground="{StaticResource btnActivedText}"
                                 FontFamily="Poppins"
-                                FontSize="30"
+                                FontSize="20"
                                 FontWeight="Bold"/>
                         </StackPanel>
                     </Grid>

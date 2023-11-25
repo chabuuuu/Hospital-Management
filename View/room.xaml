@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LTTQ_DoAn.View"
              mc:Ignorable="d" 
              Background="Transparent"
-             d:DesignHeight="624" d:DesignWidth="1049">
+             d:DesignHeight="644" d:DesignWidth="1049">
 
     <Border
     CornerRadius="20"

@@ -21,35 +21,18 @@ namespace LTTQ_DoAn.View
     /// </summary>
     public partial class Victim : UserControl
     {
-        public ObservableCollection<victim> victims = new ObservableCollection<victim>();
         public Victim()
         {
             InitializeComponent();
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            victims.Add(new victim() { ID = "1234", Name = "Vu Thanh Tam", Age = 20, Sex = "male", Birth = "12/6/2003", Date = "21/12/2023" });
-            PatientList.ItemsSource = victims;
         }
         public class victim
         {
-            public string ID { get; set; }
-            public string Name { get; set; }
-            public int Age { get; set; }
-            public string Sex { get; set; }
-            public string Birth { get; set; }
-            public string Date { get; set; }
+            public string victim_ID { get; set; }
+            public string victim_Name { get; set; }
+            public int victim_Age { get; set; }
+            public string victim_Sex { get; set; }
+            public string victim_Birth { get; set; }
+            public string victim_Date { get; set; }
         }
     }
 }
