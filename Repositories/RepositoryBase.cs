@@ -12,13 +12,13 @@ namespace LTTQ_DoAn.Repositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
-            _connectionString = "Server=(local); Database=MVVMLoginDb; Integrated Security=true";
+            _connectionString = "Server=(local); Database=QUANLYBENHVIEN; Integrated Security=true";
         }
 
-        /* kết nối câu lệnh kết nối sql
+        // kết nối câu lệnh kết nối sql
         protected SqlConnection GetConnection()
         {
             return new SqlConnection(_connectionString);
-        }*/
+        }
     }
 }

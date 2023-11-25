@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LTTQ_DoAn.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace LTTQ_DoAn.View
         public Victim()
         {
             InitializeComponent();
+
         }
         public class victim
         {
