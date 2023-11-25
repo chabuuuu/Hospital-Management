@@ -20,8 +20,11 @@
         <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
             <local:HomeView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:CustomerViewModel}">
-            <local:CustomerView/>
+        <DataTemplate DataType="{x:Type viewmodel:AppointmentViewModel}">
+            <local:appointment/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:DoctorAndNurseViewModel}">
+            <local:DoctorAndNurse/>
         </DataTemplate>
     </Window.Resources>
     <Border
@@ -50,17 +53,18 @@
                             </TextBlock>
                         </StackPanel>
                         <!--6 nút với các chức năng-->
+                        <!--Bệnh nhân-->
                         <RadioButton 
                             Command="{Binding ShowVictimViewCommand}"
                             Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}"
-                                    
                                     >
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="BedPulse" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Bệnh nhân" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
+                        <!--khoa-->
                         <RadioButton Style="{StaticResource menuButton}"
                             Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -68,15 +72,16 @@
                                 <TextBlock Text="Khoa" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
+                        <!--Y sĩ-->
                         <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
+                                    Tag="{StaticResource normalButton}"
+                                     Command="{Binding ShowDoctorViewCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="UserNurse" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Y sĩ" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                       
-                        
+                        <!--Phòng-->
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -84,14 +89,16 @@
                                 <TextBlock Text="Phòng bệnh" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                        
+                        <!--Lịch khám-->
                         <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
+                                    Tag="{StaticResource normalButton}"
+                                     Command="{Binding ShowAppointmentViewCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CalendarDays" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Lịch khám" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
+                        <!--Dịch vụ-->
                         <RadioButton Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
