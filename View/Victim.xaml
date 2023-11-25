@@ -9,7 +9,7 @@
              Background="Transparent"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              
-            d:DesignHeight="624" d:DesignWidth="1049">
+            d:DesignHeight="644" d:DesignWidth="1049">
     <Border
         CornerRadius="20"
         Background="white">
@@ -56,98 +56,56 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <!--
-            <Border Grid.Row="1" >
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView Name="PatienList"
-                              ItemsSource="{Binding _ListPatient}"
-                              SelectedItem="{Binding _SelectedItem, Mode=OneWayToSource}"
-                              VerticalAlignment="Top"
-                              HorizontalAlignment="Center"
-                                >
-                        <ListView.View>
-                            <GridView>
-                                <GridView.ColumnHeaderContainerStyle>
-                                    <Style TargetType="{x:Type GridViewColumnHeader}">
-                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
-                                        <Setter Property="BorderThickness" Value="0"/>
-                                        <Setter Property="BorderBrush" Value="Transparent"/>
-                                        <Setter Property="Background" Value="Transparent"/>
-                                        <Setter Property="Height" Value="30"/>
-                                    </Style>
-                                </GridView.ColumnHeaderContainerStyle>
-                                <GridView.Columns>
-                                    <GridViewColumn Width="30">
-                                        <CheckBox VerticalAlignment="Center"
-                                                  IsChecked="{Binding _IsChecked}"/>
-                                    </GridViewColumn>
-                                    <GridViewColumn Width="160" Header="ID" DisplayMemberBinding="{Binding _ID}"></GridViewColumn>
-                                    <GridViewColumn Width="300" Header="Tên" DisplayMemberBinding="{Binding _Name}"/>
-                                    <GridViewColumn Width="120" Header="Giới tính" DisplayMemberBinding="{Binding _Sex}"/>
-                                    <GridViewColumn Width="120" Header="Tuổi" DisplayMemberBinding="{Binding _Age}"/>
-                                    <GridViewColumn Width="180" Header="Ngày nhập viện" DisplayMemberBinding="{Binding _PatientDate}"/>
-                                    <GridViewColumn Width="140" Header="Thao tác" DisplayMemberBinding="{Binding _UserAction}"/>
-                                </GridView.Columns>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
-                </ScrollViewer>
-            </Border>
-            -->
-            <DataGrid x:Name="PatientList" Grid.Row="1" 
-                      Height="35" 
+            <DataGrid x:Name="PatientList" Grid.Row="1"
                       VerticalAlignment="top"
-                      Style="{DynamicResource DataGridStyle1}">
+                      Style="{DynamicResource DataGridStyle1}"
+                      CellStyle="{DynamicResource DataGridCellStyle1}"
+                      RowStyle="{DynamicResource DataGridRowStyle1}"
+                      >
                 <DataGrid.Columns>
                     <!--dấu # này là cột chứa checkbox của mỗi item-->
                     <DataGridCheckBoxColumn Width="5*"
-                                            CanUserResize="False">
+                                            CanUserResize="False"
+                                            ElementStyle="{StaticResource CheckBoxStyle1}">
                         <DataGridCheckBoxColumn.HeaderTemplate>
                             <DataTemplate>
-                                <CheckBox/>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
                             </DataTemplate>
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
 
-                    <DataGridTemplateColumn Header="ID" Width="20*"
-                                            IsReadOnly="True" CanUserResize="False">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="..." VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="ID" Width="20*"
+                                            IsReadOnly="True" CanUserResize="False"
+                                            Binding="{Binding victim_ID}">
+                    </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="25*" Binding="{Binding Name}"
+                    <DataGridTextColumn Header="Tên" Width="25*" Binding="{Binding victim_Name}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                        <!-- Cài đặt và binding cho cột 2 -->
 
-                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding Age}"
+                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding victim_Age}"
                                         IsReadOnly="True" CanUserResize="False">
-                        <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding Sex}"
+                    <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding victim_Sex}"
                                         IsReadOnly="True" CanUserResize="False">
-                        <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding Birth}"
+                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding victim_Date}"
                                         IsReadOnly="True" CanUserResize="False">
-                        <!-- Cài đặt và binding cho cột 2 -->
                     </DataGridTextColumn>
-                    <!--cột này để chứa các thao tác như -->
                     <DataGridTemplateColumn Header="Thao tác" Width="10*"
                          IsReadOnly="True" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}">
-                                        <fa:IconImage Icon="InfoCircle"/>
+                                    <Button Style="{StaticResource gridEditButton}"
+                                            Margin="0 0 10 0">
+                                        <fa:IconImage Icon="InfoCircle"
+                                                      Height="20"
+                                                      />
                                     </Button>
                                     <Button Style="{StaticResource gridOpenButton}">
-                                        <fa:IconImage Icon="UpRightFromSquare"/>
+                                        <fa:IconImage Icon="UpRightFromSquare"
+                                                      Height="20"/>
                                     </Button>
                                 </StackPanel>
                             </DataTemplate>

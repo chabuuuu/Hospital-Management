@@ -20,8 +20,11 @@
         <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
             <local:HomeView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:CustomerViewModel}">
-            <local:CustomerView/>
+        <DataTemplate DataType="{x:Type viewmodel:AppointmentViewModel}">
+            <local:appointment/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:DoctorAndNurseViewModel}">
+            <local:DoctorAndNurse/>
         </DataTemplate>
     </Window.Resources>
     <Border
@@ -50,18 +53,18 @@
                             </TextBlock>
                         </StackPanel>
                         <!--6 nút với các chức năng-->
+                        <!--Bệnh nhân-->
                         <RadioButton 
                             Command="{Binding ShowVictimViewCommand}"
-                   
                             Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}"
-                                    
                                     >
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="BedPulse" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Bệnh nhân" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
+                        <!--khoa-->
                         <RadioButton Style="{StaticResource menuButton}"
                             Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -69,15 +72,16 @@
                                 <TextBlock Text="Khoa" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
+                        <!--Y sĩ-->
                         <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
+                                    Tag="{StaticResource normalButton}"
+                                     Command="{Binding ShowDoctorViewCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="UserNurse" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Y sĩ" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                       
-                        
+                        <!--Phòng-->
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -85,14 +89,16 @@
                                 <TextBlock Text="Phòng bệnh" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                        
+                        <!--Lịch khám-->
                         <RadioButton Style="{StaticResource menuButton}"
-                                    Tag="{StaticResource normalButton}">
+                                    Tag="{StaticResource normalButton}"
+                                     Command="{Binding ShowAppointmentViewCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CalendarDays" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Lịch khám" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
+                        <!--Dịch vụ-->
                         <RadioButton Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}">
                             <StackPanel Orientation="Horizontal">
@@ -118,7 +124,7 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
-                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="40"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
@@ -158,8 +164,8 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel
                             Grid.Column="1"
-                            Margin="0 10 120 0"
-                            Height="50"
+                            Margin="0 0 120 0"
+                            Height="30"
                             Orientation="Horizontal"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"
@@ -169,11 +175,11 @@
                         <!--Phần hiển thị chức năng hiện tại-->
                         <StackPanel Grid.Column="0"
                                     Orientation="Horizontal"
-                                    VerticalAlignment="Bottom">
+                                    VerticalAlignment="Center">
                             <fa:IconImage
                                 Icon="{Binding Icon}"
-                                Height="30"
-                                Width="30"
+                                Height="20"
+                                Width="20"
                                 Foreground="{StaticResource btnActivedText}"  
                                 Margin="47 0 0 0"
                                     />
@@ -182,7 +188,7 @@
                                 Margin="12 5 0 0"
                                 Foreground="{StaticResource btnActivedText}"
                                 FontFamily="Poppins"
-                                FontSize="30"
+                                FontSize="20"
                                 FontWeight="Bold"/>
                         </StackPanel>
                     </Grid>

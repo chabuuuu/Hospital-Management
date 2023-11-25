@@ -63,6 +63,9 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowCustomerViewCommand {  get; }
         public ICommand ShowVictimViewCommand { get; }
+        public ICommand ShowAppointmentViewCommand { get; }
+        public ICommand ShowDoctorViewCommand { get; }
+
 
         public MainViewModel()
         {
@@ -73,6 +76,8 @@ namespace LTTQ_DoAn.ViewModel
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
             ShowVictimViewCommand = new ViewModelCommand(ExecuteShowVictimViewCommand);
+            ShowAppointmentViewCommand = new ViewModelCommand(ExecuteShowAppoinmentViewCommand);
+            ShowDoctorViewCommand = new ViewModelCommand(ExecuteShowDoctorViewCommand);
             //Khởi tạo màn hình mặc định
             ExecuteShowHomeViewCommand(new object());
             //LoadCurrentUserData();
@@ -97,6 +102,18 @@ namespace LTTQ_DoAn.ViewModel
             CurrentChildView = new VictimViewModel();
             Caption = "Bệnh nhân";
             Icon = IconChar.Bed;
+        }
+        private void ExecuteShowAppoinmentViewCommand(object obj)
+        {
+            CurrentChildView = new AppointmentViewModel();
+            Caption = "Lịch khám";
+            Icon = IconChar.CalendarDays;
+        }
+        private void ExecuteShowDoctorViewCommand(object obj)
+        {
+            CurrentChildView = new DoctorAndNurseViewModel();
+            Caption = "Y sĩ";
+            Icon = IconChar.UserNurse;
         }
 
 
