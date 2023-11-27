@@ -13,9 +13,9 @@
         WindowStyle="None">
     <Border
     CornerRadius="20"
-    Background="{StaticResource secondaryFont}"
+    Background="White"
     BorderBrush="{StaticResource btnActivedText}"
-    BorderThickness="5"
+    BorderThickness="3"
     >
         <Grid>
             <Grid.RowDefinitions>

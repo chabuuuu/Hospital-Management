@@ -16,64 +16,108 @@
                 <ColumnDefinition Width="80*"/>
                 <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid ItemsSource="{Binding _ListRoom}"
-                      SelectedItem="{Binding SelectedItem}"
-                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                      Background="Transparent">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Border Height="120" Width="70"
-                                        CornerRadius="5"
-                                        >
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="60*"/>
-                                            <RowDefinition Height="20"/>
-                                            <RowDefinition Height="20"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid Grid.Row="0">
-                                            <!--Thêm ảnh nền vào đây-->
-                                            <Grid.Background>
-                                                <ImageBrush/>
-                                            </Grid.Background>
-                                        </Grid>
-                                        <Grid Grid.Row="1">
-                                            <TextBlock
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Text="{Binding RoomName}"/>
-                                        </Grid>
-                                        <Grid Grid.Row="2">
-                                            <TextBlock
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                Text=""/> 
-                                        </Grid>
-                                    </Grid>
-                                </Border>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-                
-            </DataGrid>
-            <StackPanel Grid.Column="1">
+            <!--danh sách phòng-->
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+              CanContentScroll="True">
+                <ListView x:Name="RoomList"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}"
+              >
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Height="110" Width="200"
+                        Background="White"
+                        CornerRadius="5"
+                        Margin="10">
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
+                                </Border.Effect>
+                                <Grid>
+                                    <!--
+                                    <Grid.Background>
+                                        <ImageBrush ImageSource=""/>
+                                    </Grid.Background>
+                                    -->
+                                    <TextBlock Foreground="#3f3f3f"
+                                    FontSize="20"
+                                    FontWeight="Medium"
+                                    Text="{Binding Room_Name}"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Margin="20 20 0 0"
+                                    >
+                                    </TextBlock>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+            <!--Tiêu đề thông tin phòng-->
+            <StackPanel Grid.Column="1" Height="644" VerticalAlignment="top">
                 <Border
                     BorderThickness="0 0 0 2"
                     BorderBrush="Black"
                     Background="Transparent">
                     <TextBlock
+                        Margin="10 0 0 0"
                         FontFamily="Poppins"
                         FontSize="35"
                         FontWeight="Regular"
                          Text="Thông tin">
                     </TextBlock>
                 </Border>
-                 <DataGrid Background="Transparent">
-     
-                </DataGrid>
+                <!--danh sách bệnh nhân trong phòng-->
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              BorderBrush="Transparent" Background="White"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                               >
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="{StaticResource btnActivedText}"
+                                        BorderThickness="2 0 0 0"
+                                        Margin="0 15 0 0"
+                                        >
+                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
+                                                Margin="10 0 0 0">
+                                        <!--tên bệnh nhân-->
+                                        <TextBlock Text="{Binding room_PatientName}"
+                                                    Foreground="#3f3f3f"
+                                                    FontSize="15"
+                                                    FontWeight="Medium"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    />
+                                        <!--khoa bệnh nhân-->
+                                        <TextBlock Text="{Binding room_FieldName}"
+                                                    Foreground="#3f3f3f"
+                                                    FontSize="10"
+                                                    FontWeight="Medium"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
             </StackPanel>
         </Grid>
     </Border>

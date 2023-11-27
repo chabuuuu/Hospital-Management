@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LTTQ_DoAn.ViewModel
 {
-    public class DoctorAndNurseViewModel : BaseViewModel
+    public class ServicesViewModel : BaseViewModel
     {
     }
 }
