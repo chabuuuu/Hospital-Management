@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LTTQ_DoAn.ViewModel
 {
-    class AppointmentViewModel : BaseViewModel
+    public class AppointmentViewModel : BaseViewModel
     {
     }
 }

@@ -25,6 +25,9 @@
     <Compile Update="View\field.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\HealthRecordAndPrescription.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -32,6 +35,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\room.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Services.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Victim.xaml.cs">
@@ -57,6 +63,9 @@
     <Page Update="View\field.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\HealthRecordAndPrescription.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\HomeView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -76,6 +85,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\room.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Services.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Victim.xaml">
