@@ -31,7 +31,7 @@
                 BorderThickness="0 0 0 2">
                 <TextBlock
                     Margin="30 10 0 0 "
-                    Text="Thông tin bệnh nhân"
+                    Text="Thêm bệnh nhân"
                     FontSize="40"
                     Foreground="{StaticResource btnActivedText}"
                     FontFamily="Poppins"

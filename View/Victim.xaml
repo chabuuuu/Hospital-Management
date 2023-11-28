@@ -69,7 +69,8 @@
                                             ElementStyle="{StaticResource CheckBoxStyle1}">
                         <DataGridCheckBoxColumn.HeaderTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}"
+                                          IsChecked="False"/>
                             </DataTemplate>
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>

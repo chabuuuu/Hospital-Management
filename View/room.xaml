@@ -118,7 +118,7 @@
                                         <!--khoa bệnh nhân-->
                                         <TextBlock Text="{Binding room_FieldName}"
                                                     Foreground="#3f3f3f"
-                                                    FontSize="10"
+                                                    FontSize="13"
                                                     FontWeight="Medium"
                                                     HorizontalAlignment="Left"
                                                     VerticalAlignment="Center"/>

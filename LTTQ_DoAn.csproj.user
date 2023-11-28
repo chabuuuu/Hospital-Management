@@ -16,6 +16,9 @@
     <Compile Update="View\appointment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ChangeVictim.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\CustomerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,9 @@
     <Compile Update="View\Victim.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ViewVictim.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\AddNurseAndDoctor.xaml">
@@ -52,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\appointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangeVictim.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CustomerView.xaml">
@@ -91,6 +100,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Victim.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewVictim.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

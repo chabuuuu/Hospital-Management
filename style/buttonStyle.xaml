@@ -703,12 +703,43 @@
         </Style.Triggers>
     </Style>
  
-    <!--textblock của thông tin-->
+    <!--textblock của thông tin bệnh án và đơn thuốc-->
     <Style x:Key="InfoText" TargetType="TextBlock">
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="Foreground" Value="{StaticResource infoText}"/>
         <Setter Property="FontFamily" Value="Poppins"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
+    
+    <!--textblock tiêu đề và tên trong page thông tin-->
+    <Style x:Key="TitlePersonalInfo" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#3497F9"/>
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+    </Style>
+    
+    <!--textbox để hiẻn thị và sửa thông tin trong page thông tin-->
+    <Style x:Key="TextPersonalInfo" TargetType="TextBox">
+        <Setter Property="Margin" Value="0 5 0 0"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource infoText}"/>
+        <Setter Property="CaretBrush" Value="LightGray"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="HorizontalAlignment" Value="left"/>
+    </Style>
+    
+    <!--textblox chỉ để xem thông tin trong các page thông tin-->
+    <Style x:Key="TextBlockPersonalInfo" TargetType="TextBlock">
+        <Setter Property="Margin" Value="0 5 0 0"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource infoText}"/>
+        <Setter Property="HorizontalAlignment" Value="left"/>
     </Style>
 </ResourceDictionary>
