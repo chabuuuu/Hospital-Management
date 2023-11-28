@@ -702,4 +702,13 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
+ 
+    <!--textblock của thông tin-->
+    <Style x:Key="InfoText" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Foreground" Value="{StaticResource infoText}"/>
+        <Setter Property="FontFamily" Value="Poppins"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+    </Style>
 </ResourceDictionary>

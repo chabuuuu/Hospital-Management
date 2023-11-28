@@ -10,7 +10,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
-        Title="MainWindow" Height="700" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+        Title="MainWindow" Height="800" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
 
     <Border Background="White"
             BorderBrush="{StaticResource btnActivedText}"
@@ -34,29 +34,102 @@
                         Style="{StaticResource MaterialDesignFilledTabControl}"
                         materialdesign:ColorZoneAssist.Background="{StaticResource btnActivedGround}"
                         materialdesign:ColorZoneAssist.Foreground="{StaticResource infoText}">
+                <!--mục bệnh án-->
                 <TabItem
-                    Header="Bệnh án">
+                    Header="Bệnh án"
+                    >
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="90*"/>
-                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="60"/>
                         </Grid.RowDefinitions>
-                        <ListView HorizontalAlignment="Stretch"
-                                  >
-                            <Expander HorizontalAlignment="Stretch"
-                                    Header="Bệnh án 1"
-                                    Width="480"
-                                  >
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="50"/>
-                                        <RowDefinition Height="200"/>
-                                        <RowDefinition Height="50"/>
-                                    </Grid.RowDefinitions>
-                                    
-                                </Grid>
-                            </Expander>
-                        </ListView>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                      >
+                            <ListView HorizontalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Width="880">
+                                            <GridViewColumnHeader Visibility="Collapsed"/>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Expander HorizontalAlignment="Stretch"
+                                                            Header="{Binding HealthRecord_ID}"
+                                                            Width="880"
+                                                            FontSize="15">
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="40"/>
+                                                                <RowDefinition Height="150"/>
+                                                                <RowDefinition Height="40"/>
+                                                            </Grid.RowDefinitions>
+                                                            <!--ngày tháng khám và khoa điều trị-->
+                                                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                                                <TextBlock Text="Ngày: "
+                                                                           Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding HeathRecord_Date}"
+                                                                           Style="{StaticResource InfoText}"
+                                                                           Margin="0 0 200 0"
+                                                                          />
+
+                                                                <TextBlock Text="Khoa: "
+                                                                         Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding HeathRecord_Field}"
+                                                                           Style="{StaticResource InfoText}"
+                                                                           />
+                                                            </StackPanel>
+                                                            <!--ghi chú-->
+                                                            <StackPanel Grid.Row="1" Orientation="Vertical"
+                                                                        VerticalAlignment="Center">
+                                                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                                              HorizontalScrollBarVisibility="Disabled">
+                                                                    <TextBlock Text="{Binding HeathRecord_Note}"
+                                                                            Style="{StaticResource InfoText}"/>
+                                                                </ScrollViewer>
+                                                            </StackPanel>
+                                                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                                                <TextBlock Text="Bác sĩ: "
+                                                                           Style="{StaticResource InfoText}"/>
+                                                                <!--tên bác sĩ khám-->
+                                                                <TextBlock Text="{Binding HeathRecord_DoctorName}"
+                                                                           Style="{StaticResource InfoText}"
+                                                                           Margin="0 0 200 0"/>
+                                                                <!--giá tiền khám-->
+                                                                <TextBlock Text="Chi Phí: "
+                                                                            Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding HeathRecord_Price}"
+                                                                           Style="{StaticResource InfoText}"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </Expander>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <!--các nút thao tác như xóa, sửa-->
+                                        <GridViewColumn Width="100">
+                                            <GridViewColumnHeader Visibility="Collapsed"/>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
+                                                        <Button Style="{StaticResource gridEditButton}"
+                                                                Margin="0 0 10 0"
+                                                                Height="35">
+                                                            <fa:IconImage Icon="UpRightFromSquare"
+                                                                />   
+                                                        </Button>
+                                                        <Button Style="{StaticResource gridOpenButton}"
+                                                                Height="35">
+                                                            <fa:IconImage Icon="Trash"
+                                                                Foreground="#ed2525"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
                         <StackPanel Grid.Row="1" HorizontalAlignment="Right"
                                     VerticalAlignment="Center">
                             <Button Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
@@ -69,9 +142,104 @@
                         </StackPanel>
                     </Grid>
                 </TabItem>
+                <!--mục đơn thuốc-->
                 <TabItem
                     Header="Đơn thuốc">
-                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  >
+                            <ListView HorizontalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Width="880">
+                                            <GridViewColumnHeader Visibility="Collapsed"/>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Expander HorizontalAlignment="Stretch"
+                                                            Header="{Binding Prescription_ID}"
+                                                            Width="880"
+                                                            FontSize="15">  
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="40"/>
+                                                                <RowDefinition Height="150"/>
+                                                                <RowDefinition Height="40"/>
+                                                            </Grid.RowDefinitions>
+                                                            <!--ngày tháng khám và khoa điều trị-->
+                                                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                                                <TextBlock Text="Ngày: "
+                                                                           Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding Prescription_Date}"
+                                                                           Style="{StaticResource InfoText}"
+                                                                           Margin="0 0 200 0"
+                                                                          />
+                                                                <TextBlock Text="Khoa: "
+                                                                            Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding HeathRecord_Field}"
+                                                                           Style="{StaticResource InfoText}"
+                                                                           />
+                                                            </StackPanel>
+                                                            <!--ghi chú-->
+                                                            <StackPanel Grid.Row="1" Orientation="Vertical"
+                                                                        VerticalAlignment="Center">
+                                                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                                            HorizontalScrollBarVisibility="Disabled">
+                                                                    <TextBlock Text="{Binding Prescription_Note}"
+                                                                            Style="{StaticResource InfoText}"/>
+                                                                </ScrollViewer>
+                                                            </StackPanel>
+                                                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                                                <!--tên bác sĩ khám-->
+                                                                <TextBlock Text="Bác sĩ: "
+                                                                         Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding Prescription_DoctorName}"
+                                                                       Style="{StaticResource InfoText}"
+                                                                       Margin="0 0 200 0"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </Expander>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                        <!--các nút thao tác như xóa, sửa-->
+                                        <GridViewColumn Width="100">
+                                            <GridViewColumnHeader Visibility="Collapsed"/>
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
+                                                        <Button Style="{StaticResource gridEditButton}"
+                                                            Margin="0 0 10 0"
+                                                            Height="35">
+                                                            <fa:IconImage Icon="UpRightFromSquare"/>
+                                                        </Button>
+                                                        <Button Style="{StaticResource gridOpenButton}"
+                                                                Height="35">
+                                                            <fa:IconImage Icon="Trash"
+                                                                        Foreground="#ed2525"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
+                                Margin="0 0 30 0"
+                                Height="55"
+                                Width="55"
+                                Background="{StaticResource btnActivedText}">
+                                <fa:IconImage Icon="Add" Height="35" Width="35" />
+                            </Button>
+                        </StackPanel>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
