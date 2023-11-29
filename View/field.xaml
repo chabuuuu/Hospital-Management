@@ -30,7 +30,7 @@
                         </ListView.ItemsPanel>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Border Height="110" Width="200"
+                                <Border Height="250" Width="200"
                                         Background="White"
                                         CornerRadius="5"
                                         Margin="10">
@@ -38,21 +38,21 @@
                                         <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
                                     </Border.Effect>
                                     <Grid>
-                                        <!--
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="200"/>
+                                            <RowDefinition Height="50"/>
+                                        </Grid.RowDefinitions>
                                         <Grid.Background>
-                                            <ImageBrush ImageSource="/Photo/khoa_tim_mach.jpg"/>
+                                            <ImageBrush Stretch="Uniform" ImageSource="{Binding}"/>
                                         </Grid.Background>
-                                        -->
-                                        
-                                        <TextBlock Foreground="#3f3f3f"
-                                                    FontSize="20"
-                                                    FontWeight="Medium"
-                                                    Text="{Binding }"
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Top"
-                                                    Margin="20 20 0 0"
-                                                    >
-                                        </TextBlock>
+                                        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <TextBlock Foreground="#3f3f3f"
+                                                        FontSize="20"
+                                                        FontWeight="Medium"
+                                                        Text="{Binding}"
+                                                        >
+                                            </TextBlock>
+                                        </WrapPanel>
                                     </Grid>
                                 </Border>
                             </DataTemplate>

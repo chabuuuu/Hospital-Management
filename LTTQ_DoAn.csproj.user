@@ -7,6 +7,30 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\AddAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddField.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddService.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ChangeAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ChangeField.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ChangeService.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ViewAppointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ViewDoctorAndNurse.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AddNurseAndDoctor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +38,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\appointment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ChangeDoctorAndNurse.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ChangeVictim.xaml.cs">
@@ -46,11 +73,41 @@
     <Compile Update="View\Victim.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ViewField.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ViewService.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ViewVictim.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\AddAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddField.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddService.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangeAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangeField.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangeService.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewAppointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewDoctorAndNurse.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AddNurseAndDoctor.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -58,6 +115,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\appointment.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangeDoctorAndNurse.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ChangeVictim.xaml">
@@ -100,6 +160,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Victim.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewField.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewService.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ViewVictim.xaml">
