@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LTTQ_DoAn.View
 {
     /// <summary>
-    /// Interaction logic for AddNurseAndDoctor.xaml
+    /// Interaction logic for AddField.xaml
     /// </summary>
-    public partial class AddNurseAndDoctor : Window
+    public partial class AddService : Window
     {
-        public AddNurseAndDoctor()
+        public AddService()
         {
             InitializeComponent();
         }
@@ -35,4 +34,3 @@ namespace LTTQ_DoAn.View
             Application.Current.Shutdown();
         }
     }
-}

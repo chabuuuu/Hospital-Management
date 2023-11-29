@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        Title="AddNurseAndDoctor" Height="600" Width="1000"
+        Title="AddNurseAndDoctor" Height="630" Width="1000"
         Background="Transparent"
         WindowStyle="None">
     <Border
@@ -19,25 +19,43 @@
     >
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
-            <Border
+            <!--nút thu nhỏ và tắt màn-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button
+                        x:Name="bt_minimize"
+                        Style="{StaticResource controlButton}"
+                        Click="bt_minimize_Click"
+                        FontSize="16">
+                    <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+                <Button
+                        x:Name="btn_close"
+                        Style="{StaticResource controlButton}"
+                        Click="btn_close_Click"
+                        FontSize="16">
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+            </StackPanel>
+            <Border Grid.Row="1"
                 BorderBrush="{StaticResource btnActivedText}"
                 BorderThickness="0 0 0 2">
                 <TextBlock
                     Margin="30 10 0 0 "
-                    Text="Thông tin y sĩ"
+                    Text="Thêm y sĩ"
                     FontSize="40"
                     Foreground="{StaticResource btnActivedText}"
                     FontFamily="Poppins"
                     FontWeight="Medium"
                     />
             </Border>
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <!--tên-->
                 <TextBox
                 MinWidth="300"
@@ -46,12 +64,22 @@
                 materialdesign:HintAssist.Hint="Tên"
                 materialdesign:TextFieldAssist.HasClearButton="True"
                 FontSize="15"
-                Height="50"
+                Height="55"
                 Margin="50 0 25 0"/>
+                <!--Tuổi-->
+                <TextBox
+                MinWidth="50"
+                HorizontalContentAlignment="Stretch"
+                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                materialdesign:HintAssist.Hint="Tuổi"
+                materialdesign:TextFieldAssist.HasClearButton="True"
+                FontSize="15"
+                Height="55"
+                Margin="25 0 25 0"/>
                 <!--giới tính-->
                 <ComboBox
                 MinWidth="120"
-                Height="50"
+                Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Giới tính"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
@@ -59,7 +87,7 @@
                 <!--ngày sinh-->
                 <DatePicker
                 MinWidth="250"
-                Height="50"
+                Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Ngày sinh"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
@@ -67,10 +95,10 @@
                 Margin="25 0 50 0"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
                 <ComboBox
                 MinWidth="120"
-                Height="50"
+                Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Khoa"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
@@ -78,15 +106,15 @@
 
                 <ComboBox
                 MinWidth="160"
-                Height="50"
+                Height="55"
                 FontSize="15"
-                materialdesign:HintAssist.Hint="Loại y sĩ"
+                materialdesign:HintAssist.Hint="Chức vụ"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                 Margin="25 0 25 0"/>
 
                 <DatePicker
                 MinWidth="250"
-                Height="50"
+                Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Ngày vào làm"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
@@ -94,7 +122,7 @@
                 Margin="25 0 50 0"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
                 <TextBox
                 MinWidth="300"
                 HorizontalContentAlignment="Stretch"
@@ -102,7 +130,7 @@
                 materialdesign:HintAssist.Hint="Chỉ huy"
                 materialdesign:TextFieldAssist.HasClearButton="True"
                 FontSize="15"
-                Height="50"
+                Height="55"
                 Margin="50 0 0 0"
                 materialdesign:HintAssist.HelperText="cấp trên của y sĩ"/>
             </StackPanel>
