@@ -29,5 +29,10 @@ namespace LTTQ_DoAn.View
         {
 
         }
+
+        private void Doctor_change_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
