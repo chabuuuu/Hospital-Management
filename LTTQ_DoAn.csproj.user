@@ -13,6 +13,9 @@
     <Compile Update="View\AddField.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AddHealthRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AddService.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -88,6 +91,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddField.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddHealthRecord.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddService.xaml">

@@ -10,29 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LTTQ_DoAn.View
 {
     /// <summary>
-    /// Interaction logic for DoctorAndNurse.xaml
+    /// Interaction logic for AddHealthRecord.xaml
     /// </summary>
-    public partial class DoctorAndNurse : UserControl
+    public partial class AddHealthRecord : Window
     {
-        public DoctorAndNurse()
+        public AddHealthRecord()
         {
             InitializeComponent();
-        }
-
-        private void Doctor_view_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Doctor_change_btn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

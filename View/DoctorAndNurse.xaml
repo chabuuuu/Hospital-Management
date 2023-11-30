@@ -23,6 +23,7 @@
                 BorderBrush="{StaticResource buttonText}"
                     BorderThickness="0 0 0 1">
                 <Grid>
+                    <!--nút switch giữa bác sĩ và y tá-->
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left"
                                 Width="140"
                                 Height="35"
@@ -38,8 +39,8 @@
                             <TextBlock Text="Y Tá"
                                        Style="{StaticResource Switch_btn}"/>
                         </RadioButton>
-
                     </StackPanel>
+                    <!--ô search-->
                     <StackPanel Grid.Column="2"
                                 Orientation="Horizontal"
                                 Margin="0 0 20 0"
@@ -54,6 +55,7 @@
                             Margin="0 0 10 2"
                             >
                         </TextBox>
+                        <!--nút thêm bác sĩ-->
                         <Button 
                             Style="{StaticResource BtnUserControl}">
                             <TextBlock
@@ -62,7 +64,7 @@
                                     >
                             </TextBlock>
                         </Button>
-
+                        <!--nút xóa bác sĩ-->
                         <Button Style="{StaticResource BtnUserControl_Delete}">
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <TextBlock
@@ -71,7 +73,6 @@
                                     >
                                 </TextBlock>
                             </StackPanel>
-
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -116,15 +117,24 @@
              IsReadOnly="True" CanUserResize="False">
             <DataGridTemplateColumn.CellTemplate>
                 <DataTemplate>
+                    <!--cột các nút thao tác-->
                     <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource gridEditButton}"
-                                Margin="0 0 10 0">
+                        <!--nút xem thông tin-->
+                        <Button x:Name="Doctor_view_btn"
+                                Click="Doctor_view_btn_Click"
+                            Style="{StaticResource gridEditButton}"
+                                Margin="0 0 10 0"
+                                ToolTip="Thông tin chi tiết">
                             <fa:IconImage Icon="InfoCircle"
                                           Height="20"
                                           />
                         </Button>
-                        <Button Style="{StaticResource gridOpenButton}">
-                            <fa:IconImage Icon="UpRightFromSquare"
+                        <!--nút sửa thông tin-->
+                        <Button x:Name="Doctor_change_btn"
+                                Click="Doctor_change_btn_Click"
+                            Style="{StaticResource gridOpenButton}"
+                                ToolTip="Sửa thông tin">
+                            <fa:IconImage Icon="PenToSquare"
                                           Height="20"/>
                         </Button>
                     </StackPanel>
