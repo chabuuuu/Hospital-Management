@@ -97,15 +97,33 @@
                          IsReadOnly="True" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
+                                <!--các nút thao tác-->
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}"
-                                            Margin="0 0 10 0">
+                                    <!--thông tin cá nhân-->
+                                    <Button x:Name="Victim_view_btn"
+                                        Style="{StaticResource gridEditButton}"
+                                            Margin="0 0 10 0"
+                                            Click="Victim_view_btn_Click"
+                                            ToolTip="Thông tin chi tiết">
                                         <fa:IconImage Icon="InfoCircle"
                                                       Height="20"
                                                       />
                                     </Button>
-                                    <Button Style="{StaticResource gridOpenButton}">
-                                        <fa:IconImage Icon="UpRightFromSquare"
+                                    <!--sửa thông tin cá nhân-->
+                                    <Button x:Name="Victim_change_btn"
+                                            Click="Victim_change_btn_Click"
+                                        Style="{StaticResource gridOpenButton}"
+                                            Margin="0 0 10 0"
+                                            ToolTip="Sửa thông tin">
+                                        <fa:IconImage Icon="PenToSquare"
+                                                      Height="20"/>
+                                    </Button>
+                                    <!--xem bệnh án và đơn thuốc-->
+                                    <Button x:Name="Victim_view_HealthRecordAndPrescription"
+                                            Click="Victim_view_HealthRecordAndPrescription_Click"
+                                        Style="{StaticResource gridOpenButton}"
+                                            ToolTip="Bệnh án và đơn thuốc">
+                                        <fa:IconImage Icon="NotesMedical"
                                                       Height="20"/>
                                     </Button>
                                 </StackPanel>

@@ -100,14 +100,18 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}"
+                                    <Button x:Name="Appointment_view_btn"
+                                            Click="Appointment_view_btn_Click"
+                                        Style="{StaticResource gridEditButton}"
                                             Margin="0 0 10 0">
                                         <fa:IconImage Icon="InfoCircle"
                                                       Height="20"
                                                       />
                                     </Button>
-                                    <Button Style="{StaticResource gridOpenButton}">
-                                        <fa:IconImage Icon="UpRightFromSquare"
+                                    <Button x:Name="Appointment_change_btn"
+                                            Click="Appointment_change_btn_Click"
+                                        Style="{StaticResource gridOpenButton}">
+                                        <fa:IconImage Icon="PenToSquare"
                                                       Height="20"/>
                                     </Button>
                                 </StackPanel>

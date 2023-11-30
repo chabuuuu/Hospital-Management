@@ -39,19 +39,46 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="200"/>
-                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <ImageBrush Stretch="Uniform" ImageSource="{Binding}"/>
-                                    </Grid.Background>
-                                    <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Grid>
+                                        <!--nút xóa-->
+                                        <Button Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                            Style="{StaticResource gridOpenButton}"
+                                                                >
+                                            <fa:IconImage Icon="Trash"
+                                                                Foreground="#ed2525"/>
+                                        </Button>
+                                        <!--ảnh dịch vụ-->
+                                        <Grid.Background>
+                                            <ImageBrush Stretch="Uniform" ImageSource="{Binding}"/>
+                                        </Grid.Background>
+                                    </Grid>
+                                    <!--tên dịch vụ-->
+                                    <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <TextBlock Foreground="#3f3f3f"
                                                         FontSize="20"
                                                         FontWeight="Medium"
                                                         Text="{Binding}"
                                                         >
                                         </TextBlock>
-                                    </WrapPanel>
+                                    </StackPanel>
+                                    <!--Giá dịch vụ-->
+                                    <DockPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock Foreground="#3f3f3f"
+                                                FontSize="20"
+                                                FontWeight="Medium"
+                                                Text="{Binding}"
+                                                >
+                                        </TextBlock>
+                                        <TextBlock Foreground="#3f3f3f"
+                                                FontSize="20"
+                                                FontWeight="Medium"
+                                                Text="đ"
+                                                >
+                                        </TextBlock>
+                                    </DockPanel>
                                 </Grid>
                             </Border>
                         </DataTemplate>

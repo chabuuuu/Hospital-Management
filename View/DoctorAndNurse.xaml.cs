@@ -24,5 +24,10 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
+
+        private void Doctor_view_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
