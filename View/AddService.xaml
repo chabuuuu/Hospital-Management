@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        Title="AddNurseAndDoctor" Height="430" Width="600"
+        Title="AddService" Height="430" Width="600"
         Background="Transparent"
         WindowStyle="None">
     <Border
@@ -101,7 +101,7 @@
                     Height="40"
                     Content="Xác nhận"
                     FontSize="15"
-                    Foreground="#555"
+                    Foreground="#f2f2f2"
                     Background="{StaticResource btnActivedText}"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm dịch vụ" />

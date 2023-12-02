@@ -15,23 +15,34 @@ using System.Windows.Shapes;
 namespace LTTQ_DoAn.View
 {
     /// <summary>
-    /// Interaction logic for AddField.xaml
+    /// Interaction logic for ChangeHealthRecord.xaml
     /// </summary>
-    public partial class AddService : Window
+    public partial class ChangeHealthRecord : Window
     {
-        public AddService()
+        public ChangeHealthRecord()
         {
             InitializeComponent();
         }
 
         private void bt_minimize_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+
         }
 
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Tính toán số lượng dòng và cập nhật chiều cao của TextBox
+            int lineCount = conclude_textbox.LineCount;
+            double lineHeight = conclude_textbox.FontSize;
+            double newHeight = lineCount * lineHeight;
+
+            // Đặt chiều cao mới cho TextBox
+            conclude_textbox.Height = newHeight;
         }
     }
 }

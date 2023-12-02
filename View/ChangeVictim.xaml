@@ -137,10 +137,11 @@
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                Text="Khoa:"
                                />
-                    <TextBox Style="{StaticResource TextPersonalInfo}"
-                             Text="{Binding Victim_Field}"
-                             Width="140">
-                    </TextBox>
+                    <ComboBox
+                        MinWidth="120"
+                        Height="30"
+                        FontSize="15"
+                        />
                 </StackPanel>
                 <!--phòng-->
                 <StackPanel Margin="25 0 25 30">

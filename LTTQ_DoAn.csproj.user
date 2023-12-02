@@ -25,7 +25,16 @@
     <Compile Update="View\ChangeField.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ChangeHealthRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ChangePrescription.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ChangeService.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\AddPrescription.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ViewAppointment.xaml.cs">
@@ -105,7 +114,16 @@
     <Page Update="View\ChangeField.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\ChangeHealthRecord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangePrescription.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\ChangeService.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AddPrescription.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ViewAppointment.xaml">
