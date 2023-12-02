@@ -156,7 +156,7 @@
                     Height="50"
                     Content="Xác nhận"
                     FontSize="20"
-                    Foreground="#555"
+                    Foreground="#f2f2f2"
                     Background="{StaticResource btnActivedText}"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"

@@ -15,23 +15,28 @@ using System.Windows.Shapes;
 namespace LTTQ_DoAn.View
 {
     /// <summary>
-    /// Interaction logic for AddField.xaml
+    /// Interaction logic for ChangePrescription.xaml
     /// </summary>
-    public partial class AddService : Window
+    public partial class ChangePrescription : Window
     {
-        public AddService()
+        public ChangePrescription()
         {
             InitializeComponent();
         }
 
-        private void bt_minimize_Click(object sender, RoutedEventArgs e)
+        private void conclude_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+
         }
 
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+
+        }
+
+        private void bt_minimize_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
