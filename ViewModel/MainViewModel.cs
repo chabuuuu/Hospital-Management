@@ -8,20 +8,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using LTTQ_DoAn.Repositories;
-using LTTQ_DoAn.Model;
+//using LTTQ_DoAn.Repositories;
+//using LTTQ_DoAn.Model;
 using FontAwesome.Sharp;
 namespace LTTQ_DoAn.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        private UserAccountModel _currentUserAccount;
+        //private UserAccountModel _currentUserAccount;
         private BaseViewModel _currentChildView;
         private string _caption;
         private IconChar _icon;
-        private IUserRepository userRepository;
+        //private IUserRepository userRepository;
 
-
+        /*
         public UserAccountModel CurrentUserAccount
         {
             get
@@ -34,7 +34,7 @@ namespace LTTQ_DoAn.ViewModel
                 _currentUserAccount = value;
                 OnPropertyChanged(nameof(CurrentUserAccount));
             }
-        }
+        }*/
 
         public BaseViewModel CurrentChildView
         {
@@ -72,8 +72,8 @@ namespace LTTQ_DoAn.ViewModel
 
         public MainViewModel()
         {
-            userRepository = new UserRepository();
-            CurrentUserAccount = new UserAccountModel();
+            /*userRepository = new UserRepository();
+            CurrentUserAccount = new UserAccountModel();*/
 
             //khởi tạo phương thức xem view
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);

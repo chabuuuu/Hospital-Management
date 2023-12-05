@@ -85,7 +85,7 @@
                                             Binding="{Binding SUB_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="25*" Binding="{Binding HOTEN}"
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding HOTEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
@@ -98,7 +98,7 @@
                     <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding NGAYNHAPVIEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTemplateColumn Header="Thao tác" Width="10*"
+                    <DataGridTemplateColumn Header="Thao tác" Width="15*"
                          IsReadOnly="True" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
