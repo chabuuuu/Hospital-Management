@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -16,6 +17,8 @@ namespace LTTQ_DoAn.ViewModel
         private IEnumerable<VictimModel> victimList;
         private IVictimRepository victimRepository;
         private string test;
+        private List<BENHNHAN> victims;
+        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         public IEnumerable<VictimModel> VictimList { get => victimList; set
             {
                 victimList = value;
@@ -24,11 +27,19 @@ namespace LTTQ_DoAn.ViewModel
             }
 
         public string Test { get => test; set => test = value; }
+        public List<BENHNHAN> Victims { get => victims; set => victims = value; }
+
+        private void Load()
+        {
+            Victims = _db.BENHNHANs.ToList();
+            //System.Windows.MessageBox.Show("Done");
+        }
 
         public VictimViewModel()
         {
-            victimRepository = new VictimRepository();
-            LoadAllVictims();
+            Load();
+            /*victimRepository = new VictimRepository();
+            LoadAllVictims();*/
         }
         private void LoadAllVictims()
         {
