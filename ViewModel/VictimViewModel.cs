@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -15,7 +16,6 @@ namespace LTTQ_DoAn.ViewModel
         private IEnumerable<VictimModel> victimList;
         private IVictimRepository victimRepository;
         private string test;
-
         public IEnumerable<VictimModel> VictimList { get => victimList; set
             {
                 victimList = value;
