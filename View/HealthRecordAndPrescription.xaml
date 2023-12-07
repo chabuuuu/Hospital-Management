@@ -60,6 +60,7 @@
                                                         <Grid>
                                                             <Grid.RowDefinitions>
                                                                 <RowDefinition Height="40"/>
+                                                                <RowDefinition Height="50"/>
                                                                 <RowDefinition Height="150"/>
                                                                 <RowDefinition Height="40"/>
                                                             </Grid.RowDefinitions>
@@ -78,12 +79,30 @@
                                                                            Style="{StaticResource InfoText}"
                                                                            />
                                                             </StackPanel>
+                                                            <!--triệu chứng-->
+                                                            <StackPanel Grid.Row="1" Orientation="Horizontal"
+                                                                        VerticalAlignment="top">
+                                                                <TextBlock Text="Triệu chứng: " VerticalAlignment="Top"
+                                                                           Style="{StaticResource InfoText}"/>
+                                                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                                                              HorizontalScrollBarVisibility="Disabled">
+                                                                    <TextBlock Text="{Binding HeathRecord_Symptom}"
+                                                                               Width="800"
+                                                                               TextWrapping="Wrap"
+                                                                            Style="{StaticResource InfoText}"/>
+                                                                </ScrollViewer>
+                                                            </StackPanel>
                                                             <!--ghi chú-->
-                                                            <StackPanel Grid.Row="1" Orientation="Vertical"
-                                                                        VerticalAlignment="Center">
+                                                            <StackPanel Grid.Row="2" Orientation="Horizontal"
+                                                                        VerticalAlignment="top">
+                                                                <TextBlock Text="Kết luận: "
+                                                                           Style="{StaticResource InfoText}"
+                                                                           VerticalAlignment="Top"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                                               HorizontalScrollBarVisibility="Disabled">
                                                                     <TextBlock Text="{Binding HeathRecord_Note}"
+                                                                               TextWrapping="Wrap"
+                                                                               Width="800"
                                                                             Style="{StaticResource InfoText}"/>
                                                                 </ScrollViewer>
                                                             </StackPanel>
