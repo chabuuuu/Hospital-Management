@@ -88,18 +88,21 @@
                     materialdesign:TextFieldAssist.HasClearButton="True"
                     FontSize="15"
                     Height="55"/>
-                    <Button Width="100"
+                    <Button x:Name="addFieldImage"
+                        Width="100"
                             Margin="0 20 0 0"
                             Background="{StaticResource btnActivedText}"
-                            Foreground="{StaticResource btnActivedGround}">
+                            Foreground="{StaticResource btnActivedGround}"
+                            Click="addFieldImage_Click">
                         <TextBlock Text="Chọn ảnh"
-                                   Foreground="{StaticResource btnActivedGround}"/>
+                                   Foreground="{StaticResource btnActivedGround}"
+                                   />
                     </Button>
 
                 </StackPanel>
                 <!--Hình ảnh-->
                 <DockPanel Grid.Column="1">
-                    <Image x:Name="Service_Image" Stretch="Uniform"/>
+                    <Image x:Name="Field_Image" Stretch="Uniform"/>
                 </DockPanel>
             </Grid>
             <!--2 nút điều khiển-->

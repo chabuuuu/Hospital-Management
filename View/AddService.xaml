@@ -79,7 +79,9 @@
                     materialdesign:TextFieldAssist.HasClearButton="True"
                     FontSize="15"
                     Height="55"/>
-                    <Button Width="100"
+                    <Button x:Name="AddServiceImage"
+                            Click="AddServiceImage_Click"
+                        Width="100"
                             Margin="0 20 0 0"
                             Background="{StaticResource btnActivedText}"
                             Foreground="{StaticResource btnActivedGround}">
