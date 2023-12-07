@@ -191,6 +191,12 @@
                             HorizontalAlignment="Right"
                             Width="170"
                             Background="Aqua">
+                            <TextBlock
+                                Text="admin"
+                               FontSize="20">
+                                
+                            </TextBlock>
+                            <Image Source="/Photo/doctor.png"/>
                         </StackPanel>
                         <!--Phần hiển thị chức năng hiện tại-->
                         <StackPanel Grid.Column="0"

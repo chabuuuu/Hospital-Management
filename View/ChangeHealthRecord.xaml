@@ -96,7 +96,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Row="3" Grid.Column="0">
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Left" Width="625">
                         <!--biêu hiện bệnh-->
                         <StackPanel Margin="0 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
