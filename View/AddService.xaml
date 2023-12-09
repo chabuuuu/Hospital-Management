@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
         xmlns:local="clr-namespace:LTTQ_DoAn.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -27,16 +28,12 @@
             <!--nút thu nhỏ và tắt màn-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button
-                        x:Name="bt_minimize"
                         Style="{StaticResource controlButton}"
-                        Click="bt_minimize_Click"
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
-                        x:Name="btn_close"
                         Style="{StaticResource controlButton}"
-                        Click="btn_close_Click"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
@@ -98,7 +95,7 @@
             <!--2 nút điều khiển-->
             <StackPanel Grid.Row="3" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button
+                <Button 
                     Width="100"
                     Height="40"
                     Content="Xác nhận"
@@ -107,7 +104,8 @@
                     Background="{StaticResource btnActivedText}"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm dịch vụ" />
-                <Button Margin="40 0"
+                <Button
+                    Margin="40 0"
                     Width="100"
                     Height="40"
                     Content="Hủy bỏ"

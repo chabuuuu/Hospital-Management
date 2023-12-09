@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
              xmlns:local="clr-namespace:LTTQ_DoAn.View"
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
@@ -17,7 +18,6 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <!--header gồm thanh tìm kiếm và nút thêm bệnh nhân-->
             <Border
                 BorderBrush="{StaticResource buttonText}"
                     BorderThickness="0 0 0 1">
@@ -34,18 +34,21 @@
                             CaretBrush="Black"
                             Panel.ZIndex="1"
                             Margin="0 0 10 2"
+                            
                             >
                         </TextBox>
                         <Button 
+                           Command="{Binding AddApointmentCommand}"
                             Style="{StaticResource BtnUserControl}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
-                                    Text="Thêm bệnh nhân"
+                                    Text="Thêm lịch khám"
                                     >
                             </TextBlock>
                         </Button>
-                        <Button Style="{StaticResource BtnUserControl_Delete}">
-
+                        <Button
+                            Command=""
+                            Style="{StaticResource BtnUserControl_Delete}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
                                 Text="Xóa"
@@ -99,16 +102,14 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="Appointment_view_btn"
-                                            Click="Appointment_view_btn_Click"
+                                    <Button
                                         Style="{StaticResource gridEditButton}"
                                             Margin="0 0 10 0">
                                         <fa:IconImage Icon="InfoCircle"
                                                       Height="20"
                                                       />
                                     </Button>
-                                    <Button x:Name="Appointment_change_btn"
-                                            Click="Appointment_change_btn_Click"
+                                    <Button 
                                         Style="{StaticResource gridOpenButton}">
                                         <fa:IconImage Icon="PenToSquare"
                                                       Height="20"/>
