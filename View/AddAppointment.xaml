@@ -10,7 +10,12 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         Title="AddAppointment" Height="570" Width="1000"
         Background="Transparent"
+        xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
         WindowStyle="None">
+    <Window.DataContext>
+        <!--kết nối với viewmodel-->
+        <viewmodel:AddAppointmentViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -31,14 +36,12 @@
                 <Button
                         x:Name="bt_minimize"
                         Style="{StaticResource controlButton}"
-                        Click="bt_minimize_Click"
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
-                        x:Name="btn_close"
+                        Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
-                        Click="btn_close_Click"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
@@ -120,6 +123,7 @@
             <StackPanel Grid.Row="5" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button
+                    Command="{Binding ConfirmAddApointmentCommand}"
                     Width="130"
                     Height="50"
                     Content="Xác nhận"
@@ -129,7 +133,9 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm bệnh nhân" />
-                <Button Margin="40 0"
+                <Button
+                    Command="{Binding CancelCommand}"
+                    Margin="40 0"
                     Width="130"
                     Height="50"
                     Content="Hủy bỏ"

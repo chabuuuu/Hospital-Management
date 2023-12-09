@@ -24,14 +24,5 @@ namespace LTTQ_DoAn.View
             InitializeComponent();
         }
 
-        private void bt_minimize_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-
-        private void btn_close_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
     }
 }

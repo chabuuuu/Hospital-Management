@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
         xmlns:local="clr-namespace:LTTQ_DoAn.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -11,6 +12,9 @@
         Title="AddVictim" Height="480" Width="900"
         Background="Transparent"
         WindowStyle="None">
+    <Window.DataContext>
+        <viewmodel:AddAppointmentViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -127,7 +131,8 @@
             <!--2 nút-->
             <StackPanel Grid.Row="4" Orientation="Horizontal"
             VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button Margin="40 0"
+                <Button Command="{Binding CancelCommand}"
+                    Margin="40 0"
                     Width="130"
                     Height="50"
                     Content="Đóng"

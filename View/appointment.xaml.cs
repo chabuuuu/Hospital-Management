@@ -24,15 +24,5 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
-
-        private void Appointment_view_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Appointment_change_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
