@@ -12,6 +12,9 @@
         Title="ViewAppointment" Height="480" Width="900"
         Background="Transparent"
         WindowStyle="None">
+    <Window.DataContext>
+        <viewmodel:ViewAppointmentViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"

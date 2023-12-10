@@ -47,7 +47,7 @@
                             </TextBlock>
                         </Button>
                         <Button
-                            Command=""
+                            Command="{Binding DeleteAppointmentCommnad}"
                             Style="{StaticResource BtnUserControl_Delete}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
@@ -78,22 +78,22 @@
 
                     <DataGridTextColumn Header="ID" Width="20*"
                                             IsReadOnly="True" CanUserResize="False"
-                                            Binding="{Binding appointment_ID}">
+                                            Binding="{Binding }">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding appointment_Name}"
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding }"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding appointment_Age}"
+                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding }"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding appointment_Service}"
+                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding }"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding appointment_Date}"
+                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding }"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     
@@ -103,6 +103,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Button
+                                        Command="{Binding ViewAppointmentCommand}"
                                         Style="{StaticResource gridEditButton}"
                                             Margin="0 0 10 0">
                                         <fa:IconImage Icon="InfoCircle"
@@ -110,6 +111,7 @@
                                                       />
                                     </Button>
                                     <Button 
+                                        Command="{Binding ChangeAppointmentCommand}"
                                         Style="{StaticResource gridOpenButton}">
                                         <fa:IconImage Icon="PenToSquare"
                                                       Height="20"/>
