@@ -13,7 +13,7 @@
         Background="Transparent"
         WindowStyle="None">
     <Window.DataContext>
-        <viewmodel:AddAppointmentViewModel/>
+        <viewmodel:ChangeAppointmentViewModel/>
     </Window.DataContext>
     <Border
     CornerRadius="20"
@@ -37,6 +37,7 @@
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
+                        Command="{Binding CancelCommand}"
                         x:Name="btn_close"
                         Style="{StaticResource controlButton}"
                         Click="btn_close_Click"
@@ -131,6 +132,17 @@
             <!--2 nút-->
             <StackPanel Grid.Row="4" Orientation="Horizontal"
             VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button
+                    Command="{Binding ConfirmChangeCommand}"
+                     Width="130"
+                     Height="50"
+                     Content="Lưu"
+                     FontSize="20"
+                     Foreground="#555"
+                     Background="{StaticResource btnActivedText}"
+                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                     ToolTip="Lưu thông tin" />
                 <Button Command="{Binding CancelCommand}"
                     Margin="40 0"
                     Width="130"

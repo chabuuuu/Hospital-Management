@@ -26,33 +26,5 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
-        public class victim
-        {
-            public string victim_ID { get; set; }
-            public string victim_Name { get; set; }
-            public int victim_Age { get; set; }
-            public string victim_Sex { get; set; }
-            public string victim_Birth { get; set; }
-            public string victim_Date { get; set; }
-        }
-
-        //mở cửa số ViewVictim để xem thông tin chi tiết
-        private void Victim_view_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //mở cửa số ChangeVictim để xem sửa thông tin
-        private void Victim_change_btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        //mở cửa sổ HealthRecordAndPrescription để thao tác trên bệnh án
-        private void Victim_view_HealthRecordAndPrescription_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
     }
 }
