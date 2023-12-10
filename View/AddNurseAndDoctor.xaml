@@ -12,6 +12,9 @@
         Title="AddNurseAndDoctor" Height="630" Width="1000"
         Background="Transparent"
         WindowStyle="None">
+    <Window.DataContext>
+        <viewmodel:AddNurseAndDoctorViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -35,6 +38,7 @@
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
+                    Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
@@ -135,6 +139,7 @@
             <StackPanel Grid.Row="5" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button 
+                    Command="{Binding ConfirmAddCommand}"
                     Width="130"
                     Height="50"
                     Content="Xác nhận"
@@ -145,6 +150,7 @@
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm bệnh nhân" />
                 <Button
+                    Command="{Binding CancelCommand}"
                     Margin="40 0"
                     Width="130"
                     Height="50"
