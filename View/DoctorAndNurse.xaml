@@ -31,12 +31,13 @@
                                 Margin="60 0"
                                 Orientation="Horizontal">
                         <RadioButton Style="{StaticResource BtnUserControl_switch}"
-                                     >
+                                     Command="{Binding DoctorCommand}">
 
                             <TextBlock Text="Bác Sĩ"
                                     Style="{StaticResource Switch_btn}"/>
                         </RadioButton>
-                        <RadioButton Style="{StaticResource BtnUserControl_switch}">
+                        <RadioButton Command="{Binding NurseCommand}"
+                            Style="{StaticResource BtnUserControl_switch}">
                             <TextBlock Text="Y Tá"
                                        Style="{StaticResource Switch_btn}"/>
                         </RadioButton>
@@ -58,6 +59,7 @@
                         </TextBox>
                         <!--nút thêm bác sĩ-->
                         <Button 
+                            Command="{Binding AddCommand}"
                             Style="{StaticResource BtnUserControl}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
@@ -66,7 +68,9 @@
                             </TextBlock>
                         </Button>
                         <!--nút xóa bác sĩ-->
-                        <Button Style="{StaticResource BtnUserControl_Delete}">
+                        <Button 
+                            Command="{Binding DeleteCommand}"
+                            Style="{StaticResource BtnUserControl_Delete}">
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <TextBlock
                                         Style="{StaticResource UserControlText}"
@@ -121,18 +125,19 @@
                     <!--cột các nút thao tác-->
                     <StackPanel Orientation="Horizontal">
                         <!--nút xem thông tin-->
-                        <Button x:Name="Doctor_view_btn"
-                                Click="Doctor_view_btn_Click"
+                        <Button 
+                            Command="{Binding ViewCommand}"
                             Style="{StaticResource gridEditButton}"
                                 Margin="0 0 10 0"
                                 ToolTip="Thông tin chi tiết">
-                            <fa:IconImage Icon="InfoCircle"
+                            <fa:IconImage 
+                                Icon="InfoCircle"
                                           Height="20"
                                           />
                         </Button>
                         <!--nút sửa thông tin-->
-                        <Button x:Name="Doctor_change_btn"
-                                Click="Doctor_change_btn_Click"
+                        <Button 
+                            Command="{Binding ChangeCommand}"
                             Style="{StaticResource gridOpenButton}"
                                 ToolTip="Sửa thông tin">
                             <fa:IconImage Icon="PenToSquare"
