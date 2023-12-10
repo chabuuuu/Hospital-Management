@@ -39,6 +39,7 @@
                             >
                         </TextBox>
                         <Button 
+                            Command="{Binding AddCommand}"
                             Style="{StaticResource BtnUserControl}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
@@ -46,8 +47,8 @@
                                     >
                             </TextBlock>
                         </Button>
-                        <Button Style="{StaticResource BtnUserControl_Delete}">
-
+                        <Button Style="{StaticResource BtnUserControl_Delete}"
+                                Command="{Binding DeleteCommand}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
                                 Text="Xóa"
@@ -101,7 +102,7 @@
                                 <!--các nút thao tác-->
                                 <StackPanel Orientation="Horizontal">
                                     <!--thông tin cá nhân-->
-                                    <Button 
+                                    <Button Command="{Binding ViewCommand}"
                                         Style="{StaticResource gridEditButton}"
                                             Margin="0 0 10 0"
                                             ToolTip="Thông tin chi tiết">
@@ -110,7 +111,7 @@
                                                       />
                                     </Button>
                                     <!--sửa thông tin cá nhân-->
-                                    <Button
+                                    <Button Command="{Binding ChangeCommand}"
                                         Style="{StaticResource gridOpenButton}"
                                             Margin="0 0 10 0"
                                             ToolTip="Sửa thông tin">

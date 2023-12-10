@@ -12,8 +12,8 @@ namespace LTTQ_DoAn.ViewModel
 {
     public class DoctorAndNurseViewModel : BaseViewModel
     {
-        public ICommand DoctorCommand { get; }
-        public ICommand NurseCommand { get; }
+        public ICommand DoctorCommand { get; } // lệnh chuyển sang xem bác sĩ
+        public ICommand NurseCommand { get; } // lệnh chuyển sang xem y tá
 
         public ICommand ViewCommand { get; }
         public ICommand ChangeCommand { get; }
