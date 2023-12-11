@@ -28,15 +28,5 @@ namespace LTTQ_DoAn.View
         {
 
         }
-
-        private void btn_close_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void bt_minimize_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

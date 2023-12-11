@@ -45,7 +45,8 @@
                                     </Grid.RowDefinitions>
                                     <Grid>
                                         <!--nút xóa-->
-                                        <Button Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        <Button Panel.ZIndex="1"
+                                            Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
                                             Style="{StaticResource gridOpenButton}"
                                                                 >
                                             <fa:IconImage Icon="Trash"

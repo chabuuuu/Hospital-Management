@@ -88,9 +88,6 @@
     <Compile Update="View\ViewField.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\ViewService.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\ViewVictim.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -187,9 +184,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ViewField.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View\ViewService.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ViewVictim.xaml">

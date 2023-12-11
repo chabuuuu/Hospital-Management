@@ -11,16 +11,14 @@ using LTTQ_DoAn.Repositories;
 
 namespace LTTQ_DoAn.ViewModel
 {
-    public class AddAppointmentViewModel : BaseViewModel
+    public class AddVictimViewModel : BaseViewModel
     {
         public ICommand CancelCommand { get; }
-
-        public ICommand ConfirmChangeCommand { get; }
-        public ICommand ConfirmAddApointmentCommand { get; }
-        public AddAppointmentViewModel()
+        public ICommand ConfirmAddCommand { get; }
+        public AddVictimViewModel()
         {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
-            ConfirmAddApointmentCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
+            ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
         //hành động của nút hủy bỏ: đóng cửa sổ
         private void ExecuteCancelCommand(object? obj)
@@ -37,7 +35,7 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteAddCommand(object? obj)
         {
             //câu lệnh thêm ở đây
-            
+
             Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
         }
         //điều kiện để lệnh thêm được thực hiện: lich khám không có sẵn trong database
@@ -49,5 +47,4 @@ namespace LTTQ_DoAn.ViewModel
             return true; // khi nào thỏa điều kiện sẽ chấp nhận
         }
     }
-
 }

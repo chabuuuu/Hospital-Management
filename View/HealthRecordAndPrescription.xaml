@@ -21,9 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button
-                x:Name="btn_close"
                 Style="{StaticResource controlButton}"
-                Click="btn_close_Click"
                 FontSize="16"
                 HorizontalAlignment="Right">
                 <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>

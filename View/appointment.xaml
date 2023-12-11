@@ -78,22 +78,22 @@
 
                     <DataGridTextColumn Header="ID" Width="20*"
                                             IsReadOnly="True" CanUserResize="False"
-                                            Binding="{Binding }">
+                                            Binding="{Binding ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding }"
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding Name}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding }"
+                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding Age}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding }"
+                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding Service}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding }"
+                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding Date}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     

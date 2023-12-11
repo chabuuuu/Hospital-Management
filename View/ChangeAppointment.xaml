@@ -30,17 +30,13 @@
             <!--nút thu nhỏ và tắt màn-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button
-                        x:Name="bt_minimize"
-                        Style="{StaticResource controlButton}"
-                        Click="bt_minimize_Click"   
+                        Style="{StaticResource controlButton}"  
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
                         Command="{Binding CancelCommand}"
-                        x:Name="btn_close"
                         Style="{StaticResource controlButton}"
-                        Click="btn_close_Click"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                 </Button>

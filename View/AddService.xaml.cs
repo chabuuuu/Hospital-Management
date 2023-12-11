@@ -24,17 +24,6 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
-
-        private void bt_minimize_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-
-        private void btn_close_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
         private void AddServiceImage_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -44,14 +33,6 @@ namespace LTTQ_DoAn.View
             {
                 Service_Image.Source = new BitmapImage(new Uri(ofd.FileName));
             }
-        }
-
-        private void AddService_Click(object sender, RoutedEventArgs e)
-        {
-            //hàm thêm dịch vụ sau đó đóng cửa sổ
-
-            //thêm một messagebox thông báo thành công hay thất bại trước khi đóng
-            Application.Current.Shutdown();
         }
     }
 }
