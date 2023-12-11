@@ -19,39 +19,24 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ChangeCommand { get; }
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
+        private List<BENHNHAN> victims;
 
+        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
 
-        private IEnumerable<VictimModel> victimList;
-        private IVictimRepository victimRepository;
-        private string test;
-        public IEnumerable<VictimModel> VictimList { get => victimList; set
-            {
-                victimList = value;
-                OnPropertyChanged(nameof(VictimList));
-            }
-            }
-
-        public string Test { get => test; set => test = value; }
+        public List<BENHNHAN> Victims { get => victims; set => victims = value; }
+        private void Load()
+        {
+            Victims = _db.BENHNHAN.ToList();
+            //System.Windows.MessageBox.Show("Done");
+        }
 
         public VictimViewModel()
         {
-            victimRepository = new VictimRepository();
-            LoadAllVictims();
-
+            Load();
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             ViewCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
-        }
-        private void LoadAllVictims()
-        {
-            VictimList = victimRepository.GetByAll();
-            Test = "hello world";
-            //MessageBox.Show(victimList.Count().ToString());
-            /*if (victimList != null) {
-                MessageBox.Show(victimList.ToString());
-            }*/
-            //MessageBox.Show("hello");
         }
 
         private bool CanExecuteAddCommand(object? obj)

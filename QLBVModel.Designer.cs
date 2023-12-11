@@ -86,221 +86,221 @@ namespace LTTQ_DoAn
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<BENHAN> BENHANs
+        public ObjectSet<BENHAN> BENHAN
         {
             get
             {
-                if ((_BENHANs == null))
+                if ((_BENHAN == null))
                 {
-                    _BENHANs = base.CreateObjectSet<BENHAN>("BENHANs");
+                    _BENHAN = base.CreateObjectSet<BENHAN>("BENHAN");
                 }
-                return _BENHANs;
+                return _BENHAN;
             }
         }
-        private ObjectSet<BENHAN> _BENHANs;
+        private ObjectSet<BENHAN> _BENHAN;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<BENHNHAN> BENHNHANs
+        public ObjectSet<BENHNHAN> BENHNHAN
         {
             get
             {
-                if ((_BENHNHANs == null))
+                if ((_BENHNHAN == null))
                 {
-                    _BENHNHANs = base.CreateObjectSet<BENHNHAN>("BENHNHANs");
+                    _BENHNHAN = base.CreateObjectSet<BENHNHAN>("BENHNHAN");
                 }
-                return _BENHNHANs;
+                return _BENHNHAN;
             }
         }
-        private ObjectSet<BENHNHAN> _BENHNHANs;
+        private ObjectSet<BENHNHAN> _BENHNHAN;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DICHVU> DICHVUs
+        public ObjectSet<DICHVU> DICHVU
         {
             get
             {
-                if ((_DICHVUs == null))
+                if ((_DICHVU == null))
                 {
-                    _DICHVUs = base.CreateObjectSet<DICHVU>("DICHVUs");
+                    _DICHVU = base.CreateObjectSet<DICHVU>("DICHVU");
                 }
-                return _DICHVUs;
+                return _DICHVU;
             }
         }
-        private ObjectSet<DICHVU> _DICHVUs;
+        private ObjectSet<DICHVU> _DICHVU;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DONTHUOC> DONTHUOCs
+        public ObjectSet<DONTHUOC> DONTHUOC
         {
             get
             {
-                if ((_DONTHUOCs == null))
+                if ((_DONTHUOC == null))
                 {
-                    _DONTHUOCs = base.CreateObjectSet<DONTHUOC>("DONTHUOCs");
+                    _DONTHUOC = base.CreateObjectSet<DONTHUOC>("DONTHUOC");
                 }
-                return _DONTHUOCs;
+                return _DONTHUOC;
             }
         }
-        private ObjectSet<DONTHUOC> _DONTHUOCs;
+        private ObjectSet<DONTHUOC> _DONTHUOC;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<KHOA> KHOAs
+        public ObjectSet<KHOA> KHOA
         {
             get
             {
-                if ((_KHOAs == null))
+                if ((_KHOA == null))
                 {
-                    _KHOAs = base.CreateObjectSet<KHOA>("KHOAs");
+                    _KHOA = base.CreateObjectSet<KHOA>("KHOA");
                 }
-                return _KHOAs;
+                return _KHOA;
             }
         }
-        private ObjectSet<KHOA> _KHOAs;
+        private ObjectSet<KHOA> _KHOA;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<LICHKHAM> LICHKHAMs
+        public ObjectSet<LICHKHAM> LICHKHAM
         {
             get
             {
-                if ((_LICHKHAMs == null))
+                if ((_LICHKHAM == null))
                 {
-                    _LICHKHAMs = base.CreateObjectSet<LICHKHAM>("LICHKHAMs");
+                    _LICHKHAM = base.CreateObjectSet<LICHKHAM>("LICHKHAM");
                 }
-                return _LICHKHAMs;
+                return _LICHKHAM;
             }
         }
-        private ObjectSet<LICHKHAM> _LICHKHAMs;
+        private ObjectSet<LICHKHAM> _LICHKHAM;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PHONG> PHONGs
+        public ObjectSet<PHONG> PHONG
         {
             get
             {
-                if ((_PHONGs == null))
+                if ((_PHONG == null))
                 {
-                    _PHONGs = base.CreateObjectSet<PHONG>("PHONGs");
+                    _PHONG = base.CreateObjectSet<PHONG>("PHONG");
                 }
-                return _PHONGs;
+                return _PHONG;
             }
         }
-        private ObjectSet<PHONG> _PHONGs;
+        private ObjectSet<PHONG> _PHONG;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<TAIKHOAN> TAIKHOANs
+        public ObjectSet<TAIKHOAN> TAIKHOAN
         {
             get
             {
-                if ((_TAIKHOANs == null))
+                if ((_TAIKHOAN == null))
                 {
-                    _TAIKHOANs = base.CreateObjectSet<TAIKHOAN>("TAIKHOANs");
+                    _TAIKHOAN = base.CreateObjectSet<TAIKHOAN>("TAIKHOAN");
                 }
-                return _TAIKHOANs;
+                return _TAIKHOAN;
             }
         }
-        private ObjectSet<TAIKHOAN> _TAIKHOANs;
+        private ObjectSet<TAIKHOAN> _TAIKHOAN;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<YSI> YSIs
+        public ObjectSet<YSI> YSI
         {
             get
             {
-                if ((_YSIs == null))
+                if ((_YSI == null))
                 {
-                    _YSIs = base.CreateObjectSet<YSI>("YSIs");
+                    _YSI = base.CreateObjectSet<YSI>("YSI");
                 }
-                return _YSIs;
+                return _YSI;
             }
         }
-        private ObjectSet<YSI> _YSIs;
+        private ObjectSet<YSI> _YSI;
 
         #endregion
 
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the BENHANs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BENHAN EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToBENHANs(BENHAN bENHAN)
+        public void AddToBENHAN(BENHAN bENHAN)
         {
-            base.AddObject("BENHANs", bENHAN);
+            base.AddObject("BENHAN", bENHAN);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the BENHNHANs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BENHNHAN EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToBENHNHANs(BENHNHAN bENHNHAN)
+        public void AddToBENHNHAN(BENHNHAN bENHNHAN)
         {
-            base.AddObject("BENHNHANs", bENHNHAN);
+            base.AddObject("BENHNHAN", bENHNHAN);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the DICHVUs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the DICHVU EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDICHVUs(DICHVU dICHVU)
+        public void AddToDICHVU(DICHVU dICHVU)
         {
-            base.AddObject("DICHVUs", dICHVU);
+            base.AddObject("DICHVU", dICHVU);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the DONTHUOCs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the DONTHUOC EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDONTHUOCs(DONTHUOC dONTHUOC)
+        public void AddToDONTHUOC(DONTHUOC dONTHUOC)
         {
-            base.AddObject("DONTHUOCs", dONTHUOC);
+            base.AddObject("DONTHUOC", dONTHUOC);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the KHOAs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the KHOA EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToKHOAs(KHOA kHOA)
+        public void AddToKHOA(KHOA kHOA)
         {
-            base.AddObject("KHOAs", kHOA);
+            base.AddObject("KHOA", kHOA);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the LICHKHAMs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the LICHKHAM EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToLICHKHAMs(LICHKHAM lICHKHAM)
+        public void AddToLICHKHAM(LICHKHAM lICHKHAM)
         {
-            base.AddObject("LICHKHAMs", lICHKHAM);
+            base.AddObject("LICHKHAM", lICHKHAM);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PHONGs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PHONG EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPHONGs(PHONG pHONG)
+        public void AddToPHONG(PHONG pHONG)
         {
-            base.AddObject("PHONGs", pHONG);
+            base.AddObject("PHONG", pHONG);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the TAIKHOANs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the TAIKHOAN EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTAIKHOANs(TAIKHOAN tAIKHOAN)
+        public void AddToTAIKHOAN(TAIKHOAN tAIKHOAN)
         {
-            base.AddObject("TAIKHOANs", tAIKHOAN);
+            base.AddObject("TAIKHOAN", tAIKHOAN);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the YSIs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the YSI EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToYSIs(YSI ySI)
+        public void AddToYSI(YSI ySI)
         {
-            base.AddObject("YSIs", ySI);
+            base.AddObject("YSI", ySI);
         }
 
         #endregion
@@ -518,7 +518,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_BENHAN_DONTHUOC", "DONTHUOC")]
-        public EntityCollection<DONTHUOC> DONTHUOCs
+        public EntityCollection<DONTHUOC> DONTHUOC
         {
             get
             {
@@ -906,7 +906,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MABENHNHAN_BENHAN", "BENHAN")]
-        public EntityCollection<BENHAN> BENHANs
+        public EntityCollection<BENHAN> BENHAN
         {
             get
             {
@@ -928,7 +928,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MABENHNHAN_LICHKHAM", "LICHKHAM")]
-        public EntityCollection<LICHKHAM> LICHKHAMs
+        public EntityCollection<LICHKHAM> LICHKHAM
         {
             get
             {
@@ -1144,7 +1144,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_DICHVU_BENHAN", "BENHAN")]
-        public EntityCollection<BENHAN> BENHANs
+        public EntityCollection<BENHAN> BENHAN
         {
             get
             {
@@ -1166,7 +1166,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MADICHVU_LICHKHAM", "LICHKHAM")]
-        public EntityCollection<LICHKHAM> LICHKHAMs
+        public EntityCollection<LICHKHAM> LICHKHAM
         {
             get
             {
@@ -1538,7 +1538,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MAKHOA_YSI", "YSI")]
-        public EntityCollection<YSI> YSIs
+        public EntityCollection<YSI> YSI
         {
             get
             {
@@ -1560,7 +1560,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_TRUONGKHOA", "YSI")]
-        public YSI YSI
+        public YSI YSI1
         {
             get
             {
@@ -1576,7 +1576,7 @@ namespace LTTQ_DoAn
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<YSI> YSIReference
+        public EntityReference<YSI> YSI1Reference
         {
             get
             {
@@ -2134,7 +2134,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MAPHONG_PHONG", "BENHNHAN")]
-        public EntityCollection<BENHNHAN> BENHNHANs
+        public EntityCollection<BENHNHAN> BENHNHAN
         {
             get
             {
@@ -2156,7 +2156,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MAPHONG_LICHKHAM", "LICHKHAM")]
-        public EntityCollection<LICHKHAM> LICHKHAMs
+        public EntityCollection<LICHKHAM> LICHKHAM
         {
             get
             {
@@ -2178,7 +2178,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MAPHONG_YSI", "YSI")]
-        public EntityCollection<YSI> YSIs
+        public EntityCollection<YSI> YSI
         {
             get
             {
@@ -2628,7 +2628,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MAYSI_BENHAN", "BENHAN")]
-        public EntityCollection<BENHAN> BENHANs
+        public EntityCollection<BENHAN> BENHAN
         {
             get
             {
@@ -2688,7 +2688,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_TRUONGKHOA", "KHOA")]
-        public EntityCollection<KHOA> KHOAs
+        public EntityCollection<KHOA> KHOA1
         {
             get
             {
@@ -2710,7 +2710,7 @@ namespace LTTQ_DoAn
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MABACSI_LICHKHAM", "LICHKHAM")]
-        public EntityCollection<LICHKHAM> LICHKHAMs
+        public EntityCollection<LICHKHAM> LICHKHAM
         {
             get
             {

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QUANLYBENHVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QUANLYBENHVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BENHAN">
           <Key>
             <PropertyRef Name="MABENHAN" />
@@ -344,7 +344,7 @@
           <Property Name="MADICHVU" Type="Int32" />
           <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="THANHTIEN" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="DONTHUOCs" Relationship="Self.FK_BENHAN_DONTHUOC" FromRole="BENHAN" ToRole="DONTHUOC" />
+          <NavigationProperty Name="DONTHUOC" Relationship="Self.FK_BENHAN_DONTHUOC" FromRole="BENHAN" ToRole="DONTHUOC" />
           <NavigationProperty Name="DICHVU" Relationship="Self.FK_DICHVU_BENHAN" FromRole="BENHAN" ToRole="DICHVU" />
           <NavigationProperty Name="BENHNHAN" Relationship="Self.FK_MABENHNHAN_BENHAN" FromRole="BENHAN" ToRole="BENHNHAN" />
           <NavigationProperty Name="YSI" Relationship="Self.FK_MAYSI_BENHAN" FromRole="BENHAN" ToRole="YSI" />
@@ -362,8 +362,8 @@
           <Property Name="DIACHI" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="MABHYT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="NGAYNHAPVIEN" Type="DateTime" />
-          <NavigationProperty Name="BENHANs" Relationship="Self.FK_MABENHNHAN_BENHAN" FromRole="BENHNHAN" ToRole="BENHAN" />
-          <NavigationProperty Name="LICHKHAMs" Relationship="Self.FK_MABENHNHAN_LICHKHAM" FromRole="BENHNHAN" ToRole="LICHKHAM" />
+          <NavigationProperty Name="BENHAN" Relationship="Self.FK_MABENHNHAN_BENHAN" FromRole="BENHNHAN" ToRole="BENHAN" />
+          <NavigationProperty Name="LICHKHAM" Relationship="Self.FK_MABENHNHAN_LICHKHAM" FromRole="BENHNHAN" ToRole="LICHKHAM" />
           <NavigationProperty Name="PHONG" Relationship="Self.FK_MAPHONG_PHONG" FromRole="BENHNHAN" ToRole="PHONG" />
         </EntityType>
         <EntityType Name="DICHVU">
@@ -375,8 +375,8 @@
           <Property Name="TENDICHVU" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="GIATIEN" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="PICTURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BENHANs" Relationship="Self.FK_DICHVU_BENHAN" FromRole="DICHVU" ToRole="BENHAN" />
-          <NavigationProperty Name="LICHKHAMs" Relationship="Self.FK_MADICHVU_LICHKHAM" FromRole="DICHVU" ToRole="LICHKHAM" />
+          <NavigationProperty Name="BENHAN" Relationship="Self.FK_DICHVU_BENHAN" FromRole="DICHVU" ToRole="BENHAN" />
+          <NavigationProperty Name="LICHKHAM" Relationship="Self.FK_MADICHVU_LICHKHAM" FromRole="DICHVU" ToRole="LICHKHAM" />
         </EntityType>
         <EntityType Name="DONTHUOC">
           <Key>
@@ -398,8 +398,8 @@
           <Property Name="NGAYTHANHLAP" Type="DateTime" />
           <Property Name="TRUONGKHOA" Type="Int32" />
           <Property Name="PICTURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="YSIs" Relationship="Self.FK_MAKHOA_YSI" FromRole="KHOA" ToRole="YSI" />
-          <NavigationProperty Name="YSI" Relationship="Self.FK_TRUONGKHOA" FromRole="KHOA" ToRole="YSI" />
+          <NavigationProperty Name="YSI" Relationship="Self.FK_MAKHOA_YSI" FromRole="KHOA" ToRole="YSI" />
+          <NavigationProperty Name="YSI1" Relationship="Self.FK_TRUONGKHOA" FromRole="KHOA" ToRole="YSI" />
         </EntityType>
         <EntityType Name="LICHKHAM">
           <Key>
@@ -427,9 +427,9 @@
           <Property Name="TANG" Type="Byte" />
           <Property Name="TENPHONG" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="SUCCHUA" Type="Byte" />
-          <NavigationProperty Name="BENHNHANs" Relationship="Self.FK_MAPHONG_PHONG" FromRole="PHONG" ToRole="BENHNHAN" />
-          <NavigationProperty Name="LICHKHAMs" Relationship="Self.FK_MAPHONG_LICHKHAM" FromRole="PHONG" ToRole="LICHKHAM" />
-          <NavigationProperty Name="YSIs" Relationship="Self.FK_MAPHONG_YSI" FromRole="PHONG" ToRole="YSI" />
+          <NavigationProperty Name="BENHNHAN" Relationship="Self.FK_MAPHONG_PHONG" FromRole="PHONG" ToRole="BENHNHAN" />
+          <NavigationProperty Name="LICHKHAM" Relationship="Self.FK_MAPHONG_LICHKHAM" FromRole="PHONG" ToRole="LICHKHAM" />
+          <NavigationProperty Name="YSI" Relationship="Self.FK_MAPHONG_YSI" FromRole="PHONG" ToRole="YSI" />
         </EntityType>
         <EntityType Name="TAIKHOAN">
           <Key>
@@ -455,10 +455,10 @@
           <Property Name="NGAYVAOLAM" Type="DateTime" />
           <Property Name="LOAIYSI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="MACHIHUY" Type="Int32" />
-          <NavigationProperty Name="BENHANs" Relationship="Self.FK_MAYSI_BENHAN" FromRole="YSI" ToRole="BENHAN" />
+          <NavigationProperty Name="BENHAN" Relationship="Self.FK_MAYSI_BENHAN" FromRole="YSI" ToRole="BENHAN" />
           <NavigationProperty Name="KHOA" Relationship="Self.FK_MAKHOA_YSI" FromRole="YSI" ToRole="KHOA" />
-          <NavigationProperty Name="KHOAs" Relationship="Self.FK_TRUONGKHOA" FromRole="YSI" ToRole="KHOA" />
-          <NavigationProperty Name="LICHKHAMs" Relationship="Self.FK_MABACSI_LICHKHAM" FromRole="YSI" ToRole="LICHKHAM" />
+          <NavigationProperty Name="KHOA1" Relationship="Self.FK_TRUONGKHOA" FromRole="YSI" ToRole="KHOA" />
+          <NavigationProperty Name="LICHKHAM" Relationship="Self.FK_MABACSI_LICHKHAM" FromRole="YSI" ToRole="LICHKHAM" />
           <NavigationProperty Name="PHONG" Relationship="Self.FK_MAPHONG_YSI" FromRole="YSI" ToRole="PHONG" />
           <NavigationProperty Name="YSI1" Relationship="Self.FK_CHIHUY_YSI" FromRole="YSI" ToRole="YSI1" />
           <NavigationProperty Name="YSI2" Relationship="Self.FK_CHIHUY_YSI" FromRole="YSI1" ToRole="YSI" />
@@ -620,66 +620,66 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="QUANLYBENHVIENEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BENHANs" EntityType="Self.BENHAN" />
-          <EntitySet Name="BENHNHANs" EntityType="Self.BENHNHAN" />
-          <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
-          <EntitySet Name="DONTHUOCs" EntityType="Self.DONTHUOC" />
-          <EntitySet Name="KHOAs" EntityType="Self.KHOA" />
-          <EntitySet Name="LICHKHAMs" EntityType="Self.LICHKHAM" />
-          <EntitySet Name="PHONGs" EntityType="Self.PHONG" />
-          <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
-          <EntitySet Name="YSIs" EntityType="Self.YSI" />
+          <EntitySet Name="BENHAN" EntityType="Self.BENHAN" />
+          <EntitySet Name="BENHNHAN" EntityType="Self.BENHNHAN" />
+          <EntitySet Name="DICHVU" EntityType="Self.DICHVU" />
+          <EntitySet Name="DONTHUOC" EntityType="Self.DONTHUOC" />
+          <EntitySet Name="KHOA" EntityType="Self.KHOA" />
+          <EntitySet Name="LICHKHAM" EntityType="Self.LICHKHAM" />
+          <EntitySet Name="PHONG" EntityType="Self.PHONG" />
+          <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" />
+          <EntitySet Name="YSI" EntityType="Self.YSI" />
           <AssociationSet Name="FK_BENHAN_DONTHUOC" Association="Self.FK_BENHAN_DONTHUOC">
-            <End Role="BENHAN" EntitySet="BENHANs" />
-            <End Role="DONTHUOC" EntitySet="DONTHUOCs" />
+            <End Role="BENHAN" EntitySet="BENHAN" />
+            <End Role="DONTHUOC" EntitySet="DONTHUOC" />
           </AssociationSet>
           <AssociationSet Name="FK_DICHVU_BENHAN" Association="Self.FK_DICHVU_BENHAN">
-            <End Role="DICHVU" EntitySet="DICHVUs" />
-            <End Role="BENHAN" EntitySet="BENHANs" />
+            <End Role="DICHVU" EntitySet="DICHVU" />
+            <End Role="BENHAN" EntitySet="BENHAN" />
           </AssociationSet>
           <AssociationSet Name="FK_MABENHNHAN_BENHAN" Association="Self.FK_MABENHNHAN_BENHAN">
-            <End Role="BENHNHAN" EntitySet="BENHNHANs" />
-            <End Role="BENHAN" EntitySet="BENHANs" />
+            <End Role="BENHNHAN" EntitySet="BENHNHAN" />
+            <End Role="BENHAN" EntitySet="BENHAN" />
           </AssociationSet>
           <AssociationSet Name="FK_MAYSI_BENHAN" Association="Self.FK_MAYSI_BENHAN">
-            <End Role="YSI" EntitySet="YSIs" />
-            <End Role="BENHAN" EntitySet="BENHANs" />
+            <End Role="YSI" EntitySet="YSI" />
+            <End Role="BENHAN" EntitySet="BENHAN" />
           </AssociationSet>
           <AssociationSet Name="FK_MABENHNHAN_LICHKHAM" Association="Self.FK_MABENHNHAN_LICHKHAM">
-            <End Role="BENHNHAN" EntitySet="BENHNHANs" />
-            <End Role="LICHKHAM" EntitySet="LICHKHAMs" />
+            <End Role="BENHNHAN" EntitySet="BENHNHAN" />
+            <End Role="LICHKHAM" EntitySet="LICHKHAM" />
           </AssociationSet>
           <AssociationSet Name="FK_MAPHONG_PHONG" Association="Self.FK_MAPHONG_PHONG">
-            <End Role="PHONG" EntitySet="PHONGs" />
-            <End Role="BENHNHAN" EntitySet="BENHNHANs" />
+            <End Role="PHONG" EntitySet="PHONG" />
+            <End Role="BENHNHAN" EntitySet="BENHNHAN" />
           </AssociationSet>
           <AssociationSet Name="FK_MADICHVU_LICHKHAM" Association="Self.FK_MADICHVU_LICHKHAM">
-            <End Role="DICHVU" EntitySet="DICHVUs" />
-            <End Role="LICHKHAM" EntitySet="LICHKHAMs" />
+            <End Role="DICHVU" EntitySet="DICHVU" />
+            <End Role="LICHKHAM" EntitySet="LICHKHAM" />
           </AssociationSet>
           <AssociationSet Name="FK_MAKHOA_YSI" Association="Self.FK_MAKHOA_YSI">
-            <End Role="KHOA" EntitySet="KHOAs" />
-            <End Role="YSI" EntitySet="YSIs" />
+            <End Role="KHOA" EntitySet="KHOA" />
+            <End Role="YSI" EntitySet="YSI" />
           </AssociationSet>
           <AssociationSet Name="FK_TRUONGKHOA" Association="Self.FK_TRUONGKHOA">
-            <End Role="YSI" EntitySet="YSIs" />
-            <End Role="KHOA" EntitySet="KHOAs" />
+            <End Role="YSI" EntitySet="YSI" />
+            <End Role="KHOA" EntitySet="KHOA" />
           </AssociationSet>
           <AssociationSet Name="FK_MABACSI_LICHKHAM" Association="Self.FK_MABACSI_LICHKHAM">
-            <End Role="YSI" EntitySet="YSIs" />
-            <End Role="LICHKHAM" EntitySet="LICHKHAMs" />
+            <End Role="YSI" EntitySet="YSI" />
+            <End Role="LICHKHAM" EntitySet="LICHKHAM" />
           </AssociationSet>
           <AssociationSet Name="FK_MAPHONG_LICHKHAM" Association="Self.FK_MAPHONG_LICHKHAM">
-            <End Role="PHONG" EntitySet="PHONGs" />
-            <End Role="LICHKHAM" EntitySet="LICHKHAMs" />
+            <End Role="PHONG" EntitySet="PHONG" />
+            <End Role="LICHKHAM" EntitySet="LICHKHAM" />
           </AssociationSet>
           <AssociationSet Name="FK_MAPHONG_YSI" Association="Self.FK_MAPHONG_YSI">
-            <End Role="PHONG" EntitySet="PHONGs" />
-            <End Role="YSI" EntitySet="YSIs" />
+            <End Role="PHONG" EntitySet="PHONG" />
+            <End Role="YSI" EntitySet="YSI" />
           </AssociationSet>
           <AssociationSet Name="FK_CHIHUY_YSI" Association="Self.FK_CHIHUY_YSI">
-            <End Role="YSI" EntitySet="YSIs" />
-            <End Role="YSI1" EntitySet="YSIs" />
+            <End Role="YSI" EntitySet="YSI" />
+            <End Role="YSI1" EntitySet="YSI" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -688,7 +688,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="QUANLYBENHVIENModelStoreContainer" CdmEntityContainer="QUANLYBENHVIENEntities">
-          <EntitySetMapping Name="BENHANs">
+          <EntitySetMapping Name="BENHAN">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.BENHAN">
               <MappingFragment StoreEntitySet="BENHAN">
                 <ScalarProperty Name="MABENHAN" ColumnName="MABENHAN" />
@@ -701,7 +701,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BENHNHANs">
+          <EntitySetMapping Name="BENHNHAN">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.BENHNHAN">
               <MappingFragment StoreEntitySet="BENHNHAN">
                 <ScalarProperty Name="MABENHNHAN" ColumnName="MABENHNHAN" />
@@ -716,7 +716,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DICHVUs">
+          <EntitySetMapping Name="DICHVU">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.DICHVU">
               <MappingFragment StoreEntitySet="DICHVU">
                 <ScalarProperty Name="MADICHVU" ColumnName="MADICHVU" />
@@ -727,7 +727,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DONTHUOCs">
+          <EntitySetMapping Name="DONTHUOC">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.DONTHUOC">
               <MappingFragment StoreEntitySet="DONTHUOC">
                 <ScalarProperty Name="MADONTHUOC" ColumnName="MADONTHUOC" />
@@ -737,7 +737,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="KHOAs">
+          <EntitySetMapping Name="KHOA">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.KHOA">
               <MappingFragment StoreEntitySet="KHOA">
                 <ScalarProperty Name="MAKHOA" ColumnName="MAKHOA" />
@@ -749,7 +749,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LICHKHAMs">
+          <EntitySetMapping Name="LICHKHAM">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.LICHKHAM">
               <MappingFragment StoreEntitySet="LICHKHAM">
                 <ScalarProperty Name="MALICHKHAM" ColumnName="MALICHKHAM" />
@@ -763,7 +763,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PHONGs">
+          <EntitySetMapping Name="PHONG">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.PHONG">
               <MappingFragment StoreEntitySet="PHONG">
                 <ScalarProperty Name="MAPHONG" ColumnName="MAPHONG" />
@@ -774,7 +774,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TAIKHOANs">
+          <EntitySetMapping Name="TAIKHOAN">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.TAIKHOAN">
               <MappingFragment StoreEntitySet="TAIKHOAN">
                 <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
@@ -785,7 +785,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="YSIs">
+          <EntitySetMapping Name="YSI">
             <EntityTypeMapping TypeName="QUANLYBENHVIENModel.YSI">
               <MappingFragment StoreEntitySet="YSI">
                 <ScalarProperty Name="MAYSI" ColumnName="MAYSI" />
@@ -815,7 +815,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
       </DesignerInfoPropertySet>
