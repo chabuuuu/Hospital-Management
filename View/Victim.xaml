@@ -67,6 +67,7 @@
                       CellStyle="{DynamicResource DataGridCellStyle1}"
                       RowStyle="{DynamicResource DataGridRowStyle1}"
                       ItemsSource="{Binding Victims}"
+                      SelectedItem="{Binding SelectedItem}"
                       Height="Auto"
                       >
                 <DataGrid.Columns>

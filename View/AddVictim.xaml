@@ -64,9 +64,10 @@
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                 materialdesign:HintAssist.Hint="Tên"
                 materialdesign:TextFieldAssist.HasClearButton="True"
+                
                 FontSize="15"
                 Height="55"
-                Margin="50 0 25 0"/>
+                Margin="50 0 25 0" TextChanged="TextBox_TextChanged"/>
                 <!--tuổi-->
                 <TextBox
                 MinWidth="50"
@@ -74,6 +75,7 @@
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                 materialdesign:HintAssist.Hint="Tuổi"
                 materialdesign:TextFieldAssist.HasClearButton="True"
+                
                 FontSize="15"
                 Height="55"
                 Margin="25 0 25 0"/>     

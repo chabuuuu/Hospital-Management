@@ -8,15 +8,38 @@ using System.Windows.Input;
 using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
+using LTTQ_DoAn.View;
 
 namespace LTTQ_DoAn.ViewModel
 {
     public class AddVictimViewModel : BaseViewModel
     {
+        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
+        private int id;
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
+        public int Id { get => id; set => id = value; }
+
+        public AddVictimViewModel(int id)
+        {
+            this.Id = id;
+            CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
+            ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
+        }
+        public void insert()
+        {
+            BENHNHAN newMember = new BENHNHAN()
+            {
+                name = nameTextBox.Text,
+                gender = genderComboBox.Text
+            };
+            _db.members.Add(newMember);
+            _db.SaveChanges();
+            MainWindow.datagrid.ItemsSource = _db.members.ToList();
+        }
         public AddVictimViewModel()
         {
+            
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }

@@ -20,10 +20,18 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
         private List<BENHNHAN> victims;
+        private BENHNHAN selectedItem = null;
 
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
 
         public List<BENHNHAN> Victims { get => victims; set => victims = value; }
+        public BENHNHAN SelectedItem { get => selectedItem; set 
+            { 
+                selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            } 
+        }
+
         private void Load()
         {
             Victims = _db.BENHNHAN.ToList();
@@ -46,7 +54,8 @@ namespace LTTQ_DoAn.ViewModel
         //tham số thứ 2 là hành động
         private void ExecuteAddCommand(object? obj)
         {
-            AddVictim wd = new AddVictim();
+            //MessageBox.Show(this.selectedItem.SUB_ID.ToString());
+            AddVictim wd = new AddVictim(this.selectedItem.MABENHNHAN);
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
             Application.Current.MainWindow = wd;
