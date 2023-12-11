@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
+        xmlns:viewModel="clr-namespace:LTTQ_DoAn.ViewModel"
              xmlns:local="clr-namespace:LTTQ_DoAn.View"
              mc:Ignorable="d" 
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
@@ -11,6 +11,9 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              
             d:DesignHeight="644" d:DesignWidth="1049">
+    <UserControl.DataContext>
+        <viewModel:VictimViewModel></viewModel:VictimViewModel>
+    </UserControl.DataContext>
     <Border
         CornerRadius="20"
         Background="white">
@@ -63,6 +66,8 @@
                       Style="{DynamicResource DataGridStyle1}"
                       CellStyle="{DynamicResource DataGridCellStyle1}"
                       RowStyle="{DynamicResource DataGridRowStyle1}"
+                      ItemsSource="{Binding Victims}"
+                      Height="Auto"
                       >
                 <DataGrid.Columns>
                     <!--dấu # này là cột chứa checkbox của mỗi item-->
@@ -79,20 +84,20 @@
 
                     <DataGridTextColumn Header="ID" Width="20*"
                                             IsReadOnly="True" CanUserResize="False"
-                                            Binding="{Binding victim_ID}">
+                                            Binding="{Binding SUB_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="25*" Binding="{Binding victim_Name}"
+                    <DataGridTextColumn Header="Tên" Width="25*" Binding="{Binding HOTEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding victim_Age}"
+                    <DataGridTextColumn Header="Ngày sinh" Width="10*" Binding="{Binding NGAYSINH}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding victim_Sex}"
+                    <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding victim_Date}"
+                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding NGAYNHAPVIEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     <DataGridTemplateColumn Header="Thao tác" Width="10*"
