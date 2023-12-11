@@ -14,6 +14,8 @@ namespace LTTQ_DoAn.ViewModel
     public class AddAppointmentViewModel : BaseViewModel
     {
         public ICommand CancelCommand { get; }
+
+        public ICommand ConfirmChangeCommand { get; }
         public ICommand ConfirmAddApointmentCommand { get; }
         public AddAppointmentViewModel()
         {

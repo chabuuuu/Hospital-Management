@@ -30,16 +30,13 @@
             <!--nút thu nhỏ và tắt màn-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button
-                        x:Name="bt_minimize"
                         Style="{StaticResource controlButton}"
-                        Click="bt_minimize_Click"
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
-                        x:Name="btn_close"
+                    Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
-                        Click="btn_close_Click"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
@@ -136,7 +133,8 @@
             <!--2 nút-->
             <StackPanel Grid.Row="4" Orientation="Horizontal"
             VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button Margin="40 0"
+                <Button Command="{Binding CancelCommand}"
+                    Margin="40 0"
                     Width="130"
                     Height="50"
                     Content="Đóng"

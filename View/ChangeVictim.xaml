@@ -12,6 +12,9 @@
         Title="AddVictim" Height="600" Width="1000"
         Background="Transparent"
         WindowStyle="None">
+    <Window.DataContext>
+        <viewmodel:ChangeVictimViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -28,16 +31,12 @@
             <!--nút thu nhỏ và tắt màn-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button
-                        x:Name="bt_minimize"
                         Style="{StaticResource controlButton}"
-                        Click="bt_minimize_Click"
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
-                <Button
-                        x:Name="btn_close"
+                <Button Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
-                        Click="btn_close_Click"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
@@ -166,7 +165,7 @@
             <!--2 nút-->
             <StackPanel Grid.Row="4" Orientation="Horizontal"
             VerticalAlignment="Top" HorizontalAlignment="Right">
-                <Button
+                <Button Command="{Binding ConfirmChangeCommand}"
                     Width="130"
                     Height="50"
                     Content="Lưu"
@@ -176,7 +175,8 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Lưu thông tin" />
-                <Button Margin="40 0"
+                <Button Command="{Binding CancelCommand}"
+                    Margin="40 0"
                     Width="130"
                     Height="50"
                     Content="Hủy bỏ"

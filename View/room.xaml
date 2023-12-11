@@ -31,6 +31,7 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate>
+                            
                             <Border Height="110" Width="200"
                         Background="White"
                         CornerRadius="5"
@@ -38,32 +39,37 @@
                                 <Border.Effect>
                                     <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
                                 </Border.Effect>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <StackPanel Grid.Row="1" Orientation="Horizontal" >
-                                        <!--ảnh cho phòng-->
-                                        <StackPanel HorizontalAlignment="Left">
-                                            <TextBox >
-                                                
-                                            </TextBox>
+                                <!--thêm command ở button ở dưới để có thê nhấn vô các item-->
+                                <Button Height="110" Background="Transparent"
+                                        BorderBrush="Transparent">
+                                    <Grid Height="110" VerticalAlignment="Center" Width="200" HorizontalAlignment="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30*"/>
+                                            <RowDefinition Height="70*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Foreground="#3f3f3f"
+                                        FontSize="20"
+                                        FontWeight="Medium"
+                                        Text="{Binding Room_Name}"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Margin="20 0 0 0"
+                                        >
+                                        </TextBlock>
+                                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                            <!--ảnh cho phòng-->
+                                            <TextBlock Width="130" VerticalAlignment="Center"
+                                                       Foreground="#3f3f3f">
+                                                <Run Text="    Sức chứa:"/>
+                                                <Run Text="{Binding count}"/> <!--thông tin sức chứa lưu ở đây-->
+                                            </TextBlock>
+                                            <Image 
+                                                Source="/Photo/medical-team.png" Height="55" HorizontalAlignment="Right"
+                                                   Margin="0 0 0 0">
+                                            </Image>
                                         </StackPanel>
-                                        <Image Source="/Photo/medical-team.png" Height="55" HorizontalAlignment="Right"
-                                               Margin="0 0 20 0">
-                                        </Image>
-                                    </StackPanel>
-                                    <TextBlock Foreground="#3f3f3f"
-                                    FontSize="20"
-                                    FontWeight="Medium"
-                                    Text="{Binding Room_Name}"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Top"
-                                    Margin="20 20 0 0"
-                                    >
-                                    </TextBlock>
-                                </Grid>
+                                    </Grid>
+                                </Button>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>

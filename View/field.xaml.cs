@@ -24,13 +24,6 @@ namespace LTTQ_DoAn.View
         public field()
         {
             InitializeComponent();
-            fields = new List<string>() { "khoa tim mạch", "khoa da liễu", "khoa ngoại", "khoa tiêu hóa", "khoa tiết niệu", 
-                "khoa nội thần kinh", "khoa ngoại thần kinh", "nhãn khoa", "khoa nhi", "khoa tai-mũi-họng", "khoa nam", "phụ khoa",
-                "khoa nội thần kinh", "khoa ngoại thần kinh", "nhãn khoa", "khoa nhi", "khoa tai-mũi-họng", "khoa nam", "phụ khoa"
-                ,"khoa tim mạch", "khoa da liễu", "khoa ngoại", "khoa tiêu hóa", "khoa tiết niệu",
-                "khoa nội thần kinh", "khoa ngoại thần kinh", "nhãn khoa", "khoa nhi", "khoa tai-mũi-họng", "khoa nam", "phụ khoa",
-                "khoa nội thần kinh", "khoa ngoại thần kinh", "nhãn khoa", "khoa nhi", "khoa tai-mũi-họng", "khoa nam", "phụ khoa"};
-            FieldList.ItemsSource = fields;
         }
         
     }
