@@ -64,21 +64,11 @@
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                 materialdesign:HintAssist.Hint="Tên"
                 materialdesign:TextFieldAssist.HasClearButton="True"
-                
+                Text="{Binding Ten}"
                 FontSize="15"
                 Height="55"
                 Margin="50 0 25 0" TextChanged="TextBox_TextChanged"/>
                 <!--tuổi-->
-                <TextBox
-                MinWidth="50"
-                HorizontalContentAlignment="Stretch"
-                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                materialdesign:HintAssist.Hint="Tuổi"
-                materialdesign:TextFieldAssist.HasClearButton="True"
-                
-                FontSize="15"
-                Height="55"
-                Margin="25 0 25 0"/>     
                 <!--giới tính-->
                 <ComboBox
                 MinWidth="120"
@@ -86,13 +76,19 @@
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Giới tính"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                 Margin="25 0 25 0"/>
+                SelectedValue="{Binding Gioitinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Content"
+                 Margin="25 0 25 0">
+                    <ComboBoxItem>Nam</ComboBoxItem>
+                    <ComboBoxItem>Nữ</ComboBoxItem>
+                </ComboBox>
                 <!--ngày sinh-->
                 <DatePicker
                 MinWidth="250"
                 Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Ngày sinh"
+                SelectedDate="{Binding Ngaysinh, Mode=TwoWay}"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                 Margin="25 0 50 0"/>
@@ -105,6 +101,7 @@
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                 materialdesign:HintAssist.Hint="Mã bảo hiểm y tế"
                 materialdesign:TextFieldAssist.HasClearButton="True"
+                Text="{Binding Bhyt}"
                 FontSize="15"
                 Height="55"
                 Margin="50 0 0 0"/>
@@ -123,8 +120,9 @@
                 MinWidth="150"
                 HorizontalContentAlignment="Stretch"
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                materialdesign:HintAssist.Hint="Tên phòng"
+                materialdesign:HintAssist.Hint="Mã phòng"
                 materialdesign:TextFieldAssist.HasClearButton="True"
+                Text="{Binding Maphong}"
                 FontSize="15"
                 Height="55"
                 Margin="25 0 25 0"/>
@@ -136,6 +134,7 @@
                 materialdesign:HintAssist.Hint="Ngày nhập viện"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                SelectedDate="{Binding Ngaynhapvien, Mode=TwoWay}"
                 Margin="25 0 0 0"/>
             </StackPanel>
         

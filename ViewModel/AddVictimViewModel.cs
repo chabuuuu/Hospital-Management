@@ -19,7 +19,46 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public int Id { get => id; set => id = value; }
+        public string Ten { get => ten; set
+            {
+                ten = value;
+                OnPropertyChanged(nameof(Ten));
+            }
+        }
+        public string Ngaysinh { get => ngaysinh; set
+            {
+                ngaysinh = value;
+                OnPropertyChanged(nameof(Ngaysinh));
+            }
+        }
+        public string Gioitinh { get => gioitinh; set {
+                gioitinh = value;
+                OnPropertyChanged(nameof (Gioitinh));
+            } }
+        public string Bhyt { get => bhyt; set {
+                bhyt = value;
+                OnPropertyChanged(nameof(Bhyt));
+            } }
+        public string Maphong { get => maphong; set {
+                maphong = value;
+                OnPropertyChanged(nameof(Maphong));
+            } }
+        public string Ngaynhapvien { get => ngaynhapvien; set {
+                ngaynhapvien = value;
+                OnPropertyChanged(nameof(Ngaynhapvien));
+            } }
+        public string Diachi { get => diachi; set {
+                diachi = value;
+                OnPropertyChanged(nameof(Diachi));
+            } }
 
+        private string ten = null;
+        private string ngaysinh = null;
+        private string gioitinh = null;
+        private string bhyt = null;
+        private string maphong = null;
+        private string ngaynhapvien = null;
+        private string diachi = null;
         public AddVictimViewModel(int id)
         {
             this.Id = id;
@@ -28,14 +67,22 @@ namespace LTTQ_DoAn.ViewModel
         }
         public void insert()
         {
-            BENHNHAN newMember = new BENHNHAN()
+            BENHNHAN newBenhnhan = new BENHNHAN()
             {
-                name = nameTextBox.Text,
-                gender = genderComboBox.Text
+                HOTEN = this.Ten,
+                GIOITINH = Gioitinh,
+                NGAYSINH = DateTime.Parse(Ngaysinh),
+                MABHYT = Bhyt,
+                MAPHONG = this.convertSUB_ID(Maphong),
+                NGAYNHAPVIEN = DateTime.Parse(Ngaynhapvien),
+                DIACHI = Diachi
             };
-            _db.members.Add(newMember);
+            newBenhnhan.MAPHONG = 1;
+            //MessageBox.Show(Gioitinh);
+            //MessageBox.Show(Ten + Gioitinh + Ngaysinh + Bhyt + this.convertSUB_ID(Maphong) + Ngaynhapvien + Diachi);
+            _db.BENHNHAN.AddObject(newBenhnhan);
             _db.SaveChanges();
-            MainWindow.datagrid.ItemsSource = _db.members.ToList();
+            //BaseViewModel.global_db = _db;
         }
         public AddVictimViewModel()
         {
@@ -53,13 +100,30 @@ namespace LTTQ_DoAn.ViewModel
         {
             return true;
         }
+        public int convertSUB_ID(string Sub_id)
+        {
+            // Chuỗi cần tách
+            string inputString = Sub_id;
 
+            // Tách các ký tự còn lại thành một chuỗi riêng
+            string remainingCharacters = inputString.Substring(3);
+
+            return int.Parse(remainingCharacters);
+        }
         //hành động thêm vào
         private void ExecuteAddCommand(object? obj)
         {
             //câu lệnh thêm ở đây
-
-            Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
+            try {
+                insert();
+                MessageBox.Show("Thêm bệnh nhân mới thành công!");
+                Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
+            
+            }
+            catch (Exception err) {
+                MessageBox.Show(err.Message);
+                Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
+            }
         }
         //điều kiện để lệnh thêm được thực hiện: lich khám không có sẵn trong database
         private bool CanExecuteAddCommand(object? obj)

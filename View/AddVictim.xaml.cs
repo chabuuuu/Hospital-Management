@@ -24,11 +24,6 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
-        public AddVictim(int id)
-        {
-            InitializeComponent();
-            this.DataContext = new AddVictimViewModel(id);
-        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
