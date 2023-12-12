@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
@@ -29,11 +30,36 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="QLBVModel.Context.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>QLBVModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Update="QLBVModel.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>QLBVModel.tt</DependentUpon>
+    </Compile>
     <Compile Update="QLBVModel.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>QLBVModel.edmx</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="QLBVModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QLBVModel.Context.cs</LastGenOutput>
+    </None>
+    <None Update="QLBVModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QLBVModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
 </Project>
