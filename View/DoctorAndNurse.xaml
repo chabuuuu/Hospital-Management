@@ -125,24 +125,26 @@
                     <!--cột các nút thao tác-->
                     <StackPanel Orientation="Horizontal">
                         <!--nút xem thông tin-->
-                        <Button 
+                        <RadioButton 
                             Command="{Binding ViewCommand}"
-                            Style="{StaticResource gridEditButton}"
+                            Tag="{StaticResource normalButton}"
+                            Style="{StaticResource gridOpenButton}"
                                 Margin="0 0 10 0"
                                 ToolTip="Thông tin chi tiết">
                             <fa:IconImage 
                                 Icon="InfoCircle"
                                           Height="20"
                                           />
-                        </Button>
+                        </RadioButton>
                         <!--nút sửa thông tin-->
-                        <Button 
+                        <RadioButton 
                             Command="{Binding ChangeCommand}"
+                            Tag="{StaticResource normalButton}"
                             Style="{StaticResource gridOpenButton}"
                                 ToolTip="Sửa thông tin">
                             <fa:IconImage Icon="PenToSquare"
                                           Height="20"/>
-                        </Button>
+                        </RadioButton>
                     </StackPanel>
                 </DataTemplate>
             </DataGridTemplateColumn.CellTemplate>

@@ -5,7 +5,6 @@
     <Style x:Key="menuButton" TargetType="RadioButton">
         <!--các thuộc tính khi chưa hover-->
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Margin" Value="-5, 0, 0, 0"/>
         <Setter Property="Height" Value="55"/>
         <Setter Property="Width" Value="213"/>
         <Setter Property="Panel.ZIndex" Value="1"/>
@@ -25,14 +24,27 @@
         <Style.Triggers>
             <!--các thuộc tính khi hover-->
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Margin" Value="0, 5, 0, 5"/>
                 <Setter Property="Foreground" Value="{StaticResource btnActivedText}"/>
                 <Setter Property="Background" Value="{StaticResource secondaryFont}"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource= {RelativeSource Mode=Self}}"/>
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Height" To="65" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Height" To="55" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
             </Trigger>
             <!--các thuộc tính khi click-->
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Margin" Value="0, 5, 0, 5"/>
+                <Setter Property="Height" Value="65"/>
                 <Setter Property="Background" Value="{StaticResource btnActivedText}"/>
                 <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource= {RelativeSource Mode=Self}}"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource= {RelativeSource Mode=Self}}"/>
@@ -351,31 +363,7 @@
     
     <!--datagird list-->
 
-    <Style x:Key="gridEditButton" TargetType="Button">
-        <Setter Property="Background" Value="#fff" />
-        <Setter Property="BorderBrush" Value="{StaticResource btnActivedGround}" />
-        <Setter Property="Foreground" Value="{StaticResource buttonText}" />
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Template" >
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Padding="5" BorderThickness="1" CornerRadius="5">
-                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource btnActivedText}"/>
-                <Setter Property="Foreground" Value="#fff"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-
-    <Style x:Key="gridOpenButton" TargetType="Button">
+    <Style x:Key="gridOpenButton" TargetType="RadioButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource buttonText}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -386,7 +374,7 @@
         <Setter Property="Width" Value="35"/>
         <Setter Property="Template" >
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
+                <ControlTemplate TargetType="RadioButton">
                     <Border Background="Transparent" BorderBrush="Transparent">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
@@ -397,7 +385,7 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="Button">
+                        <ControlTemplate TargetType="RadioButton">
                             <Border CornerRadius="20" BorderThickness="0" Background="#ccc">
                                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>

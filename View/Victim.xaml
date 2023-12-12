@@ -83,16 +83,16 @@
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
 
-                    <DataGridTextColumn Header="ID" Width="20*"
+                    <DataGridTextColumn Header="ID" Width="15*"
                                             IsReadOnly="True" CanUserResize="False"
                                             Binding="{Binding SUB_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding HOTEN}"
+                    <DataGridTextColumn Header="Tên" Width="15*" Binding="{Binding HOTEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày sinh" Width="10*" Binding="{Binding NGAYSINH}"
+                    <DataGridTextColumn Header="Ngày sinh" Width="20*" Binding="{Binding NGAYSINH}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
@@ -108,29 +108,32 @@
                                 <!--các nút thao tác-->
                                 <StackPanel Orientation="Horizontal">
                                     <!--thông tin cá nhân-->
-                                    <Button Command="{Binding ViewCommand}"
+                                    <RadioButton Command="{Binding ViewCommand}"
+                                        Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             Margin="0 0 10 0"
                                             ToolTip="Thông tin chi tiết">
                                         <fa:IconImage Icon="InfoCircle"
                                                       Height="20"
                                                       />
-                                    </Button>
+                                    </RadioButton>
                                     <!--sửa thông tin cá nhân-->
-                                    <Button Command="{Binding ChangeCommand}"
+                                    <RadioButton Command="{Binding ChangeCommand}"
                                         Style="{StaticResource gridOpenButton}"
+                                        Tag="{StaticResource normalButton}"
                                             Margin="0 0 10 0"
                                             ToolTip="Sửa thông tin">
                                         <fa:IconImage Icon="PenToSquare"
                                                       Height="20"/>
-                                    </Button>
+                                    </RadioButton>
                                     <!--xem bệnh án và đơn thuốc-->
-                                    <Button 
+                                    <RadioButton 
+                                        Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             ToolTip="Bệnh án và đơn thuốc">
                                         <fa:IconImage Icon="NotesMedical"
                                                       Height="20"/>
-                                    </Button>
+                                    </RadioButton>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
