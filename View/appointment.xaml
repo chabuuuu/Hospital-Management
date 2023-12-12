@@ -102,20 +102,22 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button
+                                    <RadioButton
                                         Command="{Binding ViewAppointmentCommand}"
-                                        Style="{StaticResource gridEditButton}"
+                                        Style="{StaticResource gridOpenButton}"
+                                        Tag="{StaticResource normalButton}"
                                             Margin="0 0 10 0">
                                         <fa:IconImage Icon="InfoCircle"
                                                       Height="20"
                                                       />
-                                    </Button>
-                                    <Button 
+                                    </RadioButton>
+                                    <RadioButton 
                                         Command="{Binding ChangeAppointmentCommand}"
+                                        Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}">
                                         <fa:IconImage Icon="PenToSquare"
                                                       Height="20"/>
-                                    </Button>
+                                    </RadioButton>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
