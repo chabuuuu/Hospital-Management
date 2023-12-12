@@ -24,18 +24,6 @@ namespace LTTQ_DoAn.View
         public appointment()
         {
             InitializeComponent();
-            ObservableCollection<Appointment> Appointments = new ObservableCollection<Appointment>();
-            Appointments.Add(new Appointment() { ID = "123", Name = "asdads", Age = 12, Service = "asdasdsa", Date = "12/4/4" });
-            AppointmentList.ItemsSource = Appointments;
-        }
-        public class Appointment
-        {
-            public string ID { get; set; }
-            public string Name { get; set; }
-            public int Age { get; set; }
-            public string Service { get; set; }
-            public string Date { get; set; }
-
         }
     }
 }
