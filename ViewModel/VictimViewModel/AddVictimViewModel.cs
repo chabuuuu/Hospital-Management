@@ -9,38 +9,31 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel
-{
-    public class AddVictimViewModel : BaseViewModel
-    {
+namespace LTTQ_DoAn.ViewModel {
+    public class AddVictimViewModel : BaseViewModel {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
-        public AddVictimViewModel()
-        {
+        public AddVictimViewModel() {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
         //hành động của nút hủy bỏ: đóng cửa sổ
-        private void ExecuteCancelCommand(object? obj)
-        {
+        private void ExecuteCancelCommand(object? obj) {
             Application.Current.MainWindow.Close();
         }
         //điều kiện để lệnh hủy bỏ được thực hiện: k có điều kiện
-        private bool CanExecuteCancelCommand(object? obj)
-        {
+        private bool CanExecuteCancelCommand(object? obj) {
             return true;
         }
 
         //hành động thêm vào
-        private void ExecuteAddCommand(object? obj)
-        {
+        private void ExecuteAddCommand(object? obj) {
             //câu lệnh thêm ở đây
 
             Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
         }
         //điều kiện để lệnh thêm được thực hiện: lich khám không có sẵn trong database
-        private bool CanExecuteAddCommand(object? obj)
-        {
+        private bool CanExecuteAddCommand(object? obj) {
             // những điều kiện cần xét
 
             // nếu không thỏa sẽ show messagebox rằng đã có trong lịch khám và return false

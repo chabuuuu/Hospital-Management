@@ -7,10 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel
-{
-    public class LoginViewModel : BaseViewModel
-    {
+namespace LTTQ_DoAn.ViewModel {
+    public class LoginViewModel : BaseViewModel {
         //Fields
         private string _username;
         private SecureString _password;
@@ -18,39 +16,31 @@ namespace LTTQ_DoAn.ViewModel
         private bool _isViewVisible = true;
         private object executeloginCommand;
 
-        public string Username
-        {
+        public string Username {
             get { return _username; }
-            set
-            {
+            set {
                 _username = value;
                 OnPropertyChanged(nameof(Username));
             }
         }
-        public SecureString Password
-        {
+        public SecureString Password {
             get => _password;
-            set
-            {
+            set {
                 _password = value;
                 OnPropertyChanged(nameof(Password));
             }
         }
-        public string ErrorMessage
-        {
+        public string ErrorMessage {
             get => _errorMessage;
-            set
-            {
+            set {
                 _errorMessage = value;
                 OnPropertyChanged(nameof(ErrorMessage));
 
             }
         }
-        public bool IsViewVisible
-        {
+        public bool IsViewVisible {
             get => _isViewVisible;
-            set
-            {
+            set {
                 _isViewVisible = value;
                 OnPropertyChanged(nameof(IsViewVisible));
 
@@ -59,31 +49,24 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand LoginCommand { get; }
         public ICommand RecoverPasswordCommnad { get; }
         public ICommand ShowPasswordCommnad { get; }
-        public ICommand RememberPassword { get;  }
-        public LoginViewModel()
-        {
+        public ICommand RememberPassword { get; }
+        public LoginViewModel() {
             LoginCommand = new ViewModelCommand(ExecuteloginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommnad = new ViewModelCommand(p => ExecuteRecoverPassCommand("",""));
+            RecoverPasswordCommnad = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
         }
-        private bool CanExecuteLoginCommand(object obj)
-        {
+        private bool CanExecuteLoginCommand(object obj) {
             bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length == 0 || Password == null || Password.Length == 0) 
-            {
+            if (string.IsNullOrWhiteSpace(Username) || Username.Length == 0 || Password == null || Password.Length == 0) {
                 validData = false;
-            }
-            else
-            {
+            } else {
                 validData = true;
             }
             return validData;
         }
-        private void ExecuteloginCommand(object obj)
-        {
+        private void ExecuteloginCommand(object obj) {
             throw new NotSupportedException();
         }
-        private void ExecuteRecoverPassCommand(string username, string email)
-        {
+        private void ExecuteRecoverPassCommand(string username, string email) {
             throw new NotSupportedException();
         }
     }

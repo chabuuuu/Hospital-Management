@@ -11,10 +11,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel
-{
-    public class VictimViewModel: BaseViewModel
-    {
+namespace LTTQ_DoAn.ViewModel {
+    public class VictimViewModel : BaseViewModel {
         public ICommand ViewCommand { get; }
         public ICommand ChangeCommand { get; }
         public ICommand AddCommand { get; }
@@ -24,14 +22,12 @@ namespace LTTQ_DoAn.ViewModel
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
 
         public List<BENHNHAN> Victims { get => victims; set => victims = value; }
-        private void Load()
-        {
+        private void Load() {
             Victims = _db.BENHNHAN.ToList();
             //System.Windows.MessageBox.Show("Done");
         }
 
-        public VictimViewModel()
-        {
+        public VictimViewModel() {
             Load();
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
@@ -39,13 +35,11 @@ namespace LTTQ_DoAn.ViewModel
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
         }
 
-        private bool CanExecuteAddCommand(object? obj)
-        {
+        private bool CanExecuteAddCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteAddCommand(object? obj)
-        {
+        private void ExecuteAddCommand(object? obj) {
             AddVictim wd = new AddVictim();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
@@ -54,36 +48,30 @@ namespace LTTQ_DoAn.ViewModel
         }
 
         //tham số 1 điều kiện để xóa lịch khám
-        private bool CanExecuteDeleteCommand(object? obj)
-        {
+        private bool CanExecuteDeleteCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteDeleteCommand(object? obj)
-        {
+        private void ExecuteDeleteCommand(object? obj) {
 
         }
 
-        private bool CanExecuteViewCommand(object? obj)
-        {
+        private bool CanExecuteViewCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteViewCommand(object? obj)
-        {
+        private void ExecuteViewCommand(object? obj) {
             ViewVictim wd = new ViewVictim();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteChangeCommand(object? obj)
-        {
+        private bool CanExecuteChangeCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteChangeCommand(object? obj)
-        {
+        private void ExecuteChangeCommand(object? obj) {
             ChangeVictim wd = new ChangeVictim();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs

@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel
-{
-    public class DoctorAndNurseViewModel : BaseViewModel
-    {
+namespace LTTQ_DoAn.ViewModel {
+    public class DoctorAndNurseViewModel : BaseViewModel {
         public ICommand DoctorCommand { get; } // lệnh chuyển sang xem bác sĩ
         public ICommand NurseCommand { get; } // lệnh chuyển sang xem y tá
 
@@ -20,8 +18,7 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
 
-        public DoctorAndNurseViewModel()
-        {
+        public DoctorAndNurseViewModel() {
             // dựa vào class ViewModelCommand đã được định nghĩa
             DoctorCommand = new ViewModelCommand(ExecuteDoctorCommand, CanExecuteDoctorCommand);
             NurseCommand = new ViewModelCommand(ExecuteNurseCommand, CanExecuteNurseCommand);
@@ -31,36 +28,30 @@ namespace LTTQ_DoAn.ViewModel
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
         }
 
-        private bool CanExecuteDoctorCommand(object? obj)
-        {
+        private bool CanExecuteDoctorCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteDoctorCommand(object? obj)
-        {
+        private void ExecuteDoctorCommand(object? obj) {
 
         }
 
-        private bool CanExecuteNurseCommand(object? obj)
-        {
+        private bool CanExecuteNurseCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteNurseCommand(object? obj)
-        {
+        private void ExecuteNurseCommand(object? obj) {
 
         }
 
 
 
         //tham số thứ 1 là điều kiện thực hiện command
-        private bool CanExecuteAddCommand(object? obj)
-        {
+        private bool CanExecuteAddCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteAddCommand(object? obj)
-        {
+        private void ExecuteAddCommand(object? obj) {
             AddNurseAndDoctor wd = new AddNurseAndDoctor();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
@@ -69,36 +60,30 @@ namespace LTTQ_DoAn.ViewModel
         }
 
         //tham số 1 điều kiện để xóa lịch khám
-        private bool CanExecuteDeleteCommand(object? obj)
-        {
+        private bool CanExecuteDeleteCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteDeleteCommand(object? obj)
-        {
+        private void ExecuteDeleteCommand(object? obj) {
 
         }
 
-        private bool CanExecuteViewCommand(object? obj)
-        {
+        private bool CanExecuteViewCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteViewCommand(object? obj)
-        {
+        private void ExecuteViewCommand(object? obj) {
             ViewDoctorAndNurse wd = new ViewDoctorAndNurse();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteChangeCommand(object? obj)
-        {
+        private bool CanExecuteChangeCommand(object? obj) {
             return true;
         }
         //tham số thứ 2 là hành động
-        private void ExecuteChangeCommand(object? obj)
-        {
+        private void ExecuteChangeCommand(object? obj) {
             ChangeDoctorAndNurse wd = new ChangeDoctorAndNurse();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
