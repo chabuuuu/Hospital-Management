@@ -33,21 +33,6 @@ namespace LTTQ_DoAn.View
             fields.Add(new Field { Name = "temp 1" });
             FieldList.ItemsSource = fields;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("hello world");
-        }
-
-        private void RadioButton_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("hello world 1");
-        }
-
-        private void RadioButton_Click_1(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("hello world 2");
-        }
         public class Field
         {
             public string Name { get; set; }
