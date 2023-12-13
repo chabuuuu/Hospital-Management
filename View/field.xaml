@@ -41,7 +41,6 @@
                                     <!--thêm command xem vào đây-->
                                     <Button Height="250" Width="200" Background="Transparent"
                                             BorderBrush="Transparent"
-                                            Click="Button_Click"
                                             >
                                         <Grid Width="200" HorizontalAlignment="Center">
                                             <Grid.RowDefinitions>
@@ -53,7 +52,6 @@
                                                     <!--thêm command sửa vào đây-->
                                                     <RadioButton Panel.ZIndex="1"
                                                                  Margin="10 10 12 10"
-                                                                 Click="RadioButton_Click"
                                                             Height="28" HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"                           >   
                                                         <fa:IconImage Icon="PenToSquare"
@@ -61,7 +59,6 @@
                                                     </RadioButton>
                                                     <!--thêm command xóa vào đấy-->
                                                     <RadioButton Panel.ZIndex="1"
-                                                                 Click="RadioButton_Click_1"
                                                                  Margin="10 0 14 10"
                                                             Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"                           >
