@@ -38,17 +38,41 @@
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
                                     </Border.Effect>
+                                    <!--thêm command xem vào đây-->
                                     <Button Height="250" Width="200" Background="Transparent"
                                             BorderBrush="Transparent"
+                                            Click="Button_Click"
                                             >
                                         <Grid Width="200" HorizontalAlignment="Center">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="200"/>
                                                 <RowDefinition Height="50"/>
                                             </Grid.RowDefinitions>
-                                            <Grid.Background>
-                                                <ImageBrush Stretch="Uniform" ImageSource="{Binding}"/>
-                                            </Grid.Background>
+                                            <Grid>
+                                                <StackPanel>
+                                                    <!--thêm command sửa vào đây-->
+                                                    <RadioButton Panel.ZIndex="1"
+                                                                 Margin="10 10 12 10"
+                                                                 Click="RadioButton_Click"
+                                                            Height="28" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                                            Style="{StaticResource gridOpenButton}"                           >   
+                                                        <fa:IconImage Icon="PenToSquare"
+                                                            Foreground="Black"/>
+                                                    </RadioButton>
+                                                    <!--thêm command xóa vào đấy-->
+                                                    <RadioButton Panel.ZIndex="1"
+                                                                 Click="RadioButton_Click_1"
+                                                                 Margin="10 0 14 10"
+                                                            Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                                            Style="{StaticResource gridOpenButton}"                           >
+                                                        <fa:IconImage Icon="Trash"
+                                                            Foreground="#ed2525"/>
+                                                    </RadioButton>
+                                                </StackPanel>
+                                                <Grid.Background>
+                                                    <ImageBrush Stretch="Uniform" />
+                                                </Grid.Background>
+                                            </Grid>
                                             <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                                                 <TextBlock Foreground="#3f3f3f"
                                                             FontSize="20"

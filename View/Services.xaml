@@ -45,13 +45,14 @@
                                     </Grid.RowDefinitions>
                                     <Grid>
                                         <!--nút xóa-->
-                                        <Button Panel.ZIndex="1"
+                                        <!--thêm command xóa vào đây-->
+                                        <RadioButton Panel.ZIndex="1"
+                                                     Margin="10"
                                             Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
-                                            Style="{StaticResource gridOpenButton}"
-                                                                >
+                                            Style="{StaticResource gridOpenButton}">
                                             <fa:IconImage Icon="Trash"
                                                                 Foreground="#ed2525"/>
-                                        </Button>
+                                        </RadioButton>
                                         <!--ảnh dịch vụ-->
                                         <Grid.Background>
                                             <ImageBrush Stretch="Uniform" ImageSource="{Binding}"/>
