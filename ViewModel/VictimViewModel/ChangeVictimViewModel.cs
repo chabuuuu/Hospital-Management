@@ -30,7 +30,7 @@ namespace LTTQ_DoAn.ViewModel
         //---------------------------------------------
         private void ExecuteConfirmChangeCommand(object? obj)
         {
-
+            
             Application.Current.MainWindow.Close();
         }
         private bool CanExecuteConfirmChangeCommand(object? obj)

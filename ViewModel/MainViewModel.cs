@@ -11,8 +11,10 @@ using System.Windows.Input;
 using LTTQ_DoAn.Repositories;
 using LTTQ_DoAn.Model;
 using FontAwesome.Sharp;
-namespace LTTQ_DoAn.ViewModel {
-    public class MainViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class MainViewModel : BaseViewModel
+    {
         private UserAccountModel _currentUserAccount;
         private BaseViewModel _currentChildView;
         private string _caption;
@@ -20,31 +22,39 @@ namespace LTTQ_DoAn.ViewModel {
         private IUserRepository userRepository;
 
 
-        public UserAccountModel CurrentUserAccount {
-            get {
+        public UserAccountModel CurrentUserAccount
+        {
+            get
+            {
                 return _currentUserAccount;
             }
 
-            set {
+            set
+            {
                 _currentUserAccount = value;
                 OnPropertyChanged(nameof(CurrentUserAccount));
             }
         }
 
-        public BaseViewModel CurrentChildView {
+        public BaseViewModel CurrentChildView
+        {
             get { return _currentChildView; }
             set { _currentChildView = value; OnPropertyChanged(nameof(CurrentChildView)); }
         }
-        public string Caption {
+        public string Caption
+        {
             get { return _caption; }
-            set {
+            set
+            {
                 _caption = value;
                 OnPropertyChanged(nameof(Caption));
             }
         }
-        public IconChar Icon {
+        public IconChar Icon
+        {
             get { return _icon; }
-            set {
+            set
+            {
                 _icon = value;
                 OnPropertyChanged(nameof(Icon));
             }
@@ -60,7 +70,8 @@ namespace LTTQ_DoAn.ViewModel {
         public ICommand ShowRoomViewCommand { get; }
 
 
-        public MainViewModel() {
+        public MainViewModel()
+        {
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
 
@@ -78,44 +89,52 @@ namespace LTTQ_DoAn.ViewModel {
             //LoadCurrentUserData();
         }
 
-        private void ExecuteShowCustomerViewCommand(object obj) {
+        private void ExecuteShowCustomerViewCommand(object obj)
+        {
             CurrentChildView = new CustomerViewModel();
             Caption = "Customers";
             Icon = IconChar.UserGroup;
         }
 
-        private void ExecuteShowHomeViewCommand(object obj) {
+        private void ExecuteShowHomeViewCommand(object obj)
+        {
             CurrentChildView = new HomeViewModel();
             Caption = "Dashboard";
             Icon = IconChar.Home;
         }
 
-        private void ExecuteShowVictimViewCommand(object obj) {
+        private void ExecuteShowVictimViewCommand(object obj)
+        {
             CurrentChildView = new VictimViewModel();
             Caption = "Bệnh nhân";
             Icon = IconChar.Bed;
         }
-        private void ExecuteShowAppoinmentViewCommand(object obj) {
+        private void ExecuteShowAppoinmentViewCommand(object obj)
+        {
             CurrentChildView = new AppointmentViewModel();
             Caption = "Lịch khám";
             Icon = IconChar.CalendarDays;
         }
-        private void ExecuteShowDoctorViewCommand(object obj) {
+        private void ExecuteShowDoctorViewCommand(object obj)
+        {
             CurrentChildView = new DoctorAndNurseViewModel();
             Caption = "Y sĩ";
             Icon = IconChar.UserNurse;
         }
-        private void ExecuteShowRoomViewCommand(object obj) {
+        private void ExecuteShowRoomViewCommand(object obj)
+        {
             CurrentChildView = new RoomViewModel();
             Caption = "Phòng bệnh";
             Icon = IconChar.CirclePlus;
         }
-        private void ExecuteShowFieldViewCommand(object obj) {
+        private void ExecuteShowFieldViewCommand(object obj)
+        {
             CurrentChildView = new FieldViewModel();
             Caption = "Khoa";
             Icon = IconChar.Clone;
         }
-        private void ExecuteShowServicesViewCommand(object obj) {
+        private void ExecuteShowServicesViewCommand(object obj)
+        {
             CurrentChildView = new ServicesViewModel();
             Caption = "Dịch vụ";
             Icon = IconChar.ArrowDownAZ;

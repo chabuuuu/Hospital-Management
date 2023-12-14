@@ -59,19 +59,20 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand LoginCommand { get; }
         public ICommand RecoverPasswordCommnad { get; }
         public ICommand ShowPasswordCommnad { get; }
-        public ICommand RememberPassword { get; }
+        public ICommand RememberPassword { get;  }
         public LoginViewModel()
         {
             LoginCommand = new ViewModelCommand(ExecuteloginCommand, CanExecuteLoginCommand);
-            RecoverPasswordCommnad = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
+            RecoverPasswordCommnad = new ViewModelCommand(p => ExecuteRecoverPassCommand("",""));
         }
         private bool CanExecuteLoginCommand(object obj)
         {
             bool validData;
-            if (string.IsNullOrWhiteSpace(Username) || Username.Length == 0 || Password == null || Password.Length == 0)
+            if (string.IsNullOrWhiteSpace(Username) || Username.Length == 0 || Password == null || Password.Length == 0) 
             {
                 validData = false;
-            } else
+            }
+            else
             {
                 validData = true;
             }
