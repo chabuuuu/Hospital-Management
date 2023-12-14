@@ -21,6 +21,7 @@ namespace LTTQ_DoAn.ViewModel {
         private BENHNHAN selectedItem = null;
 
         QUANLYBENHVIENEntities _db;
+
         public List<BENHNHAN> Victims {
             get => victims; set {
                 victims = value;
