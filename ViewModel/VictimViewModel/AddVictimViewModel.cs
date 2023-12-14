@@ -10,55 +10,47 @@ using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 using LTTQ_DoAn.View;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class AddVictimViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel 
+{
+    public class AddVictimViewModel : BaseViewModel 
+    {
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private int id;
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public int Id { get => id; set => id = value; }
-        public string Ten {
-            get => ten; set {
+        public string Ten { get => ten; set 
+            {
                 ten = value;
                 OnPropertyChanged(nameof(Ten));
-            }
+            } 
         }
-        public string Ngaysinh {
-            get => ngaysinh; set {
+        public string Ngaysinh { get => ngaysinh; set 
+            {
                 ngaysinh = value;
                 OnPropertyChanged(nameof(Ngaysinh));
-            }
+            } 
         }
-        public string Gioitinh {
-            get => gioitinh; set {
+        public string Gioitinh { get => gioitinh; set {
                 gioitinh = value;
                 OnPropertyChanged(nameof(Gioitinh));
-            }
-        }
-        public string Bhyt {
-            get => bhyt; set {
+            } }
+        public string Bhyt { get => bhyt; set {
                 bhyt = value;
                 OnPropertyChanged(nameof(Bhyt));
-            }
-        }
-        public string Maphong {
-            get => maphong; set {
+            } }
+        public string Maphong { get => maphong; set {
                 maphong = value;
                 OnPropertyChanged(nameof(Maphong));
-            }
-        }
-        public string Ngaynhapvien {
-            get => ngaynhapvien; set {
+            } }
+        public string Ngaynhapvien { get => ngaynhapvien; set {
                 ngaynhapvien = value;
                 OnPropertyChanged(nameof(Ngaynhapvien));
-            }
-        }
-        public string Diachi {
-            get => diachi; set {
+            } }
+        public string Diachi { get => diachi; set {
                 diachi = value;
                 OnPropertyChanged(nameof(Diachi));
-            }
-        }
+            } }
 
         private string ten = null;
         private string ngaysinh = null;
@@ -67,13 +59,16 @@ namespace LTTQ_DoAn.ViewModel {
         private string maphong = null;
         private string ngaynhapvien = null;
         private string diachi = null;
-        public AddVictimViewModel(int id) {
+        public AddVictimViewModel(int id) 
+        {
             this.Id = id;
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
-        public void insert() {
-            BENHNHAN newBenhnhan = new BENHNHAN() {
+        public void insert() 
+        {
+            BENHNHAN newBenhnhan = new BENHNHAN() 
+            {
                 HOTEN = this.Ten,
                 GIOITINH = Gioitinh,
                 NGAYSINH = DateTime.Parse(Ngaysinh),
@@ -90,20 +85,24 @@ namespace LTTQ_DoAn.ViewModel {
             _db.SaveChanges();
             //BaseViewModel.global_db = _db;
         }
-        public AddVictimViewModel() {
+        public AddVictimViewModel() 
+        {
 
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
         //hành động của nút hủy bỏ: đóng cửa sổ
-        private void ExecuteCancelCommand(object? obj) {
+        private void ExecuteCancelCommand(object? obj) 
+        {
             Application.Current.MainWindow.Close();
         }
         //điều kiện để lệnh hủy bỏ được thực hiện: k có điều kiện
-        private bool CanExecuteCancelCommand(object? obj) {
+        private bool CanExecuteCancelCommand(object? obj) 
+        {
             return true;
         }
-        public int convertSUB_ID(string Sub_id) {
+        public int convertSUB_ID(string Sub_id) 
+        {
             // Chuỗi cần tách
             string inputString = Sub_id;
 
@@ -113,20 +112,23 @@ namespace LTTQ_DoAn.ViewModel {
             return int.Parse(remainingCharacters);
         }
         //hành động thêm vào
-        private void ExecuteAddCommand(object? obj) {
+        private void ExecuteAddCommand(object? obj) 
+        {
             //câu lệnh thêm ở đây
             try {
                 insert();
                 MessageBox.Show("Thêm bệnh nhân mới thành công!");
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
 
-            } catch (Exception err) {
+            } 
+            catch (Exception err) {
                 MessageBox.Show(err.Message);
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
             }
         }
         //điều kiện để lệnh thêm được thực hiện: lich khám không có sẵn trong database
-        private bool CanExecuteAddCommand(object? obj) {
+        private bool CanExecuteAddCommand(object? obj) 
+        {
             // những điều kiện cần xét
 
             // nếu không thỏa sẽ show messagebox rằng đã có trong lịch khám và return false
