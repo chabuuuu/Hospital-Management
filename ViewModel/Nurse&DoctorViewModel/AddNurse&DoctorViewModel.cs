@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
+using LTTQ_DoAn.View;
 
 namespace LTTQ_DoAn.ViewModel {
     public class AddNurseAndDoctorViewModel : BaseViewModel {
@@ -24,12 +25,27 @@ namespace LTTQ_DoAn.ViewModel {
         private bool CanExecuteCancelCommand(object? obj) {
             return true;
         }
+        public int convertSUB_ID(string Sub_id) {
+            // Chuỗi cần tách
+            string inputString = Sub_id;
 
+            // Tách các ký tự còn lại thành một chuỗi riêng
+            string remainingCharacters = inputString.Substring(3);
+
+            return int.Parse(remainingCharacters);
+        }
         //hành động thêm vào
         private void ExecuteAddCommand(object? obj) {
             //câu lệnh thêm ở đây
+            try {
+                insert();
+                MessageBox.Show("Thêm bệnh nhân mới thành công!");
+                Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
 
-            Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
+            } catch (Exception err) {
+                MessageBox.Show(err.Message);
+                Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
+            }
         }
         //điều kiện để lệnh thêm được thực hiện: lich khám không có sẵn trong database
         private bool CanExecuteAddCommand(object? obj) {
