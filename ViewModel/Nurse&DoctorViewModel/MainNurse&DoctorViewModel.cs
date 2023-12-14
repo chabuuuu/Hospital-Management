@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class DoctorAndNurseViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class DoctorAndNurseViewModel : BaseViewModel
+    {
         public ICommand DoctorCommand { get; } // lệnh chuyển sang xem bác sĩ
         public ICommand NurseCommand { get; } // lệnh chuyển sang xem y tá
 

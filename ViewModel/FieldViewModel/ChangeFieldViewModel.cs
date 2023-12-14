@@ -8,8 +8,10 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class ChangeFieldViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class ChangeFieldViewModel
+    {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmChangeCommand { get; }
         public ChangeFieldViewModel() {

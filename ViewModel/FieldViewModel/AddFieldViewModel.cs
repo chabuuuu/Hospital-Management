@@ -8,14 +8,16 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class AddFieldViewModel {
-        public ICommand CancelCommand { get;  }
+namespace LTTQ_DoAn.ViewModel
+{
+    public class AddFieldViewModel
+    {
+        public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public AddFieldViewModel() {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            
+
         }
 
         private bool CanExecuteCancelCommand(object? obj) {

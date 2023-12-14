@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class AppointmentViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class AppointmentViewModel : BaseViewModel
+    {
         public ICommand ViewAppointmentCommand { get; }
         public ICommand ChangeAppointmentCommand { get; }
         public ICommand AddApointmentCommand { get; }

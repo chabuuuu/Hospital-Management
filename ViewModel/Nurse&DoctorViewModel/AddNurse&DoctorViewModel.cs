@@ -8,8 +8,10 @@ using System.Windows.Input;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class AddNurseAndDoctorViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class AddNurseAndDoctorViewModel : BaseViewModel
+    {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public AddNurseAndDoctorViewModel() {

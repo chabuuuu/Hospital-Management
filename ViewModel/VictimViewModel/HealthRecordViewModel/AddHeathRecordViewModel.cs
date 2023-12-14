@@ -9,8 +9,10 @@ using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 using LTTQ_DoAn.ViewModel;
 
-namespace LTTQ_DoAn.ViewModell {
-    public class AddHeathRecordViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModell
+{
+    public class AddHeathRecordViewModel : BaseViewModel
+    {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public AddHeathRecordViewModel() {
@@ -30,6 +32,6 @@ namespace LTTQ_DoAn.ViewModell {
             //
             Application.Current.MainWindow.Close();
         }
- 
+
     }
 }

@@ -7,8 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class LoginViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class LoginViewModel : BaseViewModel
+    {
         //Fields
         private string _username;
         private SecureString _password;

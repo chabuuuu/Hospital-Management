@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class RoomViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class RoomViewModel : BaseViewModel
+    {
         public ICommand ChangeRoomCommand { get; }
         public ICommand AddRoomCommand { get; }
         public ICommand DeleteRoomCommand { get; }

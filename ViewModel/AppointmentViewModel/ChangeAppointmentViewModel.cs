@@ -8,8 +8,10 @@ using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class ChangeAppointmentViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class ChangeAppointmentViewModel : BaseViewModel
+    {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmChangeCommand { get; }
         public ChangeAppointmentViewModel() {

@@ -11,8 +11,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class HealthRecordViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class HealthRecordViewModel : BaseViewModel
+    {
         public ICommand ChangeCommand { get; }
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }

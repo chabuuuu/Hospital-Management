@@ -8,8 +8,10 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class AddRoomViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class AddRoomViewModel : BaseViewModel
+    {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public AddRoomViewModel() {
@@ -33,5 +35,5 @@ namespace LTTQ_DoAn.ViewModel {
             Application.Current.MainWindow.Close();
         }
     }
-    
+
 }

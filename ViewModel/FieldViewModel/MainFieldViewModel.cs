@@ -28,7 +28,7 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteViewCommand(object? obj) {
             ViewField wd = new ViewField();
-            
+
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
@@ -54,7 +54,7 @@ namespace LTTQ_DoAn.ViewModel
             return true;//ko điều kiện
         }
         private void ExecuteDeleteCommand(object? obj) {
-            
+
         }
 
     }

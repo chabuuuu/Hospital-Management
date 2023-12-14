@@ -8,8 +8,10 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class ViewFieldViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class ViewFieldViewModel
+    {
         public ICommand CancelCommand { get; }
         public ViewFieldViewModel() {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);

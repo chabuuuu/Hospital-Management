@@ -8,8 +8,10 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class AddServicesViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class AddServicesViewModel : BaseViewModel
+    {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public AddServicesViewModel() {

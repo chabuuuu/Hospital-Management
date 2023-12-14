@@ -9,8 +9,10 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class AddAppointmentViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class AddAppointmentViewModel : BaseViewModel
+    {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddApointmentCommand { get; }
         public AddAppointmentViewModel() {

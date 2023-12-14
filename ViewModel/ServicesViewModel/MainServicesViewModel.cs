@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace LTTQ_DoAn.ViewModel {
-    public class ServicesViewModel : BaseViewModel {
+namespace LTTQ_DoAn.ViewModel
+{
+    public class ServicesViewModel : BaseViewModel
+    {
         public ICommand ChangeServicesCommand { get; }
         public ICommand AddServicesCommand { get; }
         public ICommand DeleteServicesCommand { get; }
