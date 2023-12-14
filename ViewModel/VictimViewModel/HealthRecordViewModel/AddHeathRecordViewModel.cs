@@ -15,20 +15,25 @@ namespace LTTQ_DoAn.ViewModell
     {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
-        public AddHeathRecordViewModel() {
+        public AddHeathRecordViewModel()
+        {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
-        private bool CanExecuteCancelCommand(object? obj) {
+        private bool CanExecuteCancelCommand(object? obj)
+        {
             return true; //ko điều kiện
         }
-        private void ExecuteCancelCommand(object? obj) {
+        private void ExecuteCancelCommand(object? obj)
+        {
             Application.Current.MainWindow.Close();
         }
-        private bool CanExecuteAddCommand(object? obj) {
+        private bool CanExecuteAddCommand(object? obj)
+        {
             return true;
         }
-        private void ExecuteAddCommand(object? obj) {
+        private void ExecuteAddCommand(object? obj)
+        {
             //
             Application.Current.MainWindow.Close();
         }

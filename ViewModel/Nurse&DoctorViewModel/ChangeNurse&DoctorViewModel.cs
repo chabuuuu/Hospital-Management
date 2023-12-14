@@ -14,22 +14,27 @@ namespace LTTQ_DoAn.ViewModel
     {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmChangeCommand { get; }
-        public ChangeNurseAndDoctorViewModel() {
+        public ChangeNurseAndDoctorViewModel()
+        {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);
         }
-        private void ExecuteCancelCommand(object? obj) {
+        private void ExecuteCancelCommand(object? obj)
+        {
             Application.Current.MainWindow.Close();
         }
         //điều kiện để lệnh hủy bỏ được thực hiện: k có điều kiện
-        private bool CanExecuteCancelCommand(object? obj) {
+        private bool CanExecuteCancelCommand(object? obj)
+        {
             return true;
         }
         //---------------------------------------------
-        private void ExecuteConfirmChangeCommand(object? obj) {
+        private void ExecuteConfirmChangeCommand(object? obj)
+        {
             Application.Current.MainWindow.Close();
         }
-        private bool CanExecuteConfirmChangeCommand(object? obj) {
+        private bool CanExecuteConfirmChangeCommand(object? obj)
+        {
             return true;
         }
 

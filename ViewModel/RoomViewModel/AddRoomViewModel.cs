@@ -14,23 +14,28 @@ namespace LTTQ_DoAn.ViewModel
     {
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
-        public AddRoomViewModel() {
+        public AddRoomViewModel()
+        {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
 
-        private bool CanExecuteCancelCommand(object? obj) {
+        private bool CanExecuteCancelCommand(object? obj)
+        {
             return true; //ko dieu kien
         }
 
-        private void ExecuteCancelCommand(object? obj) {
+        private void ExecuteCancelCommand(object? obj)
+        {
             Application.Current.MainWindow.Close();
         }
-        private bool CanExecuteAddCommand(object? obj) {
+        private bool CanExecuteAddCommand(object? obj)
+        {
             return true; //dk: không trùng với cái đã có
         }
 
-        private void ExecuteAddCommand(object? obj) {
+        private void ExecuteAddCommand(object? obj)
+        {
             //
             Application.Current.MainWindow.Close();
         }

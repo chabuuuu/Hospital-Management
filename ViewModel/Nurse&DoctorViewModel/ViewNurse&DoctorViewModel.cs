@@ -13,14 +13,17 @@ namespace LTTQ_DoAn.ViewModel
     public class ViewNurseAndDoctorViewModel : BaseViewModel
     {
         public ICommand CancelCommand { get; }
-        public ViewNurseAndDoctorViewModel() {
+        public ViewNurseAndDoctorViewModel()
+        {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
         }
-        private void ExecuteCancelCommand(object? obj) {
+        private void ExecuteCancelCommand(object? obj)
+        {
             Application.Current.MainWindow.Close();
         }
         //điều kiện để lệnh hủy bỏ được thực hiện: k có điều kiện
-        private bool CanExecuteCancelCommand(object? obj) {
+        private bool CanExecuteCancelCommand(object? obj)
+        {
             return true;
         }
     }

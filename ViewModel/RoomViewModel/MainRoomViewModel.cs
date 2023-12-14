@@ -15,34 +15,41 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ChangeRoomCommand { get; }
         public ICommand AddRoomCommand { get; }
         public ICommand DeleteRoomCommand { get; }
-        public RoomViewModel() {
+        public RoomViewModel()
+        {
             ChangeRoomCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddRoomCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteRoomCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
         }
 
-        private bool CanExecuteChangeCommand(object? obj) {
+        private bool CanExecuteChangeCommand(object? obj)
+        {
             return true;
         }
-        private void ExecuteChangeCommand(object? obj) {
+        private void ExecuteChangeCommand(object? obj)
+        {
             ChangeService wd = new ChangeService();
 
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteAddCommand(object? obj) {
+        private bool CanExecuteAddCommand(object? obj)
+        {
             return true;
         }
-        private void ExecuteAddCommand(object? obj) {
+        private void ExecuteAddCommand(object? obj)
+        {
             AddService wd = new AddService();
 
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteDeleteCommand(object? obj) {
+        private bool CanExecuteDeleteCommand(object? obj)
+        {
             return true;
         }
-        private void ExecuteDeleteCommand(object? obj) {
+        private void ExecuteDeleteCommand(object? obj)
+        {
 
         }
     }

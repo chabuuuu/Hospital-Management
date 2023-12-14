@@ -16,44 +16,53 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ChangeFieldCommand { get; }
         public ICommand AddFieldCommand { get; }
         public ICommand DeleteFieldCommand { get; }
-        public FieldViewModel() {
+        public FieldViewModel()
+        {
             ViewFieldCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeFieldCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddFieldCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteFieldCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
         }
 
-        private bool CanExecuteViewCommand(object? obj) {
+        private bool CanExecuteViewCommand(object? obj)
+        {
             return true; //ko điều kiện
         }
-        private void ExecuteViewCommand(object? obj) {
+        private void ExecuteViewCommand(object? obj)
+        {
             ViewField wd = new ViewField();
 
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteChangeCommand(object? obj) {
+        private bool CanExecuteChangeCommand(object? obj)
+        {
             return false; //ko điều kiện
         }
-        private void ExecuteChangeCommand(object? obj) {
+        private void ExecuteChangeCommand(object? obj)
+        {
             ChangeField wd = new ChangeField();
 
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteAddCommand(object? obj) {
+        private bool CanExecuteAddCommand(object? obj)
+        {
             return false;//ko điều kiện
         }
-        private void ExecuteAddCommand(object? obj) {
+        private void ExecuteAddCommand(object? obj)
+        {
             AddField wd = new AddField();
 
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteDeleteCommand(object? obj) {
+        private bool CanExecuteDeleteCommand(object? obj)
+        {
             return true;//ko điều kiện
         }
-        private void ExecuteDeleteCommand(object? obj) {
+        private void ExecuteDeleteCommand(object? obj)
+        {
 
         }
 

@@ -13,15 +13,18 @@ namespace LTTQ_DoAn.ViewModel
     public class ViewFieldViewModel
     {
         public ICommand CancelCommand { get; }
-        public ViewFieldViewModel() {
+        public ViewFieldViewModel()
+        {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
         }
 
-        private bool CanExecuteCancelCommand(object? obj) {
+        private bool CanExecuteCancelCommand(object? obj)
+        {
             return true;//ko điều kiện
         }
 
-        private void ExecuteCancelCommand(object? obj) {
+        private void ExecuteCancelCommand(object? obj)
+        {
             Application.Current.MainWindow.Close();
         }
     }

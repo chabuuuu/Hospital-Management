@@ -19,31 +19,38 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
 
-        public HealthRecordViewModel() {
+        public HealthRecordViewModel()
+        {
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
         }
 
-        private bool CanExecuteAddCommand(object? obj) {
+        private bool CanExecuteAddCommand(object? obj)
+        {
             return true;
         }
-        private void ExecuteAddCommand(object? obj) {
+        private void ExecuteAddCommand(object? obj)
+        {
             AddHealthRecord wd = new AddHealthRecord();
 
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
-        private bool CanExecuteDeleteCommand(object? obj) {
+        private bool CanExecuteDeleteCommand(object? obj)
+        {
             return true;
         }
-        private void ExecuteDeleteCommand(object? obj) {
+        private void ExecuteDeleteCommand(object? obj)
+        {
 
         }
-        private bool CanExecuteChangeCommand(object? obj) {
+        private bool CanExecuteChangeCommand(object? obj)
+        {
             return true;
         }
-        private void ExecuteChangeCommand(object? obj) {
+        private void ExecuteChangeCommand(object? obj)
+        {
             ChangeHealthRecord wd = new ChangeHealthRecord();
 
             Application.Current.MainWindow = wd;
