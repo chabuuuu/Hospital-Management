@@ -31,7 +31,7 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteViewCommand(object? obj)
         {
             ViewField wd = new ViewField();
-
+            MessageBox.Show("Open ViewField");
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
