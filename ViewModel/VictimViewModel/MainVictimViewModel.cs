@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace LTTQ_DoAn.ViewModel
 {
-    public class VictimViewModel: BaseViewModel
+    public class VictimViewModel : BaseViewModel
     {
         public ICommand ViewCommand { get; }
         public ICommand ChangeCommand { get; }
@@ -24,17 +24,33 @@ namespace LTTQ_DoAn.ViewModel
 
         QUANLYBENHVIENEntities _db;
 
+<<<<<<< HEAD:ViewModel/VictimViewModel/MainVictimViewModel.cs
+        public List<BENHNHAN> Victims
+        {
+            get => victims; set
+=======
         public List<BENHNHAN> Victims { get => victims; set
+>>>>>>> origin/dev:ViewModel/VictimViewModel.cs
             {
                 victims = value;
                 OnPropertyChanged(nameof(Victims));
             }
         }
+<<<<<<< HEAD:ViewModel/VictimViewModel/MainVictimViewModel.cs
+        public BENHNHAN SelectedItem
+        {
+            get => selectedItem; set
+            {
+                selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            }
+=======
         public BENHNHAN SelectedItem { get => selectedItem; set 
             { 
                 selectedItem = value;
                 OnPropertyChanged(nameof(SelectedItem));
             } 
+>>>>>>> origin/dev:ViewModel/VictimViewModel.cs
         }
 
         private void Load()

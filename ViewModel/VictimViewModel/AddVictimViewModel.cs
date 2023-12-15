@@ -19,38 +19,62 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand CancelCommand { get; }
         public ICommand ConfirmAddCommand { get; }
         public int Id { get => id; set => id = value; }
-        public string Ten { get => ten; set
+        public string Ten
+        {
+            get => ten; set
             {
                 ten = value;
                 OnPropertyChanged(nameof(Ten));
             }
         }
-        public string Ngaysinh { get => ngaysinh; set
+        public string Ngaysinh
+        {
+            get => ngaysinh; set
             {
                 ngaysinh = value;
                 OnPropertyChanged(nameof(Ngaysinh));
             }
         }
-        public string Gioitinh { get => gioitinh; set {
+        public string Gioitinh
+        {
+            get => gioitinh; set
+            {
                 gioitinh = value;
-                OnPropertyChanged(nameof (Gioitinh));
-            } }
-        public string Bhyt { get => bhyt; set {
+                OnPropertyChanged(nameof(Gioitinh));
+            }
+        }
+        public string Bhyt
+        {
+            get => bhyt; set
+            {
                 bhyt = value;
                 OnPropertyChanged(nameof(Bhyt));
-            } }
-        public string Maphong { get => maphong; set {
+            }
+        }
+        public string Maphong
+        {
+            get => maphong; set
+            {
                 maphong = value;
                 OnPropertyChanged(nameof(Maphong));
-            } }
-        public string Ngaynhapvien { get => ngaynhapvien; set {
+            }
+        }
+        public string Ngaynhapvien
+        {
+            get => ngaynhapvien; set
+            {
                 ngaynhapvien = value;
                 OnPropertyChanged(nameof(Ngaynhapvien));
-            } }
-        public string Diachi { get => diachi; set {
+            }
+        }
+        public string Diachi
+        {
+            get => diachi; set
+            {
                 diachi = value;
                 OnPropertyChanged(nameof(Diachi));
-            } }
+            }
+        }
 
         private string ten = null;
         private string ngaysinh = null;
@@ -87,7 +111,7 @@ namespace LTTQ_DoAn.ViewModel
         }
         public AddVictimViewModel()
         {
-            
+
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
@@ -115,13 +139,14 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteAddCommand(object? obj)
         {
             //câu lệnh thêm ở đây
-            try {
+            try
+            {
                 insert();
                 MessageBox.Show("Thêm bệnh nhân mới thành công!");
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
-            
-            }
-            catch (Exception err) {
+
+            } catch (Exception err)
+            {
                 MessageBox.Show(err.Message);
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
             }
