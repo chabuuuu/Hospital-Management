@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,18 @@ namespace LTTQ_DoAn.View
         List<string> fields = new List<string>();
         public field()
         {
-            InitializeComponent();
+            InitializeComponent();  
+            ObservableCollection<Field> fields = new ObservableCollection<Field>();
+            fields.Add(new Field { Name = "temp 1" });
+            fields.Add(new Field { Name = "temp 1" });
+            fields.Add(new Field { Name = "temp 1" });
+            fields.Add(new Field { Name = "temp 1" });
+            fields.Add(new Field { Name = "temp 1" });
+            FieldList.ItemsSource = fields;
         }
-        
+        public class Field
+        {
+            public string Name { get; set; }
+        }
     }
 }

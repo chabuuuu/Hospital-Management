@@ -12,6 +12,7 @@ namespace LTTQ_DoAn.ViewModel
     //Base view model
     public class BaseViewModel : INotifyPropertyChanged
     {
+        //public static QUANLYBENHVIENEntities global_db;
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

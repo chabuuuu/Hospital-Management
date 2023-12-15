@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LTTQ_DoAn.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace LTTQ_DoAn.View
         public AddVictim()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
