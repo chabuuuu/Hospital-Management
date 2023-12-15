@@ -23,34 +23,17 @@ namespace LTTQ_DoAn.ViewModel
         private BENHNHAN selectedItem = null;
 
         QUANLYBENHVIENEntities _db;
-
-<<<<<<< HEAD:ViewModel/VictimViewModel/MainVictimViewModel.cs
-        public List<BENHNHAN> Victims
-        {
-            get => victims; set
-=======
         public List<BENHNHAN> Victims { get => victims; set
->>>>>>> origin/dev:ViewModel/VictimViewModel.cs
             {
                 victims = value;
                 OnPropertyChanged(nameof(Victims));
             }
         }
-<<<<<<< HEAD:ViewModel/VictimViewModel/MainVictimViewModel.cs
-        public BENHNHAN SelectedItem
-        {
-            get => selectedItem; set
-            {
-                selectedItem = value;
-                OnPropertyChanged(nameof(SelectedItem));
-            }
-=======
         public BENHNHAN SelectedItem { get => selectedItem; set 
             { 
                 selectedItem = value;
                 OnPropertyChanged(nameof(SelectedItem));
-            } 
->>>>>>> origin/dev:ViewModel/VictimViewModel.cs
+            }
         }
 
         private void Load()
