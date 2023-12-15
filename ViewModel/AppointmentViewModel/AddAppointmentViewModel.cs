@@ -14,6 +14,8 @@ namespace LTTQ_DoAn.ViewModel
     public class AddAppointmentViewModel : BaseViewModel
     {
         public ICommand CancelCommand { get; }
+
+        public ICommand ConfirmChangeCommand { get; }
         public ICommand ConfirmAddApointmentCommand { get; }
         public AddAppointmentViewModel()
         {
@@ -35,7 +37,7 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteAddCommand(object? obj)
         {
             //câu lệnh thêm ở đây
-
+            
             Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
         }
         //điều kiện để lệnh thêm được thực hiện: lich khám không có sẵn trong database

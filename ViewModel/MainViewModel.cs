@@ -41,8 +41,8 @@ namespace LTTQ_DoAn.ViewModel
             get { return _currentChildView; }
             set { _currentChildView = value; OnPropertyChanged(nameof(CurrentChildView)); }
         }
-        public string Caption
-        {
+        public string Caption 
+        { 
             get { return _caption; }
             set
             {
@@ -61,7 +61,7 @@ namespace LTTQ_DoAn.ViewModel
         }
 
         public ICommand ShowHomeViewCommand { get; }
-        public ICommand ShowCustomerViewCommand { get; }
+        public ICommand ShowCustomerViewCommand {  get; }
         public ICommand ShowVictimViewCommand { get; }
         public ICommand ShowAppointmentViewCommand { get; }
         public ICommand ShowDoctorViewCommand { get; }
