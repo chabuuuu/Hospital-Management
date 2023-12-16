@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Forms;
+using Application = System.Windows.Application;
+using MessageBox = System.Windows.MessageBox;
+using System.Data.Entity.Infrastructure;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -87,6 +91,27 @@ namespace LTTQ_DoAn.ViewModel
         //tham số thứ 2 là hành động
         private void ExecuteDeleteCommand(object? obj)
         {
+            try
+            {
+                int Id = SelectedItem.MABENHNHAN;
+                var deleteMember = _db.BENHNHAN.Where(m => m.MABENHNHAN == Id).Single();
+                _db.BENHNHAN.Remove(deleteMember);
+                _db.SaveChanges();
+                
+             MessageBox.Show("Đã xóa bệnh nhân: \nMã bệnh nhân: " + 
+                 SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " + 
+                 SelectedItem.HOTEN.ToString());
+
+                Load();
+            }
+            catch (DbUpdateException e)
+            {
+                MessageBox.Show("Bạn cần xóa lịch khám của bệnh nhân này trước!");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString());
+            }
 
         }
 
