@@ -9,6 +9,7 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 using LTTQ_DoAn.View;
+using System.Globalization;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -95,13 +96,13 @@ namespace LTTQ_DoAn.ViewModel
             {
                 HOTEN = this.Ten,
                 GIOITINH = Gioitinh,
-                NGAYSINH = DateTime.Parse(Ngaysinh),
+                NGAYSINH = DateTime.ParseExact(Ngaysinh, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
                 MABHYT = Bhyt,
                 MAPHONG = this.convertSUB_ID(Maphong),
-                NGAYNHAPVIEN = DateTime.Parse(Ngaynhapvien),
+                NGAYNHAPVIEN = DateTime.ParseExact(Ngaynhapvien, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
                 DIACHI = Diachi
             };
-            newBenhnhan.MAPHONG = 1;
+            //newBenhnhan.MAPHONG = 1;
             //MessageBox.Show(Gioitinh);
             //MessageBox.Show(Ten + Gioitinh + Ngaysinh + Bhyt + this.convertSUB_ID(Maphong) + Ngaynhapvien + Diachi);
             _db.BENHNHAN.Add(newBenhnhan);
