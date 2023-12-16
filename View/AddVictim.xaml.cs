@@ -1,8 +1,10 @@
 ﻿using LTTQ_DoAn.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +24,9 @@ namespace LTTQ_DoAn.View
     {
         public AddVictim()
         {
+            /*CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name);
+            ci.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            Thread.CurrentThread.CurrentCulture = ci;*/
             InitializeComponent();
         }
 
