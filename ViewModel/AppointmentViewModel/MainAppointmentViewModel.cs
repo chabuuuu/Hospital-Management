@@ -1,8 +1,11 @@
 ﻿using LTTQ_DoAn.View;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Metadata.Edm;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,8 +20,61 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand AddApointmentCommand { get; }
         public ICommand DeleteApointmentCommand { get; }
 
+        private List<object> lichkhams;
+        //private LICHKHAM selectedItem = null;
+
+
+        QUANLYBENHVIENEntities _db;
+        public List<object> LICHKHAMs
+        {
+            get => lichkhams; set
+            {
+                lichkhams = value;
+                OnPropertyChanged(nameof(LICHKHAMs));
+            }
+        }
+        /*
+        public LICHKHAM SelectedItem
+        {
+            get => selectedItem; set
+            {
+                selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            }
+        }
+        */
+        private void Load()
+        {
+            _db = new QUANLYBENHVIENEntities();
+            var join_query =
+
+            (from dv in _db.DICHVU
+             from bn in _db.BENHNHAN
+             join lk in _db.LICHKHAM on bn.MABENHNHAN equals lk.MABENHNHAN
+             where dv.MADICHVU == lk.MADICHVU
+             select new
+             {
+                 Lichkham = lk,
+                 Benhnhan = bn,
+                 Dichvu = dv
+             }).ToList();
+            /*
+            var query =
+               (from lichkham in _db.LICHKHAM
+               join benhnhan in _db.BENHNHAN on lichkham.MABENHNHAN equals benhnhan.MABENHNHAN
+               select new { Lichkham = lichkham, Benhnhan = benhnhan }).ToList();
+            */
+            List<object> list = new List<object>();
+            foreach (var item in join_query)
+            {
+                list.Add(item);
+            }
+            LICHKHAMs = list;
+        }
+
         public AppointmentViewModel()
         {
+            Load();
             // dựa vào class ViewModelCommand đã được định nghĩa
             AddApointmentCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteApointmentCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
