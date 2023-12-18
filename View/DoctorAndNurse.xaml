@@ -115,7 +115,7 @@
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="khoa" Width="15*" Binding="{Binding KHOA}"
+                    <DataGridTextColumn Header="Mã khoa" Width="15*" Binding="{Binding MAKHOA}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
                     <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
