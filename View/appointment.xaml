@@ -10,6 +10,9 @@
              Background="Transparent"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
             d:DesignHeight="644" d:DesignWidth="1049">
+    <UserControl.DataContext>
+        <viewmodel:AppointmentViewModel></viewmodel:AppointmentViewModel>
+    </UserControl.DataContext>
     <Border
         CornerRadius="20"
         Background="white">
@@ -63,6 +66,7 @@
                       Style="{DynamicResource DataGridStyle1}"
                       CellStyle="{DynamicResource DataGridCellStyle1}"
                       RowStyle="{DynamicResource DataGridRowStyle1}"
+                      ItemsSource="{Binding LICHKHAMs}"
                       >
                 <DataGrid.Columns>
                     <!--dấu # này là cột chứa checkbox của mỗi item-->
@@ -78,22 +82,22 @@
 
                     <DataGridTextColumn Header="ID" Width="20*"
                                             IsReadOnly="True" CanUserResize="False"
-                                            Binding="{Binding ID}">
+                                            Binding="{Binding Benhnhan.SUB_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding Name}"
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding Benhnhan.HOTEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="tuổi" Width="10*" Binding="{Binding Age}"
+                    <DataGridTextColumn Header="Ngày sinh" Width="10*" Binding="{Binding Benhnhan.NGAYSINH}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding Service}"
+                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding Dichvu.TENDICHVU}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding Date}"
+                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding Lichkham.NGAYKHAM}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     
