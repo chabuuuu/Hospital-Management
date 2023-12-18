@@ -59,30 +59,34 @@
                     />
             </Border>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <!--tên bệnh nhân-->
-                <TextBox
+                <!--bệnh nhân-->
+                <ComboBox
+                ItemsSource="{Binding BenhnhanList}"
+                SelectedValue="{Binding Benhnhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="300"
-                HorizontalContentAlignment="Stretch"
-                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                materialdesign:HintAssist.Hint="Tên bệnh nhân"
-                materialdesign:TextFieldAssist.HasClearButton="True"
-                FontSize="15"
                 Height="55"
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Bệnh nhân"
+                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                 Margin="50 0 25 0"/>
-                <!--Tên bác sĩ-->
-                <TextBox
+                
+                
+                <ComboBox
+                ItemsSource="{Binding BacsiList}"
+                SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="300"
-                HorizontalContentAlignment="Stretch"
-                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                materialdesign:HintAssist.Hint="Tên y sĩ"
-                materialdesign:TextFieldAssist.HasClearButton="True"
-                FontSize="15"
                 Height="55"
-                Margin="25 0 25 0"/>
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Bác sĩ"
+                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                Margin="50 0 25 0"/>
+
             </StackPanel>
 
             <StackPanel Grid.Row="3" Orientation="Horizontal">
                 <ComboBox
+                ItemsSource="{Binding DichvuList}"
+                SelectedValue="{Binding Dichvu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="200"
                 Height="55"
                 FontSize="15"
@@ -91,6 +95,7 @@
                 Margin="50 0 25 0"/>
 
                 <TextBox
+                Text="{Binding Phong}"
                 MinWidth="150"
                 HorizontalContentAlignment="Stretch"
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -103,6 +108,7 @@
 
             <StackPanel Grid.Row="4" Orientation="Horizontal">
                 <DatePicker
+                SelectedDate="{Binding Ngaylenlich, Mode=TwoWay}"
                 MinWidth="250"
                 Height="50"
                 FontSize="15"
@@ -112,6 +118,7 @@
                 Margin="50 0 25 0"/>
 
                 <DatePicker
+                SelectedDate="{Binding Ngaykham, Mode=TwoWay}"
                 MinWidth="250"
                 Height="50"
                 FontSize="15"
