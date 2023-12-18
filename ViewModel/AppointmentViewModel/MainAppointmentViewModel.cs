@@ -21,7 +21,7 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand DeleteApointmentCommand { get; }
 
         private List<object> lichkhams;
-        //private LICHKHAM selectedItem = null;
+        private object selectedItem = null;
 
 
         QUANLYBENHVIENEntities _db;
@@ -33,8 +33,8 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(LICHKHAMs));
             }
         }
-        /*
-        public LICHKHAM SelectedItem
+        
+        public object SelectedItem
         {
             get => selectedItem; set
             {
@@ -42,7 +42,7 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
-        */
+        
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -91,10 +91,16 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteAddCommand(object? obj)
         {
             AddAppointment wd = new AddAppointment();
+            wd.Closed += AddAppointment_Closed;
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
+        }
+
+        private void AddAppointment_Closed(object sender, EventArgs e)
+        {
+            Load();
         }
 
         //tham số 1 điều kiện để xóa lịch khám

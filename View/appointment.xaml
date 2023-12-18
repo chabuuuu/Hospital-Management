@@ -67,6 +67,7 @@
                       CellStyle="{DynamicResource DataGridCellStyle1}"
                       RowStyle="{DynamicResource DataGridRowStyle1}"
                       ItemsSource="{Binding LICHKHAMs}"
+                      SelectedItem="{Binding SelectedItem}"
                       >
                 <DataGrid.Columns>
                     <!--dấu # này là cột chứa checkbox của mỗi item-->
@@ -82,7 +83,7 @@
 
                     <DataGridTextColumn Header="ID" Width="20*"
                                             IsReadOnly="True" CanUserResize="False"
-                                            Binding="{Binding Benhnhan.SUB_ID}">
+                                            Binding="{Binding Lichkham.SUB_ID}">
                     </DataGridTextColumn>
 
                     <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding Benhnhan.HOTEN}"
