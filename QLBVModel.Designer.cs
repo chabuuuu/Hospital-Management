@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Workspace\Learn\TestGitDoAn\deploy-aws-db\UIT_LTTQ_DoAn\QLBVModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Workspace\Learn\TestGitDoAn\aws-changtot2\UIT_LTTQ_DoAn\QLBVModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
