@@ -69,6 +69,17 @@
                             </TextBlock>
                         </StackPanel>
                         <!--6 nút với các chức năng-->
+                        <!--dashboard-->
+                        <RadioButton 
+                            Command="{Binding ShowHomeViewCommand}"
+                            Style="{StaticResource menuButton}"
+                                    Tag="{StaticResource normalButton}"
+                                    >
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
                         <!--Bệnh nhân-->
                         <RadioButton 
                             Command="{Binding ShowVictimViewCommand}"

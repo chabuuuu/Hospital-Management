@@ -4,9 +4,155 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LTTQ_DoAn.View"
+             xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             Background="Transparent"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="644" d:DesignWidth="1049">
+    
+    <Border 
+            CornerRadius="20">
+        <Border.Background>
+            <ImageBrush Stretch="fill"
+                        ImageSource="/Photo/Dashboard.jpg"
+                        />
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="35*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                       Foreground="#fcfcfc"
+                       FontSize="37"
+                       TextWrapping="Wrap"
+                       FontWeight="Bold"
+                       Margin="0 0 0 160"
+                Text="PHẦN MỀM 
+                       QUẢN LÍ BỆNH VIỆN">
+                
+            </TextBlock>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="50 0 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Height="200"
+                            Width="200"
+                            Margin="30"
+                            Background="#ffff"
+                            Opacity="0.6"
+                            BorderThickness="0"
+                            CornerRadius="10">
+                        <StackPanel VerticalAlignment="Bottom">
+                            <!--binding số lượng y sĩ vào đây-->
+                            <TextBlock
+                                Text="{Binding }"
+                                FontSize="90"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                HorizontalAlignment="Center"
+                                Foreground="#3f3f3f"/>
+                            <TextBlock
+                                Text="Y sĩ"
+                                FontSize="40"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                Foreground="#3f3f3f"
+                                HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1"
+                            Height="200"
+                            Width="200"
+                            Margin="30"
+                            Background="#ffff"
+                            Opacity="0.6"
+                            BorderThickness="0"
+                            CornerRadius="10">
+                        <StackPanel VerticalAlignment="Bottom">
+                            <!--binding số lượng bệnh nhân vào đây-->
+                            <TextBlock
+                                Text="{Binding}"
+                                FontSize="90"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                HorizontalAlignment="Center"
+                                Foreground="#3f3f3f"/>
+                            <TextBlock
+                                Text="Bệnh nhân"
+                                FontSize="40"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                Foreground="#3f3f3f"
+                                HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                
+                    <Border Grid.Row="1" Grid.Column="0"
+                            Height="200"
+                            Width="200"
+                            Margin="30"
+                            Background="#ffff"
+                            Opacity="0.6"
+                            BorderThickness="0"
+                            CornerRadius="10">
+                        <StackPanel VerticalAlignment="Bottom">
+                            <!--binding số lượng khoa vào đây-->
+                            <TextBlock
+                                Text="{Binding}"
+                                FontSize="90"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                HorizontalAlignment="Center"
+                                Foreground="#3f3f3f"/>
+                            <TextBlock
+                                Text="Khoa"
+                                FontSize="40"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                Foreground="#3f3f3f"
+                                HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1"
+                            Height="200"
+                            Width="200"
+                            Background="#ffff"
+                            Opacity="0.6"
+                            Margin="30"
+                            BorderThickness="0"
+                            CornerRadius="10">
+                        <StackPanel VerticalAlignment="Bottom">
+                            <!--binding số lượng dịch vụ vào đây-->
+                            <TextBlock
+                                Text="{Binding}"
+                                FontSize="90"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                HorizontalAlignment="Center"
+                                Foreground="#3f3f3f"/>
+                            <TextBlock
+                                Text="Dịch vụ"
+                                FontSize="40"
+                                FontWeight="Bold"
+                                FontFamily="Poppins"
+                                Foreground="#3f3f3f"
+                                HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+                
+            </StackPanel>
+        </Grid> 
+    </Border>
 </UserControl>
