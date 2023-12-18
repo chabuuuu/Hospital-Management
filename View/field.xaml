@@ -55,6 +55,7 @@
                                                                  Margin="10 10 12 10"
                                                             Height="28" HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"
+                                                            Command = "{Binding ChangeFieldCommand}"
                                                             >
                                                         <fa:IconImage Icon="PenToSquare"
                                                             Foreground="Black"/>
@@ -64,6 +65,7 @@
                                                                  Margin="10 0 14 10"
                                                             Height="30" HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"
+                                                            Command = "{Binding DeleteFieldCommand}"
                                                             >
                                                         <fa:IconImage Icon="Trash"
                                                             Foreground="#ed2525"/>
