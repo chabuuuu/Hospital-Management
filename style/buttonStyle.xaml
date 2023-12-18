@@ -681,4 +681,11 @@
         <Setter Property="Foreground" Value="{StaticResource infoText}"/>
         <Setter Property="HorizontalAlignment" Value="left"/>
     </Style>
+
+    <Style x:Key="tableDashboard" TargetType="StackPanel">
+        <Setter Property="Height" Value="250"/>
+        <Setter Property="Width" Value="250"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Opacity" Value="0.7"/>
+    </Style>
 </ResourceDictionary>
