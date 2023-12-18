@@ -59,6 +59,7 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <!--tên-->
                 <TextBox
+                Text="{Binding Ten}"
                 MinWidth="300"
                 HorizontalContentAlignment="Stretch"
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -68,15 +69,6 @@
                 Height="55"
                 Margin="50 0 25 0"/>
                 <!--Tuổi-->
-                <TextBox
-                MinWidth="50"
-                HorizontalContentAlignment="Stretch"
-                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                materialdesign:HintAssist.Hint="Tuổi"
-                materialdesign:TextFieldAssist.HasClearButton="True"
-                FontSize="15"
-                Height="55"
-                Margin="25 0 25 0"/>
                 <!--giới tính-->
                 <ComboBox
                 MinWidth="120"
@@ -84,12 +76,19 @@
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Giới tính"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                 Margin="25 0 25 0"/>
+                SelectedValue="{Binding Gioitinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Content"
+                 Margin="25 0 25 0"
+                 >
+                    <ComboBoxItem>Nam</ComboBoxItem>
+                    <ComboBoxItem>Nữ</ComboBoxItem>
+                </ComboBox>
                 <!--ngày sinh-->
                 <DatePicker
                 MinWidth="250"
                 Height="55"
                 FontSize="15"
+                SelectedDate="{Binding Ngaysinh, Mode=TwoWay}"
                 materialdesign:HintAssist.Hint="Ngày sinh"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
@@ -102,22 +101,33 @@
                 Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Khoa"
+                ItemsSource="{Binding KhoaList}"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                Margin="50 0 25 0"/>
+                SelectedValue="{Binding Khoa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Margin="50 0 25 0">
+                </ComboBox>
 
                 <ComboBox
                 MinWidth="160"
                 Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Chức vụ"
+                SelectedValue="{Binding Chucvu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                SelectedValuePath="Content"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                Margin="25 0 25 0"/>
+                Margin="25 0 25 0">
+                    <ComboBoxItem>Bác sĩ chuyên khoa</ComboBoxItem>
+                    <ComboBoxItem>Bác sĩ cấp cứu</ComboBoxItem>
+                    <ComboBoxItem>Y tá điều dưỡng</ComboBoxItem>
+                    <ComboBoxItem>Y tá hồi sức</ComboBoxItem>
+                </ComboBox>
 
                 <DatePicker
                 MinWidth="250"
                 Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Ngày vào làm"
+                SelectedDate="{Binding Ngayvaolam, Mode=TwoWay}"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                 Margin="25 0 50 0"/>
@@ -134,6 +144,15 @@
                 Height="55"
                 Margin="50 0 0 0"
                 materialdesign:HintAssist.HelperText="cấp trên của y sĩ"/>
+                <TextBox
+                MinWidth="120"
+                HorizontalContentAlignment="Stretch"
+                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                materialdesign:HintAssist.Hint="Mã phòng"
+                materialdesign:TextFieldAssist.HasClearButton="True"
+                FontSize="15"
+                Height="55"
+                Margin="25 0 25 0"/>
             </StackPanel>
 
             <StackPanel Grid.Row="5" Orientation="Horizontal"

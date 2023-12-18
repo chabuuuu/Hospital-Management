@@ -1,6 +1,7 @@
 ﻿using LTTQ_DoAn.View;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Data.Metadata.Edm;
 using System.Linq;
 using System.Text;
@@ -83,10 +84,16 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteAddCommand(object? obj)
         {
             AddNurseAndDoctor wd = new AddNurseAndDoctor();
+            wd.Closed += AddNurseAndDoctor_Closed;
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
+        }
+
+        private void AddNurseAndDoctor_Closed(object sender, EventArgs e)
+        {
+            Load();
         }
 
         //tham số 1 điều kiện để xóa lịch khám
@@ -97,7 +104,23 @@ namespace LTTQ_DoAn.ViewModel
         //tham số thứ 2 là hành động
         private void ExecuteDeleteCommand(object? obj)
         {
+            try
+            {
+                int Id = SelectedItem.MAYSI;
+                var deleteMember = _db.YSI.Where(m => m.MAYSI == Id).Single();
+                _db.YSI.Remove(deleteMember);
+                _db.SaveChanges();
 
+                MessageBox.Show("Đã xóa y sĩ: \nMã y sĩ: " +
+                    SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " +
+                    SelectedItem.HOTEN.ToString());
+
+                Load();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString() + e.InnerException.ToString());
+            }
         }
 
         private bool CanExecuteViewCommand(object? obj)
