@@ -47,11 +47,11 @@
                                         <!--nút xóa-->
                                         <!--thêm command xóa vào đây-->
                                         <RadioButton Panel.ZIndex="1"
-                                                     Margin="10"
                                             Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
                                             Style="{StaticResource gridOpenButton}">
                                             <fa:IconImage Icon="Trash"
-                                                                Foreground="#ed2525"/>
+                                                          Height="20"
+                                                        Foreground="#ed2525"/>
                                         </RadioButton>
                                         <!--ảnh dịch vụ-->
                                         <Grid.Background>

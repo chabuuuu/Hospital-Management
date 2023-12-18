@@ -40,14 +40,12 @@
                                     <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
                                 </Border.Effect>
                                 <!--thêm command ở button ở dưới để có thê nhấn vô các item-->
-                                <Button Height="110" Background="Transparent"
-                                        BorderBrush="Transparent">
-                                    <Grid Height="110" VerticalAlignment="Center" Width="200" HorizontalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="30*"/>
-                                            <RowDefinition Height="70*"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Foreground="#3f3f3f"
+                                <Grid Height="110" VerticalAlignment="Center" Width="200" HorizontalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30*"/>
+                                        <RowDefinition Height="70*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Foreground="#3f3f3f"
                                         FontSize="20"
                                         FontWeight="Medium"
                                         Text="{Binding Room_Name}"
@@ -55,21 +53,20 @@
                                         VerticalAlignment="Top"
                                         Margin="20 0 0 0"
                                         >
-                                        </TextBlock>
-                                        <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                            <!--ảnh cho phòng-->
-                                            <TextBlock Width="130" VerticalAlignment="Center"
+                                    </TextBlock>
+                                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                        <!--ảnh cho phòng-->
+                                        <TextBlock Width="130" VerticalAlignment="Center"
                                                        Foreground="#3f3f3f">
                                                 <Run Text="    Sức chứa:"/>
                                                 <Run Text="{Binding count}"/> <!--thông tin sức chứa lưu ở đây-->
-                                            </TextBlock>
-                                            <Image 
+                                        </TextBlock>
+                                        <Image 
                                                 Source="/Photo/medical-team.png" Height="55" HorizontalAlignment="Right"
                                                    Margin="0 0 0 0">
-                                            </Image>
-                                        </StackPanel>
-                                    </Grid>
-                                </Button>
+                                        </Image>
+                                    </StackPanel>
+                                </Grid>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
