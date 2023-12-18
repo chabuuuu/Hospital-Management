@@ -11,6 +11,9 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             d:DesignHeight="644" d:DesignWidth="1049"
              >
+    <UserControl.DataContext>
+        <viewmodel:DoctorAndNurseViewModel></viewmodel:DoctorAndNurseViewModel>
+    </UserControl.DataContext>
     <Border
         CornerRadius="20"
         Background="white">
@@ -87,6 +90,9 @@
           Style="{DynamicResource DataGridStyle1}"
           CellStyle="{DynamicResource DataGridCellStyle1}"
           RowStyle="{DynamicResource DataGridRowStyle1}"
+          ItemsSource="{Binding Nurse_doctor}"
+          SelectedItem="{Binding SelectedItem}"
+          Height="Auto"
           >
     <DataGrid.Columns>
         <!--dấu # này là cột chứa checkbox của mỗi item-->
@@ -102,20 +108,20 @@
 
         <DataGridTextColumn Header="ID" Width="20*"
                                 IsReadOnly="True" CanUserResize="False"
-                                Binding="{Binding Doctor_ID}">
+                                Binding="{Binding SUB_ID}">
         </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding Doctor_Name}"
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding HOTEN}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="khoa" Width="15*" Binding="{Binding Doctor_Field}"
+                    <DataGridTextColumn Header="khoa" Width="15*" Binding="{Binding KHOA}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
-                    <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding Doctor_Sex}"
+                    <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày vào làm" Width="20*" Binding="{Binding Doctor_Date}"
+                    <DataGridTextColumn Header="Ngày vào làm" Width="20*" Binding="{Binding NGAYVAOLAM}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
         <DataGridTemplateColumn Header="Thao tác" Width="10*"

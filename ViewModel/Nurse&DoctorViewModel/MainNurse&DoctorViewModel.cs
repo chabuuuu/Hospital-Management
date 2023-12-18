@@ -20,8 +20,29 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
 
+        private List<YSI> nurse_doctor;
+        private YSI selectedItem = null;
+
+        public List<YSI> Nurse_doctor { get => nurse_doctor; set {
+                nurse_doctor = value; 
+                OnPropertyChanged(nameof(Nurse_doctor));
+            } }
+        public YSI SelectedItem { get => selectedItem; set
+            {
+                selectedItem = value;
+                OnPropertyChanged(nameof(SelectedItem));
+            } }
+
+        QUANLYBENHVIENEntities _db;
+        private void Load()
+        {
+            _db = new QUANLYBENHVIENEntities();
+            Nurse_doctor = _db.YSI.ToList();
+        }
+
         public DoctorAndNurseViewModel()
         {
+            Load();
             // dựa vào class ViewModelCommand đã được định nghĩa
             DoctorCommand = new ViewModelCommand(ExecuteDoctorCommand, CanExecuteDoctorCommand);
             NurseCommand = new ViewModelCommand(ExecuteNurseCommand, CanExecuteNurseCommand);
