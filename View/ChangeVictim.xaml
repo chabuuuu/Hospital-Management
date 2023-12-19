@@ -68,41 +68,38 @@
                                        Text="Tên:"
                                        />
                             <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Victim_Name}"
+                                     Text="{Binding Benhnhan.HOTEN}"
                                      Width="200">
                             </TextBox>
                         </StackPanel>
-                        <!--tuổi-->
-                        <StackPanel Margin="25 0 25 30">
-                            <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                                Text="Tuổi:"/>
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                                 Text="{Binding Victim_Age}"
-                                 Width="50">
-                            </TextBox>
-                        </StackPanel>
+                  
                         <!--giới tính-->
                         <StackPanel Margin="25 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Giới tính:"/>
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                                 Text="{Binding Victim_Sex}"
-                                 Width="100">
-                            </TextBox>
+                            <ComboBox
+                            Style="{DynamicResource MaterialDesignOutlinedComboBox}"
+                        MinWidth="120"
+                        Height="50"
+                        FontSize="10"
+                        SelectedValue="{Binding Benhnhan.GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Gender}"
+                                >
+                            </ComboBox>
                         </StackPanel>
                         <!--ngày sinh-->
                         <StackPanel Margin="25 0 0 0">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Ngày sinh:"/>
                             <DatePicker Height="30" Width="110" FontSize="15"
-                                        Text="{Binding Victim_Birth}"/>
+                                        SelectedDate="{Binding Benhnhan.NGAYSINH}"/>
                         </StackPanel>
                         <!--địa chỉ-->
                         <StackPanel Margin="0 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Địa chỉ:"/>
                             <TextBox Style="{StaticResource TextPersonalInfo}"
-                                 Text="{Binding Victim_Address}"
+                                 Text="{Binding Benhnhan.DIACHI}"
                                  Width="530">
                             </TextBox>
                         </StackPanel>
@@ -111,7 +108,7 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Số bảo hiểm y tế:"/>
                             <TextBox Style="{StaticResource TextPersonalInfo}"
-                                 Text="{Binding Victim_Insurance}"
+                                 Text="{Binding Benhnhan.MABHYT}"
                                  Width="300">
                             </TextBox>
                         </StackPanel>
@@ -122,34 +119,13 @@
                     Height="200"/>
             </Grid>
             <WrapPanel Grid.Row="3" Margin="50 20 0 0">
-                <!--ID-->
-                <StackPanel Margin="0 0 25 30">
-                    <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                               Text="ID:"
-                               />
-                    <TextBox Style="{StaticResource TextPersonalInfo}"
-                             Text="{Binding Victim_ID}"
-                             Width="140">
-                    </TextBox>
-                </StackPanel>
-                <!--Khoa-->
-                <StackPanel Margin="25 0 25 30">
-                    <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                               Text="Khoa:"
-                               />
-                    <ComboBox
-                        MinWidth="120"
-                        Height="30"
-                        FontSize="15"
-                        />
-                </StackPanel>
                 <!--phòng-->
                 <StackPanel Margin="25 0 25 30">
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                Text="Phòng:"
                                />
                     <TextBox Style="{StaticResource TextPersonalInfo}"
-                             Text="{Binding Victim_Room}"
+                             Text="{Binding Phong_SUBID}"
                              Width="130">
                     </TextBox>
                 </StackPanel>
@@ -159,7 +135,7 @@
                                Text="Ngày nhập viện:"
                                />
                     <DatePicker Height="30" Width="110" FontSize="15"
-                                Text="{Binding Victim_Date}"/>
+                                SelectedDate="{Binding Benhnhan.NGAYNHAPVIEN}"/>
                 </StackPanel>
             </WrapPanel>
             <!--2 nút-->

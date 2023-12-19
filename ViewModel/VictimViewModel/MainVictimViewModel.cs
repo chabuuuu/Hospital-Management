@@ -137,10 +137,20 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteChangeCommand(object? obj)
         {
             ChangeVictim wd = new ChangeVictim();
-            //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
-            // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
-            Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+            wd.Closed += ChangeVictim_Closed;
+            if (SelectedItem != null)
+            {
+                wd.DataContext = new ChangeVictimViewModel(SelectedItem);
+                //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
+                // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
+        }
+
+        private void ChangeVictim_Closed(object sender, EventArgs e)
+        {
+            Load();
         }
     }
 }
