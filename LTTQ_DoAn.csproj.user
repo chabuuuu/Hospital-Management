@@ -91,6 +91,9 @@
     <Compile Update="View\ViewVictim.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\MessageBoxCustom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\AddAppointment.xaml">
@@ -187,6 +190,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ViewVictim.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MessageBoxCustom.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

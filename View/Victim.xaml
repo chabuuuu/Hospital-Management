@@ -108,7 +108,7 @@
                                 <!--các nút thao tác-->
                                 <StackPanel Orientation="Horizontal">
                                     <!--thông tin cá nhân-->
-                                    <RadioButton Command="{Binding ViewCommand}"
+                                    <RadioButton Command="{Binding }"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             Margin="0 0 10 0"
