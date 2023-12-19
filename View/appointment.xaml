@@ -108,7 +108,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <RadioButton
-                                        Command="{Binding ViewAppointmentCommand}"
+                                        Command="{Binding DataContext.ViewAppointmentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Style="{StaticResource gridOpenButton}"
                                         Tag="{StaticResource normalButton}"
                                             Margin="0 0 10 0">
@@ -117,7 +117,7 @@
                                                       />
                                     </RadioButton>
                                     <RadioButton 
-                                        Command="{Binding ChangeAppointmentCommand}"
+                                        Command="{Binding DataContext.ChangeAppointmentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}">
                                         <fa:IconImage Icon="PenToSquare"

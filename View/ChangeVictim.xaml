@@ -47,7 +47,7 @@
                 BorderThickness="0 0 0 2">
                 <TextBlock
                     Margin="30 10 0 0 "
-                    Text="Thông tin bệnh nhân"
+                    Text="Sửa thông tin bệnh nhân"
                     FontSize="40"
                     Foreground="blue"
                     FontFamily="Poppins"
