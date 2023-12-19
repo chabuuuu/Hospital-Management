@@ -13,6 +13,7 @@
     <None Remove="Photo\Dashboard.jpg" />
     <None Remove="Photo\Dashboard.png" />
     <None Remove="Photo\doctor.png" />
+    <None Remove="Photo\fail.png" />
     <None Remove="Photo\Field.png" />
     <None Remove="Photo\healthRecord.png" />
     <None Remove="Photo\khoa_tim_mach.jpg" />
@@ -22,6 +23,7 @@
     <None Remove="Photo\personal-information.png" />
     <None Remove="Photo\prescription.png" />
     <None Remove="Photo\service.png" />
+    <None Remove="Photo\success.png" />
     <None Remove="QLBVModel.edmx" />
   </ItemGroup>
 
@@ -53,6 +55,9 @@
     <Resource Include="Photo\doctor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Photo\fail.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Photo\Field.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -79,6 +84,9 @@
     </Resource>
     <Resource Include="Photo\service.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Photo\success.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 

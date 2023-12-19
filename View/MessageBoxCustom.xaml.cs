@@ -38,11 +38,11 @@ namespace LTTQ_DoAn.View
             {
                 case MessageType.Success:
                     System.Media.SystemSounds.Beep.Play();
-                    ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/CinemaManagement;component/Resources/Icon/succes.png"));
+                    ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/LTTQ_DoAn;component/Photo/success.png"));
                     break;
                 case MessageType.Error:
                     System.Media.SystemSounds.Hand.Play();
-                    ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/CinemaManagement;component/Resources/Icon/ErrorIcon.png"));
+                    ImgMessage.Source = new BitmapImage(new Uri("pack://application:,,,/LTTQ_DoAn;component/Photo/fail.png"));
                     break;
             }
             switch (Buttons)

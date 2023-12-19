@@ -15,7 +15,7 @@
         Topmost="True"
         AllowsTransparency="True"
         ShowInTaskbar="False"
-        Title="MessageBoxCustom" Height="200" Width="350">
+        Title="MessageBoxCustom" Height="250" Width="450">
     <Border
             CornerRadius="20"
             Background="White"
@@ -23,8 +23,8 @@
             BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="180"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
@@ -33,11 +33,12 @@
             </Grid.ColumnDefinitions>
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                 <Image Source="/Photo/notification-bell.png"
-                       Height="25"
+                       Height="35"
                        Margin="10 0 0 0"
                        />
                 <TextBlock x:Name="txtTitle"
-                    Height="16"
+                           FontSize="18"
+                    Height="30"
                     Foreground="{StaticResource btnActivedText}"
                     FontWeight="Bold"
                     TextAlignment="Center">Tittle</TextBlock>      
@@ -47,11 +48,11 @@
                 <Button
                     Click="close_btn_Click"
                         Margin="0 0 5 0"
-                        Height="20"
+                        Height="35"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"
-                                  Height="20"/>
+                                  Height="35"/>
                 </Button>
             </StackPanel>
 
@@ -59,7 +60,7 @@
                   Grid.ColumnSpan="3">
                 <Grid Margin="20">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="90" />
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
                     <Grid>
@@ -76,13 +77,13 @@
                                            Margin="20 0 0 5" />
                                 <TextBlock x:Name="txtMessage"
                                                TextWrapping="Wrap"
-                                               Width="220"
-                                               Height="45"
+                                               Width="260"
+                                               Height="55"
                                                HorizontalAlignment="Center"
                                                Grid.Row="0"
                                                Margin="15 23 5 5"
                                                materialdesign:HintAssist.Hint=""
-                                               FontSize="18" />
+                                               FontSize="25" />
                             </StackPanel>
                         </materialdesign:TransitioningContent>
                     </Grid>
@@ -97,9 +98,9 @@
                         <Button x:Name="confirm_btn"
                                 Click="close_btn_Click"
                             Grid.Column="1"
-                            Width="80"
+                            Width="100"
                             Content="Xác nhận"
-                            FontSize="10"
+                            FontSize="16"
                             Margin="20 2 20 0"
                             Foreground="#f2f2f2"
                             Background="{StaticResource btnActivedText}"
@@ -108,9 +109,9 @@
                         <Button x:Name="close_btn"
                                 Click="close_btn_Click"
                             Grid.Column="2"
-                            Width="80"
+                            Width="100"
                             Content="Đóng"
-                            FontSize="10"
+                            FontSize="16"
                             Foreground="#555"
                             Margin="20 2 20 0"
                             Background="#fff"

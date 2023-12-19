@@ -56,7 +56,8 @@
                                                             />
                                                 </RadioButton>
                                                 <!--thêm command sửa vào đây-->
-                                                <RadioButton Panel.ZIndex="1"
+                                                <RadioButton
+                                                            Panel.ZIndex="1"
                                                             HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"
                                                             Command = "{Binding ChangeFieldCommand}"
