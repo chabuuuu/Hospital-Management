@@ -108,7 +108,7 @@
                                 <!--các nút thao tác-->
                                 <StackPanel Orientation="Horizontal">
                                     <!--thông tin cá nhân-->
-                                    <RadioButton Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    <RadioButton Command="{Binding DataContext.ViewCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             Margin="0 0 10 0"
@@ -118,7 +118,7 @@
                                                       />
                                     </RadioButton>
                                     <!--sửa thông tin cá nhân-->
-                                    <RadioButton Command="{Binding ChangeCommand}"
+                                    <RadioButton Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Style="{StaticResource gridOpenButton}"
                                         Tag="{StaticResource normalButton}"
                                             Margin="0 0 10 0"

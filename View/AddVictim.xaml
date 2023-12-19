@@ -108,13 +108,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="4" Orientation="Horizontal">
-                <ComboBox
-                MinWidth="120"
-                Height="55"
-                FontSize="15"
-                materialdesign:HintAssist.Hint="Khoa"
-                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                Margin="50 0 25 0"/>
+
 
                 <TextBox
                 MinWidth="150"
@@ -125,7 +119,7 @@
                 Text="{Binding Maphong}"
                 FontSize="15"
                 Height="55"
-                Margin="25 0 25 0"/>
+                Margin="50 0 25 0"/>
 
                 <DatePicker
                 MinWidth="250"
