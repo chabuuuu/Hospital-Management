@@ -17,6 +17,7 @@
     <None Remove="Photo\healthRecord.png" />
     <None Remove="Photo\khoa_tim_mach.jpg" />
     <None Remove="Photo\medical-team.png" />
+    <None Remove="Photo\notification-bell.png" />
     <None Remove="Photo\patient.png" />
     <None Remove="Photo\personal-information.png" />
     <None Remove="Photo\prescription.png" />
@@ -38,6 +39,7 @@
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
 	<Reference Include="System.Data.Entity" />
+	<Reference Include="System.Messaging" />
 	<Reference Include="System.Security" />
   </ItemGroup>
 
@@ -61,6 +63,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Photo\medical-team.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Photo\notification-bell.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Photo\patient.png">
