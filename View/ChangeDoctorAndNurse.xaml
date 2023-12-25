@@ -70,53 +70,61 @@
                                        Text="Tên:"
                                        />
                             <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Doctor_Name}"
+                                     Text="{Binding Ysi.HOTEN}"
                                      Width="200">
                             </TextBox>
                         </StackPanel>
-                        <!--tuổi-->
-                        <StackPanel Margin="25 0 25 30">
-                            <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                                Text="Tuổi:"/>
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                                 Text="{Binding Doctor_Age}"
-                                 Width="50">
-                            </TextBox>
-                        </StackPanel>
+                        
                         <!--giới tính-->
                         <StackPanel Margin="25 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Giới tính:"/>
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                                 Text="{Binding Doctor_Sex}"
-                                 Width="100">
-                            </TextBox>
+                            <ComboBox
+                        MinWidth="100"
+                        Height="30"
+                        FontSize="15"
+                        ItemsSource="{Binding Gender}"
+                        SelectedValue="{Binding Ysi.GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        />
                         </StackPanel>
                         <!--ngày sinh-->
                         <StackPanel Margin="25 0 0 0">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Ngày sinh:"/>
                             <DatePicker Width="110" Height="30" FontSize="15"
-                                    Text="{Binding Doctor_Birth}"/>
+                                    SelectedDate="{Binding Ysi.NGAYSINH}"
+                                        />
                         </StackPanel>
                         <!--chức vụ-->
                         <StackPanel Margin="0 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                Text="Chức vụ:"
                                />
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                             Text="{Binding Doctor_Position}"
-                             Width="130">
-                            </TextBox>
+                            <ComboBox
+                        MinWidth="120"
+                        Height="30"
+                        FontSize="15"
+                        SelectedValue="{Binding Ysi.LOAIYSI, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedValuePath="Content"
+                        >
+                                <ComboBoxItem>Bác sĩ chuyên khoa</ComboBoxItem>
+                                <ComboBoxItem>Bác sĩ cấp cứu</ComboBoxItem>
+                                <ComboBoxItem>Y tá điều dưỡng</ComboBoxItem>
+                                <ComboBoxItem>Y tá hồi sức</ComboBoxItem>
+                            </ComboBox>
+
                         </StackPanel>
                         <!--cấp trên-->
                         <StackPanel Margin="25 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Cấp trên:"/>
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                                 Text="{Binding Doctor_Boss}"
-                                 Width="200">
-                            </TextBox>
+                            <ComboBox
+                        MinWidth="200"
+                        Height="30"
+                        FontSize="15"
+                        ItemsSource="{Binding YsiList}"
+                        SelectedValue="{Binding Chihuy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        />
                         </StackPanel>
                     </WrapPanel>
                 </StackPanel>
@@ -125,16 +133,7 @@
                     Height="200"/>
             </Grid>
             <WrapPanel Grid.Row="3" Margin="50 20 0 0">
-                <!--ID-->
-                <StackPanel Margin="0 0 25 30">
-                    <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                               Text="ID:"
-                               />
-                    <TextBox Style="{StaticResource TextPersonalInfo}"
-                             Text="{Binding Doctor_ID}"
-                             Width="140">
-                    </TextBox>
-                </StackPanel>
+
                 <!--Khoa-->
                 <StackPanel Margin="25 0 25 30">
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
@@ -144,6 +143,8 @@
                         MinWidth="120"
                         Height="30"
                         FontSize="15"
+                        ItemsSource="{Binding KhoaList}"
+                        SelectedValue="{Binding Khoa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
                 <!--phòng-->
@@ -152,7 +153,7 @@
                                Text="Phòng:"
                                />
                     <TextBox Style="{StaticResource TextPersonalInfo}"
-                             Text="{Binding Doctor_Room}"
+                             Text="{Binding Phong_subid}"
                              Width="130">
                     </TextBox>
                 </StackPanel>
@@ -162,7 +163,7 @@
                                Text="Ngày vào làm:"
                                />
                     <DatePicker FontSize="15" Height="30"
-                            Text="{Binding Doctor_Date}"/>
+                            SelectedDate="{Binding Ysi.NGAYVAOLAM}"/>
                 </StackPanel>
             </WrapPanel>
             <!--2 nút-->
