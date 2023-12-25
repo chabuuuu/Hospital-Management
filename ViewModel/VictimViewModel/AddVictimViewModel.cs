@@ -143,12 +143,20 @@ namespace LTTQ_DoAn.ViewModel
             try
             {
                 insert();
-                MessageBox.Show("Thêm bệnh nhân mới thành công!");
+                //MessageBox.Show("Thêm bệnh nhân mới thành công!");
+                new MessageBoxCustom("Thông báo", "Thêm bệnh nhân mới thành công!", 
+                    MessageType.Success, 
+                    MessageButtons.OK)
+                    .ShowDialog();
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
 
             } catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                //MessageBox.Show(err.Message);
+                new MessageBoxCustom("Lỗi", err.Message,
+                    MessageType.Error,
+                    MessageButtons.OK)
+                    .ShowDialog();
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
             }
         }

@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
+using LTTQ_DoAn.View;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -97,13 +98,21 @@ namespace LTTQ_DoAn.ViewModel
             try
             {
                 update();
-                MessageBox.Show("Sửa thông tin bệnh nhân thành công!");
+                //MessageBox.Show("Sửa thông tin bệnh nhân thành công!");
+                new MessageBoxCustom("Thông báo", "Sửa thông tin bệnh nhân thành công!", 
+                    MessageType.Success, 
+                    MessageButtons.OK)
+                    .ShowDialog();
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
 
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                new MessageBoxCustom("Lỗi", err.Message,
+                    MessageType.Error,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                //MessageBox.Show(err.Message);
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
             }
         }
