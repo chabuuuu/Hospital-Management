@@ -97,20 +97,45 @@ namespace LTTQ_DoAn.ViewModel
                 var deleteMember = _db.BENHNHAN.Where(m => m.MABENHNHAN == Id).Single();
                 _db.BENHNHAN.Remove(deleteMember);
                 _db.SaveChanges();
-                
-             MessageBox.Show("Đã xóa bệnh nhân: \nMã bệnh nhân: " + 
+
+                new MessageBoxCustom(
+                    "Thông báo", 
+                    "Đã xóa bệnh nhân: \nMã bệnh nhân: " +
+                        SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " +
+                        SelectedItem.HOTEN.ToString(),
+                    MessageType.Success,
+                    MessageButtons.OK)
+                    .ShowDialog();
+
+                /*
+                MessageBox.Show("Đã xóa bệnh nhân: \nMã bệnh nhân: " + 
                  SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " + 
                  SelectedItem.HOTEN.ToString());
-
+                */
                 Load();
             }
             catch (DbUpdateException e)
             {
-                MessageBox.Show("Bạn cần xóa lịch khám của bệnh nhân này trước!");
+                //MessageBox.Show("Bạn cần xóa lịch khám của bệnh nhân này trước!");
+                new MessageBoxCustom(
+                    "Thông báo", 
+                    "Bạn cần xóa lịch khám của bệnh nhân này trước!",
+                    MessageType.Error, 
+                    MessageButtons.OK
+                    )
+                    .ShowDialog();
+
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString());
+                //MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString());
+                new MessageBoxCustom(
+                    "Thông báo",
+                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    MessageType.Error,
+                    MessageButtons.OK
+                    )
+                    .ShowDialog();
             }
 
         }
