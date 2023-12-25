@@ -110,16 +110,22 @@ namespace LTTQ_DoAn.ViewModel
                 var deleteMember = _db.YSI.Where(m => m.MAYSI == Id).Single();
                 _db.YSI.Remove(deleteMember);
                 _db.SaveChanges();
-
+                new MessageBoxCustom("Thành công", "Đã xóa y sĩ: \nMã y sĩ: " +
+                    SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " +
+                    SelectedItem.HOTEN.ToString(), 
+                    MessageType.Success, MessageButtons.OK).ShowDialog();
+                
+                /*
                 MessageBox.Show("Đã xóa y sĩ: \nMã y sĩ: " +
                     SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " +
                     SelectedItem.HOTEN.ToString());
-
+                */
                 Load();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString() + e.InnerException.ToString());
+                new MessageBoxCustom("Lỗi", e.Message + "\nLỗi: " + e.GetType().ToString() + e.InnerException.ToString(), MessageType.Error, MessageButtons.OKCancel).ShowDialog();
+                //MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString() + e.InnerException.ToString());
             }
         }
 
@@ -131,10 +137,12 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteViewCommand(object? obj)
         {
             ViewDoctorAndNurse wd = new ViewDoctorAndNurse();
-            //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
-            // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
-            Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+            if (SelectedItem != null)
+            {
+                wd.DataContext = new ViewNurseAndDoctorViewModel(SelectedItem);
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
         }
         private bool CanExecuteChangeCommand(object? obj)
         {
