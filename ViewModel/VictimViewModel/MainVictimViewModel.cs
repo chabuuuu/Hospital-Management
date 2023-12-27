@@ -20,6 +20,7 @@ namespace LTTQ_DoAn.ViewModel
     public class VictimViewModel : BaseViewModel
     {
         public ICommand ViewCommand { get; }
+        public ICommand ViewHealthRecordCommand { get; }
         public ICommand ChangeCommand { get; }
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
@@ -54,6 +55,7 @@ namespace LTTQ_DoAn.ViewModel
             DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             ViewCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            ViewHealthRecordCommand = new ViewModelCommand(ExecuteViewHealthRecordCommand, CanExecuteViewHealthRecordCommand);
         }
 
         private bool CanExecuteAddCommand(object? obj)
@@ -180,6 +182,17 @@ namespace LTTQ_DoAn.ViewModel
         private void ChangeVictim_Closed(object sender, EventArgs e)
         {
             Load();
+        }
+
+        private bool CanExecuteViewHealthRecordCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteViewHealthRecordCommand(object? obj)
+        {
+            HealthRecordAndPrescription wd = new HealthRecordAndPrescription();
+            wd.ShowDialog();
         }
     }
 }
