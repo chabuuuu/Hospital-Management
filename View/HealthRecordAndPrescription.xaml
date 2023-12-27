@@ -11,7 +11,9 @@
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
         Title="MainWindow" Height="800" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-
+    <Window.DataContext>
+        <viewmodel:HealthRecordViewModel/>
+    </Window.DataContext>
     <Border Background="White"
             BorderBrush="{StaticResource btnActivedText}"
             BorderThickness="3">
@@ -21,6 +23,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button
+                Command="{Binding ExitCommand}"
                 Style="{StaticResource controlButton}"
                 FontSize="16"
                 HorizontalAlignment="Right">
@@ -42,7 +45,8 @@
                         </Grid.RowDefinitions>
                         <ScrollViewer VerticalScrollBarVisibility="Auto"
                                       >
-                            <ListView HorizontalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                            <ListView HorizontalAlignment="Stretch" 
+                                      ItemsSource="{Binding Listbenhan}"
                                       ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListView.View>
                                     <GridView>
@@ -51,7 +55,7 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <Expander HorizontalAlignment="Stretch"
-                                                            Header="{Binding HealthRecord_ID}"
+                                                            Header="{Binding SUB_ID}"
                                                             Width="880"
                                                             FontSize="15">
                                                         <Grid>
@@ -65,14 +69,14 @@
                                                             <StackPanel Grid.Row="0" Orientation="Horizontal">
                                                                 <TextBlock Text="Ngày: "
                                                                            Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding HeathRecord_Date}"
+                                                                <TextBlock Text="1/1/2001"
                                                                            Style="{StaticResource InfoText}"
                                                                            Margin="0 0 200 0"
                                                                           />
 
                                                                 <TextBlock Text="Khoa: "
                                                                          Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding HeathRecord_Field}"
+                                                                <TextBlock Text=""
                                                                            Style="{StaticResource InfoText}"
                                                                            />
                                                             </StackPanel>
@@ -83,7 +87,7 @@
                                                                            Style="{StaticResource InfoText}"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                                               HorizontalScrollBarVisibility="Disabled">
-                                                                    <TextBlock Text="{Binding HeathRecord_Symptom}"
+                                                                    <TextBlock Text="{Binding GHICHU}"
                                                                                Width="800"
                                                                                TextWrapping="Wrap"
                                                                             Style="{StaticResource InfoText}"/>
@@ -97,7 +101,7 @@
                                                                            VerticalAlignment="Top"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                                               HorizontalScrollBarVisibility="Disabled">
-                                                                    <TextBlock Text="{Binding HeathRecord_Note}"
+                                                                    <TextBlock Text="OK"
                                                                                TextWrapping="Wrap"
                                                                                Width="800"
                                                                             Style="{StaticResource InfoText}"/>
@@ -107,13 +111,13 @@
                                                                 <TextBlock Text="Bác sĩ: "
                                                                            Style="{StaticResource InfoText}"/>
                                                                 <!--tên bác sĩ khám-->
-                                                                <TextBlock Text="{Binding HeathRecord_DoctorName}"
+                                                                <TextBlock Text="{Binding MAYSI}"
                                                                            Style="{StaticResource InfoText}"
                                                                            Margin="0 0 200 0"/>
                                                                 <!--giá tiền khám-->
                                                                 <TextBlock Text="Chi Phí: "
                                                                             Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding HeathRecord_Price}"
+                                                                <TextBlock Text="{Binding THANHTIEN}"
                                                                            Style="{StaticResource InfoText}"/>
                                                             </StackPanel>
                                                         </Grid>
