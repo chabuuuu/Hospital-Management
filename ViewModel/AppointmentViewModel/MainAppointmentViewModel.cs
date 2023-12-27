@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Metadata.Edm;
 using System.Globalization;
 using System.Linq;
@@ -133,7 +134,35 @@ namespace LTTQ_DoAn.ViewModel
         //tham số thứ 2 là hành động
         private void ExecuteDeleteCommand(object? obj)
         {
+            try
+            {
+                int Id = SelectedItem.Lichkham.MALICHKHAM;
+                var deleteMember = _db.LICHKHAM.Where(m => m.MALICHKHAM == Id).Single();
+                _db.LICHKHAM.Remove(deleteMember);
+                _db.SaveChanges();
 
+                new MessageBoxCustom(
+                    "Thông báo",
+                    "Đã xóa lịch khám: \nMã lịch khám: " +
+                        SelectedItem.Lichkham.SUB_ID.ToString() + "\nBệnh nhân: " +
+                        SelectedItem.Benhnhan.HOTEN.ToString() +
+                    "\nNgày được hẹn khám: " + 
+                        SelectedItem.Lichkham.NGAYKHAM.ToString(),  
+                    MessageType.Success,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                Load();
+            }
+            catch (Exception e)
+            {
+                new MessageBoxCustom(
+                    "Thông báo",
+                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    MessageType.Error,
+                    MessageButtons.OK
+                    )
+                    .ShowDialog();
+            }
         }
 
         private bool CanExecuteViewCommand(object? obj)
