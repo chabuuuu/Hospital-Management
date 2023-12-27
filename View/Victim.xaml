@@ -128,7 +128,7 @@
                                     </RadioButton>
                                     <!--xem bệnh án và đơn thuốc-->
                                     <RadioButton 
-                                        
+                                        Command="{Binding DataContext.ViewHealthRecordCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             ToolTip="Bệnh án và đơn thuốc">
