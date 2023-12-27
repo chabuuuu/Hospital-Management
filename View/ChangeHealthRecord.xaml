@@ -12,6 +12,9 @@
         Title="ChangeHealthRecord"  Height="630" Width="1000"
         Background="Transparent"
         WindowStyle="None">
+    <Window.DataContext>
+        <viewmodel:ChangeHealthRecordViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -60,26 +63,32 @@
                                        Text="Tên bệnh nhân:"
                                        />
                     <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Victim_Name}"
+                                     Text="{Binding Benhan.BENHNHAN.HOTEN}"
                                      Width="200">
                     </TextBox>
                 </StackPanel>
                 <!--tên bác sĩ-->
                 <StackPanel Margin="0 0 25 30">
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                                       Text="Tên bác sĩ:"
+                                       Text="Bác sĩ:"
                                        />
-                    <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Doctor_Name}"
-                                     Width="200">
-                    </TextBox>
+                    <ComboBox
+                        ItemsSource="{Binding Bacsilist}"
+                        SelectedItem="{Binding Bacsi}"
+                        MinWidth="200"
+                        Height="30"
+                        FontSize="15"
+                        />
+
                 </StackPanel>
                 <!--khoa-->
                 <StackPanel Margin="25 0 25 0">
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                               Text="Khoa:"
+                               Text="Dịch vụ:"
                                />
                     <ComboBox
+                        ItemsSource="{Binding DichVuList}"
+                        SelectedItem="{Binding Dichvu}"
                         MinWidth="120"
                         Height="30"
                         FontSize="15"
@@ -100,7 +109,7 @@
                                        Text="Triệu chứng:"
                                        />
                             <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding HealthRecord_Symptom}"
+                                     Text="{Binding Benhan.TRIEUCHUNG}"
                                      Width="600">
                             </TextBox>
                         </StackPanel>
@@ -111,7 +120,7 @@
                                        />
                             <TextBox Name="conclude_textbox" 
                                 Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding HealthRecord_Symptom}"
+                                     Text="{Binding Benhan.KETLUAN}"
                                      MaxLines="10"
                                      TextWrapping="Wrap"
                                      Width="600"
@@ -126,7 +135,7 @@
                                        Text="Chi phí:"
                                        />
                             <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding HealthRecord_Symptom}"
+                                     Text="{Binding Benhan.THANHTIEN}"
                                      Width="400">
                             </TextBox>
                         </StackPanel>
@@ -139,6 +148,7 @@
             <StackPanel Grid.Row="5" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button
+                    Command="{Binding ConfirmChangeCommand}"
                     Width="130"
                     Height="50"
                     Content="Xác nhận"
@@ -149,6 +159,7 @@
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm bệnh nhân" />
                 <Button Margin="40 0"
+                    Command="{Binding CancelCommand}"
                     Width="130"
                     Height="50"
                     Content="Hủy bỏ"

@@ -76,7 +76,7 @@ namespace LTTQ_DoAn.ViewModel
         private BenhAnType benhan;
         private void findBenhAn()
         {
-
+            _db = new QUANLYBENHVIENEntities();
             List<BENHAN> query = (from m in _db.BENHAN
                                   where m.MABENHNHAN == Benhnhan.MABENHNHAN
                                   select m).ToList();
@@ -199,10 +199,20 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteChangeCommand(object? obj)
         {
-            ChangeHealthRecord wd = new ChangeHealthRecord();
+            if (Benhan == null)
+            {
+                return;
+            }
+                ChangeHealthRecord wd = new ChangeHealthRecord();
+                wd.Closed += ChangeHealthRecord_Closed;
+                wd.DataContext = new ChangeHealthRecordViewModel(Benhan.MABENHAN);
+                System.Windows.Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+        }
 
-            System.Windows.Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+        private void ChangeHealthRecord_Closed(object sender, EventArgs e)
+        {
+            findBenhAn();
         }
     }
 }
