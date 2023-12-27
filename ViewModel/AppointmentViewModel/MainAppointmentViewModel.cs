@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Metadata.Edm;
+using System.Globalization;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -13,6 +15,12 @@ using System.Windows.Input;
 
 namespace LTTQ_DoAn.ViewModel
 {
+    public class LichKhamType
+    {
+        public LICHKHAM Lichkham { get; set; }
+        public BENHNHAN Benhnhan { get; set; }
+        public DICHVU Dichvu { get; set; }
+    }
     public class AppointmentViewModel : BaseViewModel
     {
         public ICommand ViewAppointmentCommand { get; }
@@ -20,12 +28,12 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand AddApointmentCommand { get; }
         public ICommand DeleteApointmentCommand { get; }
 
-        private List<object> lichkhams;
-        private object selectedItem = null;
+        private List<LichKhamType> lichkhams;
+        private LichKhamType selectedItem = null;
 
 
         QUANLYBENHVIENEntities _db;
-        public List<object> LICHKHAMs
+        public List<LichKhamType> LICHKHAMs
         {
             get => lichkhams; set
             {
@@ -34,7 +42,7 @@ namespace LTTQ_DoAn.ViewModel
             }
         }
         
-        public object SelectedItem
+        public LichKhamType SelectedItem
         {
             get => selectedItem; set
             {
@@ -64,10 +72,24 @@ namespace LTTQ_DoAn.ViewModel
                join benhnhan in _db.BENHNHAN on lichkham.MABENHNHAN equals benhnhan.MABENHNHAN
                select new { Lichkham = lichkham, Benhnhan = benhnhan }).ToList();
             */
+            /*
             List<object> list = new List<object>();
             foreach (var item in join_query)
             {
                 list.Add(item);
+            }
+            LICHKHAMs = list;
+            */
+
+            List<LichKhamType> list = new List<LichKhamType>();
+            foreach (var item in join_query)
+            {
+                LichKhamType newLichKham = new LichKhamType() { 
+                    Lichkham = item.Lichkham,
+                    Benhnhan = item.Benhnhan,
+                    Dichvu = item.Dichvu,
+                };
+                list.Add(newLichKham);
             }
             LICHKHAMs = list;
         }
@@ -134,11 +156,24 @@ namespace LTTQ_DoAn.ViewModel
         //tham số thứ 2 là hành động
         private void ExecuteChangeCommand(object? obj)
         {
-            ChangeAppointment wd = new ChangeAppointment();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
-            Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+            
+            ChangeAppointment wd = new ChangeAppointment();
+            wd.Closed += ChangeAppointment_Closed;
+            if (SelectedItem != null)
+            {
+               wd.DataContext = new ChangeAppointmentViewModel(SelectedItem.Lichkham);
+                //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
+                // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
+        }
+
+        private void ChangeAppointment_Closed(object sender, EventArgs e)
+        {
+            Load();
         }
     }
 }

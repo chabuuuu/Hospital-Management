@@ -12,13 +12,170 @@ namespace LTTQ_DoAn.ViewModel
 {
     public class ChangeAppointmentViewModel : BaseViewModel
     {
+        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
+        private string benhnhan;
+        private string bacsi;
+        private string dichvu;
+        private string phong;
+        private List<String> benhnhanList;
+        private List<string> bacsiList;
+        private List<String> dichvuList;
+
+        private LICHKHAM lichkham;
         public ICommand CancelCommand { get; }
         public ICommand ConfirmChangeCommand { get; }
+        public LICHKHAM Lichkham { get => lichkham; set
+            {
+                lichkham = value;
+                OnPropertyChanged(nameof(Lichkham));
+            }
+        }
+
+        public string Benhnhan { get => benhnhan; set
+            {
+                benhnhan = value;
+                OnPropertyChanged(nameof(Benhnhan));
+            }
+        }
+        public string Bacsi { get => bacsi; set
+            {
+                bacsi = value;
+                OnPropertyChanged(nameof(Bacsi));
+            }
+        }
+        public string Dichvu { get => dichvu; set
+            {
+                dichvu = value;
+                OnPropertyChanged(nameof(Dichvu));
+            }
+        }
+        public string Phong
+        {
+            get => phong; set
+            {
+                phong = value;
+                OnPropertyChanged(nameof(Phong));
+            }
+        }
+        public List<string> BenhnhanList { get => benhnhanList; set => benhnhanList = value; }
+        public List<string> BacsiList { get => bacsiList; set => bacsiList = value; }
+        public List<string> DichvuList { get => dichvuList; set => dichvuList = value; }
+        public void loadBenhnhan()
+        {
+            List<BENHNHAN> benhnhan = _db.BENHNHAN.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in benhnhan)
+            {
+                subID.Add(item.SUB_ID + ": " + item.HOTEN);
+                if (item.MABENHNHAN == Lichkham.MABENHNHAN)
+                {
+                    Benhnhan = item.SUB_ID + ": " + item.HOTEN;
+                }
+            }
+            this.BenhnhanList = subID;
+        }
+        public void loadBacsi()
+        {
+            List<YSI> bacsi = _db.YSI.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in bacsi)
+            {
+                if (item.LOAIYSI == null)
+                {
+                    continue;
+                }
+                if (item.LOAIYSI.Substring(0, 6).Equals("Bác sĩ"))
+                {
+                    subID.Add(item.SUB_ID + ": " + item.HOTEN);
+                    if (item.MAYSI == Lichkham.MABACSI)
+                    {
+                        Bacsi = item.SUB_ID + ": " + item.HOTEN;
+                    }
+                }
+            }
+            this.BacsiList = subID;
+
+        }
+
+        public void loadDichvu()
+        {
+            List<DICHVU> dichvu = _db.DICHVU.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in dichvu)
+            {
+                subID.Add(item.SUB_ID + ": " + item.TENDICHVU);
+                if (item.MADICHVU == Lichkham.MADICHVU)
+                {
+                    Dichvu = item.SUB_ID + ": " + item.TENDICHVU;
+                }
+            }
+            this.DichvuList = subID;
+        }
+        public int convertBacsiSub_ID(string inputString)
+        {
+            // Tách chuỗi sử dụng phương thức Split
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            string k1 = parts[0].Substring(1);
+            return int.Parse(k1);
+        }
+        public int convertBenhnhanSub_ID(string inputString)
+        {
+            // Tách chuỗi sử dụng phương thức Split
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            string k1 = parts[0].Substring(2);
+            return int.Parse(k1);
+        }
+        public int convertDichvuSub_ID(string inputString)
+        {
+            // Tách chuỗi sử dụng phương thức Split
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            string k1 = parts[0].Substring(2);
+            return int.Parse(k1);
+        }
+        public int? convertPhongSUB_ID(string Sub_id)
+        {
+            if (Sub_id == null)
+            {
+                return null;
+            }
+            // Chuỗi cần tách
+            string inputString = Sub_id;
+
+            // Tách các ký tự còn lại thành một chuỗi riêng
+            string remainingCharacters = inputString.Substring(3);
+
+            return int.Parse(remainingCharacters);
+        }
+        private void update()
+        {
+            LICHKHAM updateLichkham = (from m in _db.LICHKHAM
+                                       where m.MALICHKHAM == Lichkham.MALICHKHAM
+                                       select m).Single();
+            updateLichkham.MABENHNHAN = convertBenhnhanSub_ID(Benhnhan);
+            updateLichkham.MABACSI = convertBacsiSub_ID(Bacsi);
+            updateLichkham.MAPHONG = convertPhongSUB_ID(Phong);
+            updateLichkham.MADICHVU = convertDichvuSub_ID(Dichvu);
+            updateLichkham.MAPHONG = convertPhongSUB_ID(Phong);
+            updateLichkham.NGAYLENLICH = Lichkham.NGAYLENLICH;
+            updateLichkham.NGAYKHAM = Lichkham.NGAYKHAM;
+            _db.SaveChanges();
+        }
+
+        public ChangeAppointmentViewModel(LICHKHAM SelectedLichKham)
+        {
+            Lichkham = SelectedLichKham;
+            loadBacsi();
+            loadBenhnhan();
+            loadDichvu();
+            CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
+            ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);
+        }
         public ChangeAppointmentViewModel()
         {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);
         }
+
         private void ExecuteCancelCommand(object? obj)
         {
             Application.Current.MainWindow.Close();

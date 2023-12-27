@@ -66,20 +66,27 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                        Text="Tên bệnh nhân:"
                                        />
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Victim_Name}"
-                                     Width="200">
-                            </TextBox>
+                            <ComboBox
+                            ItemsSource="{Binding BenhnhanList}"
+                            SelectedValue="{Binding Benhnhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            MinWidth="200"
+                            Height="30"
+                            FontSize="15"
+                            Margin="0 0 25 30"/>
                         </StackPanel>
                         <!--Tên y sĩ-->
                         <StackPanel Margin="25 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                        Text="Tên y sĩ:"
                                        />
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Doctor_Name}"
-                                     Width="200">
-                            </TextBox>
+                            <ComboBox
+                            ItemsSource="{Binding BacsiList}"
+                            SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            MinWidth="200"
+                            Height="30"
+                            FontSize="15"
+                            Margin="0 0 25 30"/>
+
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Margin="0 0 0 30">
@@ -88,14 +95,14 @@
                                 <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                     Text="Ngày lên lịch:"/>
                                 <DatePicker Height="30" FontSize="15"
-                                    Text="{Binding}"/>
+                                    SelectedDate="{Binding Lichkham.NGAYLENLICH}"/>
                             </StackPanel>
                             <!--ngày khám-->
                             <StackPanel Margin="25 0 0 0">
                                 <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                     Text="Ngày khám:"/>
                                 <DatePicker Height="30" Width="110" FontSize="15"
-                                    Text="{Binding}"/>
+                                    SelectedDate="{Binding Lichkham.NGAYKHAM}"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -105,7 +112,7 @@
                                    Text="Phòng:"
                                    />
                                 <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Room_name}"
+                                     Text="{Binding Phong}"
                                      Width="130">
                                 </TextBox>
                             </StackPanel>
@@ -113,10 +120,14 @@
                             <StackPanel Margin="25 0 25 30">
                                 <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                     Text="Dịch vụ:"/>
-                                <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Service_Name}"
-                                     Width="150">
-                                </TextBox>
+
+                                <ComboBox
+                            ItemsSource="{Binding DichvuList}"
+                            SelectedValue="{Binding Dichvu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            MinWidth="200"
+                            Height="30"
+                            FontSize="15"
+                            Margin="0 0 25 30"/>
                             </StackPanel>
                         </StackPanel>
                     </WrapPanel>
