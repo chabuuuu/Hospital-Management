@@ -14,10 +14,22 @@ using System.Windows.Forms;
 
 namespace LTTQ_DoAn.ViewModel
 {
+    public class BenhAnType
+    {
+        public int MABENHAN { get; set; }
+        public string SUB_ID { get; set; }
+        public string NGAYKHAM { get; set; }
+        public string KHOA { get; set; }
+        public string TRIEUCHUNG { get; set; }
+        public string KETLUAN { get; set; }
+        public string MAYSI { get; set; }
+        public string THANHTIEN { get; set; }
+
+    }
     public class HealthRecordViewModel : BaseViewModel
     {
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
-
+        private string khoa;
         public ICommand ChangeCommand { get; }
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
@@ -32,23 +44,95 @@ namespace LTTQ_DoAn.ViewModel
             }
         }
 
-        public List<BENHAN> Listbenhan { get => listbenhan; set
+        public List<BenhAnType> Listbenhan { get => listbenhan; set
             {
                 listbenhan = value;
                 OnPropertyChanged(nameof(Listbenhan));
             }
         }
 
+        public string Khoa
+        {
+            get => khoa; set
+            {
+                khoa = value;
+                OnPropertyChanged(nameof(Khoa));
+            }
+        }
+
+        public BenhAnType Benhan
+        {
+            get => benhan; set
+            {
+                benhan = value;
+                OnPropertyChanged(nameof(Benhan));
+            }
+        }
+
         private BENHNHAN benhnhan;
-        private List<BENHAN> listbenhan;
+        private List<BenhAnType> listbenhan;
+        private BenhAnType benhan;
         private void findBenhAn()
         {
 
             List<BENHAN> query = (from m in _db.BENHAN
                                   where m.MABENHNHAN == Benhnhan.MABENHNHAN
                                   select m).ToList();
-            Listbenhan = query;
+            List<BenhAnType> list = new List<BenhAnType>();
+            foreach (var item in query)
+            {
+                BenhAnType benhan = new BenhAnType() {
+                MABENHAN = item.MABENHAN,
+                SUB_ID = item.SUB_ID,
+                NGAYKHAM = item.NGAYKHAM.ToString(),
+                KHOA = findKhoa(item.MAYSI),
+                TRIEUCHUNG = item.TRIEUCHUNG,
+                KETLUAN = item.KETLUAN,
+                MAYSI = findBacSi(item.MAYSI),
+                THANHTIEN = item.THANHTIEN.ToString() };
+                list.Add(benhan);
+            }
+            Listbenhan = list;
         }
+        private string findBacSi(int? maBacSi)
+        {
+            if (maBacSi == null)
+            {
+                return "";
+            }
+            string? tenBacSi = (from m in _db.YSI
+                                where m.MAYSI == maBacSi
+                                select m.HOTEN).First();
+            if (tenBacSi == null)
+            {
+                return "";
+            }
+            return "M" + maBacSi.ToString() + ": " + tenBacSi;
+        }
+
+        private string findKhoa(int? maYsi)
+        {
+            if (maYsi == null)
+            {
+                return "";
+            }
+            int? maKhoa = (from m in _db.YSI
+                       where m.MAYSI == maYsi
+                       select m.MAKHOA).First();
+            if (maKhoa == null)
+            {
+                return "";
+            }
+            string? tenKhoa = (from m in _db.KHOA
+                               where m.MAKHOA == maKhoa
+                               select m.TENKHOA).First();
+            if (tenKhoa == null)
+            {
+                return "";
+            }
+            return "K" + maKhoa.ToString() + ": " + tenKhoa;
+        }
+        
         public HealthRecordViewModel()
         {
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
