@@ -56,6 +56,7 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50 0 50 0">
                 <!--tên bệnh nhân-->
                 <TextBox Margin="0 0 25 0"
+                    Text="{Binding TenBenhNhan}"
                     Width="250"
                     HorizontalContentAlignment="Stretch"
                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -64,22 +65,25 @@
                     FontSize="15"
                     Height="55"/>
                 <!--tên bác sĩ-->
-                <TextBox Margin="25 0 25 0"
-                    Width="250"
-                    HorizontalContentAlignment="Stretch"
-                    Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                    materialdesign:HintAssist.Hint="Tên bác sĩ"
-                    materialdesign:TextFieldAssist.HasClearButton="True"
-                    FontSize="15"
-                    Height="55"/>
-                <!--chọn khoa-->
                 <ComboBox
-                MinWidth="120"
+                ItemsSource="{Binding Bacsilist}"
+                SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                MinWidth="250"
                 Height="55"
                 FontSize="15"
-                materialdesign:HintAssist.Hint="Khoa"
+                materialdesign:HintAssist.Hint="Bác sĩ"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                 Margin="25 0 25 0"/>
+                <ComboBox
+                ItemsSource="{Binding DichVuList}"
+                SelectedValue="{Binding Dichvu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                MinWidth="250"
+                Height="55"
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Dịch vụ"
+                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                Margin="25 0 25 0"/>
+
             </StackPanel>
             <!--các thông tin về bệnh án-->
             <StackPanel Grid.Row="3" Margin="50 0 50 0" HorizontalAlignment="Left">
@@ -91,6 +95,7 @@
                     <StackPanel Grid.Row="3" Grid.Column="0">
                         <!--biêu hiện bệnh-->
                         <TextBox Margin="0 0 25 40"
+                        Text="{Binding Bieuhien}"
                         Width="600"
                         HorizontalContentAlignment="Stretch"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -100,6 +105,7 @@
                         Height="55"/>
                         <!--kết luận-->
                         <TextBox Margin="0 0 25 40"
+                        Text="{Binding Ketluan}"
                         Width="600"
                         HorizontalContentAlignment="Stretch"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -111,6 +117,7 @@
                         <TextBox Margin="0 0 25 0" HorizontalAlignment="Left"
                         Width="400"
                         HorizontalContentAlignment="Stretch"
+                        Text="{Binding Chiphi}"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                         materialdesign:HintAssist.Hint="Chi phí (VNĐ)"
                         materialdesign:TextFieldAssist.HasClearButton="True"
@@ -125,6 +132,7 @@
             <StackPanel Grid.Row="5" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button
+                    Command="{Binding ConfirmAddCommand}"
                     Width="130"
                     Height="50"
                     Content="Xác nhận"
@@ -135,6 +143,7 @@
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm bệnh nhân" />
                 <Button
+                    Command="{Binding CancelCommand}"
                     Margin="40 0"
                     Width="130"
                     Height="50"

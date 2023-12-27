@@ -135,6 +135,7 @@
                                                         <!--thao tác sửa bệnh án-->
                                                         <RadioButton Style="{StaticResource gridOpenButton}"
                                                                 Margin="0 0 10 0"
+                                                             Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                                 >
                                                             <fa:IconImage Icon="UpRightFromSquare"
                                                                 Height="20"/>   
@@ -161,6 +162,7 @@
                                     Margin="0 0 30 0"
                                     Height="55"
                                     Width="55"
+                                    Command="{Binding AddCommand}"
                                     Background="{StaticResource btnActivedText}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
                             </Button>
