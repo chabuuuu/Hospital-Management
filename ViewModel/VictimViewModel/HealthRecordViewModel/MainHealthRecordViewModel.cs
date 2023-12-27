@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Forms;
 using LTTQ_DoAn.ViewModell;
+using System.Data.Entity.Infrastructure;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -76,7 +77,7 @@ namespace LTTQ_DoAn.ViewModel
         private BenhAnType benhan;
         private void findBenhAn()
         {
-
+            _db = new QUANLYBENHVIENEntities();
             List<BENHAN> query = (from m in _db.BENHAN
                                   where m.MABENHNHAN == Benhnhan.MABENHNHAN
                                   select m).ToList();
@@ -191,7 +192,33 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteDeleteCommand(object? obj)
         {
+            try
+            {
+                int Id = Benhan.MABENHAN;
+                var deleteMember = _db.BENHAN.Where(m => m.MABENHAN == Id).Single();
+                _db.BENHAN.DeleteObject(deleteMember);
+                _db.SaveChanges();
 
+                new MessageBoxCustom(
+                    "Thông báo",
+                    "Đã xóa bệnh án: \nMã bệnh án: " +
+                        Benhan.SUB_ID.ToString() + "\nNgày khám: " +
+                        Benhan.NGAYKHAM.ToString(),
+                    MessageType.Success,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                findBenhAn();
+            }
+            catch (Exception e)
+            {
+                new MessageBoxCustom(
+                    "Thông báo",
+                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    MessageType.Error,
+                    MessageButtons.OK
+                    )
+                    .ShowDialog();
+            }
         }
         private bool CanExecuteChangeCommand(object? obj)
         {
@@ -199,10 +226,20 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteChangeCommand(object? obj)
         {
-            ChangeHealthRecord wd = new ChangeHealthRecord();
+            if (Benhan == null)
+            {
+                return;
+            }
+                ChangeHealthRecord wd = new ChangeHealthRecord();
+                wd.Closed += ChangeHealthRecord_Closed;
+                wd.DataContext = new ChangeHealthRecordViewModel(Benhan.MABENHAN);
+                System.Windows.Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+        }
 
-            System.Windows.Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+        private void ChangeHealthRecord_Closed(object sender, EventArgs e)
+        {
+            findBenhAn();
         }
     }
 }

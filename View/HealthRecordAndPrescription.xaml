@@ -142,6 +142,7 @@
                                                         </RadioButton>
                                                         <!--thao tác xóa bệnh án-->
                                                         <RadioButton Style="{StaticResource gridOpenButton}"
+                                                                     Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                                 >
                                                             <fa:IconImage Icon="Trash"
                                                                 Foreground="#ed2525"
