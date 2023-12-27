@@ -149,7 +149,7 @@ namespace LTTQ_DoAn.ViewModel
                 MAPHONG = convertPhongSUB_ID(Phong),
                 NGAYLENLICH = DateTime.ParseExact(Ngaylenlich, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
             };
-            _db.LICHKHAM.Add(newLichkham);
+            _db.LICHKHAM.AddObject(newLichkham);
             _db.SaveChanges();
         }
         public AddAppointmentViewModel()

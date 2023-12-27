@@ -134,7 +134,7 @@ namespace LTTQ_DoAn.ViewModel
                 MAKHOA = this.convertKhoaSub_ID(Khoa),
                 LOAIYSI = this.Chucvu
             };
-            _db.YSI.Add(newYsi);
+            _db.YSI.AddObject(newYsi);
             _db.SaveChanges();
         }
         public AddNurseAndDoctorViewModel()

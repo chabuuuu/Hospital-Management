@@ -138,7 +138,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 int Id = SelectedItem.Lichkham.MALICHKHAM;
                 var deleteMember = _db.LICHKHAM.Where(m => m.MALICHKHAM == Id).Single();
-                _db.LICHKHAM.Remove(deleteMember);
+                _db.LICHKHAM.DeleteObject(deleteMember);
                 _db.SaveChanges();
 
                 new MessageBoxCustom(

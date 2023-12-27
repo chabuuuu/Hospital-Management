@@ -97,7 +97,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 int Id = SelectedItem.MABENHNHAN;
                 var deleteMember = _db.BENHNHAN.Where(m => m.MABENHNHAN == Id).Single();
-                _db.BENHNHAN.Remove(deleteMember);
+                _db.BENHNHAN.DeleteObject(deleteMember);
                 _db.SaveChanges();
 
                 new MessageBoxCustom(

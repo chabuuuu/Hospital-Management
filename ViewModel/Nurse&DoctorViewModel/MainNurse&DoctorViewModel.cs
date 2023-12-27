@@ -108,7 +108,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 int Id = SelectedItem.MAYSI;
                 var deleteMember = _db.YSI.Where(m => m.MAYSI == Id).Single();
-                _db.YSI.Remove(deleteMember);
+                _db.YSI.DeleteObject(deleteMember);
                 _db.SaveChanges();
                 new MessageBoxCustom("Thành công", "Đã xóa y sĩ: \nMã y sĩ: " +
                     SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " +

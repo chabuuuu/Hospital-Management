@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="QUANLYBENHVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="QUANLYBENHVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BENHAN">
           <Key>
             <PropertyRef Name="MABENHAN" />
@@ -14,8 +14,10 @@
           <Property Name="MAYSI" Type="int" />
           <Property Name="MABENHNHAN" Type="int" />
           <Property Name="MADICHVU" Type="int" />
-          <Property Name="GHICHU" Type="varchar(max)" />
           <Property Name="THANHTIEN" Type="money" />
+          <Property Name="TRIEUCHUNG" Type="nvarchar(max)" />
+          <Property Name="NGAYKHAM" Type="smalldatetime" />
+          <Property Name="KETLUAN" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="BENHNHAN">
           <Key>
@@ -48,7 +50,7 @@
           <Property Name="MADONTHUOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SUB_ID" Type="varchar" MaxLength="12" StoreGeneratedPattern="Computed" />
           <Property Name="MABENHAN" Type="int" />
-          <Property Name="GHICHU" Type="varchar(max)" />
+          <Property Name="GHICHU" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
@@ -328,7 +330,8 @@
             <End Role="KHOA" EntitySet="KHOA" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUANLYBENHVIENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -341,8 +344,10 @@
           <Property Name="MAYSI" Type="Int32" />
           <Property Name="MABENHNHAN" Type="Int32" />
           <Property Name="MADICHVU" Type="Int32" />
-          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="THANHTIEN" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TRIEUCHUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYKHAM" Type="DateTime" />
+          <Property Name="KETLUAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DONTHUOC" Relationship="Self.FK_BENHAN_DONTHUOC" FromRole="BENHAN" ToRole="DONTHUOC" />
           <NavigationProperty Name="DICHVU" Relationship="Self.FK_DICHVU_BENHAN" FromRole="BENHAN" ToRole="DICHVU" />
           <NavigationProperty Name="BENHNHAN" Relationship="Self.FK_MABENHNHAN_BENHAN" FromRole="BENHAN" ToRole="BENHNHAN" />
@@ -357,10 +362,10 @@
           <Property Name="MAPHONG" Type="Int32" />
           <Property Name="HOTEN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
+          <Property Name="NGAYSINH" Type="DateTime" />
           <Property Name="DIACHI" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="MABHYT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="NGAYNHAPVIEN" Type="DateTime" Precision="3" />
+          <Property Name="NGAYNHAPVIEN" Type="DateTime" />
           <NavigationProperty Name="BENHAN" Relationship="Self.FK_MABENHNHAN_BENHAN" FromRole="BENHNHAN" ToRole="BENHAN" />
           <NavigationProperty Name="LICHKHAM" Relationship="Self.FK_MABENHNHAN_LICHKHAM" FromRole="BENHNHAN" ToRole="LICHKHAM" />
           <NavigationProperty Name="PHONG" Relationship="Self.FK_MAPHONG_PHONG" FromRole="BENHNHAN" ToRole="PHONG" />
@@ -384,7 +389,7 @@
           <Property Name="MADONTHUOC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SUB_ID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="MABENHAN" Type="Int32" />
-          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BENHAN" Relationship="Self.FK_BENHAN_DONTHUOC" FromRole="DONTHUOC" ToRole="BENHAN" />
         </EntityType>
         <EntityType Name="KHOA">
@@ -394,7 +399,7 @@
           <Property Name="MAKHOA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SUB_ID" Type="String" MaxLength="11" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="TENKHOA" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="NGAYTHANHLAP" Type="DateTime" Precision="0" />
+          <Property Name="NGAYTHANHLAP" Type="DateTime" />
           <Property Name="TRUONGKHOA" Type="Int32" />
           <Property Name="PICTURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="YSI" Relationship="Self.FK_MAKHOA_YSI" FromRole="KHOA" ToRole="YSI" />
@@ -410,8 +415,8 @@
           <Property Name="MABENHNHAN" Type="Int32" />
           <Property Name="MAPHONG" Type="Int32" />
           <Property Name="MADICHVU" Type="Int32" />
-          <Property Name="NGAYKHAM" Type="DateTime" Precision="0" />
-          <Property Name="NGAYLENLICH" Type="DateTime" Precision="0" />
+          <Property Name="NGAYKHAM" Type="DateTime" />
+          <Property Name="NGAYLENLICH" Type="DateTime" />
           <NavigationProperty Name="BENHNHAN" Relationship="Self.FK_MABENHNHAN_LICHKHAM" FromRole="LICHKHAM" ToRole="BENHNHAN" />
           <NavigationProperty Name="DICHVU" Relationship="Self.FK_MADICHVU_LICHKHAM" FromRole="LICHKHAM" ToRole="DICHVU" />
           <NavigationProperty Name="YSI" Relationship="Self.FK_MABACSI_LICHKHAM" FromRole="LICHKHAM" ToRole="YSI" />
@@ -450,8 +455,8 @@
           <Property Name="MAPHONG" Type="Int32" />
           <Property Name="HOTEN" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="NGAYSINH" Type="DateTime" Precision="3" />
-          <Property Name="NGAYVAOLAM" Type="DateTime" Precision="3" />
+          <Property Name="NGAYSINH" Type="DateTime" />
+          <Property Name="NGAYVAOLAM" Type="DateTime" />
           <Property Name="LOAIYSI" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="MACHIHUY" Type="Int32" />
           <NavigationProperty Name="BENHAN" Relationship="Self.FK_MAYSI_BENHAN" FromRole="YSI" ToRole="BENHAN" />
@@ -695,8 +700,10 @@
                 <ScalarProperty Name="MAYSI" ColumnName="MAYSI" />
                 <ScalarProperty Name="MABENHNHAN" ColumnName="MABENHNHAN" />
                 <ScalarProperty Name="MADICHVU" ColumnName="MADICHVU" />
-                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
                 <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="TRIEUCHUNG" ColumnName="TRIEUCHUNG" />
+                <ScalarProperty Name="NGAYKHAM" ColumnName="NGAYKHAM" />
+                <ScalarProperty Name="KETLUAN" ColumnName="KETLUAN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -816,8 +823,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -105,7 +105,7 @@ namespace LTTQ_DoAn.ViewModel
             //newBenhnhan.MAPHONG = 1;
             //MessageBox.Show(Gioitinh);
             //MessageBox.Show(Ten + Gioitinh + Ngaysinh + Bhyt + this.convertSUB_ID(Maphong) + Ngaynhapvien + Diachi);
-            _db.BENHNHAN.Add(newBenhnhan);
+            _db.BENHNHAN.AddObject(newBenhnhan);
             //_db.BENHNHAN.AddObject(newBenhnhan);
             _db.SaveChanges();
             //BaseViewModel.global_db = _db;
