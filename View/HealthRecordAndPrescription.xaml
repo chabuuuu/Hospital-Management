@@ -47,6 +47,7 @@
                                       >
                             <ListView HorizontalAlignment="Stretch" 
                                       ItemsSource="{Binding Listbenhan}"
+                                      SelectedItem="{Binding Benhan}"
                                       ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListView.View>
                                     <GridView>
@@ -69,14 +70,14 @@
                                                             <StackPanel Grid.Row="0" Orientation="Horizontal">
                                                                 <TextBlock Text="Ngày: "
                                                                            Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="1/1/2001"
+                                                                <TextBlock Text="{Binding NGAYKHAM}"
                                                                            Style="{StaticResource InfoText}"
                                                                            Margin="0 0 200 0"
                                                                           />
 
                                                                 <TextBlock Text="Khoa: "
                                                                          Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text=""
+                                                                <TextBlock Text="{Binding KHOA}"
                                                                            Style="{StaticResource InfoText}"
                                                                            />
                                                             </StackPanel>
@@ -87,7 +88,7 @@
                                                                            Style="{StaticResource InfoText}"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                                               HorizontalScrollBarVisibility="Disabled">
-                                                                    <TextBlock Text="{Binding GHICHU}"
+                                                                    <TextBlock Text="{Binding TRIEUCHUNG}"
                                                                                Width="800"
                                                                                TextWrapping="Wrap"
                                                                             Style="{StaticResource InfoText}"/>
@@ -101,7 +102,7 @@
                                                                            VerticalAlignment="Top"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                                               HorizontalScrollBarVisibility="Disabled">
-                                                                    <TextBlock Text="OK"
+                                                                    <TextBlock Text="{Binding KETLUAN}"
                                                                                TextWrapping="Wrap"
                                                                                Width="800"
                                                                             Style="{StaticResource InfoText}"/>
