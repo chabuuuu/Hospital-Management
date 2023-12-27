@@ -50,7 +50,7 @@
                             </TextBlock>
                         </Button>
                         <Button
-                            Command="{Binding DeleteAppointmentCommnad}"
+                            Command="{Binding DeleteApointmentCommand}"
                             Style="{StaticResource BtnUserControl_Delete}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
