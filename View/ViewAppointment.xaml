@@ -69,7 +69,7 @@
                                        />
                             <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                                 <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="200"
-                                           Text="{Binding Victim_Insurance}"/>
+                                           Text="{Binding Benhnhan.HOTEN}"/>
                             </Border>
                         </StackPanel>
                         <!--Tên y sĩ-->
@@ -79,7 +79,7 @@
                                        />
                             <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                                 <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="200"
-                                           Text="{Binding Victim_Insurance}"/>
+                                           Text="{Binding Bacsi}"/>
                             </Border>
                         </StackPanel>
 
@@ -90,7 +90,7 @@
                                     Text="Ngày lên lịch:"/>
                                 <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                                     <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="130"
-                                               Text="{Binding Victim_Insurance}"/>
+                                               Text="{Binding Lichkham.NGAYLENLICH}"/>
                                 </Border>
                             </StackPanel>
                             <!--ngày khám-->
@@ -99,7 +99,7 @@
                                     Text="Ngày khám:"/>
                                 <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                                     <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="130"
-                                               Text="{Binding Victim_Insurance}"/>
+                                               Text="{Binding Lichkham.NGAYKHAM}"/>
                                 </Border>
                             </StackPanel>
                         </StackPanel>
@@ -111,7 +111,7 @@
                                    />
                                 <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                                     <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="130"
-                                               Text="{Binding Victim_Insurance}"/>
+                                               Text="{Binding Phong}"/>
                                 </Border>
                             </StackPanel>
                             <!--cấp trên-->
@@ -120,7 +120,7 @@
                                     Text="Dịch vụ:"/>
                                 <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                                     <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="200"
-                                               Text="{Binding Victim_Insurance}"/>
+                                               Text="{Binding Dichvu.TENDICHVU}"/>
                                 </Border>
                             </StackPanel>
                         </StackPanel>

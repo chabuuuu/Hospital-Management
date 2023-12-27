@@ -143,11 +143,16 @@ namespace LTTQ_DoAn.ViewModel
         //tham số thứ 2 là hành động
         private void ExecuteViewCommand(object? obj)
         {
-            ViewAppointment wd = new ViewAppointment();
             //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
             // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
-            Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+            ViewAppointment wd = new ViewAppointment();
+            if (SelectedItem != null)
+            {
+                wd.DataContext = new ViewAppointmentViewModel(SelectedItem.Lichkham, SelectedItem.Dichvu, SelectedItem.Benhnhan);
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
+
         }
         private bool CanExecuteChangeCommand(object? obj)
         {
