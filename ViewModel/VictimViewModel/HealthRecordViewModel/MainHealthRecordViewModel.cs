@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Forms;
+using LTTQ_DoAn.ViewModell;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -30,6 +31,7 @@ namespace LTTQ_DoAn.ViewModel
     {
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private string khoa;
+        private HealthRecordAndPrescription thisView;
         public ICommand ChangeCommand { get; }
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
@@ -140,8 +142,9 @@ namespace LTTQ_DoAn.ViewModel
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
-        public HealthRecordViewModel(BENHNHAN SelectedBenhNhan)
+        public HealthRecordViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view)
         {
+            this.thisView = view;
             Benhnhan = SelectedBenhNhan;
             findBenhAn();
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
@@ -157,7 +160,10 @@ namespace LTTQ_DoAn.ViewModel
 
         private void ExecuteExitCommand(object obj)
         {
-            System.Windows.Application.Current.MainWindow.Close();
+            //System.Windows.Application.Current.MainWindow = ;
+
+            //System.Windows.Application.Current.MainWindow.Close();
+            thisView.Close();
         }
 
         private bool CanExecuteAddCommand(object? obj)
@@ -167,10 +173,18 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteAddCommand(object? obj)
         {
             AddHealthRecord wd = new AddHealthRecord();
-
+            wd.Closed += AddHealthRecord_Closed;
+            wd.DataContext = new AddHeathRecordViewModel(Benhnhan);
             System.Windows.Application.Current.MainWindow = wd;
             wd.ShowDialog();
+
         }
+
+        private void AddHealthRecord_Closed(object sender, EventArgs e)
+        {
+            findBenhAn();
+        }
+
         private bool CanExecuteDeleteCommand(object? obj)
         {
             return true;
