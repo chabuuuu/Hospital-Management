@@ -19,11 +19,25 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand AddCommand { get; }
         public ICommand DeleteCommand { get; }
 
+        public ICommand ExitCommand { get; }
+
+
         public HealthRecordViewModel()
         {
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
+        }
+
+        private bool CanExecuteExitCommand(object obj)
+        {
+            return true;
+        }
+
+        private void ExecuteExitCommand(object obj)
+        {
+            Application.Current.MainWindow.Close();
         }
 
         private bool CanExecuteAddCommand(object? obj)

@@ -11,7 +11,9 @@
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
         Title="MainWindow" Height="800" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-
+    <Window.DataContext>
+        <viewmodel:HealthRecordViewModel/>
+    </Window.DataContext>
     <Border Background="White"
             BorderBrush="{StaticResource btnActivedText}"
             BorderThickness="3">
@@ -21,6 +23,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button
+                Command="{Binding ExitCommand}"
                 Style="{StaticResource controlButton}"
                 FontSize="16"
                 HorizontalAlignment="Right">

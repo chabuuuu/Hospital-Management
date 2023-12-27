@@ -192,6 +192,7 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteViewHealthRecordCommand(object? obj)
         {
             HealthRecordAndPrescription wd = new HealthRecordAndPrescription();
+            Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
     }
