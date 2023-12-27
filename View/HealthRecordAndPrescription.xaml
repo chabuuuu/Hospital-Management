@@ -127,17 +127,20 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
-                                                        <Button Style="{StaticResource gridEditButton}"
+                                                        <!--thao tác sửa bệnh án-->
+                                                        <RadioButton Style="{StaticResource gridOpenButton}"
                                                                 Margin="0 0 10 0"
-                                                                Height="35">
+                                                                >
                                                             <fa:IconImage Icon="UpRightFromSquare"
-                                                                />   
-                                                        </Button>
-                                                        <Button Style="{StaticResource gridOpenButton}"
-                                                                Height="35">
+                                                                Height="20"/>   
+                                                        </RadioButton>
+                                                        <!--thao tác xóa bệnh án-->
+                                                        <RadioButton Style="{StaticResource gridOpenButton}"
+                                                                >
                                                             <fa:IconImage Icon="Trash"
-                                                                Foreground="#ed2525"/>
-                                                        </Button>
+                                                                Foreground="#ed2525"
+                                                                Height="20"/>
+                                                        </RadioButton>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
@@ -148,6 +151,7 @@
                         </ScrollViewer>
                         <StackPanel Grid.Row="1" HorizontalAlignment="Right"
                                     VerticalAlignment="Center">
+                            <!--thao tác thêm bệnh án-->
                             <Button Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
                                     Margin="0 0 30 0"
                                     Height="55"
@@ -228,16 +232,19 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
-                                                        <Button Style="{StaticResource gridEditButton}"
+                                                         <!--thao tác sửa đơn thuốc-->
+                                                        <RadioButton Style="{StaticResource gridOpenButton}"
                                                             Margin="0 0 10 0"
-                                                            Height="35">
-                                                            <fa:IconImage Icon="UpRightFromSquare"/>
-                                                        </Button>
-                                                        <Button Style="{StaticResource gridOpenButton}"
-                                                                Height="35">
+                                                            >
+                                                            <fa:IconImage Icon="UpRightFromSquare" Height="20"/>
+                                                        </RadioButton>
+                                                        <!--thao tác sửa đơn thuốc-->
+                                                        <RadioButton Style="{StaticResource gridOpenButton}"
+                                                                >
                                                             <fa:IconImage Icon="Trash"
-                                                                        Foreground="#ed2525"/>
-                                                        </Button>
+                                                                        Foreground="#ed2525"
+                                                                          Height="20"/>
+                                                        </RadioButton>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
@@ -247,6 +254,7 @@
                             </ListView>
                         </ScrollViewer>
                         <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <!--thao tác thêm đơn thuốc-->
                             <Button Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
                                 Margin="0 0 30 0"
                                 Height="55"
