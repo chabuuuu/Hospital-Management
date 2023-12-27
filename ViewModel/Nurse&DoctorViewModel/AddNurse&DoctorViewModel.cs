@@ -132,6 +132,7 @@ namespace LTTQ_DoAn.ViewModel
                 NGAYVAOLAM = DateTime.ParseExact(Ngayvaolam, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
                 MACHIHUY = this.convertChiHuySUB_ID(Chihuy),
                 MAKHOA = this.convertKhoaSub_ID(Khoa),
+                LOAIYSI = this.Chucvu
             };
             _db.YSI.Add(newYsi);
             _db.SaveChanges();

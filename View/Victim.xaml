@@ -128,6 +128,7 @@
                                     </RadioButton>
                                     <!--xem bệnh án và đơn thuốc-->
                                     <RadioButton 
+                                        
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             ToolTip="Bệnh án và đơn thuốc">

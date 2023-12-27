@@ -148,6 +148,7 @@
                 MinWidth="120"
                 HorizontalContentAlignment="Stretch"
                 Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                Text="{Binding Maphong}"
                 materialdesign:HintAssist.Hint="Mã phòng"
                 materialdesign:TextFieldAssist.HasClearButton="True"
                 FontSize="15"

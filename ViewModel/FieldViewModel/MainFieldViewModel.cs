@@ -37,7 +37,7 @@ namespace LTTQ_DoAn.ViewModel
         }
         private bool CanExecuteChangeCommand(object? obj)
         {
-            return false; //ko điều kiện
+            return true; //ko điều kiện
         }
         private void ExecuteChangeCommand(object? obj)
         {
@@ -48,7 +48,7 @@ namespace LTTQ_DoAn.ViewModel
         }
         private bool CanExecuteAddCommand(object? obj)
         {
-            return false;//ko điều kiện
+            return true;//ko điều kiện
         }
         private void ExecuteAddCommand(object? obj)
         {
