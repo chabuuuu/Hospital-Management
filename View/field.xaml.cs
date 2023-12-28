@@ -21,21 +21,28 @@ namespace LTTQ_DoAn.View
     /// </summary>
     public partial class field : UserControl
     {
-        List<string> fields = new List<string>();
+        //List<string> fields = new List<string>();
         public field()
         {
             InitializeComponent();  
+            /*
             ObservableCollection<Field> fields = new ObservableCollection<Field>();
             fields.Add(new Field { Name = "temp 1" });
             fields.Add(new Field { Name = "temp 1" });
             fields.Add(new Field { Name = "temp 1" });
             fields.Add(new Field { Name = "temp 1" });
-            fields.Add(new Field { Name = "temp 1" });
+            //fields.Add(new Field { Name = "temp 1" });
             FieldList.ItemsSource = fields;
+            */
+            
         }
+        
+        /*
         public class Field
         {
             public string Name { get; set; }
         }
+        */
+           
     }
 }

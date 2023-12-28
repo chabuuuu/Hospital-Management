@@ -26,7 +26,8 @@
                                HorizontalScrollBarVisibility="Disabled">
                     <ListView x:Name="FieldList" 
                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                              ItemsSource="{Binding Khoa}"
                                 >
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -81,14 +82,14 @@
                                             </StackPanel>
                                             <!--binding ảnh-->
                                             <Grid.Background>
-                                                <ImageBrush Stretch="Uniform" ImageSource="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"/>
+                                                <ImageBrush Stretch="Uniform" ImageSource="{Binding PICTURE}"/>
                                             </Grid.Background>
                                         </Grid>
                                         <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                                             <TextBlock Foreground="#3f3f3f"
                                                             FontSize="20"
                                                             FontWeight="Medium"
-                                                            Text="{Binding}"
+                                                            Text="{Binding TENKHOA}"
                                                             >
                                             </TextBlock>
                                         </WrapPanel>

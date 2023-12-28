@@ -84,6 +84,7 @@
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                     Margin="0 20 0 0"/>
                     <!--tên trưởng khoa-->
+                <!--
                     <ComboBox
                 ItemsSource="{Binding BacsiList}"
                 SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -93,6 +94,7 @@
                 materialdesign:HintAssist.Hint="Trưởng khoa"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                 Margin="0 20 0 0"/>
+                -->
 
                     <Button x:Name="addFieldImage"
                         Width="100"
