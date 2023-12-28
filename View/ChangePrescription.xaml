@@ -61,7 +61,8 @@
                                        />
                     <TextBox Style="{StaticResource TextPersonalInfo}"
                                      Text="{Binding Victim_Name}"
-                                     Width="200">
+                                     Width="200"
+                                    IsReadOnly="True">
                     </TextBox>
                 </StackPanel>
                 <!--tên bác sĩ-->
