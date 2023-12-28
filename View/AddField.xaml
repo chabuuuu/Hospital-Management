@@ -65,6 +65,7 @@
                 <StackPanel HorizontalAlignment="Left">
                     <!--tên Khoa-->
                     <TextBox
+                    Text="{Binding Tenkhoa}"
                     Width="300"
                     HorizontalContentAlignment="Stretch"
                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -74,6 +75,7 @@
                     Height="55"/>
                     <!--Ngày thành lập-->
                     <DatePicker HorizontalAlignment="Left"
+                    SelectedDate="{Binding Ngaythanhlap}"
                     Width="200"
                     Height="50"
                     FontSize="15"
@@ -82,14 +84,16 @@
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
                     Margin="0 20 0 0"/>
                     <!--tên trưởng khoa-->
-                    <TextBox Margin="0 20 0 0"
-                    Width="300"
-                    HorizontalContentAlignment="Stretch"
-                    Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                    materialdesign:HintAssist.Hint="Tên trưởng khoa"
-                    materialdesign:TextFieldAssist.HasClearButton="True"
-                    FontSize="15"
-                    Height="55"/>
+                    <ComboBox
+                ItemsSource="{Binding BacsiList}"
+                SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                MinWidth="300"
+                Height="55"
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Trưởng khoa"
+                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                Margin="0 20 0 0"/>
+
                     <Button x:Name="addFieldImage"
                         Width="100"
                             Margin="0 20 0 0"
