@@ -170,17 +170,18 @@ namespace LTTQ_DoAn.ViewModel
             {
                 encoder.Save(fileStream);
             }
-           // try
-           // {
+            try
+            {
                 postImage(store_dir);
                 new MessageBoxCustom("Thông báo", "Thêm ảnh thành công", MessageType.Success, MessageButtons.OK).ShowDialog();
 
-           /* }
+            }
+
             catch (Exception e)
             {
                 new MessageBoxCustom("Lỗi", "Thêm ảnh thất bại\n Lỗi: " + e.Message, MessageType.Error, MessageButtons.OK).ShowDialog();
             } 
-           */
+           
         }
 
         private bool CanExecuteAddCommand(object? obj)
