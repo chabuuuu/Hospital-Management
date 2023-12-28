@@ -12,6 +12,10 @@
         Title="AddNurseAndDoctor" Height="500" Width="600"
         Background="Transparent"
         WindowStyle="None">
+    <Window.DataContext>
+        <!--kết nối với viewmodel-->
+        <viewmodel:AddFieldViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -90,7 +94,8 @@
                             Margin="0 20 0 0"
                             Background="{StaticResource btnActivedText}"
                             Foreground="{StaticResource btnActivedGround}"
-                            Click="addFieldImage_Click">
+                            Command="{Binding AddImageCommand}"
+                            >
                         <TextBlock Text="Chọn ảnh"
                                    Foreground="{StaticResource btnActivedGround}"
                                    />
@@ -99,13 +104,16 @@
                 </StackPanel>
                 <!--Hình ảnh-->
                 <DockPanel Grid.Column="1">
-                    <Image x:Name="Field_Image" Stretch="Uniform"/>
+                    <Image x:Name="Field_Image" Stretch="Uniform"
+                           Source="{Binding Image_url}"
+                           />
                 </DockPanel>
             </Grid>
             <!--2 nút điều khiển-->
             <StackPanel Grid.Row="3" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button 
+                    Command="{Binding ConfirmAddCommand }"
                     Width="100"
                     Height="40"
                     Content="Xác nhận"
