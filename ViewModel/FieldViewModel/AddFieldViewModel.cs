@@ -72,6 +72,26 @@ namespace LTTQ_DoAn.ViewModel
             {
                 Image = new BitmapImage(new Uri(ofd.FileName));
             }
+            string currentDirectory = System.IO.Directory.GetCurrentDirectory();
+            //MessageBox.Show(currentDirectory);
+            //string direct = @"D:\\Workspace\\Learn\\TestGitDoAn\\image.png";
+            string store_dir = currentDirectory + "\\field_temporary_image.png";
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(Image));
+
+            using (var fileStream = new System.IO.FileStream(store_dir, System.IO.FileMode.Create))
+            {
+                encoder.Save(fileStream);
+            }
+            try
+            {
+                postImage(store_dir);
+
+            }
+            catch (Exception e)
+            {
+                new MessageBoxCustom("Lỗi", "Thêm ảnh thất bại", MessageType.Error, MessageButtons.OK).ShowDialog();
+            }
         }
 
         private bool CanExecuteAddCommand(object? obj)
@@ -95,28 +115,10 @@ namespace LTTQ_DoAn.ViewModel
         
         private void ExecuteAddCommand(object? obj)
         {
-            string currentDirectory = System.IO.Directory.GetCurrentDirectory();
-            //MessageBox.Show(currentDirectory);
-            //string direct = @"D:\\Workspace\\Learn\\TestGitDoAn\\image.png";
-            string store_dir = currentDirectory + "\\field_temporary_image.png";
-            BitmapEncoder encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(Image));
-
-            using (var fileStream = new System.IO.FileStream(store_dir, System.IO.FileMode.Create))
-            {
-                encoder.Save(fileStream);
-            }
-            try
-            {
-                postImage(store_dir);
-
-            }catch(Exception e)
-            {
-                new MessageBoxCustom("Lỗi", "Thêm ảnh thất bại", MessageType.Error, MessageButtons.OK).ShowDialog();
-            }
 
 
-            //Application.Current.MainWindow.Close();
+
+            Application.Current.MainWindow.Close();
         }
     }
 }
