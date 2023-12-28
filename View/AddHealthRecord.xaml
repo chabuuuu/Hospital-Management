@@ -57,11 +57,11 @@
                 <!--tên bệnh nhân-->
                 <TextBox Margin="0 0 25 0"
                     Text="{Binding TenBenhNhan}"
+                    IsReadOnly="True"
                     Width="250"
                     HorizontalContentAlignment="Stretch"
                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                     materialdesign:HintAssist.Hint="Tên bệnh nhân"
-                    materialdesign:TextFieldAssist.HasClearButton="True"
                     FontSize="15"
                     Height="55"/>
                 <!--tên bác sĩ-->
