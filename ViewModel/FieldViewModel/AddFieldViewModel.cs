@@ -176,10 +176,12 @@ namespace LTTQ_DoAn.ViewModel
                 new MessageBoxCustom("Thông báo", "Thêm ảnh thành công", MessageType.Success, MessageButtons.OK).ShowDialog();
 
             }
+
             catch (Exception e)
             {
                 new MessageBoxCustom("Lỗi", "Thêm ảnh thất bại\n Lỗi: " + e.Message, MessageType.Error, MessageButtons.OK).ShowDialog();
-            }
+            } 
+           
         }
 
         private bool CanExecuteAddCommand(object? obj)
@@ -189,7 +191,7 @@ namespace LTTQ_DoAn.ViewModel
         
         private void postImage(string path)
         {
-            var client = new RestClient("https://quanlybenhvien.onrender.com");
+            var client = new RestClient("http://3.25.245.200");
             // client.Authenticator = new HttpBasicAuthenticator(username, password);
             var request = new RestRequest("photo/item");
             request.AddFile("image", path);
