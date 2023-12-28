@@ -122,7 +122,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 TENKHOA = Tenkhoa,
                 NGAYTHANHLAP = DateTime.ParseExact(Ngaythanhlap, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
-                TRUONGKHOA = convertBacsiSub_ID(Bacsi),
+                //TRUONGKHOA = convertBacsiSub_ID(Bacsi),
                 PICTURE = Image_url,
             };
             _db.KHOA.AddObject(newKhoa);
@@ -131,7 +131,7 @@ namespace LTTQ_DoAn.ViewModel
 
         public AddFieldViewModel()
         {
-            loadBacsi();
+            //loadBacsi();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             AddImageCommand = new ViewModelCommand(ExecuteAddImageCommand, CanExecuteAddImageCommand);

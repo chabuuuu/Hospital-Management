@@ -12,12 +12,29 @@ namespace LTTQ_DoAn.ViewModel
 {
     public class FieldViewModel : BaseViewModel
     {
+        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
+
+        private List<KHOA> khoa;
         public ICommand ViewFieldCommand { get; }
         public ICommand ChangeFieldCommand { get; }
         public ICommand AddFieldCommand { get; }
         public ICommand DeleteFieldCommand { get; }
+        public List<KHOA> Khoa
+        {
+            get => khoa; set
+            {
+                khoa = value;
+                OnPropertyChanged(nameof(Khoa));
+            }
+        }
+        private void Load()
+        {
+            _db = new QUANLYBENHVIENEntities();
+            Khoa = _db.KHOA.ToList();
+        }
         public FieldViewModel()
         {
+            Load();
             ViewFieldCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeFieldCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddFieldCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
@@ -53,10 +70,16 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteAddCommand(object? obj)
         {
             AddField wd = new AddField();
-
+            wd.Closed += AddField_Closed;
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
+
+        private void AddField_Closed(object sender, EventArgs e)
+        {
+            Load();
+        }
+
         private bool CanExecuteDeleteCommand(object? obj)
         {
             return true;//ko điều kiện
