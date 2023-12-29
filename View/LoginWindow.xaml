@@ -89,10 +89,11 @@
                     Style="{StaticResource menuButtonText}">
                     Password
                 </TextBlock>
-                <PasswordBox
-                    Style="{StaticResource loginPassBox}"
+                <local:BindablePasswordBox
+                    x:Name="Password_box"
+                    Password="{Binding}"
                     >
-                </PasswordBox>
+                </local:BindablePasswordBox>
                 <RadioButton
                     Height="35"
                     Width="100"
