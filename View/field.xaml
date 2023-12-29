@@ -46,8 +46,8 @@
                                     <!--thêm command xem vào đây-->
                                     <Grid Width="200" HorizontalAlignment="Center">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="200"/>
-                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="190"/>
+                                            <RowDefinition Height="60"/>
                                         </Grid.RowDefinitions>
                                         <Grid>
                                             <StackPanel>
@@ -90,6 +90,7 @@
                                                             FontSize="20"
                                                             FontWeight="Medium"
                                                             Text="{Binding TENKHOA}"
+                                                       TextWrapping="Wrap"
                                                             >
                                             </TextBlock>
                                         </WrapPanel>
@@ -104,7 +105,8 @@
             <!--nút thêm bệnh nhân-->
             <StackPanel Grid.Row="1" HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Margin="0 0 50 0">
+                        Margin="0 0 50 0"
+                        Background="Transparent">
                 <Button 
                     Command="{Binding AddFieldCommand}"
                     Style="{StaticResource BtnUserControl}">

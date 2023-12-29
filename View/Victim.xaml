@@ -69,7 +69,7 @@
                       RowStyle="{DynamicResource DataGridRowStyle1}"
                       ItemsSource="{Binding Victims}"
                       SelectedItem="{Binding SelectedItem}"
-                      Height="Auto"
+                      Height="auto"
                       >
                 <DataGrid.Columns>
                     <!--dấu # này là cột chứa checkbox của mỗi item-->

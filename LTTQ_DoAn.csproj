@@ -17,6 +17,7 @@
     <None Remove="Photo\Field.png" />
     <None Remove="Photo\healthRecord.png" />
     <None Remove="Photo\khoa_tim_mach.jpg" />
+    <None Remove="Photo\Logo.png" />
     <None Remove="Photo\medical-team.png" />
     <None Remove="Photo\notification-bell.png" />
     <None Remove="Photo\patient.png" />
@@ -25,6 +26,10 @@
     <None Remove="Photo\service.png" />
     <None Remove="Photo\success.png" />
     <None Remove="QLBVModel.edmx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Photo\Logo.png" />
   </ItemGroup>
 
   <ItemGroup>
