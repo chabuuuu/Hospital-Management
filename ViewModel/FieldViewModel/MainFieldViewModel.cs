@@ -12,9 +12,10 @@ namespace LTTQ_DoAn.ViewModel
 {
     public class FieldViewModel : BaseViewModel
     {
-        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
+        QUANLYBENHVIENEntities _db;
 
         private List<KHOA> khoa;
+        private KHOA selectedkhoa;
         public ICommand ViewFieldCommand { get; }
         public ICommand ChangeFieldCommand { get; }
         public ICommand AddFieldCommand { get; }
@@ -27,6 +28,16 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Khoa));
             }
         }
+
+        public KHOA Selectedkhoa
+        {
+            get => selectedkhoa; set
+            {
+                selectedkhoa = value;
+                OnPropertyChanged(nameof(selectedkhoa));
+            }
+        }
+
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -58,11 +69,25 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteChangeCommand(object? obj)
         {
-            ChangeField wd = new ChangeField();
 
-            Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+            ChangeField wd = new ChangeField();
+            wd.Closed += ChangeField_Closed;
+            if (Selectedkhoa != null)
+            {
+                wd.DataContext = new ChangeFieldViewModel(Selectedkhoa);
+                //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
+                // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
+
         }
+
+        private void ChangeField_Closed(object sender, EventArgs e)
+        {
+            Load();
+        }
+
         private bool CanExecuteAddCommand(object? obj)
         {
             return true;//ko điều kiện

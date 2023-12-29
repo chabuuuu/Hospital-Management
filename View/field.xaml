@@ -28,6 +28,7 @@
                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                               ItemsSource="{Binding Khoa}"
+                              SelectedItem="{Binding Selectedkhoa}"
                                 >
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -64,7 +65,7 @@
                                                             Panel.ZIndex="1"
                                                             HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"
-                                                            Command = "{Binding ChangeFieldCommand}"
+                                                             Command="{Binding DataContext.ChangeFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                             >
                                                     <fa:IconImage Icon="PenToSquare" Height="20"
                                                             />
