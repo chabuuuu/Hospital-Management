@@ -18,6 +18,7 @@
     <None Remove="Photo\Field.png" />
     <None Remove="Photo\healthRecord.png" />
     <None Remove="Photo\khoa_tim_mach.jpg" />
+    <None Remove="Photo\LoginBackground.png" />
     <None Remove="Photo\Logo.png" />
     <None Remove="Photo\medical-team.png" />
     <None Remove="Photo\notification-bell.png" />
@@ -30,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Photo\LoginBackground.png" />
     <Resource Include="Photo\Logo.png" />
   </ItemGroup>
 

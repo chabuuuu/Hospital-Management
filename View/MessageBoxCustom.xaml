@@ -66,22 +66,24 @@
                     <Grid>
                         <materialdesign:TransitioningContent
                             VerticalAlignment="Center"
-                            Height="80">
+                            Height="190">
                             <materialdesign:TransitioningContent.OpeningEffects>
                                 <materialdesign:TransitionEffect Kind="FadeIn" />
                                 <materialdesign:TransitionEffect Kind="SlideInFromBottom" />
                             </materialdesign:TransitioningContent.OpeningEffects>
-                            <StackPanel Orientation="Horizontal" Height="Auto">
+                            <StackPanel Orientation="Horizontal" Height="190" VerticalAlignment="Center">
                                 <Image x:Name="ImgMessage"
-                                           Height="50"
+                                           Height="70"
+                                            Width="70"
                                            Margin="20 0 0 5" />
                                 <TextBlock x:Name="txtMessage"
                                                TextWrapping="Wrap"
-                                               Width="260"
-                                               Height="Auto"
+                                               MinWidth="260"
+                                               Height="190"
+                                                
                                                HorizontalAlignment="Center"
                                                Grid.Row="0"
-                                               Margin="15 23 5 5"
+                                               Margin="25 0 5 5"
                                                materialdesign:HintAssist.Hint=""
                                                FontSize="25" />
                             </StackPanel>
