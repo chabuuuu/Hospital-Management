@@ -51,7 +51,7 @@
                     Margin="30 10 0 0 "
                     Text="Sửa thông tin y sĩ"
                     FontSize="40"
-                    Foreground="blue"
+                    Foreground="{StaticResource btnActivedText}"
                     FontFamily="Poppins"
                     FontWeight="Medium"
                     />

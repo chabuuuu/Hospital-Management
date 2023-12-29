@@ -156,13 +156,15 @@
                                 </ListView.View>
                             </ListView>
                         </ScrollViewer>
-                        <StackPanel Grid.Row="1" HorizontalAlignment="Right"
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Background="Transparent"
                                     VerticalAlignment="Center">
                             <!--thao tác thêm bệnh án-->
-                            <Button Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
+                            <Button
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
                                     Margin="0 0 30 0"
                                     Height="55"
                                     Width="55"
+                                    BorderBrush="{StaticResource  btnActivedText}"
                                     Command="{Binding AddCommand}"
                                     Background="{StaticResource btnActivedText}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
@@ -270,6 +272,7 @@
                                 Height="55"
                                 Width="55"
                                 Command="{Binding AddCommand}"
+                                BorderBrush="{StaticResource  btnActivedText}"
                                 Background="{StaticResource btnActivedText}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
                             </Button>

@@ -50,7 +50,8 @@
                                     >
                             </TextBlock>
                         </Button>
-                        <Button Style="{StaticResource BtnUserControl_Delete}"
+                        <Button
+                                Style="{StaticResource BtnUserControl_Delete}"
                                 Command="{Binding DeleteCommand}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
@@ -109,7 +110,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <!--thông tin cá nhân-->
                                     <RadioButton Command="{Binding DataContext.ViewCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                        Tag="{StaticResource normalButton}"
+                                                 Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             Margin="0 0 10 0"
                                             ToolTip="Thông tin chi tiết">
@@ -118,7 +119,8 @@
                                                       />
                                     </RadioButton>
                                     <!--sửa thông tin cá nhân-->
-                                    <RadioButton Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    <RadioButton x:Name="change_btn"
+                                        Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Style="{StaticResource gridOpenButton}"
                                         Tag="{StaticResource normalButton}"
                                             Margin="0 0 10 0"
