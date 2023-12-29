@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:LTTQ_DoAn.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="LoginWindow" Height="350" Width="700"
+        Title="LoginWindow" Height="560" Width="900"
         WindowStyle="None"
         ResizeMode="NoResize"
         MouseDown="Window_MouseDown"
@@ -26,14 +26,16 @@
     </Window.Visibility>
     <Border
         CornerRadius="20"
-        Background="{StaticResource secondaryFont}"
         BorderBrush="{StaticResource btnActivedText}"
         BorderThickness="5"
         >
+        <Border.Background>
+            <ImageBrush ImageSource="/Photo/LoginBackground.png" Stretch="UniformToFill"/>
+        </Border.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -44,7 +46,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock
                     Text="LOG IN"
-                    Foreground="{StaticResource buttonText}"
+                    Foreground="White"
                     FontSize="20"
                     FontWeight="Bold"
                     FontFamily="Poppins"
@@ -70,46 +72,48 @@
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
             </Grid>
-            <StackPanel
+            <StackPanel Margin="40 0 0 0" HorizontalAlignment="Left"
                 Grid.Row="1"
-                Width="600"
+                Width="400"
                 Height="250"
                 >
                 <TextBlock
-                    Style="{StaticResource menuButtonText}">
+                    Style="{StaticResource menuButtonText}"
+                    Foreground="White">
                     Username
                 </TextBlock>
                 <TextBox
                     Style="{StaticResource loginTextBox}"
                     Text="{Binding Username}"
+                    Foreground="White"
                     >
                 </TextBox>
                 <TextBlock
                     Margin="0 20 0 0"
+                    Foreground="White"
                     Style="{StaticResource menuButtonText}">
                     Password
                 </TextBlock>
                 <local:BindablePasswordBox
                     x:Name="Password_box"
                     Password="{Binding}"
+                    Foreground="White"
                     >
                 </local:BindablePasswordBox>
-                <RadioButton
-                    Height="35"
-                    Width="100"
-                    Style="{StaticResource menuButton}"
-                    Margin="0 50 50 0"
+                
+                <Button
+                    VerticalAlignment="Center"
                     HorizontalAlignment="Right"
-                    >
-                    <TextBlock Text="Đăng nhập" 
-                               VerticalAlignment="Center"
-                               HorizontalAlignment="Center"
-                               FontSize="20"
-                               FontWeight="Bold"
-                               FontFamily="Popins"
-                               Cursor="Hand"
-                               />
-                </RadioButton>
+                    Width="110"
+                    Margin="0 40 50 0"
+                    Height="40"
+                    Content="Đăng nhập"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    Foreground="#555"
+                    Background="#fff"
+                    Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    />
             </StackPanel>
         </Grid>
         

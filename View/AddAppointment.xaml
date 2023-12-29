@@ -36,6 +36,7 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button
                         x:Name="bt_minimize"
+                        Click="bt_minimize_Click"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
