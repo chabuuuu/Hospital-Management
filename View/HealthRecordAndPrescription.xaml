@@ -16,7 +16,8 @@
     </Window.DataContext>
     <Border Background="White"
             BorderBrush="{StaticResource btnActivedText}"
-            BorderThickness="3">
+            BorderThickness="5"
+            CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
