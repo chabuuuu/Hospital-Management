@@ -11,7 +11,8 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         Title="ChangePrescription"  Height="580" Width="1000"
         Background="Transparent"
-        WindowStyle="None">
+        WindowStyle="None"
+        ResizeMode="NoResize">
     <Border
     CornerRadius="20"
     Background="White"
@@ -65,20 +66,10 @@
                                     IsReadOnly="True">
                     </TextBox>
                 </StackPanel>
-                <!--tên bác sĩ-->
-                <StackPanel Margin="0 0 25 30">
-                    <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                                       Text="Tên bác sĩ:"
-                                       />
-                    <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Doctor_Name}"
-                                     Width="200">
-                    </TextBox>
-                </StackPanel>
                 <!--khoa-->
                 <StackPanel Margin="25 0 25 0">
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                               Text="Khoa:"
+                               Text="Mã bệnh án:"
                                />
                     <ComboBox
                         MinWidth="120"
