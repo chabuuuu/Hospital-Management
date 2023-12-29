@@ -28,9 +28,9 @@ namespace LTTQ_DoAn.ViewModel
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
 
         private HealthRecordAndPrescription thisView;
-        public ICommand ChangeCommand { get; }
-        public ICommand AddCommand { get; }
-        public ICommand DeleteCommand { get; }
+        public ICommand ChangePCommand { get; }
+        public ICommand AddPCommand { get; }
+        public ICommand DeletePCommand { get; }
 
         public ICommand ExitCommand { get; }
         public BENHNHAN Benhnhan
@@ -108,9 +108,9 @@ namespace LTTQ_DoAn.ViewModel
 
         public PrescriptionViewModel()
         {
-            AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
-            ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            AddPCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
+            DeletePCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+            ChangePCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
         public PrescriptionViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view)
@@ -118,9 +118,9 @@ namespace LTTQ_DoAn.ViewModel
             this.thisView = view;
             Benhnhan = SelectedBenhNhan;
             findDonThuoc();
-            AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
-            ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            AddPCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
+            DeletePCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+            ChangePCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
 
