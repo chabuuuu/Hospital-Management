@@ -64,15 +64,7 @@
                     materialdesign:HintAssist.Hint="Tên bệnh nhân"
                     FontSize="15"
                     Height="55"/>
-                <!--tên bác sĩ-->
-                <ComboBox
-                    MinWidth="250"
-                    Height="55"
-                    FontSize="15"
-                    materialdesign:HintAssist.Hint="Bác sĩ"
-                    Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                    Margin="25 0 25 0"/>
-                <!--chọn khoa-->
+                <!--chọn -->
                 <ComboBox
                     MinWidth="120"
                     Height="55"

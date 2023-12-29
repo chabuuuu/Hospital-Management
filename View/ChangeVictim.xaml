@@ -49,7 +49,7 @@
                     Margin="30 10 0 0 "
                     Text="Sửa thông tin bệnh nhân"
                     FontSize="40"
-                    Foreground="blue"
+                    Foreground="{StaticResource btnActivedText}"
                     FontFamily="Poppins"
                     FontWeight="Medium"
                     />

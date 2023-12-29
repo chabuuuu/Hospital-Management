@@ -11,7 +11,8 @@
         Title="AddAppointment" Height="570" Width="1000"
         Background="Transparent"
         xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
-        WindowStyle="None">
+        WindowStyle="None"
+        ResizeMode="NoResize">
     <Window.DataContext>
         <!--kết nối với viewmodel-->
         <viewmodel:AddAppointmentViewModel/>
