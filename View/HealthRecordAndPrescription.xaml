@@ -11,9 +11,6 @@
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
         Title="MainWindow" Height="800" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
-    <Window.DataContext>
-        <viewmodel:HealthRecordViewModel/>
-    </Window.DataContext>
     <Border Background="White"
             BorderBrush="{StaticResource btnActivedText}"
             BorderThickness="3">
@@ -135,14 +132,14 @@
                                                         <!--thao tác sửa bệnh án-->
                                                         <RadioButton Style="{StaticResource gridOpenButton}"
                                                                 Margin="0 0 10 0"
-                                                             Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                             Command="{Binding DataContext.ChangeHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                                 >
                                                             <fa:IconImage Icon="UpRightFromSquare"
                                                                 Height="20"/>   
                                                         </RadioButton>
                                                         <!--thao tác xóa bệnh án-->
                                                         <RadioButton Style="{StaticResource gridOpenButton}"
-                                                                     Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                     Command="{Binding DataContext.DeleteHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                                 >
                                                             <fa:IconImage Icon="Trash"
                                                                 Foreground="#ed2525"
@@ -165,7 +162,7 @@
                                     Height="55"
                                     Width="55"
                                     BorderBrush="{StaticResource  btnActivedText}"
-                                    Command="{Binding AddCommand}"
+                                    Command="{Binding AddHRCommand}"
                                     Background="{StaticResource btnActivedText}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
                             </Button>
@@ -245,13 +242,13 @@
                                                          <!--thao tác sửa đơn thuốc-->
                                                         <RadioButton Style="{StaticResource gridOpenButton}"
                                                             Margin="0 0 10 0"
-                                                            Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                            Command="{Binding DataContext.ChangePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                             >
                                                             <fa:IconImage Icon="UpRightFromSquare" Height="20"/>
                                                         </RadioButton>
                                                         <!--thao tác xóa đơn thuốc-->
                                                         <RadioButton Style="{StaticResource gridOpenButton}"
-                                                                     Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                     Command="{Binding DataContext.DeletePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
                                                                 >
                                                             <fa:IconImage Icon="Trash"
                                                                         Foreground="#ed2525"
@@ -271,7 +268,7 @@
                                 Margin="0 0 30 0"
                                 Height="55"
                                 Width="55"
-                                Command="{Binding AddCommand}"
+                                Command="{Binding AddPCommand}"
                                 BorderBrush="{StaticResource  btnActivedText}"
                                 Background="{StaticResource btnActivedText}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
