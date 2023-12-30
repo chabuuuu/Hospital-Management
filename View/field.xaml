@@ -55,7 +55,8 @@
                                                 <RadioButton Panel.ZIndex="1"
                                                              HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"
-                                                             Command = "{Binding ViewFieldCommand}"
+                                                             Command="{Binding DataContext.ViewFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+
                                                             >
                                                     <fa:IconImage Icon="Info" Height="20"
                                                             />
@@ -75,7 +76,9 @@
                                                             
                                                             HorizontalAlignment="Right" VerticalAlignment="Top"
                                                             Style="{StaticResource gridOpenButton}"
-                                                            Command = "{Binding DeleteFieldCommand}"
+                                    
+                                                            Command="{Binding DataContext.DeleteFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+
                                                             >
                                                     <fa:IconImage Icon="Trash" Height="20"
                                                             Foreground="#ed2525"/>

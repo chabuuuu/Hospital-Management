@@ -59,9 +59,14 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteViewCommand(object? obj)
         {
             ViewField wd = new ViewField();
-            MessageBox.Show("Open ViewField");
-            Application.Current.MainWindow = wd;
-            wd.ShowDialog();
+            if (Selectedkhoa != null)
+            {
+                wd.DataContext = new ViewFieldViewModel(Selectedkhoa);
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
+
+
         }
         private bool CanExecuteChangeCommand(object? obj)
         {
@@ -111,7 +116,33 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteDeleteCommand(object? obj)
         {
+            try
+            {
+                int Id = Selectedkhoa.MAKHOA;
+                var deleteMember = _db.KHOA.Where(m => m.MAKHOA == Id).Single();
+                _db.KHOA.DeleteObject(deleteMember);
+                _db.SaveChanges();
 
+                new MessageBoxCustom(
+                    "Thông báo",
+                    "Đã xóa khoa: \nMã khoa: " +
+                        Selectedkhoa.SUB_ID.ToString() + "\nTên khoa: " +
+                        Selectedkhoa.TENKHOA,
+                    MessageType.Success,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                Load();
+            }
+            catch (Exception e)
+            {
+                new MessageBoxCustom(
+                    "Thông báo",
+                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    MessageType.Error,
+                    MessageButtons.OK
+                    )
+                    .ShowDialog();
+            }
         }
 
     }

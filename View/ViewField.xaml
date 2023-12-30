@@ -13,6 +13,9 @@
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize">
+    <Window.DataContext>
+        <viewmodel:ViewFieldViewModel></viewmodel:ViewFieldViewModel>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -34,6 +37,7 @@
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
+                        Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
@@ -53,7 +57,7 @@
                         />
             </Border>
             <!--các thông tin-->
-            <Grid Margin="40" Grid.Row="2">
+            <Grid Margin="40,40,40,5" Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="250"/>
@@ -66,7 +70,7 @@
                                        />
                         <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                             <TextBlock Style="{StaticResource TextBlockPersonalInfo}"
-                                           Text="{Binding Field_Name}"/>
+                                           Text="{Binding Khoa.TENKHOA}"/>
                         </Border>
                     </StackPanel>
                     <!--ngày thành lập-->
@@ -76,7 +80,7 @@
                                        />
                         <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                             <TextBlock Style="{StaticResource TextBlockPersonalInfo}"
-                                           Text="{Binding Field_Date}"/>
+                                           Text="{Binding Khoa.NGAYTHANHLAP}"/>
                         </Border>
                     </StackPanel>
                     <!--tên trưởng khoa-->
@@ -86,7 +90,7 @@
                                        />
                         <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                             <TextBlock Style="{StaticResource TextBlockPersonalInfo}"
-                                           Text="{Binding Field_BossName}"/>
+                                           Text="{Binding Truongkhoa}"/>
                         </Border>
                     </StackPanel>
                     <!--Số lượng y sĩ-->
@@ -96,19 +100,24 @@
                                        />
                         <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                             <TextBlock Style="{StaticResource TextBlockPersonalInfo}"
-                                           Text="{Binding Field_Count}"/>
+                                       Height="Auto"
+                                       ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                           Text="{Binding Soluongysi}"/>
                         </Border>
                     </StackPanel>
                 </StackPanel>
                 <!--Hình ảnh-->
                 <DockPanel Grid.Column="1">
-                    <Image x:Name="Service_Image" Stretch="Uniform"/>
+                    <Image x:Name="Service_Image" Stretch="Uniform"
+                           Source="{Binding Image_url}"
+                           />
                 </DockPanel>
             </Grid>
             <!--1 nút điều khiển-->
             <StackPanel Grid.Row="3" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Margin="40 0"
+                    Command="{Binding CancelCommand}"
                     Width="100"
                     Height="40"
                     Content="Đóng"
