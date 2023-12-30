@@ -12,10 +12,36 @@ namespace LTTQ_DoAn.ViewModel
 {
     public class ServicesViewModel : BaseViewModel
     {
+        QUANLYBENHVIENEntities _db;
+
+        private List<DICHVU> dichvu;
+        private DICHVU selecteddichvu;
         public ICommand ChangeServicesCommand { get; }
         public ICommand AddServicesCommand { get; }
         public ICommand DeleteServicesCommand { get; }
+        public List<DICHVU> Dichvu
+        {
+            get => dichvu; set
+            {
+                dichvu = value;
+                OnPropertyChanged(nameof(Dichvu));
+            }
+        }
+        public DICHVU Selecteddichvu
+        {
+            get => selecteddichvu; set
+            {
+                selecteddichvu = value;
+                OnPropertyChanged(nameof(Selecteddichvu));
+            }
+        }
+        private void Load()
+        {
+            _db = new QUANLYBENHVIENEntities();
+            Dichvu = _db.DICHVU.ToList();
+        }
         public ServicesViewModel() {
+            Load();
             ChangeServicesCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddServicesCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteServicesCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
