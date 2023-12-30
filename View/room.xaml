@@ -8,7 +8,9 @@
              mc:Ignorable="d" 
              Background="Transparent"
              d:DesignHeight="644" d:DesignWidth="1049">
-
+    <UserControl.DataContext>
+        <viewmodel:RoomViewModel></viewmodel:RoomViewModel>
+    </UserControl.DataContext>
     <Border
     CornerRadius="20"
     Background="white">
@@ -22,7 +24,8 @@
               CanContentScroll="True">
                 <ListView x:Name="RoomList"
             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Phong}"
+            SelectedItem="{Binding Selectedphong}"
               >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -52,18 +55,19 @@
                                         <TextBlock Foreground="#3f3f3f"
                                                 FontSize="20"
                                                 FontWeight="Medium"
-                                                Text="{Binding Room_Name}"
+                                                Text="{Binding TENPHONG}"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Top"
                                                 Margin="20 0 0 0"
                                                 >
+                                            
                                         </TextBlock>
-                                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                        <StackPanel Grid.Row="2" Orientation="Horizontal">
                                             <!--ảnh cho phòng-->
                                             <TextBlock Width="130" VerticalAlignment="Center"
                                                                Foreground="#3f3f3f">
                                                         <Run Text="    Sức chứa:"/>
-                                                        <Run Text="{Binding count}"/> <!--thông tin sức chứa lưu ở đây-->
+                                                        <Run Text="{Binding SUCCHUA}"/> <!--thông tin sức chứa lưu ở đây-->
                                             </TextBlock>
                                             <Image 
                                                         Source="/Photo/medical-team.png" Height="55" HorizontalAlignment="Right"
