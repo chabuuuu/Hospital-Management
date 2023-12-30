@@ -60,10 +60,16 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteAddCommand(object? obj) {
             AddService wd = new AddService();
-
+            wd.Closed += AddService_Closed;
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
+
+        private void AddService_Closed(object sender, EventArgs e)
+        {
+            Load();
+        }
+
         private bool CanExecuteDeleteCommand(object? obj) {
             return true;
         }

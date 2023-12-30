@@ -13,6 +13,10 @@
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize">
+    <Window.DataContext>
+        <!--kết nối với viewmodel-->
+        <viewmodel:AddServicesViewModel/>
+    </Window.DataContext>
     <Border
     CornerRadius="20"
     Background="White"
@@ -61,6 +65,8 @@
                 <StackPanel HorizontalAlignment="Left">
                     <!--tên dịch vụ-->
                     <TextBox
+                        
+                    Text="{Binding Tendichvu}"
                     Width="300"
                     HorizontalContentAlignment="Stretch"
                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -70,6 +76,7 @@
                     Height="55"/>
                     <!--giá-->
                     <TextBox Margin="0 20 0 0"
+                    Text="{Binding Gia}"
                     Width="300"
                     HorizontalContentAlignment="Stretch"
                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"
@@ -78,7 +85,7 @@
                     FontSize="15"
                     Height="55"/>
                     <Button x:Name="AddServiceImage"
-                            Click="AddServiceImage_Click"
+                            Command="{Binding AddImageCommand}"
                         Width="100"
                             Margin="0 20 0 0"
                             Background="{StaticResource btnActivedText}"
@@ -90,13 +97,14 @@
                 </StackPanel>
                 <!--Hình ảnh-->
                 <DockPanel Grid.Column="1">
-                    <Image x:Name="Service_Image" Stretch="Uniform"/>
+                    <Image x:Name="Service_Image" Stretch="Uniform" Source="{Binding Image_url}"/>
                 </DockPanel>
             </Grid>
             <!--2 nút điều khiển-->
             <StackPanel Grid.Row="3" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button 
+                    Command="{Binding ConfirmAddCommand}"
                     Width="100"
                     Height="40"
                     Content="Xác nhận"
@@ -106,6 +114,7 @@
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm dịch vụ" />
                 <Button
+                    Command="{Binding CancelCommand}"
                     Margin="40 0"
                     Width="100"
                     Height="40"
