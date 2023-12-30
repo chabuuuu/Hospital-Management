@@ -8,7 +8,9 @@
              mc:Ignorable="d" 
              Background="Transparent"
              d:DesignHeight="644" d:DesignWidth="1049">
-
+    <UserControl.DataContext>
+        <viewmodel:RoomViewModel></viewmodel:RoomViewModel>
+    </UserControl.DataContext>
     <Border
     CornerRadius="20"
     Background="white">
@@ -21,8 +23,10 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto"
               CanContentScroll="True">
                 <ListView x:Name="RoomList"
+       
             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Phong}"
+            SelectedItem="{Binding Selectedphong}"
               >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -32,7 +36,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             
-                            <Border Height="110" Width="200"
+                            <Border 
+                       
+                        Height="110" Width="200"
                         Background="White"
                         CornerRadius="5"
                         Margin="10">
@@ -40,10 +46,12 @@
                                     <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
                                 </Border.Effect>
                                 <!--thêm command thông tin phòng-->
-                                <Button Height="110"
+                               <Button 
+                                       Command="{Binding DataContext.ViewInfoCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        Height="110"
                                         Width="200"
                                         Background="Transparent"
-                                        BorderBrush="Transparent">
+                                        BorderBrush="Transparent">  
                                     <Grid Height="110" VerticalAlignment="Center" Width="200" HorizontalAlignment="Center">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="30*"/>
@@ -52,18 +60,19 @@
                                         <TextBlock Foreground="#3f3f3f"
                                                 FontSize="20"
                                                 FontWeight="Medium"
-                                                Text="{Binding Room_Name}"
+                                                Text="{Binding TENPHONG}"
                                                 HorizontalAlignment="Left"
                                                 VerticalAlignment="Top"
                                                 Margin="20 0 0 0"
                                                 >
+                                            
                                         </TextBlock>
-                                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                        <StackPanel Grid.Row="2" Orientation="Horizontal">
                                             <!--ảnh cho phòng-->
                                             <TextBlock Width="130" VerticalAlignment="Center"
                                                                Foreground="#3f3f3f">
                                                         <Run Text="    Sức chứa:"/>
-                                                        <Run Text="{Binding count}"/> <!--thông tin sức chứa lưu ở đây-->
+                                                        <Run Text="{Binding SUCCHUA}"/> <!--thông tin sức chứa lưu ở đây-->
                                             </TextBlock>
                                             <Image 
                                                         Source="/Photo/medical-team.png" Height="55" HorizontalAlignment="Right"
@@ -97,7 +106,7 @@
                     <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               BorderBrush="Transparent" Background="White"
                               HorizontalAlignment="Stretch"
-                              VerticalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                              VerticalAlignment="Stretch" ItemsSource="{Binding Benhnhan}"
                                >
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -118,7 +127,7 @@
                                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
                                                 Margin="10 0 0 0">
                                         <!--tên bệnh nhân-->
-                                        <TextBlock Text="{Binding room_PatientName}"
+                                        <TextBlock Text="{Binding HOTEN}"
                                                     Foreground="#3f3f3f"
                                                     FontSize="15"
                                                     FontWeight="Medium"
@@ -126,7 +135,7 @@
                                                     VerticalAlignment="Center"
                                                     />
                                         <!--khoa bệnh nhân-->
-                                        <TextBlock Text="{Binding room_FieldName}"
+                                        <TextBlock Text=""
                                                     Foreground="#3f3f3f"
                                                     FontSize="13"
                                                     FontWeight="Medium"
