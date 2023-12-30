@@ -51,10 +51,21 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteChangeCommand(object? obj) {
             ChangeService wd = new ChangeService();
+            wd.Closed += ChangeService_Closed;
+            if (Selecteddichvu != null)
+            {
+                wd.DataContext = new ChangeServicesViewModel(Selecteddichvu);
+                Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
 
-            Application.Current.MainWindow = wd;
-            wd.ShowDialog();
         }
+
+        private void ChangeService_Closed(object sender, EventArgs e)
+        {
+            Load();
+        }
+
         private bool CanExecuteAddCommand(object? obj) {
             return true;
         }

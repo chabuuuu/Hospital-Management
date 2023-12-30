@@ -24,7 +24,8 @@
                           >
                 <ListView x:Name="FieldList"
                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                        ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Dichvu}"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Dichvu}" 
+                          SelectedItem="{Binding Selecteddichvu}"
                           >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -47,15 +48,28 @@
                                         <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
                                     <Grid>
-                                        <!--nút xóa-->
-                                        <!--thêm command xóa vào đây-->
-                                        <RadioButton Panel.ZIndex="1"
+                                        <StackPanel>
+                                            <!--thêm command sửa vào đây-->
+                                            <RadioButton
+                                                            Panel.ZIndex="1"
+                                                            HorizontalAlignment="Right" VerticalAlignment="Top"
+                                                            Style="{StaticResource gridOpenButton}"
+                                                             Command="{Binding DataContext.ChangeServicesCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                            >
+                                                <fa:IconImage Icon="PenToSquare" Height="20"
+                                                            />
+                                            </RadioButton>
+                                            <!--nút xóa-->
+                                            <!--thêm command xóa vào đây-->
+                                            <RadioButton Panel.ZIndex="1"
                                             Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
                                             Style="{StaticResource gridOpenButton}">
-                                            <fa:IconImage Icon="Trash"
+                                                <fa:IconImage Icon="Trash"
                                                           Height="20"
                                                         Foreground="#ed2525"/>
-                                        </RadioButton>
+                                            </RadioButton>
+                                        </StackPanel>
+
                                         <!--ảnh dịch vụ-->
                                         <Grid.Background>
                                             <ImageBrush Stretch="Uniform" ImageSource="{Binding PICTURE}"/>
