@@ -15,7 +15,7 @@
         Topmost="True"
         AllowsTransparency="True"
         ShowInTaskbar="False"
-        Title="MessageBoxCustom" Height="250" Width="450">
+        Title="MessageBoxCustom" Height="350" Width="550">
     <Border
             CornerRadius="20"
             Background="White"
@@ -66,22 +66,24 @@
                     <Grid>
                         <materialdesign:TransitioningContent
                             VerticalAlignment="Center"
-                            Height="80">
+                            Height="190">
                             <materialdesign:TransitioningContent.OpeningEffects>
                                 <materialdesign:TransitionEffect Kind="FadeIn" />
                                 <materialdesign:TransitionEffect Kind="SlideInFromBottom" />
                             </materialdesign:TransitioningContent.OpeningEffects>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Height="190" VerticalAlignment="Center">
                                 <Image x:Name="ImgMessage"
-                                           Height="50"
+                                           Height="70"
+                                            Width="70"
                                            Margin="20 0 0 5" />
                                 <TextBlock x:Name="txtMessage"
                                                TextWrapping="Wrap"
-                                               Width="260"
-                                               Height="55"
+                                               MinWidth="260"
+                                               Height="190"
+                                                
                                                HorizontalAlignment="Center"
                                                Grid.Row="0"
-                                               Margin="15 23 5 5"
+                                               Margin="25 0 5 5"
                                                materialdesign:HintAssist.Hint=""
                                                FontSize="25" />
                             </StackPanel>

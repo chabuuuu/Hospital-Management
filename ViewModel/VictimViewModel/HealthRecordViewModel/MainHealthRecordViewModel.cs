@@ -33,9 +33,9 @@ namespace LTTQ_DoAn.ViewModel
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private string khoa;
         private HealthRecordAndPrescription thisView;
-        public ICommand ChangeCommand { get; }
-        public ICommand AddCommand { get; }
-        public ICommand DeleteCommand { get; }
+        public ICommand ChangeHRCommand { get; }
+        public ICommand AddHRCommand { get; }
+        public ICommand DeleteHRCommand { get; }
 
         public ICommand ExitCommand { get; }
         public BENHNHAN Benhnhan
@@ -138,9 +138,9 @@ namespace LTTQ_DoAn.ViewModel
         
         public HealthRecordViewModel()
         {
-            AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
-            ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            AddHRCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
+            DeleteHRCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+            ChangeHRCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
         public HealthRecordViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view)
@@ -148,9 +148,9 @@ namespace LTTQ_DoAn.ViewModel
             this.thisView = view;
             Benhnhan = SelectedBenhNhan;
             findBenhAn();
-            AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
-            ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            AddHRCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
+            DeleteHRCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+            ChangeHRCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
 

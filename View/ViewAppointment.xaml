@@ -11,7 +11,8 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         Title="ViewAppointment" Height="480" Width="900"
         Background="Transparent"
-        WindowStyle="None">
+        WindowStyle="None"
+        ResizeMode="NoResize">
     <Window.DataContext>
         <viewmodel:ViewAppointmentViewModel/>
     </Window.DataContext>
@@ -49,7 +50,7 @@
                     Margin="30 10 0 0 "
                     Text="Chi tiết lịch khám"
                     FontSize="40"
-                    Foreground="blue"
+                    Foreground="{StaticResource btnActivedText}"
                     FontFamily="Poppins"
                     FontWeight="Medium"
                     />
