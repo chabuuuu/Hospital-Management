@@ -62,7 +62,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="300"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel HorizontalAlignment="Left">
+                <StackPanel HorizontalAlignment="Left"
+                            Margin="0,0,0,-56"
+                            >
                     <!--tên khoa-->
                     <StackPanel>
                         <TextBlock Style="{StaticResource TitlePersonalInfo}"
@@ -87,6 +89,7 @@
                                        Text="Tên trưởng khoa:"
                                        />
                         <ComboBox
+                            
                 ItemsSource="{Binding BacsiList}"
                 SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="300"
@@ -96,6 +99,7 @@
                 Margin="0 20 0 0"/>
                     </StackPanel>
                     <Button Width="100"
+                            Command="{Binding AddImageCommand}"
                             Margin="0 20 0 0"
                             Background="{StaticResource btnActivedText}"
                             Foreground="{StaticResource btnActivedGround}">
@@ -106,7 +110,9 @@
                 </StackPanel>
                 <!--Hình ảnh-->
                 <DockPanel Grid.Column="1">
-                    <Image x:Name="Service_Image" Stretch="Uniform"/>
+                    <Image x:Name="Service_Image" Stretch="Uniform"
+                           Source="{Binding Image_url}"
+                           />
                 </DockPanel>
             </Grid>
             <!--2 nút điều khiển-->
