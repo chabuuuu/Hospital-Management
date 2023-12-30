@@ -11,15 +11,11 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         Title="AddNurseAndDoctor" Height="500" Width="700"
         Background="Transparent"
-<<<<<<< HEAD
+        ResizeMode="NoResize"
         WindowStyle="None">
     <Window.DataContext>
         <viewmodel:ChangeFieldViewModel></viewmodel:ChangeFieldViewModel>
     </Window.DataContext>
-=======
-        WindowStyle="None"
-        ResizeMode="NoResize">
->>>>>>> 385b3845f279c73b153617da2e601a25ec9e2546
     <Border
     CornerRadius="20"
     Background="White"
