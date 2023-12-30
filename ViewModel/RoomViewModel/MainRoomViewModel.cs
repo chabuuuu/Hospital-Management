@@ -16,7 +16,9 @@ namespace LTTQ_DoAn.ViewModel
 
         private List<PHONG> phong;
         private PHONG selectedphong;
+        private List<BENHNHAN> benhnhan;
         public ICommand ChangeRoomCommand { get; }
+        public ICommand ViewInfoCommand { get; }
         public ICommand AddRoomCommand { get; }
         public ICommand DeleteRoomCommand { get; }
         public List<PHONG> Phong
@@ -35,6 +37,21 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Selectedphong));
             }
         }
+
+        public List<BENHNHAN> Benhnhan
+        {
+            get => benhnhan; set
+            {
+                benhnhan = value;
+                OnPropertyChanged(nameof(Benhnhan));
+            }
+        }
+
+        private void LoadBenhNhan()
+        {
+            Benhnhan =  Selectedphong.BENHNHAN.ToList();
+        }
+
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -47,6 +64,16 @@ namespace LTTQ_DoAn.ViewModel
             ChangeRoomCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddRoomCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteRoomCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+            ViewInfoCommand = new ViewModelCommand(ExecuteViewInfoCommand, CanExecuteViewInfoCommand);
+        }
+
+        private bool CanExecuteViewInfoCommand(object? obj)
+        {
+            return true;
+        }
+        private void ExecuteViewInfoCommand(object? obj)
+        {
+            LoadBenhNhan();
         }
 
         private bool CanExecuteChangeCommand(object? obj)
