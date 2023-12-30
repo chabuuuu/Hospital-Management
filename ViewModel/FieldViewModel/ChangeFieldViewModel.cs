@@ -79,14 +79,14 @@ namespace LTTQ_DoAn.ViewModel
             List<String> subID = new List<String>();
             foreach (var item in bacsi)
             {
-                if (item.LOAIYSI == null)
+                if (item.LOAIYSI == null || item.MAKHOA != Khoa.MAKHOA)
                 {
                     continue;
                 }
                 if (item.LOAIYSI.Substring(0, 6).Equals("Bác sĩ"))
                 {
-                    //Bỏ qua các Bác Sĩ đã là trưởng khoa rồi
-                    if (item.KHOA.TRUONGKHOA == item.MAYSI)
+                    //Bỏ qua các Bác Sĩ đã là trưởng khoa rồi (trừ trưởng khoa của Khoa hiện tại)
+                    if (item.KHOA.TRUONGKHOA == item.MAYSI && item.MAYSI != Khoa.TRUONGKHOA)
                     {
                         continue;
                     }
