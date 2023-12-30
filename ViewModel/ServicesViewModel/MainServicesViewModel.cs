@@ -85,7 +85,33 @@ namespace LTTQ_DoAn.ViewModel
             return true;
         }
         private void ExecuteDeleteCommand(object? obj) {
+            try
+            {
+                int Id = Selecteddichvu.MADICHVU;
+                var deleteMember = _db.DICHVU.Where(m => m.MADICHVU == Id).Single();
+                _db.DICHVU.DeleteObject(deleteMember);
+                _db.SaveChanges();
 
+                new MessageBoxCustom(
+                    "Thông báo",
+                    "Đã xóa khoa: \nMã dịch vụ: " +
+                        Selecteddichvu.SUB_ID.ToString() + "\nTên dịch vụ: " +
+                        Selecteddichvu.TENDICHVU,
+                    MessageType.Success,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                Load();
+            }
+            catch (Exception e)
+            {
+                new MessageBoxCustom(
+                    "Thông báo",
+                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    MessageType.Error,
+                    MessageButtons.OK
+                    )
+                    .ShowDialog();
+            }
         }
 
     }

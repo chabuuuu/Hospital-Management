@@ -62,6 +62,8 @@
                                             <!--nút xóa-->
                                             <!--thêm command xóa vào đây-->
                                             <RadioButton Panel.ZIndex="1"
+                                            Command="{Binding DataContext.DeleteServicesCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+
                                             Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
                                             Style="{StaticResource gridOpenButton}">
                                                 <fa:IconImage Icon="Trash"
