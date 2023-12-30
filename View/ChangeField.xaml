@@ -11,8 +11,15 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         Title="AddNurseAndDoctor" Height="500" Width="700"
         Background="Transparent"
+<<<<<<< HEAD
+        WindowStyle="None">
+    <Window.DataContext>
+        <viewmodel:ChangeFieldViewModel></viewmodel:ChangeFieldViewModel>
+    </Window.DataContext>
+=======
         WindowStyle="None"
         ResizeMode="NoResize">
+>>>>>>> 385b3845f279c73b153617da2e601a25ec9e2546
     <Border
     CornerRadius="20"
     Background="White"
@@ -34,6 +41,7 @@
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
+                        Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
@@ -62,10 +70,10 @@
                     <!--tên khoa-->
                     <StackPanel>
                         <TextBlock Style="{StaticResource TitlePersonalInfo}"
-                                       Text="Tên khoa:"
+                                       Text="Tên khoa"
                                        />
                         <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Field_Name}"
+                                     Text="{Binding Khoa.TENKHOA}"
                                      Width="200">
                         </TextBox>
                     </StackPanel>
@@ -74,17 +82,22 @@
                         <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Ngày thành lập:"/>
                         <DatePicker Height="30" Width="130" FontSize="15" HorizontalAlignment="Left"
-                                        Text="{Binding Field_Date}"/>
+                                        SelectedDate="{Binding Khoa.NGAYTHANHLAP}"/>
                     </StackPanel>
                     <!--Ten trưởng khoa-->
+                  
                     <StackPanel Margin="0 30 0 0">
                         <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                        Text="Tên trưởng khoa:"
                                        />
-                        <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Field_BossName}"
-                                     Width="200">
-                        </TextBox>
+                        <ComboBox
+                ItemsSource="{Binding BacsiList}"
+                SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                MinWidth="300"
+                Height="55"
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Trưởng khoa"
+                Margin="0 20 0 0"/>
                     </StackPanel>
                     <Button Width="100"
                             Margin="0 20 0 0"
@@ -104,6 +117,7 @@
             <StackPanel Grid.Row="3" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button
+                    Command='{Binding ConfirmChangeCommand}'
                     Width="100"
                     Height="40"
                     Content="Xác nhận"
@@ -113,6 +127,7 @@
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Lưu" />
                 <Button Margin="40 0"
+                    Command="{Binding CancelCommand}"
                     Width="100"
                     Height="40"
                     Content="Hủy bỏ"
