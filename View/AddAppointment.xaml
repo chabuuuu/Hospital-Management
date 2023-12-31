@@ -96,16 +96,15 @@
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                 Margin="50 0 25 0"/>
 
-                <TextBox
-                Text="{Binding Phong}"
+                <ComboBox
                 MinWidth="150"
-                HorizontalContentAlignment="Stretch"
-                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                materialdesign:HintAssist.Hint="Mã phòng"
-                materialdesign:TextFieldAssist.HasClearButton="True"
-                FontSize="15"
                 Height="55"
-                Margin="25 0 25 0"/>
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Mã phòng"
+                ItemsSource="{Binding }"
+                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                SelectedValue="{}"
+                Margin="50 0 25 0"/>
             </StackPanel>
 
             <StackPanel Grid.Row="4" Orientation="Horizontal">

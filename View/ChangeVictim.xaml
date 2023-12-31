@@ -78,9 +78,8 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Giới tính:"/>
                             <ComboBox
-                            Style="{DynamicResource MaterialDesignOutlinedComboBox}"
                         MinWidth="120"
-                        Height="50"
+                        Height="30"
                         FontSize="10"
                         SelectedValue="{Binding Benhnhan.GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         ItemsSource="{Binding Gender}"
