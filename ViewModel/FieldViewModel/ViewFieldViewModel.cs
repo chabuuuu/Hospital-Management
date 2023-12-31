@@ -65,7 +65,7 @@ namespace LTTQ_DoAn.ViewModel
         {
             if (Khoa.TRUONGKHOA == null)
             {
-                Truongkhoa = "Chưa có trưởng khoa, hãy cập nhật ngay";
+                Truongkhoa = "Chưa có trưởng khoa";
                 return;
             }
             string? tenBacSi = (from m in _db.YSI

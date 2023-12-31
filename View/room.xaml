@@ -26,20 +26,15 @@
                 <ListView x:Name="RoomList"
        
             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Phong}"
-            SelectedItem="{Binding Selectedphong}" d:ItemsSource="{d:SampleData ItemCount=5}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+            ItemsSource="{Binding Phong}"
+            SelectedItem="{Binding Selectedphong}"
               >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding DataContext.ViewInfoCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                                   CommandParameter="{Binding ElementName=RoomList}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border 
@@ -79,6 +74,9 @@
                                     </StackPanel>
                                 </Grid>
                                 <!--thêm command ở button ở dưới để có thê nhấn vô các item-->
+                                <Border.InputBindings>
+                                    <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.ViewInfoCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
+                                </Border.InputBindings>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
