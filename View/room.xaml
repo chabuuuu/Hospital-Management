@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LTTQ_DoAn.View"
             xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"   
              mc:Ignorable="d" 
              Background="Transparent"
              d:DesignHeight="644" d:DesignWidth="1049">
@@ -26,61 +27,57 @@
        
             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Phong}"
-            SelectedItem="{Binding Selectedphong}"
+            SelectedItem="{Binding Selectedphong}" d:ItemsSource="{d:SampleData ItemCount=5}"
               >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:InvokeCommandAction Command="{Binding DataContext.ViewInfoCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                   CommandParameter="{Binding ElementName=RoomList}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            
                             <Border 
-                       
-                        Height="110" Width="200"
-                        Background="White"
-                        CornerRadius="5"
-                        Margin="10">
+                            Height="110" Width="200"
+                            Background="White"
+                            CornerRadius="5"
+                            Margin="10">
                                 <Border.Effect>
                                     <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
                                 </Border.Effect>
                                 <!--thêm command thông tin phòng-->
-                               <Button 
-                                       Command="{Binding DataContext.ViewInfoCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                        Height="110"
-                                        Width="200"
-                                        Background="Transparent"
-                                        BorderBrush="Transparent">  
-                                    <Grid Height="110" VerticalAlignment="Center" Width="200" HorizontalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="30*"/>
-                                            <RowDefinition Height="70*"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Foreground="#3f3f3f"
-                                                FontSize="20"
-                                                FontWeight="Medium"
-                                                Text="{Binding TENPHONG}"
-                                                HorizontalAlignment="Left"
-                                                VerticalAlignment="Top"
-                                                Margin="20 0 0 0"
-                                                >
-                                            
+                                <Grid Height="110" VerticalAlignment="Center" Width="200" HorizontalAlignment="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30*"/>
+                                        <RowDefinition Height="70*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Foreground="#3f3f3f"
+                                        FontSize="20"
+                                        FontWeight="Medium"
+                                        Text="{Binding TENPHONG}"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        Margin="20 0 0 0"
+                                        >
+                                    </TextBlock>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                        <!--ảnh cho phòng-->
+                                        <TextBlock Width="130" VerticalAlignment="Center"
+                                                        Foreground="#3f3f3f">
+                                                <Run Text="    Sức chứa:"/>
+                                                <Run Text="{Binding SUCCHUA}"/> <!--thông tin sức chứa lưu ở đây-->
                                         </TextBlock>
-                                        <StackPanel Grid.Row="2" Orientation="Horizontal">
-                                            <!--ảnh cho phòng-->
-                                            <TextBlock Width="130" VerticalAlignment="Center"
-                                                               Foreground="#3f3f3f">
-                                                        <Run Text="    Sức chứa:"/>
-                                                        <Run Text="{Binding SUCCHUA}"/> <!--thông tin sức chứa lưu ở đây-->
-                                            </TextBlock>
-                                            <Image 
-                                                        Source="/Photo/medical-team.png" Height="55" HorizontalAlignment="Right"
-                                                           Margin="0 0 0 0">
-                                            </Image>
-                                        </StackPanel>
-                                    </Grid>
-                                </Button>
+                                        <Image 
+                                                Source="/Photo/medical-team.png" Height="55" HorizontalAlignment="Right"
+                                                    Margin="0 0 0 0">
+                                        </Image>
+                                    </StackPanel>
+                                </Grid>
                                 <!--thêm command ở button ở dưới để có thê nhấn vô các item-->
                             </Border>
                         </DataTemplate>

@@ -98,7 +98,7 @@
                         <TextBlock Style="{StaticResource TitlePersonalInfo}" Width="120" HorizontalAlignment="Left"
                                        Text="Số lượng y sĩ:"
                                        />
-                        <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
+                        <Border BorderThickness="0 0 0 1" BorderBrush="Transparent">
                             <TextBlock Style="{StaticResource TextBlockPersonalInfo}"
                                        Height="Auto"
                                        ScrollViewer.HorizontalScrollBarVisibility="Visible"
