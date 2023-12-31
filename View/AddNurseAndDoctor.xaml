@@ -145,16 +145,16 @@
                 Height="55"
                 Margin="50 0 0 0"
                 materialdesign:HintAssist.HelperText="cấp trên của y sĩ"/>
-                <TextBox
-                MinWidth="120"
-                HorizontalContentAlignment="Stretch"
-                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                Text="{Binding Maphong}"
-                materialdesign:HintAssist.Hint="Mã phòng"
-                materialdesign:TextFieldAssist.HasClearButton="True"
-                FontSize="15"
+                <ComboBox
+                MinWidth="150"
                 Height="55"
-                Margin="25 0 25 0"/>
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Mã phòng"
+                ItemsSource="{Binding }"
+                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                SelectedValue="{}"
+                Margin="50 0 25 0">
+                </ComboBox>
             </StackPanel>
 
             <StackPanel Grid.Row="5" Orientation="Horizontal"

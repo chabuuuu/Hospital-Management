@@ -78,9 +78,8 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Giới tính:"/>
                             <ComboBox
-                            Style="{DynamicResource MaterialDesignOutlinedComboBox}"
                         MinWidth="120"
-                        Height="50"
+                        Height="30"
                         FontSize="10"
                         SelectedValue="{Binding Benhnhan.GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         ItemsSource="{Binding Gender}"
@@ -120,14 +119,14 @@
             </Grid>
             <WrapPanel Grid.Row="3" Margin="50 20 0 0">
                 <!--phòng-->
-                <StackPanel Margin="25 0 25 30">
+                <StackPanel Margin="0 0 25 30">
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                Text="Phòng:"
                                />
-                    <TextBox Style="{StaticResource TextPersonalInfo}"
+                    <ComboBox 
                              Text="{Binding Phong_SUBID}"
                              Width="130">
-                    </TextBox>
+                    </ComboBox>
                 </StackPanel>
                 <!--ngày nhập viện-->
                 <StackPanel Margin="25 0 25 30">

@@ -90,16 +90,16 @@
                                 <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                     Text="Ngày lên lịch:"/>
                                 <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
-                                    <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="130"
+                                    <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="200"
                                                Text="{Binding Lichkham.NGAYLENLICH}"/>
                                 </Border>
                             </StackPanel>
                             <!--ngày khám-->
-                            <StackPanel Margin="25 0 0 0">
+                            <StackPanel Margin="0 0 0 0">
                                 <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                     Text="Ngày khám:"/>
                                 <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
-                                    <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="130"
+                                    <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="200"
                                                Text="{Binding Lichkham.NGAYKHAM}"/>
                                 </Border>
                             </StackPanel>
