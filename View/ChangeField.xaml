@@ -96,7 +96,7 @@
                 Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Trưởng khoa"
-                Margin="0 20 0 0"/>
+                Margin="0 0 0 0"/>
                     </StackPanel>
                     <Button Width="100"
                             Command="{Binding AddImageCommand}"

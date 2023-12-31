@@ -75,7 +75,7 @@
                     </StackPanel>
                     <!--ngày thành lập-->
                     <StackPanel HorizontalAlignment="Left" Margin="0 20 0 0"> 
-                        <TextBlock Style="{StaticResource TitlePersonalInfo}" Width="130"
+                        <TextBlock Style="{StaticResource TitlePersonalInfo}" Width="200"
                                        Text="Ngày thành lập:"
                                        />
                         <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
