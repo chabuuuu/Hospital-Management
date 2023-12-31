@@ -1,6 +1,7 @@
 ﻿using LTTQ_DoAn.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Metadata.Edm;
 using System.Linq;
 using System.Text;
@@ -73,6 +74,7 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteViewInfoCommand(object? obj)
         {
+            new MessageBoxCustom("hello", "chao ban", MessageType.Success, MessageButtons.OKCancel).ShowDialog();
             LoadBenhNhan();
         }
 
@@ -106,5 +108,6 @@ namespace LTTQ_DoAn.ViewModel
         {
 
         }
+
     }
 }

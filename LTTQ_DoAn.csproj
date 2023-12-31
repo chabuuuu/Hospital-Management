@@ -48,8 +48,11 @@
     <PackageReference Include="Json.Net" Version="1.0.33" />
     <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+    <PackageReference Include="MicrosoftExpressionInteractions" Version="3.0.40218" />
     <PackageReference Include="RestSharp" Version="110.2.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
 	<Reference Include="System.Data.Entity" />
 	<Reference Include="System.Messaging" />
 	<Reference Include="System.Security" />
