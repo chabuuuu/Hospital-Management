@@ -688,4 +688,19 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Opacity" Value="0.7"/>
     </Style>
+
+    <Style x:Key="borderList" TargetType="Border">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="35"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ccc"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>
