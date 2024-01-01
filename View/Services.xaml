@@ -21,7 +21,9 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <ScrollViewer VerticalScrollBarVisibility="Auto"
-                          >
+                          HorizontalScrollBarVisibility="Disabled"
+                          CanContentScroll="True"
+                          PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" >
                 <ListView x:Name="FieldList"
                         HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Dichvu}" 

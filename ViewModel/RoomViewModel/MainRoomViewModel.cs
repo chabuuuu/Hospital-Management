@@ -74,8 +74,11 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteViewInfoCommand(object? obj)
         {
-            new MessageBoxCustom("hello", "chao ban", MessageType.Success, MessageButtons.OKCancel).ShowDialog();
-            LoadBenhNhan();
+            if (obj is PHONG phong)
+            {
+                Selectedphong = phong;
+                LoadBenhNhan();
+            }
         }
 
         private bool CanExecuteChangeCommand(object? obj)

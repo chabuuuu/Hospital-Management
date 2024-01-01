@@ -22,26 +22,27 @@
             </Grid.ColumnDefinitions>
             <!--danh sách phòng-->
             <ScrollViewer VerticalScrollBarVisibility="Auto"
-              CanContentScroll="True">
+                         CanContentScroll="True"
+                        HorizontalScrollBarVisibility="Disabled"
+                        PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                 <ListView x:Name="RoomList"
-       
-            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Phong}"
-            SelectedItem="{Binding Selectedphong}" d:ItemsSource="{d:SampleData ItemCount=5}"
-              >
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                    ItemsSource="{Binding Phong}"
+                    SelectedItem="{Binding Selectedphong}" d:ItemsSource="{d:SampleData ItemCount=5}"
+                    >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
-                  
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border 
-                            Height="110" Width="200"
+                            Height="110" Width="210"
                             Background="White"
                             CornerRadius="5"
-                            Margin="10">
+                            Margin="15">
                                 <Border.Effect>
                                     <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
                                 </Border.Effect>
@@ -74,6 +75,9 @@
                                     </StackPanel>
                                 </Grid>
                                 <!--thêm command ở button ở dưới để có thê nhấn vô các item-->
+                                <Border.InputBindings>
+                                    <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.ViewInfoCommand, RelativeSource={RelativeSource AncestorType=ListView}}" CommandParameter="{Binding}" />
+                                </Border.InputBindings>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -94,12 +98,15 @@
                     </TextBlock>
                 </Border>
                 <!--danh sách bệnh nhân trong phòng-->
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Disabled"
+                              PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
+                              CanContentScroll="True">
                     <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               BorderBrush="Transparent" Background="White"
                               HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch" ItemsSource="{Binding Benhnhan}"
-                               >
+                              >
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" Orientation="Vertical" />
