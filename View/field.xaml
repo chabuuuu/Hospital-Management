@@ -23,7 +23,9 @@
             </Grid.RowDefinitions>
             <materialDesign:Card>
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
-                               HorizontalScrollBarVisibility="Disabled">
+                               HorizontalScrollBarVisibility="Disabled"
+                              CanContentScroll="True"
+                              PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                     <ListView x:Name="FieldList" 
                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
