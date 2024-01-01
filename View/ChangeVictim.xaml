@@ -78,12 +78,12 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Giới tính:"/>
                             <ComboBox
-                        MinWidth="120"
-                        Height="30"
-                        FontSize="10"
-                        SelectedValue="{Binding Benhnhan.GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        ItemsSource="{Binding Gender}"
-                                >
+                                MinWidth="120"
+                                Height="30"
+                                FontSize="15"
+                                SelectedValue="{Binding Benhnhan.GIOITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                ItemsSource="{Binding Gender}"
+                                FontFamily="Poppins">
                             </ComboBox>
                         </StackPanel>
                         <!--ngày sinh-->
@@ -125,7 +125,9 @@
                                />
                     <ComboBox 
                              Text="{Binding Phong_SUBID}"
-                             Width="130">
+                             Width="130"
+                            FontSize="15"
+                            FontFamily="Poppins">
                     </ComboBox>
                 </StackPanel>
                 <!--ngày nhập viện-->

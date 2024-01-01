@@ -153,13 +153,13 @@
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                Text="Phòng:"
                                />
-                    <ComboBox
-                                ItemsSource="{Binding }"
-                                SelectedValue="{}"
-                                MinWidth="150"
-                                Height="30"
-                                FontSize="15"
-                                Margin="0 0 25 30"/>
+                    <ComboBox FontFamily="Poppins"
+                            ItemsSource="{Binding }"
+                            SelectedValue="{}"
+                            MinWidth="150"
+                            Height="30"
+                            FontSize="15"
+                            Margin="0 0 25 30"/>
                 </StackPanel>
                 <!--ngày nhập viện-->
                 <StackPanel Margin="25 0 25 30">

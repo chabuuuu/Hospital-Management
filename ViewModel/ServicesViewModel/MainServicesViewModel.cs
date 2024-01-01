@@ -52,6 +52,7 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteChangeCommand(object? obj) {
             ChangeService wd = new ChangeService();
             wd.Closed += ChangeService_Closed;
+
             if (Selecteddichvu != null)
             {
                 wd.DataContext = new ChangeServicesViewModel(Selecteddichvu);

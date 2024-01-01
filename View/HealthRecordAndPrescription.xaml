@@ -9,7 +9,7 @@
         Background="Transparent"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         Title="MainWindow" Height="800" Width="1000" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
     <Border Background="White"
             BorderBrush="{StaticResource btnActivedText}"
@@ -42,11 +42,22 @@
                             <RowDefinition Height="60"/>
                         </Grid.RowDefinitions>
                         <ScrollViewer VerticalScrollBarVisibility="Auto"
-                                      >
+                                      HorizontalScrollBarVisibility="Disabled"
+                                      CanContentScroll="True"
+                                      PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"> 
                             <ListView HorizontalAlignment="Stretch" 
                                       ItemsSource="{Binding Listbenhan}"
                                       SelectedItem="{Binding Benhan}"
                                       ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="IsSelected" Value="True"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Width="880">
@@ -130,22 +141,26 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
-                                                        <!--thao tác sửa bệnh án-->
-                                                        <RadioButton Style="{StaticResource gridOpenButton}"
-                                                                Margin="0 0 10 0"
-                                                             Command="{Binding DataContext.ChangeHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                                                >
-                                                            <fa:IconImage Icon="UpRightFromSquare"
-                                                                Height="20"/>   
-                                                        </RadioButton>
-                                                        <!--thao tác xóa bệnh án-->
-                                                        <RadioButton Style="{StaticResource gridOpenButton}"
-                                                                     Command="{Binding DataContext.DeleteHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                                                >
-                                                            <fa:IconImage Icon="Trash"
-                                                                Foreground="#ed2525"
-                                                                Height="20"/>
-                                                        </RadioButton>
+                                                        <!--thêm command sửa vào đây-->
+                                                        <Border Style="{StaticResource borderList}"
+                                                    Margin="5">
+                                                            <fa:IconImage Icon="PenToSquare" Height="20"/>
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding DataContext.ChangeHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Border>
+                                                        <Border Style="{StaticResource borderList}"
+                                                    Margin="5">
+                                                            <fa:IconImage Icon="Trash" Height="20"
+                                                              Foreground="#ed2525"/>
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding DataContext.DeleteHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Border>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
@@ -179,9 +194,20 @@
                             <RowDefinition Height="60"/>
                         </Grid.RowDefinitions>
                         <ScrollViewer VerticalScrollBarVisibility="Auto"
-                  >
-                            <ListView HorizontalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                                        HorizontalScrollBarVisibility="Disabled"
+                                      CanContentScroll="True"
+                                        PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                            <ListView HorizontalAlignment="Stretch"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="IsSelected" Value="True"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Width="880">
@@ -240,21 +266,27 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
-                                                         <!--thao tác sửa đơn thuốc-->
-                                                        <RadioButton Style="{StaticResource gridOpenButton}"
-                                                            Margin="0 0 10 0"
-                                                            Command="{Binding DataContext.ChangePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                                            >
-                                                            <fa:IconImage Icon="UpRightFromSquare" Height="20"/>
-                                                        </RadioButton>
-                                                        <!--thao tác xóa đơn thuốc-->
-                                                        <RadioButton Style="{StaticResource gridOpenButton}"
-                                                                     Command="{Binding DataContext.DeletePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                                                >
-                                                            <fa:IconImage Icon="Trash"
-                                                                        Foreground="#ed2525"
-                                                                          Height="20"/>
-                                                        </RadioButton>
+                                                        <Border Style="{StaticResource borderList}"
+                                                                Margin="5">
+                                                            <fa:IconImage Icon="PenToSquare" Height="20"/>
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <!--them command sua vao day-->
+                                                                    <i:InvokeCommandAction Command="{Binding}"/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Border>
+                                                        <Border Style="{StaticResource borderList}"
+                                                                Margin="5">
+                                                            <fa:IconImage Icon="Trash" Height="20"
+                                                              Foreground="#ed2525"/>
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <!--them command xoa vao day-->
+                                                                    <i:InvokeCommandAction Command="{Binding}"/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Border>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>

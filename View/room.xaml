@@ -29,7 +29,7 @@
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                     ItemsSource="{Binding Phong}"
-                    SelectedItem="{Binding Selectedphong}" d:ItemsSource="{d:SampleData ItemCount=5}"
+                    SelectedItem="{Binding Selectedphong}"
                     >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
