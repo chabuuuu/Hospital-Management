@@ -34,12 +34,7 @@
                             <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <i:InvokeCommandAction Command="{Binding DataContext.ViewInfoCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                                   CommandParameter="{Binding ElementName=RoomList}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
+                  
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border 
