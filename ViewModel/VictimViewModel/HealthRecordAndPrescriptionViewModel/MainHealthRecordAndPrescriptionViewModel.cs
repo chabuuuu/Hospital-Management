@@ -26,9 +26,15 @@ namespace LTTQ_DoAn.ViewModel
         public string KETLUAN { get; set; }
         public string MAYSI { get; set; }
         public string THANHTIEN { get; set; }
-
     }
-    public class HealthRecordViewModel : BaseViewModel
+    public class DonThuocType
+    {
+        public int MADONTHUOC { get; set; }
+        public string SUB_ID { get; set; }
+        public string GHICHU { get; set; }
+        public string MAYSI { get; set; }
+    }
+    public class HealthRecordAndPrescriptionViewModel : BaseViewModel
     {
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private string khoa;
@@ -36,6 +42,9 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ChangeHRCommand { get; }
         public ICommand AddHRCommand { get; }
         public ICommand DeleteHRCommand { get; }
+        public ICommand ChangePCommand { get; }
+        public ICommand AddPCommand { get; }
+        public ICommand DeletePCommand { get; }
 
         public ICommand ExitCommand { get; }
         public BENHNHAN Benhnhan
@@ -71,8 +80,26 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Benhan));
             }
         }
+        public List<DonThuocType> Listdonthuoc
+        {
+            get => listdonthuoc; set
+            {
+                listdonthuoc = value;
+                OnPropertyChanged(nameof(Listdonthuoc));
+            }
+        }
+        public DonThuocType Donthuoc
+        {
+            get => donthuoc; set
+            {
+                donthuoc = value;
+                OnPropertyChanged(nameof(Donthuoc));
+            }
+        }
 
         private BENHNHAN benhnhan;
+        private List<DonThuocType> listdonthuoc;
+        private DonThuocType donthuoc;
         private List<BenhAnType> listbenhan;
         private BenhAnType benhan;
         private void findBenhAn()
@@ -135,22 +162,72 @@ namespace LTTQ_DoAn.ViewModel
             }
             return "K" + maKhoa.ToString() + ": " + tenKhoa;
         }
-        
-        public HealthRecordViewModel()
+        private void findDonThuoc()
         {
-            AddHRCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            DeleteHRCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
-            ChangeHRCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            _db = new QUANLYBENHVIENEntities();
+            List<DONTHUOC> query = (from m in _db.BENHAN
+                                    join n in _db.DONTHUOC on m.MABENHAN equals n.MABENHAN
+                                    where m.MABENHNHAN == Benhnhan.MABENHNHAN
+                                    select n).ToList();
+
+            List<DonThuocType> list = new List<DonThuocType>();
+            foreach (var item in query)
+            {
+                DonThuocType benhan = new DonThuocType()
+                {
+                    MADONTHUOC = item.MADONTHUOC,
+                    SUB_ID = item.SUB_ID,
+                    GHICHU = item.GHICHU,
+                    MAYSI = findYSi(item.MABENHAN),
+                };
+                list.Add(donthuoc);
+            }
+            Listdonthuoc = list;
+        }
+        private string findYSi(int? maBenhAn)
+        {
+            if (maBenhAn == null)
+            {
+                return "";
+            }
+            int? maYSi = (from m in _db.BENHAN
+                          where m.MABENHAN == maBenhAn
+                          select m.MAYSI).First();
+            if (maYSi == null)
+            {
+                return "";
+            }
+            string? tenYSi = (from m in _db.YSI
+                              where m.MAYSI == maYSi
+                              select m.HOTEN).First();
+            if (tenYSi == null)
+            {
+                return "";
+            }
+            return "M" + maYSi.ToString() + ": " + tenYSi;
+        }
+        public HealthRecordAndPrescriptionViewModel()
+        {
+            AddHRCommand = new ViewModelCommand(ExecuteAddHRCommand, CanExecuteAddHRCommand);
+            DeleteHRCommand = new ViewModelCommand(ExecuteDeleteHRCommand, CanExecuteDeleteHRCommand);
+            ChangeHRCommand = new ViewModelCommand(ExecuteChangeHRCommand, CanExecuteChangeHRCommand);
+            AddPCommand = new ViewModelCommand(ExecuteAddPCommand, CanExecuteAddPCommand);
+            DeletePCommand = new ViewModelCommand(ExecuteDeletePCommand, CanExecuteDeletePCommand);
+            ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
-        public HealthRecordViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view)
+        public HealthRecordAndPrescriptionViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view)
         {
             this.thisView = view;
             Benhnhan = SelectedBenhNhan;
             findBenhAn();
-            AddHRCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            DeleteHRCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
-            ChangeHRCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
+            findDonThuoc();
+            AddHRCommand = new ViewModelCommand(ExecuteAddHRCommand, CanExecuteAddHRCommand);
+            DeleteHRCommand = new ViewModelCommand(ExecuteDeleteHRCommand, CanExecuteDeleteHRCommand);
+            ChangeHRCommand = new ViewModelCommand(ExecuteChangeHRCommand, CanExecuteChangeHRCommand);
+            AddPCommand = new ViewModelCommand(ExecuteAddPCommand, CanExecuteAddPCommand);
+            DeletePCommand = new ViewModelCommand(ExecuteDeletePCommand, CanExecuteDeletePCommand);
+            ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
 
@@ -167,11 +244,11 @@ namespace LTTQ_DoAn.ViewModel
             thisView.Close();
         }
 
-        private bool CanExecuteAddCommand(object? obj)
+        private bool CanExecuteAddHRCommand(object? obj)
         {
             return true;
         }
-        private void ExecuteAddCommand(object? obj)
+        private void ExecuteAddHRCommand(object? obj)
         {
             AddHealthRecord wd = new AddHealthRecord();
             wd.Closed += AddHealthRecord_Closed;
@@ -186,11 +263,11 @@ namespace LTTQ_DoAn.ViewModel
             findBenhAn();
         }
 
-        private bool CanExecuteDeleteCommand(object? obj)
+        private bool CanExecuteDeleteHRCommand(object? obj)
         {
             return true;
         }
-        private void ExecuteDeleteCommand(object? obj)
+        private void ExecuteDeleteHRCommand(object? obj)
         {
             try
             {
@@ -220,11 +297,11 @@ namespace LTTQ_DoAn.ViewModel
                     .ShowDialog();
             }
         }
-        private bool CanExecuteChangeCommand(object? obj)
+        private bool CanExecuteChangeHRCommand(object? obj)
         {
             return true;
         }
-        private void ExecuteChangeCommand(object? obj)
+        private void ExecuteChangeHRCommand(object? obj)
         {
             if (Benhan == null)
             {
@@ -240,6 +317,78 @@ namespace LTTQ_DoAn.ViewModel
         private void ChangeHealthRecord_Closed(object sender, EventArgs e)
         {
             findBenhAn();
+        }
+        private bool CanExecuteAddPCommand(object? obj)
+        {
+            return true;
+        }
+        private void ExecuteAddPCommand(object? obj)
+        {
+            AddPrescription wd = new AddPrescription();
+            wd.Closed += AddPrescription_Closed;
+            wd.DataContext = new AddPrescriptionViewModel(Benhnhan);
+            System.Windows.Application.Current.MainWindow = wd;
+            wd.ShowDialog();
+
+        }
+        private void AddPrescription_Closed(object sender, EventArgs e)
+        {
+            findDonThuoc();
+        }
+
+        private bool CanExecuteDeletePCommand(object? obj)
+        {
+            return true;
+        }
+        private void ExecuteDeletePCommand(object? obj)
+        {
+            try
+            {
+                int Id = Donthuoc.MADONTHUOC;
+                var deleteMember = _db.DONTHUOC.Where(m => m.MADONTHUOC == Id).Single();
+                _db.DONTHUOC.DeleteObject(deleteMember);
+                _db.SaveChanges();
+
+                new MessageBoxCustom(
+                    "Thông báo",
+                    "Đã xóa đơn thuốc: " + Donthuoc.SUB_ID.ToString(),
+                    MessageType.Success,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                findDonThuoc();
+            }
+            catch (Exception e)
+            {
+                new MessageBoxCustom(
+                    "Thông báo",
+                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    MessageType.Error,
+                    MessageButtons.OK
+                    )
+                    .ShowDialog();
+            }
+        }
+
+        private bool CanExecuteChangePCommand(object? obj)
+        {
+            return true;
+        }
+        private void ExecuteChangePCommand(object? obj)
+        {
+            if (Donthuoc == null)
+            {
+                return;
+            }
+            ChangeHealthRecord wd = new ChangeHealthRecord();
+            wd.Closed += ChangePrescription_Closed;
+            wd.DataContext = new ChangeHealthRecordViewModel(Donthuoc.MADONTHUOC);
+            System.Windows.Application.Current.MainWindow = wd;
+            wd.ShowDialog();
+        }
+
+        private void ChangePrescription_Closed(object sender, EventArgs e)
+        {
+
         }
     }
 }

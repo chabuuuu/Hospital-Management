@@ -195,7 +195,7 @@ namespace LTTQ_DoAn.ViewModel
             HealthRecordAndPrescription wd = new HealthRecordAndPrescription();
             if (SelectedItem != null)
             {
-                wd.DataContext = new HealthRecordViewModel(SelectedItem, wd);
+                wd.DataContext = new HealthRecordAndPrescriptionViewModel(SelectedItem, wd);
                 //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
                 // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
                 Application.Current.MainWindow = wd;
