@@ -38,6 +38,7 @@
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
+                    Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>

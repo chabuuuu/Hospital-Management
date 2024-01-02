@@ -34,6 +34,7 @@
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
+                        Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
@@ -66,6 +67,8 @@
                     Height="55"/>
                 <!--chọn -->
                 <ComboBox
+                    ItemsSource="{Binding BenhAnList}"
+                    SelectedValue="{Binding Mabenhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     MinWidth="120"
                     Height="55"
                     FontSize="15"
@@ -109,6 +112,7 @@
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm bệnh nhân" />
                 <Button
+                    Command="{Binding CancelCommand}"
                     Margin="40 0"
                     Width="130"
                     Height="50"

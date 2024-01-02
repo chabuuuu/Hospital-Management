@@ -35,6 +35,7 @@
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
                 </Button>
                 <Button
+                    Command="{Binding CancelCommand}"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
@@ -121,7 +122,9 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     ToolTip="Thêm bệnh nhân" />
-                <Button Margin="40 0"
+                <Button 
+                    Command="{Binding CancelCommand}"
+                    Margin="40 0"
                     Width="130"
                     Height="50"
                     Content="Hủy bỏ"
