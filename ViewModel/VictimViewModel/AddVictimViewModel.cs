@@ -77,6 +77,8 @@ namespace LTTQ_DoAn.ViewModel
             }
         }
 
+        public List<string> Listphong { get => listphong; set => listphong = value; }
+
         private string ten = null;
         private string ngaysinh = null;
         private string gioitinh = null;
@@ -84,6 +86,7 @@ namespace LTTQ_DoAn.ViewModel
         private string maphong = null;
         private string ngaynhapvien = null;
         private string diachi = null;
+        private List<String> listphong;
         public AddVictimViewModel(int id)
         {
             this.Id = id;
@@ -98,7 +101,7 @@ namespace LTTQ_DoAn.ViewModel
                 GIOITINH = Gioitinh,
                 NGAYSINH = DateTime.ParseExact(Ngaysinh, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
                 MABHYT = Bhyt,
-                MAPHONG = this.convertSUB_ID(Maphong),
+                MAPHONG = this.convertPhongSUB_ID(Maphong),
                 NGAYNHAPVIEN = DateTime.ParseExact(Ngaynhapvien, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
                 DIACHI = Diachi
             };
@@ -110,9 +113,32 @@ namespace LTTQ_DoAn.ViewModel
             _db.SaveChanges();
             //BaseViewModel.global_db = _db;
         }
+        public void loadPhong()
+        {
+            List<PHONG> phong = _db.PHONG.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in phong)
+            {
+                subID.Add(item.SUB_ID + ": " + item.TENPHONG);
+            }
+            Listphong = subID;
+        }
+        public int? convertPhongSUB_ID(string Sub_id)
+        {
+            if (Sub_id == null)
+            {
+                return null;
+            }
+            // Chuỗi cần tách
+            string inputString = Sub_id;
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            // Tách các ký tự còn lại thành một chuỗi riêng
+            string remainingCharacters = parts[0].Substring(3);
+            return int.Parse(remainingCharacters);
+        }
         public AddVictimViewModel()
         {
-
+            loadPhong();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }

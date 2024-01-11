@@ -114,9 +114,10 @@
                 Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Mã phòng"
-                ItemsSource="{Binding }"
+                ItemsSource="{Binding Listphong}"
+                                    SelectedValue="{Binding Maphong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                SelectedValue="{}"
                 Margin="50 0 25 0">
                 </ComboBox>
                 <DatePicker
