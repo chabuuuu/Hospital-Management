@@ -152,6 +152,7 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteChangeCommand(object? obj)
         {
             ChangeDoctorAndNurse wd = new ChangeDoctorAndNurse();
+            wd.Closed += ChangeDoctorAndNurse_Closed;
             if (SelectedItem != null)
             {
                 wd.DataContext = new ChangeNurseAndDoctorViewModel(SelectedItem);

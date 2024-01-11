@@ -154,8 +154,8 @@
                                Text="Phòng:"
                                />
                     <ComboBox FontFamily="Poppins"
-                            ItemsSource="{Binding }"
-                            SelectedValue="{}"
+                            ItemsSource="{Binding Phonglist}"
+                                                                                    SelectedValue="{Binding Phong_subid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             MinWidth="150"
                             Height="30"
                             FontSize="15"
