@@ -66,6 +66,16 @@
                                                 <!--thêm command sửa vào đây-->
                                                 <Border Style="{StaticResource borderList}"
                                                     Margin="5">
+                                                    <fa:IconImage Icon="Info" Height="20"/>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                            <i:InvokeCommandAction Command="{Binding DataContext.ViewFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </Border>
+
+                                                <Border Style="{StaticResource borderList}"
+                                                    Margin="5 0 5 5">
                                                     <fa:IconImage Icon="PenToSquare" Height="20"/>
                                                     <i:Interaction.Triggers>
                                                         <i:EventTrigger EventName="MouseLeftButtonDown">
