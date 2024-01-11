@@ -150,9 +150,10 @@
                 Height="55"
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Mã phòng"
-                ItemsSource="{Binding }"
+                ItemsSource="{Binding Phonglist}"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                SelectedValue="{}"
+                                                        SelectedValue="{Binding Maphong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+
                 Margin="50 0 25 0">
                 </ComboBox>
             </StackPanel>
