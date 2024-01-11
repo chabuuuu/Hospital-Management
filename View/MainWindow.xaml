@@ -135,7 +135,8 @@
                         </RadioButton>
                     </StackPanel>
                     <!--đăng xuất-->
-                    <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton
+                                Style="{StaticResource menuButton}"
                                 Tag="{StaticResource normalButton}"
                                     VerticalAlignment="Bottom">
                         <StackPanel Orientation="Horizontal">
