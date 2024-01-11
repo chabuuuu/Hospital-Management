@@ -96,12 +96,14 @@
                 </TextBlock>
                 <local:BindablePasswordBox
                     x:Name="Password_box"
-                    Password="{Binding}"
+                    Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    Margin="0,0,-1,0"
                     Foreground="White"
                     >
                 </local:BindablePasswordBox>
                 
                 <Button
+                    Command="{Binding LoginCommand}"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right"
                     Width="110"
