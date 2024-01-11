@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace LTTQ_DoAn.View
 {
-    /// <summary>
-    /// Interaction logic for UserControl1.xaml
-    /// </summary>
     public partial class BindablePasswordBox : UserControl
     {
         public static readonly DependencyProperty PasswordProperty =

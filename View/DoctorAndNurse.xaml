@@ -106,12 +106,12 @@
             </DataGridCheckBoxColumn.HeaderTemplate>
         </DataGridCheckBoxColumn>
 
-        <DataGridTextColumn Header="ID" Width="20*"
+        <DataGridTextColumn Header="ID" Width="15*"
                                 IsReadOnly="True" CanUserResize="False"
                                 Binding="{Binding SUB_ID}">
         </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding HOTEN}"
+                    <DataGridTextColumn Header="Tên" Width="15*" Binding="{Binding HOTEN}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
 
@@ -124,7 +124,7 @@
                     <DataGridTextColumn Header="Ngày vào làm" Width="20*" Binding="{Binding NGAYVAOLAM}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
-        <DataGridTemplateColumn Header="Thao tác" Width="10*"
+        <DataGridTemplateColumn Header="Thao tác" Width="15*"
              IsReadOnly="True" CanUserResize="False">
             <DataGridTemplateColumn.CellTemplate>
                 <DataTemplate>
