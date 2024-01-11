@@ -138,6 +138,7 @@
                     <RadioButton
                                 Style="{StaticResource menuButton}"
                                 Tag="{StaticResource normalButton}"
+                                Command="{Binding LogoutViewCommand}"
                                     VerticalAlignment="Bottom">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="RightFromBracket" Style="{StaticResource menuButtonIcon}"/>
