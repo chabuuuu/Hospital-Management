@@ -39,24 +39,13 @@ namespace LTTQ_DoAn.ViewModel
             }
         }
 
+        public List<string> Listphong { get => listphong; set => listphong = value; }
+
         private BENHNHAN benhnhan = null;
         private List<String> gender = new List<string>() { "Nam", "Nữ" };
         private string gioitinh;
         private string phong_SUBID;
-        private int? convertPhongSUB_ID(string Sub_id)
-        {
-            if (Sub_id == null)
-            {
-                return null;
-            }
-            // Chuỗi cần tách
-            string inputString = Sub_id;
-
-            // Tách các ký tự còn lại thành một chuỗi riêng
-            string remainingCharacters = inputString.Substring(3);
-
-            return int.Parse(remainingCharacters);
-        }
+        private List<String> listphong;
         private void update()
         {
             BENHNHAN updateBenhnhan = (from m in _db.BENHNHAN
@@ -72,6 +61,29 @@ namespace LTTQ_DoAn.ViewModel
             //updateMember.gender = genderComboBox.Text;
             _db.SaveChanges();
         }
+        public void loadPhong()
+        {
+            List<PHONG> phong = _db.PHONG.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in phong)
+            {
+                subID.Add(item.SUB_ID + ": " + item.TENPHONG);
+            }
+            Listphong = subID;
+        }
+        public int? convertPhongSUB_ID(string Sub_id)
+        {
+            if (Sub_id == null)
+            {
+                return null;
+            }
+            // Chuỗi cần tách
+            string inputString = Sub_id;
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            // Tách các ký tự còn lại thành một chuỗi riêng
+            string remainingCharacters = parts[0].Substring(3);
+            return int.Parse(remainingCharacters);
+        }
         public ChangeVictimViewModel()
         {
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
@@ -79,8 +91,9 @@ namespace LTTQ_DoAn.ViewModel
         }
         public ChangeVictimViewModel(BENHNHAN SelectedBenhNhan)
         {
+            Phong_SUBID = "PHG" + SelectedBenhNhan.MAPHONG.ToString() + ": " + SelectedBenhNhan.PHONG.TENPHONG;
+            loadPhong();
             Benhnhan = SelectedBenhNhan;
-            Phong_SUBID = "PHG" + SelectedBenhNhan.MAPHONG.ToString();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);
         }

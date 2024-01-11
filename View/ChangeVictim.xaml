@@ -124,7 +124,8 @@
                                Text="Phòng:"
                                />
                     <ComboBox 
-                             Text="{Binding Phong_SUBID}"
+                                        SelectedValue="{Binding Phong_SUBID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                ItemsSource="{Binding Listphong}"
                              Width="130"
                             FontSize="15"
                             FontFamily="Poppins">
