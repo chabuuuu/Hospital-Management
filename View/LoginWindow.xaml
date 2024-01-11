@@ -101,21 +101,36 @@
                     Foreground="White"
                     >
                 </local:BindablePasswordBox>
-                
-                <Button
-                    Command="{Binding LoginCommand}"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Right"
-                    Width="110"
-                    Margin="0 40 50 0"
-                    Height="40"
-                    Content="Đăng nhập"
-                    FontSize="15"
-                    FontWeight="Bold"
-                    Foreground="#555"
-                    Background="#fff"
-                    Style="{StaticResource MaterialDesignFlatLightBgButton}"
-                    />
+                <StackPanel Orientation="Horizontal">
+                    <Button
+                        Command="{Binding LoginCommand}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Width="110"
+                        Margin="100 40 50 0"
+                        Height="40"
+                        Content="Đăng nhập"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="#555"
+                        Background="#fff"
+                        Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                        />
+
+                    <Button Click="btn_close_Click"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Width="110"
+                        Margin="0 40 50 0"
+                        Height="40"
+                        Content="Thoát"
+                        FontSize="15"
+                        FontWeight="Bold"
+                        Foreground="#555"
+                        Background="#fff"
+                        Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                        />
+                </StackPanel>
             </StackPanel>
         </Grid>
         
