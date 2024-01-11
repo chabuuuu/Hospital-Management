@@ -56,7 +56,7 @@
                         <StackPanel VerticalAlignment="Bottom">
                             <!--binding số lượng y sĩ vào đây-->
                             <TextBlock
-                                Text="{Binding }"
+                                Text="10"
                                 FontSize="90"
                                 FontWeight="Bold"
                                 FontFamily="Poppins"
@@ -82,7 +82,7 @@
                         <StackPanel VerticalAlignment="Bottom">
                             <!--binding số lượng bệnh nhân vào đây-->
                             <TextBlock
-                                Text="{Binding}"
+                                Text="20"
                                 FontSize="90"
                                 FontWeight="Bold"
                                 FontFamily="Poppins"
@@ -109,7 +109,7 @@
                         <StackPanel VerticalAlignment="Bottom">
                             <!--binding số lượng khoa vào đây-->
                             <TextBlock
-                                Text="{Binding}"
+                                Text="5"
                                 FontSize="90"
                                 FontWeight="Bold"
                                 FontFamily="Poppins"
@@ -135,7 +135,7 @@
                         <StackPanel VerticalAlignment="Bottom">
                             <!--binding số lượng dịch vụ vào đây-->
                             <TextBlock
-                                Text="{Binding}"
+                                Text="4"
                                 FontSize="90"
                                 FontWeight="Bold"
                                 FontFamily="Poppins"
