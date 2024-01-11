@@ -17,6 +17,7 @@ using static LTTQ_DoAn.ViewModel.LoginViewModel;
 using System.IO;
 using System.Web.UI.WebControls;
 using LTTQ_DoAn.View;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -147,6 +148,7 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteLogoutViewCommand(object obj)
         {
             DeleteJsonData();
+            new MessageBoxCustom("Đăng xuất thành công", "Hẹn gặp lại", MessageType.Success, MessageButtons.OK).ShowDialog();
             Main_wd.Close();
             LoginWindow wd = new LoginWindow();
             Application.Current.MainWindow = wd;
