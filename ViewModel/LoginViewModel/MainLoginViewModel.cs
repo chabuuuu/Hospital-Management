@@ -192,6 +192,7 @@ namespace LTTQ_DoAn.ViewModel
                 {
                     IsViewVisible = false;
                     MainWindow wd = new MainWindow();
+                    wd.DataContext = new MainViewModel(wd);
                     Application.Current.MainWindow = wd;
                     wd.ShowDialog();
                 }
@@ -289,6 +290,7 @@ namespace LTTQ_DoAn.ViewModel
 
             IsViewVisible = false;
             MainWindow wd = new MainWindow();
+            wd.DataContext = new MainViewModel(wd);
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
