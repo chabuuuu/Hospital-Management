@@ -21,6 +21,7 @@ namespace LTTQ_DoAn.ViewModel
         private List<String> benhnhanList;
         private List<string> bacsiList;
         private List<String> dichvuList;
+        private List<String> phongList;
 
         private LICHKHAM lichkham;
         public ICommand CancelCommand { get; }
@@ -61,6 +62,8 @@ namespace LTTQ_DoAn.ViewModel
         public List<string> BenhnhanList { get => benhnhanList; set => benhnhanList = value; }
         public List<string> BacsiList { get => bacsiList; set => bacsiList = value; }
         public List<string> DichvuList { get => dichvuList; set => dichvuList = value; }
+        public List<string> PhongList { get => phongList; set => phongList = value; }
+
         public void loadBenhnhan()
         {
             List<BENHNHAN> benhnhan = _db.BENHNHAN.ToList();
@@ -141,11 +144,20 @@ namespace LTTQ_DoAn.ViewModel
             }
             // Chuỗi cần tách
             string inputString = Sub_id;
-
+            string[] parts = inputString.Split(new[] { ':' }, 2);
             // Tách các ký tự còn lại thành một chuỗi riêng
-            string remainingCharacters = inputString.Substring(3);
-
+            string remainingCharacters = parts[0].Substring(3);
             return int.Parse(remainingCharacters);
+        }
+        public void loadPhong()
+        {
+            List<PHONG> phong = _db.PHONG.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in phong)
+            {
+                subID.Add(item.SUB_ID + ": " + item.TENPHONG);
+            }
+            this.PhongList = subID;
         }
         private void update()
         {
@@ -168,6 +180,8 @@ namespace LTTQ_DoAn.ViewModel
             loadBacsi();
             loadBenhnhan();
             loadDichvu();
+            loadPhong();
+            Phong = "PHG" + Lichkham.MAPHONG.ToString() + ": " + Lichkham.PHONG.TENPHONG;
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);
         }

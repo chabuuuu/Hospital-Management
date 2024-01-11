@@ -66,6 +66,7 @@ namespace LTTQ_DoAn.ViewModel
         private string maphong;
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private List<String> khoaList;
+        private List<String> phonglist;
         public List<String> KhoaList
         {
             get => khoaList; set
@@ -74,6 +75,9 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(KhoaList));
             }
         }
+
+        public List<string> Phonglist { get => phonglist; set => phonglist = value; }
+
         public void loadKhoa()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -84,6 +88,29 @@ namespace LTTQ_DoAn.ViewModel
                 subID.Add(item.SUB_ID + ": " + item.TENKHOA);
             }
             this.KhoaList = subID;
+        }
+        public void loadPhong()
+        {
+            List<PHONG> phong = _db.PHONG.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in phong)
+            {
+                subID.Add(item.SUB_ID + ": " + item.TENPHONG);
+            }
+            Phonglist = subID;
+        }
+        public int? convertPhongSUB_ID(string Sub_id)
+        {
+            if (Sub_id == null)
+            {
+                return null;
+            }
+            // Chuỗi cần tách
+            string inputString = Sub_id;
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            // Tách các ký tự còn lại thành một chuỗi riêng
+            string remainingCharacters = parts[0].Substring(3);
+            return int.Parse(remainingCharacters);
         }
 
         public int? convertChiHuySUB_ID(string Sub_id)
@@ -97,20 +124,6 @@ namespace LTTQ_DoAn.ViewModel
 
             // Tách các ký tự còn lại thành một chuỗi riêng
             string remainingCharacters = inputString.Substring(1);
-
-            return int.Parse(remainingCharacters);
-        }
-        public int? convertPhongSUB_ID(string Sub_id)
-        {
-            if (Sub_id == null)
-            {
-                return null;
-            }
-            // Chuỗi cần tách
-            string inputString = Sub_id;
-
-            // Tách các ký tự còn lại thành một chuỗi riêng
-            string remainingCharacters = inputString.Substring(3);
 
             return int.Parse(remainingCharacters);
         }
@@ -140,6 +153,7 @@ namespace LTTQ_DoAn.ViewModel
         public AddNurseAndDoctorViewModel()
         {
             loadKhoa();
+            loadPhong();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }

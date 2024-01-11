@@ -113,8 +113,8 @@
                                    Text="Phòng:"
                                    />
                                 <ComboBox
-                                ItemsSource="{Binding }"
-                                SelectedValue="{}"
+                                ItemsSource="{Binding PhongList}"
+                                                                SelectedValue="{Binding Phong, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 MinWidth="150"
                                 Height="30"
                                 FontSize="15"

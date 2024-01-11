@@ -19,6 +19,7 @@ namespace LTTQ_DoAn.ViewModel
         private string chihuy = null;
         private List<String> gender = new List<string>() { "Nam", "Nữ" };
         private List<String> khoaList;
+        private List<String> phonglist;
         public List<String> KhoaList
         {
             get => khoaList; set
@@ -98,7 +99,32 @@ namespace LTTQ_DoAn.ViewModel
             }
         }
 
+        public void loadPhong()
+        {
+            List<PHONG> phong = _db.PHONG.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in phong)
+            {
+                subID.Add(item.SUB_ID + ": " + item.TENPHONG);
+            }
+            Phonglist = subID;
+        }
+        public int? convertPhongSUB_ID(string Sub_id)
+        {
+            if (Sub_id == null)
+            {
+                return null;
+            }
+            // Chuỗi cần tách
+            string inputString = Sub_id;
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            // Tách các ký tự còn lại thành một chuỗi riêng
+            string remainingCharacters = parts[0].Substring(3);
+            return int.Parse(remainingCharacters);
+        }
+
         public List<string> Gender { get => gender; set => gender = value; }
+        public List<string> Phonglist { get => phonglist; set => phonglist = value; }
 
         public ChangeNurseAndDoctorViewModel()
         {
@@ -107,26 +133,13 @@ namespace LTTQ_DoAn.ViewModel
         }
         public ChangeNurseAndDoctorViewModel(YSI SelectedYSi)
         {
+            loadPhong();
             Ysi = SelectedYSi;
-            Phong_subid = "PHG" + SelectedYSi.MAPHONG.ToString();
+            Phong_subid = "PHG" + SelectedYSi.MAPHONG.ToString() + ": " + SelectedYSi.PHONG.TENPHONG;
             loadKhoa();
             loadYsi();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);
-        }
-        private int? convertPhongSUB_ID(string Sub_id)
-        {
-            if (Sub_id == null)
-            {
-                return null;
-            }
-            // Chuỗi cần tách
-            string inputString = Sub_id;
-
-            // Tách các ký tự còn lại thành một chuỗi riêng
-            string remainingCharacters = inputString.Substring(3);
-
-            return int.Parse(remainingCharacters);
         }
         public int convertKhoaSub_ID(string inputString)
         {
