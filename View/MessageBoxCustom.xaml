@@ -65,7 +65,7 @@
                     </Grid.RowDefinitions>
                     <Grid>
                         <materialdesign:TransitioningContent
-                            VerticalAlignment="Center"
+                            VerticalAlignment="Bottom"
                             Height="190">
                             <materialdesign:TransitioningContent.OpeningEffects>
                                 <materialdesign:TransitionEffect Kind="FadeIn" />
@@ -78,14 +78,13 @@
                                            Margin="20 0 0 5" />
                                 <TextBlock x:Name="txtMessage"
                                                TextWrapping="Wrap"
-                                               MinWidth="260"
-                                               Height="190"
-                                                
+                                               MinWidth="380"
+                                               MinHeight="190"
                                                HorizontalAlignment="Center"
                                                Grid.Row="0"
                                                Margin="25 0 5 5"
                                                materialdesign:HintAssist.Hint=""
-                                               FontSize="25" />
+                                               FontSize="28"/>
                             </StackPanel>
                         </materialdesign:TransitioningContent>
                     </Grid>
