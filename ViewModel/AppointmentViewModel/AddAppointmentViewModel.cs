@@ -51,6 +51,7 @@ namespace LTTQ_DoAn.ViewModel
         public List<string> BacsiList { get => bacsiList; set => bacsiList = value; }
         public List<string> BenhnhanList { get => benhnhanList; set => benhnhanList = value; }
         public List<string> DichvuList { get => dichvuList; set => dichvuList = value; }
+        public List<string> PhongList { get => phongList; set => phongList = value; }
 
         private string benhnhan;
         private string bacsi;
@@ -62,6 +63,7 @@ namespace LTTQ_DoAn.ViewModel
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private List<string> bacsiList;
         private List<String> dichvuList;
+        private List<String> phongList;
 
         public void loadBenhnhan()
         {
@@ -73,6 +75,16 @@ namespace LTTQ_DoAn.ViewModel
                 }
                 this.BenhnhanList = subID;
             
+        }
+        public void loadPhong()
+        {
+            List<PHONG> phong = _db.PHONG.ToList();
+            List<String> subID = new List<String>();
+            foreach (var item in phong)
+            {
+                subID.Add(item.SUB_ID + ": " + item.TENPHONG);
+            }
+            this.PhongList = subID;
         }
         public void loadBacsi()
         {
@@ -111,10 +123,9 @@ namespace LTTQ_DoAn.ViewModel
             }
             // Chuỗi cần tách
             string inputString = Sub_id;
-
+            string[] parts = inputString.Split(new[] { ':' }, 2);
             // Tách các ký tự còn lại thành một chuỗi riêng
-            string remainingCharacters = inputString.Substring(3);
-
+            string remainingCharacters = parts[0].Substring(3);
             return int.Parse(remainingCharacters);
         }
         public int convertBacsiSub_ID(string inputString)
@@ -157,6 +168,7 @@ namespace LTTQ_DoAn.ViewModel
             loadBacsi();
             loadBenhnhan();
             loadDichvu();
+            loadPhong();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddApointmentCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
         }
