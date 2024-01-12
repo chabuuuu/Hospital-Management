@@ -33,6 +33,11 @@ namespace LTTQ_DoAn.ViewModel
         public string SUB_ID { get; set; }
         public string GHICHU { get; set; }
         public string MAYSI { get; set; }
+        public string? NGAYLAPDONTHUOC { get; set; }
+        public string KHOA { get; set; }
+        public string BACSI { get; set; }
+        public string BENHAN { get; set; }
+
     }
     public class HealthRecordAndPrescriptionViewModel : BaseViewModel
     {
@@ -179,6 +184,10 @@ namespace LTTQ_DoAn.ViewModel
                     SUB_ID = item.SUB_ID,
                     GHICHU = item.GHICHU,
                     MAYSI = findYSi(item.MABENHAN),
+                    BACSI = item.BENHAN.YSI.HOTEN,
+                    NGAYLAPDONTHUOC = item.BENHAN.NGAYKHAM.ToString(),
+                    KHOA = item.BENHAN.YSI.KHOA.TENKHOA,
+                    BENHAN = item.BENHAN.SUB_ID,
                 };
                 list.Add(donthuoc);
             }

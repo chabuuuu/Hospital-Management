@@ -230,13 +230,13 @@
                                                             <StackPanel Grid.Row="0" Orientation="Horizontal">
                                                                 <TextBlock Text="Ngày: "
                                                                            Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding Prescription_Date}"
+                                                                <TextBlock Text="{Binding NGAYLAPDONTHUOC}"
                                                                            Style="{StaticResource InfoText}"
                                                                            Margin="0 0 200 0"
                                                                           />
                                                                 <TextBlock Text="Khoa: "
                                                                             Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding HeathRecord_Field}"
+                                                                <TextBlock Text="{Binding KHOA}"
                                                                            Style="{StaticResource InfoText}"
                                                                            />
                                                             </StackPanel>
@@ -253,7 +253,7 @@
                                                                 <!--tên bác sĩ khám-->
                                                                 <TextBlock Text="Bác sĩ: "
                                                                          Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding Prescription_DoctorName}"
+                                                                <TextBlock Text="{Binding BACSI}"
                                                                        Style="{StaticResource InfoText}"
                                                                        Margin="0 0 200 0"/>
                                                             </StackPanel>
