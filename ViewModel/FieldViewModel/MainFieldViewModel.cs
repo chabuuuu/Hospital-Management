@@ -137,7 +137,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 new MessageBoxCustom(
                     "Thông báo",
-                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    "Vui lòng xóa tất cả các bác sĩ thuộc khoa trước",
                     MessageType.Error,
                     MessageButtons.OK
                     )
