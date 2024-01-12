@@ -65,7 +65,8 @@ namespace LTTQ_DoAn.ViewModel
 
         public void loadBenhan()
         {
-            List<BENHAN> benhan = _db.BENHAN.ToList();
+            //List<BENHAN> benhan = _db.BENHAN.ToList();
+            List<BENHAN> benhan = Donthuoc.BENHAN.BENHNHAN.BENHAN.ToList();
             List<String> subID = new List<String>();
             foreach (var item in benhan)
             {
