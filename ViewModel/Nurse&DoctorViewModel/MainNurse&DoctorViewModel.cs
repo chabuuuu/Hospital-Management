@@ -124,7 +124,8 @@ namespace LTTQ_DoAn.ViewModel
             }
             catch (Exception e)
             {
-                new MessageBoxCustom("Lỗi", e.Message + "\nLỗi: " + e.GetType().ToString() + e.InnerException.ToString(), MessageType.Error, MessageButtons.OKCancel).ShowDialog();
+                //new MessageBoxCustom("Lỗi", e.Message + "\nLỗi: " + e.GetType().ToString() + e.InnerException.ToString(), MessageType.Error, MessageButtons.OKCancel).ShowDialog();
+                new MessageBoxCustom("Lỗi", "Không thể xóa", MessageType.Error, MessageButtons.OKCancel).ShowDialog();
                 //MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString() + e.InnerException.ToString());
             }
         }
