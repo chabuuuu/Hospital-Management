@@ -173,7 +173,7 @@ namespace LTTQ_DoAn.ViewModel
             List<DonThuocType> list = new List<DonThuocType>();
             foreach (var item in query)
             {
-                DonThuocType benhan = new DonThuocType()
+                DonThuocType donthuoc = new DonThuocType()
                 {
                     MADONTHUOC = item.MADONTHUOC,
                     SUB_ID = item.SUB_ID,
@@ -375,20 +375,21 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteChangePCommand(object? obj)
         {
+            //System.Windows.MessageBox.Show("hello");
             if (Donthuoc == null)
             {
                 return;
             }
-            ChangeHealthRecord wd = new ChangeHealthRecord();
+            ChangePrescription wd = new ChangePrescription();
             wd.Closed += ChangePrescription_Closed;
-            wd.DataContext = new ChangeHealthRecordViewModel(Donthuoc.MADONTHUOC);
+            wd.DataContext = new ChangePrescriptionViewModel(Donthuoc.MADONTHUOC);
             System.Windows.Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
 
         private void ChangePrescription_Closed(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
