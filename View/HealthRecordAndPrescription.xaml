@@ -198,6 +198,8 @@
                                       CanContentScroll="True"
                                         PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                             <ListView HorizontalAlignment="Stretch"
+                            ItemsSource="{Binding Listdonthuoc}"
+                                      SelectedItem="{Binding Donthuoc}"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListView.ItemContainerStyle>
                                     <Style TargetType="ListViewItem">
@@ -215,7 +217,7 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <Expander HorizontalAlignment="Stretch"
-                                                            Header="{Binding Prescription_ID}"
+                                                            Header="{Binding SUB_ID}"
                                                             Width="880"
                                                             FontSize="15">  
                                                         <Grid>
@@ -243,7 +245,7 @@
                                                                         VerticalAlignment="Center">
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                                             HorizontalScrollBarVisibility="Disabled">
-                                                                    <TextBlock Text="{Binding Prescription_Note}"
+                                                                    <TextBlock Text="{Binding GHICHU}"
                                                                             Style="{StaticResource InfoText}"/>
                                                                 </ScrollViewer>
                                                             </StackPanel>
@@ -272,7 +274,9 @@
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <!--them command sua vao day-->
-                                                                    <i:InvokeCommandAction Command="{Binding}"/>
+                                                                    <i:InvokeCommandAction Command="{Binding DataContext.ChangePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+
+                                                                        
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>
@@ -283,7 +287,8 @@
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <!--them command xoa vao day-->
-                                                                    <i:InvokeCommandAction Command="{Binding}"/>
+                                                                    <i:InvokeCommandAction Command="{Binding DataContext.DeletePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>
