@@ -299,7 +299,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 new MessageBoxCustom(
                     "Thông báo",
-                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    "Vui lòng xóa đơn thuốc thuộc bệnh án trước",
                     MessageType.Error,
                     MessageButtons.OK
                     )
