@@ -389,7 +389,7 @@ namespace LTTQ_DoAn.ViewModel
 
         private void ChangePrescription_Closed(object sender, EventArgs e)
         {
-            
+            findDonThuoc();
         }
     }
 }
