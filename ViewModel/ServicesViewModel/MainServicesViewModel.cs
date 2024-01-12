@@ -107,7 +107,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 new MessageBoxCustom(
                     "Thông báo",
-                    "Vui lòng xóa các bệnh án, lịch khám có sử dụng dịch vụ",
+                    "Vui lòng xóa các bệnh án, lịch khám\n có sử dụng dịch vụ",
                     MessageType.Error,
                     MessageButtons.OK
                     )
