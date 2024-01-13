@@ -62,7 +62,7 @@
                                        Text="Tên bệnh nhân:"
                                        />
                     <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Victim_Name}"
+                                     Text="{Binding Tenbenhnhan}"
                                      Width="200"
                                     IsReadOnly="True">
                     </TextBox>
@@ -73,6 +73,8 @@
                                Text="Mã bệnh án:"
                                />
                     <ComboBox
+                        ItemsSource="{Binding BenhAnList}"
+                        SelectedValue="{Binding Benhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         MinWidth="120"
                         Height="30"
                         FontSize="15"
@@ -94,7 +96,7 @@
                                        />
                             <TextBox Name="conclude_textbox" 
                                 Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding HealthRecord_Symptom}"
+                                     Text="{Binding Ghichu}"
                                      BorderThickness="1"
                                      MaxLines="10"
                                      TextWrapping="Wrap"
@@ -113,6 +115,7 @@
             <StackPanel Grid.Row="5" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button
+                    Command="{Binding ConfirmChangeCommand}"
                     Width="130"
                     Height="50"
                     Content="Xác nhận"

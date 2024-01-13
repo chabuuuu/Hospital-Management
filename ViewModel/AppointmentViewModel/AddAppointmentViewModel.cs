@@ -190,7 +190,7 @@ namespace LTTQ_DoAn.ViewModel
             try
             {
                 insert();
-                MessageBox.Show("Thêm lịch khám mới thành công!");
+                new MessageBoxCustom("Thông báo", "Thêm lịch khám mới thành công!", MessageType.Success, MessageButtons.OK).ShowDialog();
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
 
             }

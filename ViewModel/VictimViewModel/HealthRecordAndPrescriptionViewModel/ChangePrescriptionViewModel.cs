@@ -15,6 +15,8 @@ namespace LTTQ_DoAn.ViewModel
     {
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private DONTHUOC donthuoc;
+        private string tenbenhnhan;
+        private string ghichu;
         private string benhan;
         private List<String> benhanlist;
         public List<String> BenhAnList
@@ -43,15 +45,35 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Donthuoc));
             }
         }
+
+        public string Tenbenhnhan
+        {
+            get => tenbenhnhan; set
+            {
+                tenbenhnhan = value;
+                OnPropertyChanged(nameof(Tenbenhnhan));
+            }
+        }
+        public string Ghichu
+        {
+            get => ghichu; set
+            {
+                ghichu = value;
+                OnPropertyChanged(nameof(Ghichu));
+            }
+        }
+
         public void loadBenhan()
         {
-            List<BENHAN> benhan = _db.BENHAN.ToList();
+            //List<BENHAN> benhan = _db.BENHAN.ToList();
+            List<BENHAN> benhan = Donthuoc.BENHAN.BENHNHAN.BENHAN.ToList();
             List<String> subID = new List<String>();
             foreach (var item in benhan)
             {
                 subID.Add(item.SUB_ID);
             }
             this.BenhAnList = subID;
+            Benhan = Donthuoc.SUB_ID;
         }
         public ChangePrescriptionViewModel()
         {
@@ -65,11 +87,12 @@ namespace LTTQ_DoAn.ViewModel
                                   where m.MADONTHUOC == maDonThuoc
                                  select m).First();
             Donthuoc = donThuoc;
+            
         }
         public int convertBenhanSub_ID(string inputString)
         {
-            string[] parts = inputString.Split(new[] { ':' }, 2);
-            string k1 = parts[0].Substring(1);
+            //string[] parts = inputString.Split(new[] { ':' }, 2);
+            string k1 = inputString.Substring(2);
             return int.Parse(k1);
         }
         private void update()
@@ -78,13 +101,15 @@ namespace LTTQ_DoAn.ViewModel
                                    where m.MADONTHUOC == Donthuoc.MADONTHUOC
                                        select m).Single();
             updateDonthuoc.MABENHAN = convertBenhanSub_ID(Benhan);
-            updateDonthuoc.GHICHU = Donthuoc.GHICHU;
+            updateDonthuoc.GHICHU = Ghichu;
             _db.SaveChanges();
         }
         public ChangePrescriptionViewModel(int maDonThuoc)
         {
             findDonThuoc(maDonThuoc);
             loadBenhan();
+            Tenbenhnhan = Donthuoc.BENHAN.BENHNHAN.HOTEN;
+            Ghichu = Donthuoc.GHICHU;
             Benhan = Donthuoc.BENHAN.SUB_ID;
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);

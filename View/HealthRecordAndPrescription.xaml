@@ -206,7 +206,7 @@
                                       CanContentScroll="True"
                                         PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                             <ListView HorizontalAlignment="Stretch"
-                                      ItemsSource="{Binding Listdonthuoc}"
+                            ItemsSource="{Binding Listdonthuoc}"
                                       SelectedItem="{Binding Donthuoc}"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                                 <ListView.ItemContainerStyle>
@@ -225,7 +225,8 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <Expander HorizontalAlignment="Stretch"
-                                                            Header="{Binding SUB_IDDT}"
+                                                            Header="{Binding SUB_ID}"
+
                                                             Width="880"
                                                             FontSize="15">
                                                         <Grid>
@@ -236,18 +237,17 @@
                                                             </Grid.RowDefinitions>
                                                             <!--y si-->
                                                             <StackPanel Grid.Row="0" Orientation="Horizontal">
-                                                                <TextBlock Text="Y si: "
-                   Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding MAYSI}"
-                   Style="{StaticResource InfoText}"/>
-
-                                                            </StackPanel>
-                                                            <!--ma benh an-->
-                                                            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                                                <TextBlock Text="Ma benh an: " VerticalAlignment="Top"
-                   Style="{StaticResource InfoText}"/>
-                                                                <TextBlock Text="{Binding MABENHAN}"
-                   Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="Ngày: "
+                                                                           Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding NGAYLAPDONTHUOC}"
+                                                                           Style="{StaticResource InfoText}"
+                                                                           Margin="0 0 200 0"
+                                                                          />
+                                                                <TextBlock Text="Khoa: "
+                                                                            Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding KHOA}"
+                                                                           Style="{StaticResource InfoText}"
+                                                                           />
                                                             </StackPanel>
                                                             <!--ghi chú-->
                                                             <StackPanel Grid.Row="2" Orientation="Horizontal"
@@ -256,12 +256,18 @@
                    Style="{StaticResource InfoText}"
                    VerticalAlignment="Top"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
-                      HorizontalScrollBarVisibility="Disabled">
+                                                                            HorizontalScrollBarVisibility="Disabled">
                                                                     <TextBlock Text="{Binding GHICHU}"
-                       TextWrapping="Wrap"
-                       Width="800"
-                    Style="{StaticResource InfoText}"/>
+                                                                            Style="{StaticResource InfoText}"/>
                                                                 </ScrollViewer>
+                                                            </StackPanel>
+                                                            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                                                <!--tên bác sĩ khám-->
+                                                                <TextBlock Text="Bác sĩ: "
+                                                                         Style="{StaticResource InfoText}"/>
+                                                                <TextBlock Text="{Binding BACSI}"
+                                                                       Style="{StaticResource InfoText}"
+                                                                       Margin="0 0 200 0"/>
                                                             </StackPanel>
                                                         </Grid>
                                                     </Expander>
@@ -280,7 +286,7 @@
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <!--them command sua vao day-->
-                                                                    <i:InvokeCommandAction Command="{Binding ChangePCommand}"/>
+                                                                    <i:InvokeCommandAction Command="{Binding DataContext.ChangePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>
@@ -291,7 +297,9 @@
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <!--them command xoa vao day-->
-                                                                    <i:InvokeCommandAction Command="{Binding DeletePCommand}"/>
+
+                                                                    <i:InvokeCommandAction Command="{Binding DataContext.DeletePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>

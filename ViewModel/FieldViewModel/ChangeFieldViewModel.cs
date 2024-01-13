@@ -93,12 +93,14 @@ namespace LTTQ_DoAn.ViewModel
                     subID.Add(item.SUB_ID + ": " + item.HOTEN);
                 }
             }
+            subID.Add("Không có trưởng khoa");
             this.BacsiList = subID;
         }
         private void FindTruongKhoa()
         {
             if (Khoa.TRUONGKHOA == null)
             {
+                Bacsi = "Không có trưởng khoa";
                 return;
             }
                 string? tenBacSi = (from m in _db.YSI
@@ -131,9 +133,13 @@ namespace LTTQ_DoAn.ViewModel
                                        select m).Single();
             updateKhoa.TENKHOA = Khoa.TENKHOA;
             updateKhoa.NGAYTHANHLAP = Khoa.NGAYTHANHLAP;
-            if (Bacsi != null)
+            if (Bacsi != null && Bacsi != "Không có trưởng khoa")
             {
                 updateKhoa.TRUONGKHOA = convertBacsiSub_ID(Bacsi);
+            }
+            else
+            {
+                updateKhoa.TRUONGKHOA = null;
             }
             updateKhoa.PICTURE = Image_url;
             _db.SaveChanges();

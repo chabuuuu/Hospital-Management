@@ -77,7 +77,9 @@ namespace LTTQ_DoAn.ViewModell
         }
         public void loadBenhan()
         {
-            List<BENHAN> benhan = _db.BENHAN.ToList();
+            //List<BENHAN> benhan = _db.BENHAN.ToList();
+            List<BENHAN> benhan = Benhnhan.BENHAN.ToList();
+
             List<String> subID = new List<String>();
             foreach (var item in benhan)
             {
@@ -97,7 +99,7 @@ namespace LTTQ_DoAn.ViewModell
             DONTHUOC newDonThuoc = new DONTHUOC()
             {
                 MABENHAN = convertBenhanSub_ID(Mabenhan),
-                GHICHU = ghichu,
+                GHICHU = Ghichu,
             };
             _db.DONTHUOC.AddObject(newDonThuoc);
             _db.SaveChanges();
@@ -105,6 +107,7 @@ namespace LTTQ_DoAn.ViewModell
         public AddPrescriptionViewModel(BENHNHAN SelectedBenhNhan)
         {
             Benhnhan = SelectedBenhNhan;
+            Tenbenhnhan = Benhnhan.HOTEN;
             loadBenhan();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmAddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
@@ -124,7 +127,17 @@ namespace LTTQ_DoAn.ViewModell
         }
         private void ExecuteAddCommand(object? obj)
         {
-            insert();
+            try {
+                insert();
+            }
+            catch (Exception e)
+            {
+                new MessageBoxCustom("Loi", "Có lỗi xảy ra"
+    + e.Message,
+    MessageType.Error,
+    MessageButtons.OK)
+    .ShowDialog();
+            }
             new MessageBoxCustom("Thông báo", "Thêm đơn thuốc mới thành công cho bệnh nhân: \n"
                 + Benhnhan.SUB_ID + ": " + Benhnhan.HOTEN,
                 MessageType.Success,

@@ -133,7 +133,7 @@ namespace LTTQ_DoAn.ViewModel
                 //MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString());
                 new MessageBoxCustom(
                     "Thông báo",
-                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    "Vui lòng xóa bệnh án, đơn thuốc của bệnh nhân này trước!",
                     MessageType.Error,
                     MessageButtons.OK
                     )

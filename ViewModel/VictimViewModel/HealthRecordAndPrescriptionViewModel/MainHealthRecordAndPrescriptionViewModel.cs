@@ -33,6 +33,11 @@ namespace LTTQ_DoAn.ViewModel
         public string SUB_IDDT { get; set; }
         public string GHICHU { get; set; }
         public string MAYSI { get; set; }
+        public string? NGAYLAPDONTHUOC { get; set; }
+        public string KHOA { get; set; }
+        public string BACSI { get; set; }
+        public string BENHAN { get; set; }
+
     }
     public class HealthRecordAndPrescriptionViewModel : BaseViewModel
     {
@@ -173,12 +178,16 @@ namespace LTTQ_DoAn.ViewModel
             List<DonThuocType> list = new List<DonThuocType>();
             foreach (var item in query)
             {
-                DonThuocType benhan = new DonThuocType()
+                DonThuocType donthuoc = new DonThuocType()
                 {
                     MADONTHUOC = item.MADONTHUOC,
                     SUB_IDDT = item.SUB_ID,
                     GHICHU = item.GHICHU,
                     MAYSI = findYSi(item.MABENHAN),
+                    BACSI = item.BENHAN.YSI.HOTEN,
+                    NGAYLAPDONTHUOC = item.BENHAN.NGAYKHAM.ToString(),
+                    KHOA = item.BENHAN.YSI.KHOA.TENKHOA,
+                    BENHAN = item.BENHAN.SUB_ID,
                 };
                 list.Add(donthuoc);
             }
@@ -291,7 +300,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 new MessageBoxCustom(
                     "Thông báo",
-                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    "Vui lòng xóa đơn thuốc thuộc bệnh án trước",
                     MessageType.Error,
                     MessageButtons.OK
                     )
@@ -376,20 +385,21 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteChangePCommand(object? obj)
         {
+            //System.Windows.MessageBox.Show("hello");
             if (Donthuoc == null)
             {
                 return;
             }
-            ChangeHealthRecord wd = new ChangeHealthRecord();
+            ChangePrescription wd = new ChangePrescription();
             wd.Closed += ChangePrescription_Closed;
-            wd.DataContext = new ChangeHealthRecordViewModel(Donthuoc.MADONTHUOC);
+            wd.DataContext = new ChangePrescriptionViewModel(Donthuoc.MADONTHUOC);
             System.Windows.Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
 
         private void ChangePrescription_Closed(object sender, EventArgs e)
         {
-
+            findDonThuoc();
         }
     }
 }

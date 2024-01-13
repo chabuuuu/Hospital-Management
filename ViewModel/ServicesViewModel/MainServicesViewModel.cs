@@ -95,7 +95,7 @@ namespace LTTQ_DoAn.ViewModel
 
                 new MessageBoxCustom(
                     "Thông báo",
-                    "Đã xóa khoa: \nMã dịch vụ: " +
+                    "Đã xóa dịch vụ: \nMã dịch vụ: " +
                         Selecteddichvu.SUB_ID.ToString() + "\nTên dịch vụ: " +
                         Selecteddichvu.TENDICHVU,
                     MessageType.Success,
@@ -107,7 +107,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 new MessageBoxCustom(
                     "Thông báo",
-                    e.Message + "\nLỗi: " + e.GetType().ToString(),
+                    "Vui lòng xóa các bệnh án, lịch khám\n có sử dụng dịch vụ",
                     MessageType.Error,
                     MessageButtons.OK
                     )
