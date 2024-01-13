@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        Title="ChangePrescription"  Height="580" Width="1000"
+        Title="ChangePrescription"  Height="620" Width="1000"
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize">
@@ -23,8 +23,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="120"/>
-                <RowDefinition Height="250"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="240"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <!--nút thu nhỏ và tắt màn-->
@@ -55,7 +57,7 @@
                     />
             </Border>
             <!--các thông tin của y sĩ và bệnh nhân-->
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50 30 50 0" VerticalAlignment="Center">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50 15 50 0" VerticalAlignment="Center">
                 <!--tên bệnh nhân-->
                 <StackPanel Margin="0 0 25 30">
                     <TextBlock Style="{StaticResource TitlePersonalInfo}"
@@ -81,8 +83,39 @@
                         />
                 </StackPanel>
             </StackPanel>
+            <!--chọn thuoc-->
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="50 0 50 0">
+                <Label Content="Bổ sung thuốc vào đơn thuốc:" FontSize="18" FontWeight="Bold" Background="White" Foreground="#FF154E9D"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="50 0 50 0">
+                <!--Thuoc-->
+                <ComboBox
+                    MinWidth="295"
+                    Height="55"
+                    FontSize="15"
+                    materialdesign:HintAssist.Hint="Loại thuốc"
+                    Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                    Margin="0 0 25 0"/>
+                <!--So luong thuoc-->
+                <ComboBox
+                    MinWidth="100"
+                    Height="55"
+                    FontSize="15"
+                    materialdesign:HintAssist.Hint="Số lượng"
+                    Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                    Margin="0 0 25 0"/>
+                <!--Nut them-->
+                <Button
+                    Width="100"
+                    Height="50"
+                    Content="Thêm"
+                    FontSize="20"
+                    Foreground="#fff"
+                    Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    ToolTip="Thêm thuốc vào đơn thuốc" Background="#FF2ECBD1" />
+            </StackPanel>
             <!--các thông tin về bệnh án-->
-            <StackPanel Grid.Row="3" Margin="50 0 50 0" HorizontalAlignment="Left">
+            <StackPanel Grid.Row="5" Margin="50 0 50 0" HorizontalAlignment="Left">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -107,12 +140,12 @@
                             </TextBox>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
+                    <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">
                         <Image Stretch="Uniform" Height="200" Source="/Photo/prescription.png"/>
                     </StackPanel>
                 </Grid>
             </StackPanel>
-            <StackPanel Grid.Row="5" Orientation="Horizontal"
+            <StackPanel Grid.Row="6" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button
                     Command="{Binding ConfirmChangeCommand}"
