@@ -86,6 +86,8 @@
                     <StackPanel VerticalAlignment="Center" Grid.Column="0">
                         <!--ghi chú-->
                         <TextBox
+                        x:Name="Prescription"
+                        PreviewKeyDown="Prescription_PreviewKeyDown"
                         Text="{Binding Ghichu}"
                         Width="600"
                         HorizontalContentAlignment="Stretch"

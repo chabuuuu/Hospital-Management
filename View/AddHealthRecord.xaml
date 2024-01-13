@@ -75,7 +75,8 @@
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Bác sĩ"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                Margin="25 0 25 0"/>
+                Margin="25 0 25 0"
+                />
                 <ComboBox
                 ItemsSource="{Binding DichVuList}"
                 SelectedValue="{Binding Dichvu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -107,7 +108,9 @@
                         Height="55"/>
                         <!--kết luận-->
                         <TextBox Margin="0 0 25 40"
+                        x:Name="BieuHien"
                         Text="{Binding Ketluan}"
+                        PreviewKeyDown="TextBox_PreviewKeyDown"
                         Width="600"
                         HorizontalContentAlignment="Stretch"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
