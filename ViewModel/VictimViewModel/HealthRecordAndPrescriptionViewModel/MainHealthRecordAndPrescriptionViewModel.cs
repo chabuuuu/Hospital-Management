@@ -30,7 +30,7 @@ namespace LTTQ_DoAn.ViewModel
     public class DonThuocType
     {
         public int MADONTHUOC { get; set; }
-        public string SUB_ID { get; set; }
+        public string SUB_IDDT { get; set; }
         public string GHICHU { get; set; }
         public string MAYSI { get; set; }
         public string? NGAYLAPDONTHUOC { get; set; }
@@ -181,7 +181,7 @@ namespace LTTQ_DoAn.ViewModel
                 DonThuocType donthuoc = new DonThuocType()
                 {
                     MADONTHUOC = item.MADONTHUOC,
-                    SUB_ID = item.SUB_ID,
+                    SUB_IDDT = item.SUB_ID,
                     GHICHU = item.GHICHU,
                     MAYSI = findYSi(item.MABENHAN),
                     BACSI = item.BENHAN.YSI.HOTEN,
@@ -276,6 +276,7 @@ namespace LTTQ_DoAn.ViewModel
         {
             return true;
         }
+        
         private void ExecuteDeleteHRCommand(object? obj)
         {
             try
@@ -360,7 +361,7 @@ namespace LTTQ_DoAn.ViewModel
 
                 new MessageBoxCustom(
                     "Thông báo",
-                    "Đã xóa đơn thuốc: " + Donthuoc.SUB_ID.ToString(),
+                    "Đã xóa đơn thuốc: " + Donthuoc.SUB_IDDT.ToString(),
                     MessageType.Success,
                     MessageButtons.OK)
                     .ShowDialog();

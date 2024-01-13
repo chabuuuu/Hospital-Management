@@ -83,9 +83,17 @@ namespace LTTQ_DoAn.ViewModell
             {
                 dichvu = value;
                 OnPropertyChanged(nameof(Dichvu));
+                UpdateChiphi(Dichvu);
             }
         }
-
+        protected void UpdateChiphi(string Dichvu)
+        {
+            Dichvu = Dichvu.Substring(5);
+            List<DICHVU> dichvu = _db.DICHVU.ToList();
+            for (int i = 0; i < dichvu.Count; i++)
+                if (dichvu[i].TENDICHVU == Dichvu)
+                    Chiphi = dichvu[i].GIATIEN.ToString();
+        }
         public BENHNHAN Benhnhan
         {
             get => benhnhan; set
