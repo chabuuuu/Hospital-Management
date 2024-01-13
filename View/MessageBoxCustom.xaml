@@ -84,7 +84,7 @@
                                                Grid.Row="0"
                                                Margin="25 0 5 5"
                                                materialdesign:HintAssist.Hint=""
-                                               FontSize="24"/>
+                                               FontSize="22"/>
                             </StackPanel>
                         </materialdesign:TransitioningContent>
                     </Grid>
