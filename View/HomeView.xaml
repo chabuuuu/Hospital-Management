@@ -8,153 +8,151 @@
              mc:Ignorable="d" 
               xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              Background="Transparent"
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             d:DesignHeight="644" d:DesignWidth="1049">
+             d:DesignHeight="644" d:DesignWidth="1049"
+             FontFamily="Poppins">
     <UserControl.DataContext>
         <viewmodel:HomeViewModel></viewmodel:HomeViewModel>
     </UserControl.DataContext>
     <Border 
-            CornerRadius="20">
-        <Border.Background>
-            <ImageBrush Stretch="fill"
-                        ImageSource="/Photo/Dashboard.jpg"
-                        />
-        </Border.Background>
+        CornerRadius="20"
+        Background="White">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="65*"/>
-                <ColumnDefinition Width="35*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" HorizontalAlignment="Center"
-                        VerticalAlignment="Bottom"
-                       Foreground="#fcfcfc"
-                       FontSize="37"
-                       TextWrapping="Wrap"
-                       FontWeight="Bold"
-                       Margin="0 0 0 160"
-                Text="PHẦN MỀM 
-                       QUẢN LÍ BỆNH VIỆN">
-                
-            </TextBlock>
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal"
-                        HorizontalAlignment="Center"
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                         Margin="50 0 0 0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Border Height="200"
-                            Width="200"
-                            Margin="30"
-                            Background="#ffff"
-                            Opacity="0.6"
-                            BorderThickness="0"
-                            CornerRadius="10">
-                        <StackPanel VerticalAlignment="Bottom">
-                            <!--binding số lượng y sĩ vào đây-->
-                            <TextBlock
-                                Text="{Binding Ysi_count}"
-                                FontSize="90"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                HorizontalAlignment="Center"
-                                Foreground="#3f3f3f"/>
-                            <TextBlock
-                                Text="Y sĩ"
-                                FontSize="40"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                Foreground="#3f3f3f"
-                                HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Border>
-                    <Border Grid.Row="0" Grid.Column="1"
-                            Height="200"
-                            Width="200"
-                            Margin="30"
-                            Background="#ffff"
-                            Opacity="0.6"
-                            BorderThickness="0"
-                            CornerRadius="10">
-                        <StackPanel VerticalAlignment="Bottom">
-                            <!--binding số lượng bệnh nhân vào đây-->
-                            <TextBlock
-                                Text="{Binding Victim_count}"
-                                FontSize="90"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                HorizontalAlignment="Center"
-                                Foreground="#3f3f3f"/>
-                            <TextBlock
-                                Text="Bệnh nhân"
-                                FontSize="40"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                Foreground="#3f3f3f"
-                                HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Border>
+                <DatePicker
+                Width="150"
+                Height="40"
+                FontSize="15"
+                materialdesign:HintAssist.Hint="Từ ngày"
+                materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
+                Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
                 
-                    <Border Grid.Row="1" Grid.Column="0"
-                            Height="200"
-                            Width="200"
-                            Margin="30"
-                            Background="#ffff"
-                            Opacity="0.6"
-                            BorderThickness="0"
-                            CornerRadius="10">
-                        <StackPanel VerticalAlignment="Bottom">
-                            <!--binding số lượng khoa vào đây-->
-                            <TextBlock
-                                Text="{Binding Field_count}"
-                                FontSize="90"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                HorizontalAlignment="Center"
-                                Foreground="#3f3f3f"/>
-                            <TextBlock
-                                Text="Khoa"
-                                FontSize="40"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                Foreground="#3f3f3f"
-                                HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Border>
-                    <Border Grid.Row="1" Grid.Column="1"
-                            Height="200"
-                            Width="200"
-                            Background="#ffff"
-                            Opacity="0.6"
-                            Margin="30"
-                            BorderThickness="0"
-                            CornerRadius="10">
-                        <StackPanel VerticalAlignment="Bottom">
-                            <!--binding số lượng dịch vụ vào đây-->
-                            <TextBlock
-                                Text="{Binding Service_count}"
-                                FontSize="90"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                HorizontalAlignment="Center"
-                                Foreground="#3f3f3f"/>
-                            <TextBlock
-                                Text="Dịch vụ"
-                                FontSize="40"
-                                FontWeight="Bold"
-                                FontFamily="Poppins"
-                                Foreground="#3f3f3f"
-                                HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-                
+                <DatePicker
+                 Width="150"
+                Margin="100 0 0 0"
+                 Height="40"
+                 FontSize="15"
+                 materialdesign:HintAssist.Hint="Đến ngày"
+                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
+                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
             </StackPanel>
-        </Grid> 
+            <TabControl Grid.Row="1"
+                materialDesign:ColorZoneAssist.Foreground="{StaticResource btnActivedText}">
+                <TabItem Header="bệnh nhân" >
+                    <Grid Background="white"
+                          >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+                        <!--Biểu đồ -->
+                        <Grid Grid.Row="0">
+                            <lvc:CartesianChart x:Name="VictimChart">
+                                <lvc:CartesianChart.Series>
+                                    <lvc:ColumnSeries Title="Số lượng bệnh nhân" Values="{Binding}" FontSize="15"/>
+                                </lvc:CartesianChart.Series>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Thời gian" Labels="{Binding}" FontSize="15"/>
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Số lượng bệnh nhân" FontSize="15"
+                                MinValue="0"/>
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                        </Grid>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="50 0 0 0">
+                            <TextBlock Text="Tổng số bệnh nhân: "
+                                       FontSize="25"
+                                       FontWeight="Bold"/>
+                            <!--Thêm số lượng bệnh nhân trong thời gian được chọn vào đây-->
+                            <TextBlock Text=""
+                               FontSize="25"
+                               FontWeight="Bold"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Y sĩ">
+                    <Grid Background="white">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <!--Biểu đồ -->
+                            <lvc:CartesianChart x:Name="DoctorChart">
+                                <lvc:CartesianChart.Series>
+                                    <lvc:ColumnSeries Title="Số lượng y sĩ" Values="{Binding}" FontSize="15"/>
+                                </lvc:CartesianChart.Series>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Thời gian" Labels="{Binding}" FontSize="15"/>
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Số lượng y sĩ" FontSize="15"
+                                            MinValue="0"/>
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                        </Grid>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="50 0 0 0">
+                            <TextBlock Text="Tổng số Y sĩ: "
+                                       FontSize="25"
+                                       FontWeight="Bold"/>
+                            <!--Thêm số lượng y si trong thời gian được chọn vào đây-->
+                            <TextBlock Text=""
+                               FontSize="25"
+                               FontWeight="Bold"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Doanh thu">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Biểu đồ -->
+                            <lvc:CartesianChart x:Name="MoneyChart">
+                                <lvc:CartesianChart.Series>
+                                    <lvc:ColumnSeries Title="Doanh thu"/>
+                                </lvc:CartesianChart.Series>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Thời gian" Labels="{Binding Labels}" FontSize="15"/>
+                                </lvc:CartesianChart.AxisX>
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis
+                                          MinValue="0"/>
+                                </lvc:CartesianChart.AxisY>
+                            </lvc:CartesianChart>
+                            <!--Doanh thu từng dịch vụ-->
+                            <StackPanel>
+                                <ListView>
+                                    
+                                </ListView>
+                            </StackPanel>
+                        </Grid>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="50 0 0 0">
+                            <TextBlock Text="Tổng doanh thu: "
+                                        FontSize="25"
+                                        FontWeight="Bold"/>
+                            <!--Tổng doanh = tổng số tiền trong bệnh án vào đây thu dịch vụ trong thời gian được chọn vào đây-->
+                            <TextBlock Text=""
+                                        FontSize="25"
+                                        FontWeight="Bold"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Border>
 </UserControl>
