@@ -23,5 +23,7 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
+
+        
     }
 }

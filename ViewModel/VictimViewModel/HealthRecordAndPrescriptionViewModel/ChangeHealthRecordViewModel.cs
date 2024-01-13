@@ -8,6 +8,7 @@ using System.Windows;
 using LTTQ_DoAn.Model;
 using LTTQ_DoAn.Repositories;
 using LTTQ_DoAn.View;
+using MaterialDesignThemes.Wpf;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -16,6 +17,7 @@ namespace LTTQ_DoAn.ViewModel
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private BENHAN benhan;
         private string dichvu;
+        private string chiphi;
         private string bacsi;
         private List<String> dichvulist;
         private List<String> bacsilist;
@@ -44,14 +46,30 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Bacsi));
             }
         }
-
+        public string Chiphi
+        {
+            get => chiphi; set
+            {
+                chiphi = value;
+                OnPropertyChanged(nameof(Chiphi));
+            }
+        }
         public string Dichvu
         {
             get => dichvu; set
             {
                 dichvu = value;
                 OnPropertyChanged(nameof(Dichvu));
+                UpdateChiphi(dichvu);
             }
+        }
+        protected void UpdateChiphi(string Dichvu)
+        {
+            Dichvu = Dichvu.Substring(5);
+            List<DICHVU> dichvu = _db.DICHVU.ToList();
+            for (int i = 0; i < dichvu.Count; i++)
+                if (dichvu[i].TENDICHVU == Dichvu)
+                    Chiphi = dichvu[i].GIATIEN.ToString();
         }
         public ICommand CancelCommand { get; }
         public ICommand ConfirmChangeCommand { get; }
@@ -125,7 +143,7 @@ namespace LTTQ_DoAn.ViewModel
             updateBenhan.MAYSI = convertBacsiSub_ID(Bacsi);
             updateBenhan.MABENHNHAN = Benhan.BENHNHAN.MABENHNHAN;
             updateBenhan.MADICHVU = convertDichvuSub_ID(Dichvu);
-            updateBenhan.THANHTIEN = Benhan.THANHTIEN;
+            updateBenhan.THANHTIEN = Decimal.Parse(Chiphi);
             updateBenhan.TRIEUCHUNG = Benhan.TRIEUCHUNG;
             updateBenhan.KETLUAN = Benhan.KETLUAN;
             _db.SaveChanges();

@@ -138,7 +138,7 @@
                                        Text="Chi phí:"
                                        />
                             <TextBox Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Benhan.THANHTIEN}"
+                                     Text="{Binding Chiphi}"
                                      Width="400">
                             </TextBox>
                         </StackPanel>

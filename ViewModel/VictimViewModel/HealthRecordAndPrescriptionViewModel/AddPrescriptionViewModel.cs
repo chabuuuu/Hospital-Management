@@ -81,7 +81,8 @@ namespace LTTQ_DoAn.ViewModell
             List<String> subID = new List<String>();
             foreach (var item in benhan)
             {
-                subID.Add(item.SUB_ID);
+                if (item.MABENHNHAN == benhnhan.MABENHNHAN)
+                    subID.Add(item.SUB_ID);
             }
             this.BenhAnList = subID;
         }
