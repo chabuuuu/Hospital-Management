@@ -126,7 +126,16 @@
                 materialdesign:HintAssist.Hint="Ngày khám"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
-                Margin="25 0 0 0"/>
+                Margin="25 0 25 0"/>
+
+                <ComboBox
+                SelectedValue="{Binding Dichvu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                MinWidth="150"
+                Height="55"
+                FontSize="15"
+                materialdesign:HintAssist.Hint="ca khám"
+                Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                Margin="25 0 25 0"/>
             </StackPanel>
             <StackPanel Grid.Row="5" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">

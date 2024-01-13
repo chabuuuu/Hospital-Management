@@ -23,7 +23,14 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
-
-        
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                BieuHien.Text += Environment.NewLine;
+                BieuHien.CaretIndex = BieuHien.Text.Length;
+            }
+        }
     }
 }

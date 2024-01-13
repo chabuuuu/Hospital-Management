@@ -75,7 +75,8 @@
                 FontSize="15"
                 materialdesign:HintAssist.Hint="Bác sĩ"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                Margin="25 0 25 0"/>
+                Margin="25 0 25 0"
+                />
                 <ComboBox x:Name="cbbDV"
                 ItemsSource="{Binding DichVuList}"
                 SelectedValue="{Binding Dichvu, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -85,7 +86,6 @@
                 materialdesign:HintAssist.Hint="Dịch vụ"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                 Margin="25 0 25 0"/>
-
             </StackPanel>
             <!--các thông tin về bệnh án-->
             <StackPanel Grid.Row="3" Margin="50 0 50 0" HorizontalAlignment="Left">
@@ -107,7 +107,9 @@
                         Height="55"/>
                         <!--kết luận-->
                         <TextBox Margin="0 0 25 40"
+                        x:Name="BieuHien"
                         Text="{Binding Ketluan}"
+                        PreviewKeyDown="TextBox_PreviewKeyDown"
                         Width="600"
                         HorizontalContentAlignment="Stretch"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"

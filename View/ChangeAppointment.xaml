@@ -90,7 +90,7 @@
 
                         </StackPanel>
 
-                        <StackPanel Orientation="Horizontal" Margin="0 0 0 30">
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
                             <!--ngày lênh lịch-->
                             <StackPanel Margin="0 0 25 0">
                                 <TextBlock Style="{StaticResource TitlePersonalInfo}"
@@ -99,11 +99,23 @@
                                     SelectedDate="{Binding Lichkham.NGAYLENLICH}"/>
                             </StackPanel>
                             <!--ngày khám-->
-                            <StackPanel Margin="25 0 0 0">
+                            <StackPanel Margin="25 0 25 0">
                                 <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                     Text="Ngày khám:"/>
                                 <DatePicker Height="30" FontSize="15"
                                     SelectedDate="{Binding Lichkham.NGAYKHAM}"/>
+                            </StackPanel>
+                            <!--ca khám-->
+                            <StackPanel Margin="25 0 25 0">
+                                <TextBlock Style="{StaticResource TitlePersonalInfo}"
+                                   Text="Ca khám:"
+                                   />
+                                <ComboBox
+                                MinWidth="150"
+                                Height="30"
+                                FontSize="15"
+                                Margin="0 0 25 30"
+                                FontFamily="Poppins"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
@@ -119,7 +131,7 @@
                                 Height="30"
                                 FontSize="15"
                                 Margin="0 0 25 30"
-                                    FontFamily="Poppins"/>
+                                FontFamily="Poppins"/>
                             </StackPanel>
                             <!--Dịch vụ khám-->
                             <StackPanel Margin="25 0 25 30">

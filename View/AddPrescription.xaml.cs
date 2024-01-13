@@ -23,5 +23,15 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
+
+        private void Prescription_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                Prescription.Text += Environment.NewLine;
+                Prescription.CaretIndex = Prescription.Text.Length;
+            }
+        }
     }
 }
