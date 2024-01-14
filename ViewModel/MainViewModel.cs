@@ -29,7 +29,12 @@ namespace LTTQ_DoAn.ViewModel
         private string _caption;
         private IconChar _icon;
         private IUserRepository userRepository;
-
+        public bool RoomVisibility = true;
+        public bool AppointmentVisibility = true;
+        public bool VictimVisibility = true;
+        public bool FieldVisibility = true;
+        public bool DoctorAndNurseVisibility = true;
+        public bool ServiceVisibility = true;
 
         public UserAccountModel CurrentUserAccount
         {
@@ -42,6 +47,7 @@ namespace LTTQ_DoAn.ViewModel
             {
                 _currentUserAccount = value;
                 OnPropertyChanged(nameof(CurrentUserAccount));
+                SetPriority();
             }
         }
 
@@ -50,8 +56,8 @@ namespace LTTQ_DoAn.ViewModel
             get { return _currentChildView; }
             set { _currentChildView = value; OnPropertyChanged(nameof(CurrentChildView)); }
         }
-        public string Caption 
-        { 
+        public string Caption
+        {
             get { return _caption; }
             set
             {
@@ -70,7 +76,7 @@ namespace LTTQ_DoAn.ViewModel
         }
 
         public ICommand ShowHomeViewCommand { get; }
-        public ICommand ShowCustomerViewCommand {  get; }
+        public ICommand ShowCustomerViewCommand { get; }
         public ICommand ShowVictimViewCommand { get; }
         public ICommand ShowAppointmentViewCommand { get; }
         public ICommand ShowDoctorViewCommand { get; }
@@ -85,7 +91,6 @@ namespace LTTQ_DoAn.ViewModel
             Main_wd = wd;
             userRepository = new UserRepository();
             CurrentUserAccount = new UserAccountModel();
-
             //khởi tạo phương thức xem view
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
@@ -205,7 +210,39 @@ namespace LTTQ_DoAn.ViewModel
             Caption = "Dịch vụ";
             Icon = IconChar.ArrowDownAZ;
         }
+        private void SetPriority()
+        {
+            if (CurrentUserAccount.Username == "demoAD001")
+            {
+                RoomVisibility = true;
+                AppointmentVisibility = true;
+                VictimVisibility = true;
+                FieldVisibility = false;
+                DoctorAndNurseVisibility = false;
+                ServiceVisibility = false;
+            }
+            else if (CurrentUserAccount.Username == "demoDR001")
+            {
+                RoomVisibility = false;
+                AppointmentVisibility = true;
+                VictimVisibility = false;
+                FieldVisibility = true;
+                DoctorAndNurseVisibility = true;
+                ServiceVisibility = true;
+            }
+            else if (CurrentUserAccount.Username == "demoST001")
+            {
+                RoomVisibility = false;
+                AppointmentVisibility = true;
+                VictimVisibility = false;
+                FieldVisibility = true;
+                DoctorAndNurseVisibility = true;
+                ServiceVisibility = true;
+            }
 
+        }
+    }
+}
 
 
         /*private void LoadCurrentUserData()
@@ -223,5 +260,5 @@ namespace LTTQ_DoAn.ViewModel
                 //Hide child views.
             }
         }*/
-    }
-}
+    
+
