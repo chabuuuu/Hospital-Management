@@ -71,7 +71,7 @@ namespace LTTQ_DoAn.ViewModel
                 List<String> subID = new List<String>();
                 foreach (var item in benhnhan)
                 {
-                    subID.Add(item.SUB_ID + ": " + item.HOTEN);
+                    subID.Add(item.HOTEN + ": " + item.SUB_ID);
                 }
                 this.BenhnhanList = subID;
             

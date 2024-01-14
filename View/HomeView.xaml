@@ -119,7 +119,7 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="250"/>
                             </Grid.ColumnDefinitions>
                             <!--Biểu đồ -->
                             <lvc:CartesianChart x:Name="MoneyChart">
@@ -135,10 +135,61 @@
                                 </lvc:CartesianChart.AxisY>
                             </lvc:CartesianChart>
                             <!--Doanh thu từng dịch vụ-->
-                            <StackPanel>
-                                <ListView>
-                                    
-                                </ListView>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="Doanh thu từng dịch vụ:"
+                                           FontWeight="Bold"
+                                           FontSize="20"
+                                           Foreground="{StaticResource btnActivedText}"
+                                           Margin="0 30 0 0"/>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                      HorizontalScrollBarVisibility="Disabled"
+                                      PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
+                                      CanContentScroll="True">
+                                    <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                            BorderBrush="Transparent" Background="White"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                                            
+                                            >
+                                        <ListView.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel IsItemsHost="True" Orientation="Vertical" />
+                                            </ItemsPanelTemplate>
+                                        </ListView.ItemsPanel>
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border BorderBrush="{StaticResource btnActivedText}"
+                                                    BorderThickness="2 0 0 0"
+                                                    Margin="0 20 0 0"
+                                                    >   
+                                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
+                                                        Margin="10 0 0 0">
+                                                        <!--tên dịch vụ-->
+                                                        <TextBlock Text="{Binding }"
+                                                        Foreground="#3f3f3f"
+                                                        FontSize="18"
+                                                        FontWeight="Medium"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Center"/>
+
+                                                        <!--doanh thu theo dịch vụ-->   
+                                                        <TextBlock Text="{Binding }"
+                                                        Foreground="#3f3f3f"
+                                                        FontSize="16"
+                                                        FontWeight="Medium"
+                                                        HorizontalAlignment="Left"
+                                                        VerticalAlignment="Center"/>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </ScrollViewer>
                             </StackPanel>
                         </Grid>
                         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="50 0 0 0">

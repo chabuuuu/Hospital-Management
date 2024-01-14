@@ -24,5 +24,10 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
+
+        private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+
+        }
     }
 }
