@@ -63,6 +63,8 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <!--bệnh nhân-->
                 <ComboBox
+                IsEditable="True"
+                IsTextSearchCaseSensitive="True"
                 ItemsSource="{Binding BenhnhanList}"
                 SelectedValue="{Binding Benhnhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="300"
@@ -71,8 +73,7 @@
                 materialdesign:HintAssist.Hint="Bệnh nhân"
                 Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                 Margin="50 0 25 0"/>
-                
-                
+
                 <ComboBox
                 ItemsSource="{Binding BacsiList}"
                 SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
