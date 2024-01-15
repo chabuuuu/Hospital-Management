@@ -24,14 +24,33 @@ namespace LTTQ_DoAn.ViewModel
     public class MainViewModel : BaseViewModel
     {
         private MainWindow main_wd;
-        private UserAccountModel _currentUserAccount;
+        private TAIKHOAN _currentUserAccount;
         private BaseViewModel _currentChildView;
         private string _caption;
         private IconChar _icon;
         private IUserRepository userRepository;
+        private bool _isViewVisible = true;
+        private bool roomVisibility = true;
+        private bool appointmentVisibility = true;
+        private bool victimVisibility = true;
+        private bool fieldVisibility = true;
+        private bool doctorAndNurseVisibility = true;
+        private bool serviceVisibility = true;
+        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
+
+        public bool IsViewVisible
+        {
+            get => _isViewVisible;
+            set
+            {
+                _isViewVisible = value;
+                OnPropertyChanged(nameof(IsViewVisible));
+
+            }
+        }
 
 
-        public UserAccountModel CurrentUserAccount
+        public TAIKHOAN CurrentUserAccount
         {
             get
             {
@@ -79,13 +98,108 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ShowRoomViewCommand { get; }
         public ICommand LogoutViewCommand { get; }
         public MainWindow Main_wd { get => main_wd; set => main_wd = value; }
+        void Set_doctor()
+        {
+            RoomVisibility = true;
+            AppointmentVisibility = true;
+            VictimVisibility = true;
+            FieldVisibility = true;
+            DoctorAndNurseVisibility = true;
+            ServiceVisibility = true;
+        }        
+        void Set_admin()
+        {
+            /* RoomVisibility = true;
+            AppointmentVisibility = true;
+            VictimVisibility = true;
+            FieldVisibility = true;
+            DoctorAndNurseVisibility = true;
+            ServiceVisibility = true; */
+        }        
+        void Set_staff()
+        {
+            RoomVisibility = true;
+            AppointmentVisibility = false;
+            VictimVisibility = true;
+            FieldVisibility = false;
+            DoctorAndNurseVisibility = false;
+            ServiceVisibility = true;
+        }
+        void Set_permission(string type)
+        {
+            switch (type)
+            {
+                case "Admin":
+                    Set_admin();
+                    break;
+                case "Staff":
+                    Set_staff();
+                    break;
+                case "Doctor":
+                    Set_doctor();
+                    break;
+                default:
+                    break;
+            }
+        }
 
-        public MainViewModel(MainWindow wd)
+        public bool RoomVisibility
+        {
+            get => roomVisibility; set
+            {
+                roomVisibility = value;
+                OnPropertyChanged(nameof(RoomVisibility));
+            }
+        }
+        public bool AppointmentVisibility
+        {
+            get => appointmentVisibility; set
+            {
+                appointmentVisibility = value;
+                OnPropertyChanged(nameof(AppointmentVisibility));
+            }
+        }
+        public bool VictimVisibility
+        {
+            get => victimVisibility; set
+            {
+                victimVisibility = value;
+                OnPropertyChanged(nameof (VictimVisibility));
+            }
+        }
+        public bool FieldVisibility
+        {
+            get => fieldVisibility; set
+            {
+                fieldVisibility = value;
+                OnPropertyChanged(nameof(FieldVisibility));
+            }
+        }
+        public bool DoctorAndNurseVisibility
+        {
+            get => doctorAndNurseVisibility; set
+            {
+                doctorAndNurseVisibility = value;
+                OnPropertyChanged(nameof(DoctorAndNurseVisibility));
+            }
+        }
+        public bool ServiceVisibility
+        {
+            get => serviceVisibility; set
+            {
+                serviceVisibility = value;
+                OnPropertyChanged(nameof(ServiceVisibility));
+            }
+        }
+
+        //Dùng cái này
+        public MainViewModel(MainWindow wd, TAIKHOAN user_account)
         {
             Main_wd = wd;
+            CurrentUserAccount = user_account;
+            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
             userRepository = new UserRepository();
-            CurrentUserAccount = new UserAccountModel();
-
+            //CurrentUserAccount = new UserAccountModel();
             //khởi tạo phương thức xem view
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
@@ -103,8 +217,7 @@ namespace LTTQ_DoAn.ViewModel
         public MainViewModel()
         {
             userRepository = new UserRepository();
-            CurrentUserAccount = new UserAccountModel();
-
+            //CurrentUserAccount = new UserAccountModel();
             //khởi tạo phương thức xem view
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);

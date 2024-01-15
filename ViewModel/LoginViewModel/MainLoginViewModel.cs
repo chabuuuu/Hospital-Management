@@ -123,7 +123,7 @@ namespace LTTQ_DoAn.ViewModel
         private string _errorMessage;
         private bool _isViewVisible = true;
         private object executeloginCommand;
-
+        private TAIKHOAN user_account;
         public string Username
         {
             get { return _username; }
@@ -171,6 +171,8 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand RecoverPasswordCommnad { get; }
         public ICommand ShowPasswordCommnad { get; }
         public ICommand RememberPassword { get;  }
+        public TAIKHOAN User_account { get => user_account; set => user_account = value; }
+
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private void ReadFromJson()
         {
@@ -192,7 +194,7 @@ namespace LTTQ_DoAn.ViewModel
                 {
                     IsViewVisible = false;
                     MainWindow wd = new MainWindow();
-                    wd.DataContext = new MainViewModel(wd);
+                    wd.DataContext = new MainViewModel(wd, User_account);
                     Application.Current.MainWindow = wd;
                     wd.ShowDialog();
                 }
@@ -240,6 +242,7 @@ namespace LTTQ_DoAn.ViewModel
                 if (taikhoan.MATKHAU!= null && SecurePasswordHasher.Verify(matkhau, taikhoan.MATKHAU))
                 {
                     SaveToJson(taikhoan.TENDANGNHAP, taikhoan.MATKHAU);
+                    User_account = taikhoan;
                     return true;
                 }
                 return false;
@@ -247,6 +250,7 @@ namespace LTTQ_DoAn.ViewModel
             if (taikhoan.MATKHAU != null && taikhoan.MATKHAU.CompareTo(matkhau) == 0)
             {
                 SaveToJson(taikhoan.TENDANGNHAP, taikhoan.MATKHAU);
+                User_account = taikhoan;
                 return true;
             }
             return false;
@@ -290,7 +294,7 @@ namespace LTTQ_DoAn.ViewModel
 
             IsViewVisible = false;
             MainWindow wd = new MainWindow();
-            wd.DataContext = new MainViewModel(wd);
+            wd.DataContext = new MainViewModel(wd, User_account);
             Application.Current.MainWindow = wd;
             wd.ShowDialog();
         }
