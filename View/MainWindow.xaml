@@ -10,38 +10,36 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         Title="MainWindow" Height="768" Width="1366" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
 
-    <Window.DataContext>
-        <viewmodel:MainViewModel/>
-    </Window.DataContext>
     <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
         <DataTemplate DataType="{x:Type viewmodel:VictimViewModel}">
-            <local:Victim/> 
+            <local:Victim/>
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
             <local:HomeView/>
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type viewmodel:AppointmentViewModel}">
             <local:appointment/>
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type viewmodel:DoctorAndNurseViewModel}">
             <local:DoctorAndNurse/>
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type viewmodel:RoomViewModel}">
             <local:room/>
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type viewmodel:ServicesViewModel}">
             <local:Services/>
         </DataTemplate>
-        
+
         <DataTemplate DataType="{x:Type viewmodel:FieldViewModel}">
             <local:field/>
         </DataTemplate>
-        
+
     </Window.Resources>
     <Border
         BorderBrush="DodgerBlue"
@@ -79,6 +77,7 @@
                         </RadioButton>
                         <!--Bệnh nhân-->
                         <RadioButton 
+                            Visibility="{Binding VictimVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                             Command="{Binding ShowVictimViewCommand}"
                             Style="{StaticResource menuButton}"
                                     Tag="{StaticResource normalButton}"
@@ -90,6 +89,7 @@
                         </RadioButton>
                         <!--khoa-->
                         <RadioButton Style="{StaticResource menuButton}"
+                            Visibility="{Binding FieldVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                             Tag="{StaticResource normalButton}"
                                      Command="{Binding ShowFieldViewCommand}">
                             <StackPanel Orientation="Horizontal">
@@ -99,6 +99,7 @@
                         </RadioButton>
                         <!--Y sĩ-->
                         <RadioButton Style="{StaticResource menuButton}"
+                                                                 Visibility="{Binding DoctorAndNurseVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                                     Tag="{StaticResource normalButton}"
                                      Command="{Binding ShowDoctorViewCommand}">
                             <StackPanel Orientation="Horizontal">
@@ -109,6 +110,7 @@
                         <!--Phòng-->
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource normalButton}"
+                                     Visibility="{Binding RoomVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                                      Command="{Binding ShowRoomViewCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CirclePlus" Style="{StaticResource menuButtonIcon}"/>
@@ -117,6 +119,7 @@
                         </RadioButton>
                         <!--Lịch khám-->
                         <RadioButton Style="{StaticResource menuButton}"
+                                                                         Visibility="{Binding AppointmentVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                                     Tag="{StaticResource normalButton}"
                                      Command="{Binding ShowAppointmentViewCommand}">
                             <StackPanel Orientation="Horizontal">
@@ -126,6 +129,8 @@
                         </RadioButton>
                         <!--Dịch vụ-->
                         <RadioButton Style="{StaticResource menuButton}"
+                                                                                                   Visibility="{Binding ServiceVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
+   
                                     Tag="{StaticResource normalButton}"
                                      Command="{Binding ShowServicesViewCommand}">
                             <StackPanel Orientation="Horizontal">
