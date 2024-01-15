@@ -33,6 +33,11 @@ namespace LTTQ_DoAn.ViewModel
         private SeriesCollection doctorNurse_collections;
         private string[] doctorNurseTimeLabels;
 
+        //Service
+        private DateTime[] serviceDateTime;
+        private SeriesCollection service_collections;
+        private string[] serviceTimeLabels;
+
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
 
         
@@ -125,6 +130,31 @@ namespace LTTQ_DoAn.ViewModel
             }
         }
 
+        public DateTime[] ServiceDateTime
+        {
+            get => serviceDateTime; set
+            {
+                serviceDateTime = value;
+                OnPropertyChanged(nameof(ServiceDateTime));
+            }
+        }
+        public SeriesCollection Service_collections
+        {
+            get => service_collections; set
+            {
+                service_collections = value;
+                OnPropertyChanged(nameof(Service_collections));
+            }
+        }
+        public string[] ServiceTimeLabels
+        {
+            get => serviceTimeLabels; set
+            {
+                serviceTimeLabels = value;
+                OnPropertyChanged(nameof(ServiceTimeLabels));
+            }
+        }
+
         public void divideTime(int ammount, DateTime startDate, DateTime endDate)
         {
             //int divide = 5;
@@ -147,6 +177,7 @@ namespace LTTQ_DoAn.ViewModel
             }
             VictimDateTime = timeLable;
             DoctorNurseDateTime = timeLable;
+            ServiceDateTime = timeLable;
             string[] timeStringLable = new string[ammount];
             for (int i = 0; i < ammount; i++)
             {
@@ -161,6 +192,7 @@ namespace LTTQ_DoAn.ViewModel
             }
             VictimTimeLabels = timeStringLable;
             DoctorNurseTimeLabels = timeStringLable;
+            ServiceTimeLabels = timeStringLable;
         }
         private int findVictimNumbers(DateTime start_day, DateTime end_date)
         {
@@ -175,6 +207,18 @@ namespace LTTQ_DoAn.ViewModel
                            where m.NGAYVAOLAM >= start_day && m.NGAYVAOLAM <= end_date
                            select m).Count();
             return numbers;
+        }
+        private int calServiceNumbers(DateTime start_day, DateTime end_date)
+        {
+            decimal numbers = 0;
+            decimal? what_numbers = (from m in _db.BENHAN
+                           where m.NGAYKHAM >= start_day && m.NGAYKHAM <= end_date
+                           select m).Sum(i => i.THANHTIEN);
+            if (what_numbers != null)
+            {
+                numbers = (decimal)what_numbers;
+            }
+            return Decimal.ToInt32(numbers);
         }
         void Load_Victim_Axis_Y()
         {
@@ -219,6 +263,25 @@ namespace LTTQ_DoAn.ViewModel
 
         }
 
+        void Load_Service_Axis_Y()
+        {
+            ChartValues<int> chartValues = new ChartValues<int>();
+            foreach (var item in ServiceTimeLabels)
+            {
+                DateTime start_date = DateTime.ParseExact(item.Split('-')[0], "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                DateTime end_date = DateTime.ParseExact(item.Split('-')[1], "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                int count = calServiceNumbers(start_date, end_date);
+                chartValues.Add(count);
+            }
+            Service_collections = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Doanh thu",
+                    Values = chartValues
+                }
+            };
+        }
         /*
         void Load_Victim_Chart()
         {
@@ -232,8 +295,10 @@ namespace LTTQ_DoAn.ViewModel
             divideTime(divide_number, Chart_startdate, Chart_enddate);
             Ysi_count = findDoctorNurseNumbers(Chart_startdate, Chart_enddate);
             Victim_count = findVictimNumbers(Chart_startdate, Chart_enddate);
+            Service_count = calServiceNumbers(Chart_startdate, Chart_enddate);
             Load_Victim_Axis_Y();
             Load_DoctorNurse_Axis_Y();
+            Load_Service_Axis_Y();
         }
         public HomeViewModel()
         {
