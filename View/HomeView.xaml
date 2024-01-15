@@ -130,15 +130,18 @@
                                 <ColumnDefinition Width="250"/>
                             </Grid.ColumnDefinitions>
                             <!--Biểu đồ -->
-                            <lvc:CartesianChart x:Name="MoneyChart">
+                            <lvc:CartesianChart Series="{Binding Service_collections}" x:Name="MoneyChart">
+                               <!-- 
                                 <lvc:CartesianChart.Series>
                                     <lvc:ColumnSeries Title="Doanh thu"/>
                                 </lvc:CartesianChart.Series>
+                                -->
                                 <lvc:CartesianChart.AxisX>
-                                    <lvc:Axis Title="Thời gian" Labels="{Binding Labels}" FontSize="15"/>
+                                    <lvc:Axis Title="Thời gian" Labels="{Binding ServiceTimeLabels}" FontSize="15"/>
                                 </lvc:CartesianChart.AxisX>
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis
+                                          LabelFormatter="{Binding VNDFormatter}"
                                           MinValue="0"/>
                                 </lvc:CartesianChart.AxisY>
                             </lvc:CartesianChart>
@@ -156,7 +159,7 @@
                                     <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                             BorderBrush="Transparent" Background="White"
                                             HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                                            VerticalAlignment="Stretch" ItemsSource="{Binding ListDichVu}"
                                             
                                             >
                                         <ListView.ItemsPanel>
@@ -178,7 +181,7 @@
                                                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
                                                         Margin="10 0 0 0">
                                                         <!--tên dịch vụ-->
-                                                        <TextBlock Text="{Binding }"
+                                                        <TextBlock Text="{Binding Ten}"
                                                         Foreground="#3f3f3f"
                                                         FontSize="18"
                                                         FontWeight="Medium"
@@ -186,7 +189,7 @@
                                                         VerticalAlignment="Center"/>
 
                                                         <!--doanh thu theo dịch vụ-->   
-                                                        <TextBlock Text="{Binding }"
+                                                        <TextBlock Text="{Binding Doanhthu}"
                                                         Foreground="#3f3f3f"
                                                         FontSize="16"
                                                         FontWeight="Medium"
@@ -205,7 +208,10 @@
                                         FontSize="25"
                                         FontWeight="Bold"/>
                             <!--Tổng doanh = tổng số tiền trong bệnh án vào đây thu dịch vụ trong thời gian được chọn vào đây-->
-                            <TextBlock Text=""
+                            <TextBlock Text="{Binding Service_count}"
+                                        FontSize="25"
+                                        FontWeight="Bold"/>
+                            <TextBlock Text=" VNĐ"
                                         FontSize="25"
                                         FontWeight="Bold"/>
                         </StackPanel>
