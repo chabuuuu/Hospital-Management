@@ -27,7 +27,7 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                         Margin="50 0 0 0">
                 <DatePicker
-                SelectedDate="{Binding Victim_startdate, Mode=TwoWay}"
+                SelectedDate="{Binding Chart_startdate, Mode=TwoWay}"
                 Width="150"
                 Height="40"
                 FontSize="15"
@@ -36,7 +36,7 @@
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
                 
                 <DatePicker
-                 SelectedDate="{Binding Victim_enddate, Mode=TwoWay}"
+                 SelectedDate="{Binding Chart_enddate, Mode=TwoWay}"
                  Width="150"
                 Margin="100 0 0 0"
                  Height="40"
@@ -91,15 +91,18 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <!--Biểu đồ -->
-                            <lvc:CartesianChart x:Name="DoctorChart">
+                            <lvc:CartesianChart Series="{Binding DoctorNurse_collections}" x:Name="DoctorChart">
+                                <!--
                                 <lvc:CartesianChart.Series>
                                     <lvc:ColumnSeries Title="Số lượng y sĩ" Values="{Binding}" FontSize="15"/>
                                 </lvc:CartesianChart.Series>
+                                -->
                                 <lvc:CartesianChart.AxisX>
-                                    <lvc:Axis Title="Thời gian" Labels="{Binding}" FontSize="15"/>
+                                    <lvc:Axis Title="Thời gian" Labels="{Binding DoctorNurseTimeLabels}" FontSize="15"/>
                                 </lvc:CartesianChart.AxisX>
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis Title="Số lượng y sĩ" FontSize="15"
+                                            LabelFormatter="{Binding YFormatter}"
                                             MinValue="0"/>
                                 </lvc:CartesianChart.AxisY>
                             </lvc:CartesianChart>
@@ -109,7 +112,7 @@
                                        FontSize="25"
                                        FontWeight="Bold"/>
                             <!--Thêm số lượng y si trong thời gian được chọn vào đây-->
-                            <TextBlock Text=""
+                            <TextBlock Text="{Binding Ysi_count}"
                                FontSize="25"
                                FontWeight="Bold"/>
                         </StackPanel>
