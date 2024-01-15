@@ -100,21 +100,21 @@ namespace LTTQ_DoAn.ViewModel
         public MainWindow Main_wd { get => main_wd; set => main_wd = value; }
         void Set_doctor()
         {
-            RoomVisibility = true;
+            RoomVisibility = false;
             AppointmentVisibility = true;
-            VictimVisibility = true;
+            VictimVisibility = false;
             FieldVisibility = true;
             DoctorAndNurseVisibility = true;
             ServiceVisibility = true;
         }        
         void Set_admin()
         {
-            /* RoomVisibility = true;
+            RoomVisibility = true;
             AppointmentVisibility = true;
             VictimVisibility = true;
             FieldVisibility = true;
             DoctorAndNurseVisibility = true;
-            ServiceVisibility = true; */
+            ServiceVisibility = true;
         }        
         void Set_staff()
         {
