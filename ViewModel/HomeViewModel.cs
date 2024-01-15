@@ -14,18 +14,36 @@ namespace LTTQ_DoAn.ViewModel
     {
         public string DateTimeFormat = "dd/MM/yyyy";
         public static int divide_number = 5;
+        
         private int ysi_count;
         private int victim_count;
         private int field_count;
         private int service_count;
-        private DateTime victim_startdate = new DateTime(2020, 1, 1);
-        private DateTime victim_enddate = DateTime.Now;
+        
+        private DateTime chart_startdate = new DateTime(2020, 1, 1);
+        private DateTime chart_enddate = DateTime.Now;
+        
+        //Victim
         private DateTime[] victimDateTime;
         private SeriesCollection victim_series_collections;
-        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private string[] victimTimeLabels;
 
-        public int Ysi_count { get => ysi_count; set => ysi_count = value; }
+        //Doctor and nurse
+        private DateTime[] doctorNurseDateTime;
+        private SeriesCollection doctorNurse_collections;
+        private string[] doctorNurseTimeLabels;
+
+        QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
+
+        
+        public int Ysi_count
+        {
+            get => ysi_count; set
+            {
+                ysi_count = value;
+                OnPropertyChanged(nameof(Ysi_count));
+            }
+        }
         public int Victim_count
         {
             get => victim_count; set
@@ -36,6 +54,7 @@ namespace LTTQ_DoAn.ViewModel
         }
         public int Field_count { get => field_count; set => field_count = value; }
         public int Service_count { get => service_count; set => service_count = value; }
+        
         public SeriesCollection Victim_series_collections
         {
             get => victim_series_collections; set
@@ -53,22 +72,22 @@ namespace LTTQ_DoAn.ViewModel
             }
         }
         public Func<double, string> YFormatter { get; set; }
-        public DateTime Victim_startdate
+        public DateTime Chart_startdate
         {
-            get => victim_startdate; set
+            get => chart_startdate; set
             {
-                victim_startdate = value;
-                OnPropertyChanged(nameof(Victim_startdate));
-                Load_Victim_Chart();
+                chart_startdate = value;
+                OnPropertyChanged(nameof(Chart_startdate));
+                LoadChart();
             }
         }
-        public DateTime Victim_enddate
+        public DateTime Chart_enddate
         {
-            get => victim_enddate; set
+            get => chart_enddate; set
             {
-                victim_enddate = value;
-                OnPropertyChanged(nameof(Victim_enddate));
-                Load_Victim_Chart();
+                chart_enddate = value;
+                OnPropertyChanged(nameof(Chart_enddate));
+                LoadChart();
             }
         }
 
@@ -78,6 +97,31 @@ namespace LTTQ_DoAn.ViewModel
             {
                 victimDateTime = value;
                 OnPropertyChanged(nameof(VictimDateTime));
+            }
+        }
+
+        public DateTime[] DoctorNurseDateTime
+        {
+            get => doctorNurseDateTime; set
+            {
+                doctorNurseDateTime = value;
+                OnPropertyChanged(nameof(DoctorNurseDateTime));
+            }
+        }
+        public SeriesCollection DoctorNurse_collections
+        {
+            get => doctorNurse_collections; set
+            {
+                doctorNurse_collections = value;
+                OnPropertyChanged(nameof(DoctorNurse_collections));
+            }
+        }
+        public string[] DoctorNurseTimeLabels
+        {
+            get => doctorNurseTimeLabels; set
+            {
+                doctorNurseTimeLabels = value;
+                OnPropertyChanged(nameof(DoctorNurseTimeLabels));
             }
         }
 
@@ -102,12 +146,13 @@ namespace LTTQ_DoAn.ViewModel
                 seriesDay = seriesDay.AddDays(ammountSpace);
             }
             VictimDateTime = timeLable;
+            DoctorNurseDateTime = timeLable;
             string[] timeStringLable = new string[ammount];
             for (int i = 0; i < ammount; i++)
             {
                 if (i == ammount - 1)
                 {
-                    timeStringLable.SetValue(VictimDateTime[i].ToString("yyyy/MM/dd") + "-" + Victim_enddate.ToString("yyyy/MM/dd"), i);
+                    timeStringLable.SetValue(VictimDateTime[i].ToString("yyyy/MM/dd") + "-" + Chart_enddate.ToString("yyyy/MM/dd"), i);
                     break;
                 }
                
@@ -115,12 +160,20 @@ namespace LTTQ_DoAn.ViewModel
                 timeStringLable.SetValue(VictimDateTime[i].ToString("yyyy/MM/dd") +"-" + VictimDateTime[i+1].ToString("yyyy/MM/dd"), i);
             }
             VictimTimeLabels = timeStringLable;
+            DoctorNurseTimeLabels = timeStringLable;
         }
         private int findVictimNumbers(DateTime start_day, DateTime end_date)
         {
             int numbers = (from m in _db.BENHNHAN
                                 where m.NGAYNHAPVIEN >= start_day && m.NGAYNHAPVIEN <= end_date
                                 select m).Count();
+            return numbers;
+        }
+        private int findDoctorNurseNumbers(DateTime start_day, DateTime end_date)
+        {
+            int numbers = (from m in _db.YSI
+                           where m.NGAYVAOLAM >= start_day && m.NGAYVAOLAM <= end_date
+                           select m).Count();
             return numbers;
         }
         void Load_Victim_Axis_Y()
@@ -144,21 +197,55 @@ namespace LTTQ_DoAn.ViewModel
 
 
         }
+        void Load_DoctorNurse_Axis_Y()
+        {
+            ChartValues<int> chartValues = new ChartValues<int>();
+            foreach (var item in DoctorNurseTimeLabels)
+            {
+                DateTime start_date = DateTime.ParseExact(item.Split('-')[0], "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                DateTime end_date = DateTime.ParseExact(item.Split('-')[1], "yyyy/MM/dd", CultureInfo.InvariantCulture);
+                int count = findDoctorNurseNumbers(start_date, end_date);
+                chartValues.Add(count);
+            }
+            DoctorNurse_collections = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Số y sĩ",
+                    Values = chartValues
+                }
+            };
 
+
+        }
+
+        /*
         void Load_Victim_Chart()
         {
-            divideTime(divide_number, Victim_startdate, Victim_enddate);
+            divideTime(divide_number, Chart_startdate, Chart_enddate);
             Load_Victim_Axis_Y();
+        }
+        */
+
+        void LoadChart()
+        {
+            divideTime(divide_number, Chart_startdate, Chart_enddate);
+            Ysi_count = findDoctorNurseNumbers(Chart_startdate, Chart_enddate);
+            Victim_count = findVictimNumbers(Chart_startdate, Chart_enddate);
+            Load_Victim_Axis_Y();
+            Load_DoctorNurse_Axis_Y();
         }
         public HomeViewModel()
         {
-            //Victim_startdate =  new DateTime(2020, 1, 1);
-            //Victim_enddate = DateTime.Now;
+            //Chart_startdate =  new DateTime(2020, 1, 1);
+            //Chart_enddate = DateTime.Now;
+            /*
             Ysi_count = _db.YSI.Count();
             Victim_count = _db.BENHNHAN.Count();
             Field_count = _db.KHOA.Count();
             Service_count = _db.DICHVU.Count();
-            Load_Victim_Chart();
+            */
+            LoadChart();
             /*Victim_series_collections = new SeriesCollection
             {
                 new LineSeries
