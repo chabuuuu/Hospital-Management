@@ -141,7 +141,7 @@
                                 </lvc:CartesianChart.AxisX>
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis
-                                          LabelFormatter="{Binding YFormatter}"
+                                          LabelFormatter="{Binding VNDFormatter}"
                                           MinValue="0"/>
                                 </lvc:CartesianChart.AxisY>
                             </lvc:CartesianChart>
@@ -159,7 +159,7 @@
                                     <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                             BorderBrush="Transparent" Background="White"
                                             HorizontalAlignment="Stretch"
-                                            VerticalAlignment="Stretch" d:ItemsSource="{d:SampleData ItemCount=5}"
+                                            VerticalAlignment="Stretch" ItemsSource="{Binding ListDichVu}"
                                             
                                             >
                                         <ListView.ItemsPanel>
@@ -181,7 +181,7 @@
                                                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
                                                         Margin="10 0 0 0">
                                                         <!--tên dịch vụ-->
-                                                        <TextBlock Text="{Binding }"
+                                                        <TextBlock Text="{Binding Ten}"
                                                         Foreground="#3f3f3f"
                                                         FontSize="18"
                                                         FontWeight="Medium"
@@ -189,7 +189,7 @@
                                                         VerticalAlignment="Center"/>
 
                                                         <!--doanh thu theo dịch vụ-->   
-                                                        <TextBlock Text="{Binding }"
+                                                        <TextBlock Text="{Binding Doanhthu}"
                                                         Foreground="#3f3f3f"
                                                         FontSize="16"
                                                         FontWeight="Medium"
@@ -208,7 +208,10 @@
                                         FontSize="25"
                                         FontWeight="Bold"/>
                             <!--Tổng doanh = tổng số tiền trong bệnh án vào đây thu dịch vụ trong thời gian được chọn vào đây-->
-                            <TextBlock Text=""
+                            <TextBlock Text="{Binding Service_count}"
+                                        FontSize="25"
+                                        FontWeight="Bold"/>
+                            <TextBlock Text=" VNĐ"
                                         FontSize="25"
                                         FontWeight="Bold"/>
                         </StackPanel>
