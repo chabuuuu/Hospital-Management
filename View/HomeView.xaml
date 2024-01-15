@@ -27,6 +27,7 @@
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                         Margin="50 0 0 0">
                 <DatePicker
+                SelectedDate="{Binding Victim_startdate, Mode=TwoWay}"
                 Width="150"
                 Height="40"
                 FontSize="15"
@@ -35,6 +36,7 @@
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
                 
                 <DatePicker
+                 SelectedDate="{Binding Victim_enddate, Mode=TwoWay}"
                  Width="150"
                 Margin="100 0 0 0"
                  Height="40"
@@ -54,15 +56,18 @@
                         </Grid.RowDefinitions>
                         <!--Biểu đồ -->
                         <Grid Grid.Row="0">
-                            <lvc:CartesianChart x:Name="VictimChart">
+                            <lvc:CartesianChart Series="{Binding Victim_series_collections}" x:Name="VictimChart">
+                                <!--
                                 <lvc:CartesianChart.Series>
-                                    <lvc:ColumnSeries Title="Số lượng bệnh nhân" Values="{Binding}" FontSize="15"/>
+                                    <lvc:ColumnSeries Title="Số lượng bệnh nhân" Values="{Binding Victim_series_collections}" FontSize="15"/>
                                 </lvc:CartesianChart.Series>
+                                -->
                                 <lvc:CartesianChart.AxisX>
-                                    <lvc:Axis Title="Thời gian" Labels="{Binding}" FontSize="15"/>
+                                    <lvc:Axis Title="Thời gian" Labels="{Binding VictimTimeLabels}" FontSize="15"/>
                                 </lvc:CartesianChart.AxisX>
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis Title="Số lượng bệnh nhân" FontSize="15"
+                                              LabelFormatter="{Binding YFormatter}"
                                 MinValue="0"/>
                                 </lvc:CartesianChart.AxisY>
                             </lvc:CartesianChart>
@@ -72,7 +77,7 @@
                                        FontSize="25"
                                        FontWeight="Bold"/>
                             <!--Thêm số lượng bệnh nhân trong thời gian được chọn vào đây-->
-                            <TextBlock Text=""
+                            <TextBlock Text="{Binding Victim_count}"
                                FontSize="25"
                                FontWeight="Bold"/>
                         </StackPanel>
