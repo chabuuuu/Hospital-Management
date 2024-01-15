@@ -112,7 +112,7 @@
                     FontSize="20"
                     Foreground="#fff"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
-                    ToolTip="Thêm thuốc vào đơn thuốc" Background="#FF2ECBD1" />
+                    ToolTip="Thêm thuốc vào đơn thuốc" Background="{StaticResource btnActivedText}" />
             </StackPanel>
             <!--các thông tin về bệnh án-->
             <StackPanel Grid.Row="5" Margin="50 0 50 0" HorizontalAlignment="Left">
@@ -127,17 +127,20 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                        Text="Ghi chú:"
                                        />
-                            <TextBox Name="conclude_textbox" 
-                                Style="{StaticResource TextPersonalInfo}"
-                                     Text="{Binding Ghichu}"
-                                     BorderThickness="1"
-                                     MaxLines="10"
-                                     TextWrapping="Wrap"
-                                     Width="600"
-                                     TextChanged="conclude_textbox_TextChanged"
-                                     AcceptsReturn="True"
-                                     Height="150">
-                            </TextBox>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                                          PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                                <TextBox Name="conclude_textbox" 
+                                    Style="{StaticResource TextPersonalInfo}"
+                                    Text="{Binding Ghichu}"
+                                    BorderThickness="1"
+                                    MaxLines="10"
+                                    TextWrapping="Wrap"
+                                    Width="600"
+                                    TextChanged="conclude_textbox_TextChanged"
+                                    AcceptsReturn="True"
+                                    Height="150">
+                                </TextBox>
+                            </ScrollViewer>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">

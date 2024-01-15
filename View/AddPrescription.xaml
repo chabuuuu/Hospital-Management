@@ -19,6 +19,10 @@
     BorderThickness="3"
     >
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="655*"/>
+                <ColumnDefinition Width="339*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="60"/>
@@ -29,7 +33,7 @@
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
             <!--nút thu nhỏ và tắt màn-->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Margin="269,0,0,0">
                 <Button
                         Style="{StaticResource controlButton}"
                         FontSize="16">
@@ -45,7 +49,7 @@
             <!--Tiêu đề-->
             <Border Grid.Row="1"
                 BorderBrush="{StaticResource btnActivedText}"
-                BorderThickness="0 0 0 2">
+                BorderThickness="0 0 0 2" Grid.ColumnSpan="2">
                 <TextBlock
                     Margin="30 10 0 0 "
                     Text="Thêm đơn thuốc"
@@ -56,7 +60,7 @@
                     />
             </Border>
             <!--các thông tin của y sĩ và bệnh nhân-->
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50 10 50 0">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="50,10,50,45" Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <!--tên bệnh nhân-->
                 <TextBox Margin="0 0 25 0"
                     Text="{Binding Tenbenhnhan}"
@@ -79,10 +83,10 @@
                     Margin="25 0 25 0"/>
             </StackPanel>
             <!--chọn thuoc-->
-            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="50 10 50 0">
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="50,10,50,67" Grid.ColumnSpan="2" Grid.RowSpan="2">
                 <Label Content="Thêm thuốc vào đơn thuốc:" FontSize="18" FontWeight="Bold"/>
             </StackPanel>
-            <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="50 0 50 0">
+            <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="50,0,50,0" Grid.ColumnSpan="2">
                 <!--Thuoc-->
                 <ComboBox
                     MinWidth="295"
@@ -107,10 +111,10 @@
                     FontSize="20"
                     Foreground="#fff"
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
-                    ToolTip="Thêm thuốc vào đơn thuốc" Background="#FF2ECBD1" />
+                    ToolTip="Thêm thuốc vào đơn thuốc" Background="{StaticResource btnActivedText}" />
             </StackPanel>
             <!--các thông tin về bệnh án-->
-            <StackPanel Grid.Row="5" Margin="50 10 0 0" HorizontalAlignment="Left">
+            <StackPanel Grid.Row="5" Margin="50 10 0 0" HorizontalAlignment="Left" Grid.ColumnSpan="2">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -118,17 +122,21 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel VerticalAlignment="Center" Grid.Column="0">
                         <!--ghi chú-->
-                        <TextBox
-                        x:Name="Prescription"
-                        PreviewKeyDown="Prescription_PreviewKeyDown"
-                        Text="{Binding Ghichu}"
-                        Width="600"
-                        HorizontalContentAlignment="Stretch"
-                        Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                        materialdesign:HintAssist.Hint="Ghi chú"
-                        materialdesign:TextFieldAssist.HasClearButton="True"
-                        FontSize="15"
-                        Height="165"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                                      PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                            <TextBox
+                            x:Name="Prescription"
+                            TextWrapping="Wrap"
+                            PreviewKeyDown="Prescription_PreviewKeyDown"
+                            Text="{Binding Ghichu}"
+                            Width="600"
+                            HorizontalContentAlignment="Stretch"
+                            Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                            materialdesign:HintAssist.Hint="Ghi chú"
+                            materialdesign:TextFieldAssist.HasClearButton="True"
+                            FontSize="15"
+                            Height="165"/>
+                        </ScrollViewer>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
                         <Image Stretch="Uniform" Height="175" Source="/Photo/prescription.png"/>
@@ -136,7 +144,7 @@
                 </Grid>
             </StackPanel>
             <StackPanel Grid.Row="6" Orientation="Horizontal"
-                        VerticalAlignment="Top" HorizontalAlignment="Right">
+                        VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1">
                 <Button
                     Command="{Binding ConfirmAddCommand}"
                     Width="130"
