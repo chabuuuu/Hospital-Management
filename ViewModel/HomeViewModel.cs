@@ -188,7 +188,11 @@ namespace LTTQ_DoAn.ViewModel
                 string doanhthu = "0";
                 decimal? sumDoanhThu = item.BENHAN
                     .Where(m => m.NGAYKHAM >= startdate && m.NGAYKHAM <= enddate)
-                    .Sum(i => i.THANHTIEN);
+                    .Sum(i => i.DICHVU.GIATIEN + i.DONTHUOC
+                           .Sum(k => k.CHITIETDONTHUOC
+                           .Sum(l => l.THUOC.GIATIEN * (((decimal)((int)(l.SOLUONG * 10000))) / 10000))
+                           )
+                           );
                 if (sumDoanhThu != null)
                 {
                     doanhthu = ((decimal)sumDoanhThu).ToString();
@@ -262,10 +266,15 @@ namespace LTTQ_DoAn.ViewModel
             DateTime configEnd = end_date.AddDays(1);
             decimal? what_numbers = (from m in _db.BENHAN
                            where m.NGAYKHAM >= start_day && m.NGAYKHAM <= configEnd
-                           select m).Sum(i => i.THANHTIEN);
-            int test = (from m in _db.BENHAN
+                           select m)
+                           .Sum(i => i.DICHVU.GIATIEN + i.DONTHUOC
+                           .Sum(k => k.CHITIETDONTHUOC
+                           .Sum(l => l.THUOC.GIATIEN * (((decimal)((int)(l.SOLUONG * 10000))) / 10000))
+                           )
+                           );
+            /* int test = (from m in _db.BENHAN
                                      where m.NGAYKHAM >= start_day && m.NGAYKHAM <= end_date
-                                     select m).Count();
+                                     select m).Count(); */
 
             if (what_numbers != null)
             {

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Forms;
 using LTTQ_DoAn.ViewModell;
 using System.Data.Entity.Infrastructure;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -155,7 +156,12 @@ namespace LTTQ_DoAn.ViewModel
                 TRIEUCHUNG = item.TRIEUCHUNG,
                 KETLUAN = item.KETLUAN,
                 MAYSI = findBacSi(item.MAYSI),
-                THANHTIEN = item.THANHTIEN.ToString() };
+                //THANHTIEN = item.THANHTIEN.ToString()
+                THANHTIEN = (item.DICHVU.GIATIEN + item.DONTHUOC
+                           .Sum(k => k.CHITIETDONTHUOC
+                           .Sum(l => l.THUOC.GIATIEN * (((decimal)((int)(l.SOLUONG * 10000))) / 10000))
+                           )).ToString(),
+            };
                 list.Add(benhan);
             }
             Listbenhan = list;
