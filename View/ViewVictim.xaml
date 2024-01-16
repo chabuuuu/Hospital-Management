@@ -163,7 +163,7 @@
                                />
                     <Border BorderThickness="0 0 0 1" BorderBrush="LightGray">
                         <TextBlock Style="{StaticResource TextBlockPersonalInfo}" Width="140"
-                                           Text="{Binding Benhnhan.NGAYNHAPVIEN}"/>
+                                           Text="{Binding Benhnhan.NGAYNHAPVIEN, StringFormat='dd/MM/yyyy'}"/>
                     </Border>
                 </StackPanel>
             </WrapPanel>

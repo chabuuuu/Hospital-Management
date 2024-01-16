@@ -87,13 +87,13 @@
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày sinh" Width="20*" Binding="{Binding NGAYSINH}"
+                    <DataGridTextColumn Header="Ngày sinh" Width="20*" Binding="{Binding NGAYSINH, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding NGAYNHAPVIEN}"
+                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding NGAYNHAPVIEN, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     <DataGridTemplateColumn Header="Thao tác" Width="15*"
