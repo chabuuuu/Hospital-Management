@@ -90,22 +90,34 @@
             <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="50 0 50 0">
                 <!--Thuoc-->
                 <ComboBox
+                    ItemsSource="{Binding Thuoclist}"
+                    SelectedValue="{Binding Mathuoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     MinWidth="295"
                     Height="55"
                     FontSize="15"
                     materialdesign:HintAssist.Hint="Loại thuốc"
                     Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                     Margin="0 0 25 0"/>
-                <!--So luong thuoc-->
-                <ComboBox
-                    MinWidth="100"
-                    Height="55"
-                    FontSize="15"
+                <TextBox Margin="0 0 25 0"
+                    Text="{Binding Soluong}"
+                    Width="120"
+                    HorizontalContentAlignment="Stretch"
+                    Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                     materialdesign:HintAssist.Hint="Số lượng"
-                    Style="{DynamicResource MaterialDesignOutlinedComboBox }"
-                    Margin="0 0 25 0"/>
+                    FontSize="15"
+                    Height="55"/>
+                <!--So luong thuoc-->
+                <TextBox Margin="0 0 25 0"
+                    Text="{Binding Solan}"
+                    Width="150"
+                    HorizontalContentAlignment="Stretch"
+                    Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                    materialdesign:HintAssist.Hint="Số lần dùng/Ngày"
+                    FontSize="15"
+                    Height="55"/>
                 <!--Nut them-->
                 <Button
+                    Command="{Binding AddMedicineChangeCommand}"
                     Width="100"
                     Height="50"
                     Content="Thêm"
@@ -129,9 +141,11 @@
                                        />
                             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
                                           PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                                
                                 <TextBox Name="conclude_textbox" 
                                     Style="{StaticResource TextPersonalInfo}"
                                     Text="{Binding Ghichu}"
+                                    materialdesign:TextFieldAssist.HasClearButton="True"
                                     BorderThickness="1"
                                     MaxLines="10"
                                     TextWrapping="Wrap"
@@ -140,6 +154,7 @@
                                     AcceptsReturn="True"
                                     Height="150">
                                 </TextBox>
+                               
                             </ScrollViewer>
                         </StackPanel>
                     </StackPanel>
