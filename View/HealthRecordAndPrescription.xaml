@@ -225,7 +225,7 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <Expander HorizontalAlignment="Stretch"
-                                                            Header="{Binding SUB_ID}"
+                                                            Header="{Binding SUB_IDDT}"
 
                                                             Width="880"
                                                             FontSize="15">
