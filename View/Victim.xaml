@@ -9,7 +9,6 @@
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              Background="Transparent"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             
             d:DesignHeight="644" d:DesignWidth="1049">
     <UserControl.DataContext>
         <viewModel:VictimViewModel></viewModel:VictimViewModel>

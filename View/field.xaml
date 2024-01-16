@@ -24,106 +24,103 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <materialDesign:Card>
-                <ScrollViewer VerticalScrollBarVisibility="Auto"
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
                                HorizontalScrollBarVisibility="Disabled"
                               CanContentScroll="True"
                               PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
-                    <ListView x:Name="FieldList" 
+                <ListView x:Name="FieldList" 
                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                               ItemsSource="{Binding Khoa}"
                               SelectedItem="{Binding Selectedkhoa}"
                                 >
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="IsSelected" Value="True"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Border
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="IsSelected" Value="True"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" Orientation="Horizontal" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Height="250" Width="200"
                                         Background="White"
                                         CornerRadius="5"
                                         Margin="10">
-                                    <Border.Effect>
-                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
-                                    </Border.Effect>
-                                    <!--thêm command xem vào đây-->
-                                    <Grid Width="200" HorizontalAlignment="Center">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="190"/>
-                                            <RowDefinition Height="60"/>
-                                        </Grid.RowDefinitions>
-                                        <Grid>
-                                            <StackPanel>
-                                                <!--thêm command sửa vào đây-->
-                                                <Border Style="{StaticResource borderList}"
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="Black" Opacity="0.5"/>
+                                </Border.Effect>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="190"/>
+                                        <RowDefinition Height="60"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid>
+                                        <StackPanel>
+                                            <!--them comand xem-->
+                                            <Border Style="{StaticResource borderList}"
                                                     Margin="5">
-                                                    <fa:IconImage Icon="Info" Height="20"/>
-                                                    <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                            <i:InvokeCommandAction Command="{Binding DataContext.ViewFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>
-                                                </Border>
+                                                <fa:IconImage Icon="Info" Height="20"/>
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding DataContext.ViewFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Border>
 
-                                                <Border Style="{StaticResource borderList}"
+                                            <Border Style="{StaticResource borderList}"
                                                     Margin="5 0 5 5"
                                                     Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
-                                                    <fa:IconImage Icon="PenToSquare" Height="20"/>
-                                                    <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                            <i:InvokeCommandAction Command="{Binding DataContext.ChangeFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>
-                                                </Border>
+                                                <fa:IconImage Icon="PenToSquare" Height="20"/>
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding DataContext.ChangeFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Border>
 
-                                                <!--nút xóa-->
-                                                <!--thêm command xóa vào đây-->
-                                                <Border Style="{StaticResource borderList}"
+                                            <!--nút xóa-->
+                                            <!--thêm command xóa vào đây-->
+                                            <Border Style="{StaticResource borderList}"
                                                     Margin="5 0 5 5"
                                                     Visibility="{Binding DataContext.DeleteVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
-                                                    <fa:IconImage Icon="Trash" Height="20"
+                                                <fa:IconImage Icon="Trash" Height="20"
                                                               Foreground="#ed2525"/>
-                                                    <i:Interaction.Triggers>
-                                                        <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                            <i:InvokeCommandAction Command="{Binding DataContext.DeleteFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
-                                                        </i:EventTrigger>
-                                                    </i:Interaction.Triggers>
-                                                </Border>
-                                            </StackPanel>
-                                            <!--binding ảnh-->
-                                            <Grid.Background>
-                                                <ImageBrush Stretch="Uniform" ImageSource="{Binding PICTURE}"/>
-                                            </Grid.Background>
-                                        </Grid>
-                                        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                            <TextBlock Foreground="#3f3f3f"
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                        <i:InvokeCommandAction Command="{Binding DataContext.DeleteFieldCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
+                                            </Border>
+                                        </StackPanel>
+                                        <!--binding ảnh-->
+                                        <Grid.Background>
+                                            <ImageBrush Stretch="Uniform" ImageSource="{Binding PICTURE}"/>
+                                        </Grid.Background>
+                                    </Grid>
+                                    <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <TextBlock Foreground="#3f3f3f"
                                                             FontSize="20"
                                                             FontWeight="Medium"
                                                             Text="{Binding TENKHOA}"
                                                        TextWrapping="Wrap"
                                                             >
-                                            </TextBlock>
-                                        </WrapPanel>
-                                    </Grid>
-                                </Border>
+                                        </TextBlock>
+                                    </WrapPanel>
+                                </Grid>
+                            </Border>
 
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </ScrollViewer>
-            </materialDesign:Card>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
             <!--nút thêm bệnh nhân-->
             <StackPanel Grid.Row="1" HorizontalAlignment="Right"
                         VerticalAlignment="Center"
