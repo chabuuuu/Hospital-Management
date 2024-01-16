@@ -152,7 +152,7 @@
                             Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                             Tag="{StaticResource normalButton}"
                             Style="{StaticResource gridOpenButton}"
-                            Visibility="{Binding ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
+                            Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                 ToolTip="Sửa thông tin">
                             <fa:IconImage Icon="PenToSquare"
                                           Height="20"/>

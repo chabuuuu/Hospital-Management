@@ -35,7 +35,6 @@ namespace LTTQ_DoAn.ViewModel
         public bool deleteVisibility = true;
         public bool changeVisibility = true;
         public bool addVisibility = true;
-        private TAIKHOAN _currentUserAccount;
         QUANLYBENHVIENEntities _db;
         public List<LichKhamType> LICHKHAMs
         {
@@ -76,19 +75,6 @@ namespace LTTQ_DoAn.ViewModel
             {
                 changeVisibility = value;
                 OnPropertyChanged(nameof(ChangeVisibility));
-            }
-        }
-        public TAIKHOAN CurrentUserAccount
-        {
-            get
-            {
-                return _currentUserAccount;
-            }
-
-            set
-            {
-                _currentUserAccount = value;
-                OnPropertyChanged(nameof(CurrentUserAccount));
             }
         }
         private void Load()
@@ -134,11 +120,10 @@ namespace LTTQ_DoAn.ViewModel
             LICHKHAMs = list;
         }
 
-        public AppointmentViewModel(TAIKHOAN user_account)
+        public AppointmentViewModel()
         {
             Load();
-            CurrentUserAccount = user_account;
-            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
+            Set_permission(MainViewModel._currentUserAccount.LOAITAIKHOAN);
             // dựa vào class ViewModelCommand đã được định nghĩa
             AddApointmentCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteApointmentCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);

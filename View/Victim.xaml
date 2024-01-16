@@ -54,15 +54,6 @@
                                     >
                             </TextBlock>
                         </Button>
-                        <Button
-                                Style="{StaticResource BtnUserControl_Delete}"
-                                Command="{Binding DeleteCommand}">
-                            <TextBlock
-                                Style="{StaticResource UserControlText}"
-                                Text="Xóa"
-                                >
-                            </TextBlock>
-                        </Button>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -125,7 +116,7 @@
                                     <!--sửa thông tin cá nhân-->
                                     <RadioButton x:Name="change_btn"
                                         Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                        Visibility="{Binding ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
+                                        Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter},RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Style="{StaticResource gridOpenButton}"
                                         Tag="{StaticResource normalButton}"
                                             Margin="0 0 10 0"
@@ -136,7 +127,7 @@
                                     <!--xem bệnh án và đơn thuốc-->
                                     <RadioButton 
                                         Command="{Binding DataContext.ViewHealthRecordCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                        Visibility="{Binding HealRecordVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
+                                        Visibility="{Binding DataContext.ViewHealthRecordVisibility, Converter={StaticResource BoolToVisibilityConverter},RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             ToolTip="Bệnh án và đơn thuốc">

@@ -24,7 +24,7 @@ namespace LTTQ_DoAn.ViewModel
     public class MainViewModel : BaseViewModel
     {
         private MainWindow main_wd;
-        private TAIKHOAN _currentUserAccount;
+        public static TAIKHOAN _currentUserAccount;
         private BaseViewModel _currentChildView;
         private string _caption;
         private IconChar _icon;
@@ -103,12 +103,13 @@ namespace LTTQ_DoAn.ViewModel
         public MainWindow Main_wd { get => main_wd; set => main_wd = value; }
         void Set_doctor()
         {
-            RoomVisibility = false;
+            RoomVisibility = true;
             AppointmentVisibility = true;
-            VictimVisibility = false;
+            VictimVisibility = true;
             FieldVisibility = true;
             DoctorAndNurseVisibility = true;
             ServiceVisibility = true;
+            MedicineVisibility = true;
         }        
         void Set_admin()
         {
@@ -123,10 +124,10 @@ namespace LTTQ_DoAn.ViewModel
         void Set_staff()
         {
             RoomVisibility = true;
-            AppointmentVisibility = false;
+            AppointmentVisibility = true;
             VictimVisibility = true;
-            FieldVisibility = false;
-            DoctorAndNurseVisibility = false;
+            FieldVisibility = true;
+            DoctorAndNurseVisibility = true;
             ServiceVisibility = true;
             MedicineVisibility = true;
         }
@@ -298,19 +299,19 @@ namespace LTTQ_DoAn.ViewModel
 
         private void ExecuteShowVictimViewCommand(object obj)
         {
-            CurrentChildView = new VictimViewModel(CurrentUserAccount);
+            CurrentChildView = new VictimViewModel();
             Caption = "Bệnh nhân";
             Icon = IconChar.Bed;
         }   
         private void ExecuteShowAppoinmentViewCommand(object obj)
         {
-            CurrentChildView = new AppointmentViewModel(CurrentUserAccount);
+            CurrentChildView = new AppointmentViewModel();
             Caption = "Lịch khám";
             Icon = IconChar.CalendarDays;
         }
         private void ExecuteShowDoctorViewCommand(object obj)
         {
-            CurrentChildView = new DoctorAndNurseViewModel(CurrentUserAccount);
+            CurrentChildView = new DoctorAndNurseViewModel();
             Caption = "Y sĩ";
             Icon = IconChar.UserNurse;
         }
@@ -322,13 +323,13 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteShowFieldViewCommand(object obj)
         {
-            CurrentChildView = new FieldViewModel(CurrentUserAccount);
+            CurrentChildView = new FieldViewModel();
             Caption = "Khoa";
             Icon = IconChar.Clone;
         }
         private void ExecuteShowServicesViewCommand(object obj)
         {
-            CurrentChildView = new ServicesViewModel(CurrentUserAccount);
+            CurrentChildView = new ServicesViewModel();
             Caption = "Dịch vụ";
             Icon = IconChar.ArrowDownAZ;
         }

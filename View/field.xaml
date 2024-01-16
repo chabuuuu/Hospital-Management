@@ -68,8 +68,7 @@
                                             <StackPanel>
                                                 <!--thêm command sửa vào đây-->
                                                 <Border Style="{StaticResource borderList}"
-                                                    Margin="5"
-                                                    Visibility="{Binding ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                    Margin="5">
                                                     <fa:IconImage Icon="Info" Height="20"/>
                                                     <i:Interaction.Triggers>
                                                         <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -79,7 +78,8 @@
                                                 </Border>
 
                                                 <Border Style="{StaticResource borderList}"
-                                                    Margin="5 0 5 5">
+                                                    Margin="5 0 5 5"
+                                                    Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
                                                     <fa:IconImage Icon="PenToSquare" Height="20"/>
                                                     <i:Interaction.Triggers>
                                                         <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -92,7 +92,7 @@
                                                 <!--thêm command xóa vào đây-->
                                                 <Border Style="{StaticResource borderList}"
                                                     Margin="5 0 5 5"
-                                                    Visibility="{Binding DeleteVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                    Visibility="{Binding DataContext.DeleteVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
                                                     <fa:IconImage Icon="Trash" Height="20"
                                                               Foreground="#ed2525"/>
                                                     <i:Interaction.Triggers>

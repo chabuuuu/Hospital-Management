@@ -125,7 +125,7 @@
                                         Command="{Binding DataContext.ChangeAppointmentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
-                                        Visibility="{Binding ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
+                                        Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}">
                                         <fa:IconImage Icon="PenToSquare"
                                                       Height="20"/>
                                     </RadioButton>

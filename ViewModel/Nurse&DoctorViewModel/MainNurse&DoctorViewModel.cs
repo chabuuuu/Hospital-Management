@@ -25,7 +25,6 @@ namespace LTTQ_DoAn.ViewModel
         public bool deleteVisibility = true;
         public bool changeVisibility = true;
         public bool addVisibility = true;
-        private TAIKHOAN _currentUserAccount;
         private List<YSI> nurse_doctor;
         private YSI selectedItem = null;
 
@@ -62,19 +61,6 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(ChangeVisibility));
             }
         }
-        public TAIKHOAN CurrentUserAccount
-        {
-            get
-            {
-                return _currentUserAccount;
-            }
-
-            set
-            {
-                _currentUserAccount = value;
-                OnPropertyChanged(nameof(CurrentUserAccount));
-            }
-        }
         QUANLYBENHVIENEntities _db;
         private void Load()
         {
@@ -82,11 +68,10 @@ namespace LTTQ_DoAn.ViewModel
             Nurse_doctor = _db.YSI.ToList();
         }
 
-        public DoctorAndNurseViewModel(TAIKHOAN user_account)
+        public DoctorAndNurseViewModel()
         {
             Load();
-            CurrentUserAccount = user_account;
-            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
+            Set_permission(MainViewModel._currentUserAccount.LOAITAIKHOAN);
             // dựa vào class ViewModelCommand đã được định nghĩa
             DoctorCommand = new ViewModelCommand(ExecuteDoctorCommand, CanExecuteDoctorCommand);
             NurseCommand = new ViewModelCommand(ExecuteNurseCommand, CanExecuteNurseCommand);
@@ -109,6 +94,7 @@ namespace LTTQ_DoAn.ViewModel
                     Set_doctor();
                     break;
                 default:
+                    MessageBox.Show("nothing");
                     break;
             }
         }

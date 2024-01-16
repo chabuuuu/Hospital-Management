@@ -22,12 +22,10 @@ namespace LTTQ_DoAn.ViewModel
         public bool viewHealthRecordVisibility = true;
         public bool changeVisibility = true;
         public bool addVisibility = true;
-        private TAIKHOAN _currentUserAccount;
         public ICommand ViewCommand { get; }
         public ICommand ViewHealthRecordCommand { get; }
         public ICommand ChangeCommand { get; }
         public ICommand AddCommand { get; }
-        public ICommand DeleteCommand { get; }
         private List<BENHNHAN> victims;
         private BENHNHAN selectedItem = null;
 
@@ -68,19 +66,6 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(ChangeVisibility));
             }
         }
-        public TAIKHOAN CurrentUserAccount
-        {
-            get
-            {
-                return _currentUserAccount;
-            }
-
-            set
-            {
-                _currentUserAccount = value;
-                OnPropertyChanged(nameof(CurrentUserAccount));
-            }
-        }
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -88,13 +73,11 @@ namespace LTTQ_DoAn.ViewModel
             //System.Windows.MessageBox.Show("Done");
         }
 
-        public VictimViewModel(TAIKHOAN user_account)
+        public VictimViewModel()
         {
             Load();
-            CurrentUserAccount = user_account;
-            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
+            Set_permission(MainViewModel._currentUserAccount.LOAITAIKHOAN);
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
-            DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             ViewCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             ViewHealthRecordCommand = new ViewModelCommand(ExecuteViewHealthRecordCommand, CanExecuteViewHealthRecordCommand);
@@ -161,62 +144,6 @@ namespace LTTQ_DoAn.ViewModel
             }*/
             Load();
         }
-        //tham số 1 điều kiện để xóa lịch khám
-        private bool CanExecuteDeleteCommand(object? obj)
-        {
-            return true;
-        }
-        //tham số thứ 2 là hành động
-        private void ExecuteDeleteCommand(object? obj)
-        {
-            try
-            {
-                int Id = SelectedItem.MABENHNHAN;
-                var deleteMember = _db.BENHNHAN.Where(m => m.MABENHNHAN == Id).Single();
-                _db.BENHNHAN.DeleteObject(deleteMember);
-                _db.SaveChanges();
-
-                new MessageBoxCustom(
-                    "Thông báo", 
-                    "Đã xóa bệnh nhân: \nMã bệnh nhân: " +
-                        SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " +
-                        SelectedItem.HOTEN.ToString(),
-                    MessageType.Success,
-                    MessageButtons.OK)
-                    .ShowDialog();
-
-                /*
-                MessageBox.Show("Đã xóa bệnh nhân: \nMã bệnh nhân: " + 
-                 SelectedItem.SUB_ID.ToString() + "\nHọ Tên: " + 
-                 SelectedItem.HOTEN.ToString());
-                */
-                Load();
-            }
-            catch (DbUpdateException e)
-            {
-                //MessageBox.Show("Bạn cần xóa lịch khám của bệnh nhân này trước!");
-                new MessageBoxCustom(
-                    "Thông báo", 
-                    "Bạn cần xóa lịch khám của bệnh nhân này trước!",
-                    MessageType.Error, 
-                    MessageButtons.OK
-                    )
-                    .ShowDialog();
-
-            }
-            catch (Exception e)
-            {
-                //MessageBox.Show(e.Message + "\nLỗi: " + e.GetType().ToString());
-                new MessageBoxCustom(
-                    "Thông báo",
-                    "Vui lòng xóa bệnh án, đơn thuốc của bệnh nhân này trước!",
-                    MessageType.Error,
-                    MessageButtons.OK
-                    )
-                    .ShowDialog();
-            }
-
-        }
 
         private bool CanExecuteViewCommand(object? obj)
         {
@@ -271,7 +198,7 @@ namespace LTTQ_DoAn.ViewModel
             HealthRecordAndPrescription wd = new HealthRecordAndPrescription();
             if (SelectedItem != null)
             {
-                wd.DataContext = new HealthRecordAndPrescriptionViewModel(SelectedItem, wd, CurrentUserAccount);
+                wd.DataContext = new HealthRecordAndPrescriptionViewModel(SelectedItem, wd, MainViewModel._currentUserAccount);
                 //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
                 // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
                 Application.Current.MainWindow = wd;

@@ -16,7 +16,6 @@ namespace LTTQ_DoAn.ViewModel
         public bool deleteVisibility = true;
         public bool changeVisibility = true;
         public bool addVisibility = true;
-        private TAIKHOAN _currentUserAccount;
         private List<DICHVU> dichvu;
         private DICHVU selecteddichvu;
         public ICommand ChangeServicesCommand { get; }
@@ -62,29 +61,15 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(ChangeVisibility));
             }
         }
-        public TAIKHOAN CurrentUserAccount
-        {
-            get
-            {
-                return _currentUserAccount;
-            }
-
-            set
-            {
-                _currentUserAccount = value;
-                OnPropertyChanged(nameof(CurrentUserAccount));
-            }
-        }
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
             Dichvu = _db.DICHVU.ToList();
         }
-        public ServicesViewModel(TAIKHOAN user_account)
+        public ServicesViewModel()
         {
             Load();
-            CurrentUserAccount = user_account;
-            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
+            Set_permission(MainViewModel._currentUserAccount.LOAITAIKHOAN);
             ChangeServicesCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddServicesCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteServicesCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);

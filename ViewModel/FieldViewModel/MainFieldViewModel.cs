@@ -16,7 +16,6 @@ namespace LTTQ_DoAn.ViewModel
         public bool deleteVisibility = true;
         public bool changeVisibility = true;
         public bool addVisibility = true;
-        private TAIKHOAN _currentUserAccount;
         private List<KHOA> khoa;
         private KHOA selectedkhoa;
         public ICommand ViewFieldCommand { get; }
@@ -64,29 +63,15 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(ChangeVisibility));
             }
         }
-        public TAIKHOAN CurrentUserAccount
-        {
-            get
-            {
-                return _currentUserAccount;
-            }
-
-            set
-            {
-                _currentUserAccount = value;
-                OnPropertyChanged(nameof(CurrentUserAccount));
-            }
-        }
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
             Khoa = _db.KHOA.ToList();
         }
-        public FieldViewModel(TAIKHOAN user_account)
+        public FieldViewModel()
         {
             Load();
-            CurrentUserAccount = user_account;
-            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
+            Set_permission(MainViewModel._currentUserAccount.LOAITAIKHOAN);
             ViewFieldCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeFieldCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddFieldCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
