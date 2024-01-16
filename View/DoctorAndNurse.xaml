@@ -111,22 +111,22 @@
             </DataGridCheckBoxColumn.HeaderTemplate>
         </DataGridCheckBoxColumn>
 
-        <DataGridTextColumn Header="ID" Width="15*"
+        <DataGridTextColumn Header="ID" Width="10*"
                                 IsReadOnly="True" CanUserResize="False"
                                 Binding="{Binding SUB_ID}">
         </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="15*" Binding="{Binding HOTEN}"
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding HOTEN}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên khoa" Width="15*" Binding="{Binding KHOA.TENKHOA}"
+                    <DataGridTextColumn Header="Tên khoa" Width="25*" Binding="{Binding KHOA.TENKHOA}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
                     <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày vào làm" Width="20*" Binding="{Binding NGAYVAOLAM, StringFormat='dd/MM/yyyy'}"
+                    <DataGridTextColumn Header="Ngày vào làm" Width="15*" Binding="{Binding NGAYVAOLAM, StringFormat='dd/MM/yyyy'}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
         <DataGridTemplateColumn Header="Thao tác" Width="15*"

@@ -91,19 +91,19 @@
                                             Binding="{Binding Lichkham.SUB_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="15*" Binding="{Binding Benhnhan.HOTEN}"
+                    <DataGridTextColumn Header="Tên" Width="20*" Binding="{Binding Benhnhan.HOTEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày sinh" Width="20*" Binding="{Binding Benhnhan.NGAYSINH, StringFormat='dd/MM/yyyy'}"
+                    <DataGridTextColumn Header="Ngày sinh" Width="15*" Binding="{Binding Benhnhan.NGAYSINH, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Dịch vụ" Width="15*" Binding="{Binding Dichvu.TENDICHVU}"
+                    <DataGridTextColumn Header="Dịch vụ" Width="20*" Binding="{Binding Dichvu.TENDICHVU}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding Lichkham.NGAYKHAM, StringFormat='dd/MM/yyyy'}"
+                    <DataGridTextColumn Header="Ngày Khám" Width="15*" Binding="{Binding Lichkham.NGAYKHAM, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     
