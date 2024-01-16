@@ -25,8 +25,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MAYSI_BENHAN", "YSI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.YSI), "BENHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.BENHAN), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MABENHNHAN_LICHKHAM", "BENHNHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.BENHNHAN), "LICHKHAM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.LICHKHAM), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MAPHONG_PHONG", "PHONG", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.PHONG), "BENHNHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.BENHNHAN), true)]
+[assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_CTDT_MADONTHUOC", "DONTHUOC", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(LTTQ_DoAn.DONTHUOC), "CHITIETDONTHUOC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.CHITIETDONTHUOC), true)]
+[assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_CTDT_MATHUOC", "THUOC", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(LTTQ_DoAn.THUOC), "CHITIETDONTHUOC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.CHITIETDONTHUOC), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MADICHVU_LICHKHAM", "DICHVU", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.DICHVU), "LICHKHAM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.LICHKHAM), true)]
-[assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_THUOC_DONTHUOC", "DONTHUOC", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.DONTHUOC), "THUOC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.THUOC), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MAKHOA_YSI", "KHOA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.KHOA), "YSI", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.YSI), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_TRUONGKHOA", "YSI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.YSI), "KHOA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.KHOA), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MABACSI_LICHKHAM", "YSI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.YSI), "LICHKHAM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.LICHKHAM), true)]
@@ -115,6 +116,22 @@ namespace LTTQ_DoAn
             }
         }
         private ObjectSet<BENHNHAN> _BENHNHAN;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CHITIETDONTHUOC> CHITIETDONTHUOC
+        {
+            get
+            {
+                if ((_CHITIETDONTHUOC == null))
+                {
+                    _CHITIETDONTHUOC = base.CreateObjectSet<CHITIETDONTHUOC>("CHITIETDONTHUOC");
+                }
+                return _CHITIETDONTHUOC;
+            }
+        }
+        private ObjectSet<CHITIETDONTHUOC> _CHITIETDONTHUOC;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -278,6 +295,14 @@ namespace LTTQ_DoAn
         public void AddToBENHNHAN(BENHNHAN bENHNHAN)
         {
             base.AddObject("BENHNHAN", bENHNHAN);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CHITIETDONTHUOC EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCHITIETDONTHUOC(CHITIETDONTHUOC cHITIETDONTHUOC)
+        {
+            base.AddObject("CHITIETDONTHUOC", cHITIETDONTHUOC);
         }
     
         /// <summary>
@@ -1085,6 +1110,243 @@ namespace LTTQ_DoAn
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="QUANLYBENHVIENModel", Name="CHITIETDONTHUOC")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CHITIETDONTHUOC : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CHITIETDONTHUOC object.
+        /// </summary>
+        /// <param name="mADONTHUOC">Initial value of the MADONTHUOC property.</param>
+        /// <param name="mATHUOC">Initial value of the MATHUOC property.</param>
+        public static CHITIETDONTHUOC CreateCHITIETDONTHUOC(global::System.Int32 mADONTHUOC, global::System.Int32 mATHUOC)
+        {
+            CHITIETDONTHUOC cHITIETDONTHUOC = new CHITIETDONTHUOC();
+            cHITIETDONTHUOC.MADONTHUOC = mADONTHUOC;
+            cHITIETDONTHUOC.MATHUOC = mATHUOC;
+            return cHITIETDONTHUOC;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MADONTHUOC
+        {
+            get
+            {
+                return _MADONTHUOC;
+            }
+            set
+            {
+                if (_MADONTHUOC != value)
+                {
+                    OnMADONTHUOCChanging(value);
+                    ReportPropertyChanging("MADONTHUOC");
+                    _MADONTHUOC = StructuralObject.SetValidValue(value, "MADONTHUOC");
+                    ReportPropertyChanged("MADONTHUOC");
+                    OnMADONTHUOCChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MADONTHUOC;
+        partial void OnMADONTHUOCChanging(global::System.Int32 value);
+        partial void OnMADONTHUOCChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MATHUOC
+        {
+            get
+            {
+                return _MATHUOC;
+            }
+            set
+            {
+                if (_MATHUOC != value)
+                {
+                    OnMATHUOCChanging(value);
+                    ReportPropertyChanging("MATHUOC");
+                    _MATHUOC = StructuralObject.SetValidValue(value, "MATHUOC");
+                    ReportPropertyChanged("MATHUOC");
+                    OnMATHUOCChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MATHUOC;
+        partial void OnMATHUOCChanging(global::System.Int32 value);
+        partial void OnMATHUOCChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> SOLUONG
+        {
+            get
+            {
+                return _SOLUONG;
+            }
+            set
+            {
+                OnSOLUONGChanging(value);
+                ReportPropertyChanging("SOLUONG");
+                _SOLUONG = StructuralObject.SetValidValue(value, "SOLUONG");
+                ReportPropertyChanged("SOLUONG");
+                OnSOLUONGChanged();
+            }
+        }
+        private Nullable<global::System.Double> _SOLUONG;
+        partial void OnSOLUONGChanging(Nullable<global::System.Double> value);
+        partial void OnSOLUONGChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SOLAN
+        {
+            get
+            {
+                return _SOLAN;
+            }
+            set
+            {
+                OnSOLANChanging(value);
+                ReportPropertyChanging("SOLAN");
+                _SOLAN = StructuralObject.SetValidValue(value, "SOLAN");
+                ReportPropertyChanged("SOLAN");
+                OnSOLANChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SOLAN;
+        partial void OnSOLANChanging(Nullable<global::System.Int32> value);
+        partial void OnSOLANChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GHICHU
+        {
+            get
+            {
+                return _GHICHU;
+            }
+            set
+            {
+                OnGHICHUChanging(value);
+                ReportPropertyChanging("GHICHU");
+                _GHICHU = StructuralObject.SetValidValue(value, true, "GHICHU");
+                ReportPropertyChanged("GHICHU");
+                OnGHICHUChanged();
+            }
+        }
+        private global::System.String _GHICHU;
+        partial void OnGHICHUChanging(global::System.String value);
+        partial void OnGHICHUChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_CTDT_MADONTHUOC", "DONTHUOC")]
+        public DONTHUOC DONTHUOC
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MADONTHUOC", "DONTHUOC").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MADONTHUOC", "DONTHUOC").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<DONTHUOC> DONTHUOCReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MADONTHUOC", "DONTHUOC");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MADONTHUOC", "DONTHUOC", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_CTDT_MATHUOC", "THUOC")]
+        public THUOC THUOC
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<THUOC>("QUANLYBENHVIENModel.FK_CTDT_MATHUOC", "THUOC").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<THUOC>("QUANLYBENHVIENModel.FK_CTDT_MATHUOC", "THUOC").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<THUOC> THUOCReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<THUOC>("QUANLYBENHVIENModel.FK_CTDT_MATHUOC", "THUOC");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<THUOC>("QUANLYBENHVIENModel.FK_CTDT_MATHUOC", "THUOC", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="QUANLYBENHVIENModel", Name="DICHVU")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1454,18 +1716,18 @@ namespace LTTQ_DoAn
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_THUOC_DONTHUOC", "THUOC")]
-        public EntityCollection<THUOC> THUOC
+        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_CTDT_MADONTHUOC", "CHITIETDONTHUOC")]
+        public EntityCollection<CHITIETDONTHUOC> CHITIETDONTHUOC
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<THUOC>("QUANLYBENHVIENModel.FK_THUOC_DONTHUOC", "THUOC");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CHITIETDONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MADONTHUOC", "CHITIETDONTHUOC");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<THUOC>("QUANLYBENHVIENModel.FK_THUOC_DONTHUOC", "THUOC", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CHITIETDONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MADONTHUOC", "CHITIETDONTHUOC", value);
                 }
             }
         }
@@ -2729,30 +2991,6 @@ namespace LTTQ_DoAn
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> MADONTHUOC
-        {
-            get
-            {
-                return _MADONTHUOC;
-            }
-            set
-            {
-                OnMADONTHUOCChanging(value);
-                ReportPropertyChanging("MADONTHUOC");
-                _MADONTHUOC = StructuralObject.SetValidValue(value, "MADONTHUOC");
-                ReportPropertyChanged("MADONTHUOC");
-                OnMADONTHUOCChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _MADONTHUOC;
-        partial void OnMADONTHUOCChanging(Nullable<global::System.Int32> value);
-        partial void OnMADONTHUOCChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String GHICHU
         {
             get
@@ -2819,6 +3057,30 @@ namespace LTTQ_DoAn
         private global::System.String _DONVITINH;
         partial void OnDONVITINHChanging(global::System.String value);
         partial void OnDONVITINHChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TENTHUOC
+        {
+            get
+            {
+                return _TENTHUOC;
+            }
+            set
+            {
+                OnTENTHUOCChanging(value);
+                ReportPropertyChanging("TENTHUOC");
+                _TENTHUOC = StructuralObject.SetValidValue(value, true, "TENTHUOC");
+                ReportPropertyChanged("TENTHUOC");
+                OnTENTHUOCChanged();
+            }
+        }
+        private global::System.String _TENTHUOC;
+        partial void OnTENTHUOCChanging(global::System.String value);
+        partial void OnTENTHUOCChanged();
 
         #endregion
 
@@ -2830,34 +3092,18 @@ namespace LTTQ_DoAn
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_THUOC_DONTHUOC", "DONTHUOC")]
-        public DONTHUOC DONTHUOC
+        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_CTDT_MATHUOC", "CHITIETDONTHUOC")]
+        public EntityCollection<CHITIETDONTHUOC> CHITIETDONTHUOC
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_THUOC_DONTHUOC", "DONTHUOC").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_THUOC_DONTHUOC", "DONTHUOC").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<DONTHUOC> DONTHUOCReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_THUOC_DONTHUOC", "DONTHUOC");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CHITIETDONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MATHUOC", "CHITIETDONTHUOC");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DONTHUOC>("QUANLYBENHVIENModel.FK_THUOC_DONTHUOC", "DONTHUOC", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CHITIETDONTHUOC>("QUANLYBENHVIENModel.FK_CTDT_MATHUOC", "CHITIETDONTHUOC", value);
                 }
             }
         }
