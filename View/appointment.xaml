@@ -95,7 +95,7 @@
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày sinh" Width="20*" Binding="{Binding Benhnhan.NGAYSINH}"
+                    <DataGridTextColumn Header="Ngày sinh" Width="20*" Binding="{Binding Benhnhan.NGAYSINH, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
@@ -103,7 +103,7 @@
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding Lichkham.NGAYKHAM}"
+                    <DataGridTextColumn Header="Ngày Khám" Width="20*" Binding="{Binding Lichkham.NGAYKHAM, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     
