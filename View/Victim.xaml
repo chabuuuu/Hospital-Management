@@ -66,34 +66,22 @@
                       Height="Auto"
                       >
                 <DataGrid.Columns>
-                    <!--dấu # này là cột chứa checkbox của mỗi item-->
-                    <DataGridCheckBoxColumn Width="5*"
-                                            CanUserResize="False"
-                                            ElementStyle="{StaticResource CheckBoxStyle1}">
-                        <DataGridCheckBoxColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}"
-                                          IsChecked="False"/>
-                            </DataTemplate>
-                        </DataGridCheckBoxColumn.HeaderTemplate>
-                    </DataGridCheckBoxColumn>
-
                     <DataGridTextColumn Header="ID" Width="15*"
                                             IsReadOnly="True" CanUserResize="False"
                                             Binding="{Binding SUB_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên" Width="15*" Binding="{Binding HOTEN}"
+                    <DataGridTextColumn Header="Tên" Width="25*" Binding="{Binding HOTEN}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Ngày sinh" Width="20*" Binding="{Binding NGAYSINH, StringFormat='dd/MM/yyyy'}"
+                    <DataGridTextColumn Header="Ngày sinh" Width="15*" Binding="{Binding NGAYSINH, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày nhập viện" Width="20*" Binding="{Binding NGAYNHAPVIEN, StringFormat='dd/MM/yyyy'}"
+                    <DataGridTextColumn Header="Ngày nhập viện" Width="15*" Binding="{Binding NGAYNHAPVIEN, StringFormat='dd/MM/yyyy'}"
                                         IsReadOnly="True" CanUserResize="False">
                     </DataGridTextColumn>
                     <DataGridTemplateColumn Header="Thao tác" Width="15*"
