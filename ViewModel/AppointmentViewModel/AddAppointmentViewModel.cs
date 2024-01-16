@@ -52,6 +52,14 @@ namespace LTTQ_DoAn.ViewModel
         public List<string> BenhnhanList { get => benhnhanList; set => benhnhanList = value; }
         public List<string> DichvuList { get => dichvuList; set => dichvuList = value; }
         public List<string> PhongList { get => phongList; set => phongList = value; }
+        public string Cakham
+        {
+            get => cakham; set
+            {
+                cakham = value;
+                OnPropertyChanged(nameof(Cakham));
+            }
+        }
 
         private string benhnhan;
         private string bacsi;
@@ -59,11 +67,41 @@ namespace LTTQ_DoAn.ViewModel
         private string phong;
         private string ngaylenlich;
         private string ngaykham;
+        private string cakham;
         private List<String> benhnhanList;
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
         private List<string> bacsiList;
         private List<String> dichvuList;
         private List<String> phongList;
+
+        public void checkCaKham()
+        {
+            int idBacSi = convertBacsiSub_ID(Bacsi);
+            YSI thisYsi = (from m in _db.YSI
+                                where m.MAYSI == idBacSi
+                                select m).FirstOrDefault();
+            if (thisYsi == null)
+            {
+                throw new Exception("Bác sĩ này không tồn tại!");
+            }
+            int Ca = int.Parse(Cakham);
+            DateTime new_NgayKham = DateTime.ParseExact(Ngaykham, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+            LICHKHAM check_trung_lich_kham = thisYsi.LICHKHAM.Where(i => i.CAKHAM == Ca && i.NGAYKHAM == new_NgayKham).FirstOrDefault();
+            if (check_trung_lich_kham != null)
+            {
+                throw new Exception("Bác sĩ này đã có lịch khám vào ca " + Cakham + " rồi!");
+            }
+            int new_MaPhong = (int)convertPhongSUB_ID(Phong);
+            LICHKHAM check_trung_voi_bacsi_khac = _db.LICHKHAM.Where(k => k.CAKHAM == Ca &&
+                k.NGAYKHAM == new_NgayKham &&
+                k.MAPHONG == new_MaPhong &&
+                k.MABACSI != idBacSi).SingleOrDefault();
+            if (check_trung_voi_bacsi_khac != null)
+            {
+                throw new Exception("Ca khám vào phòng này đã được đặt trước cho bác sĩ khác");
+            }
+            return;
+        }
 
         public void loadBenhnhan()
         {
@@ -139,7 +177,7 @@ namespace LTTQ_DoAn.ViewModel
         {
             // Tách chuỗi sử dụng phương thức Split
             string[] parts = inputString.Split(new[] { ':' }, 2);
-            string k1 = parts[0].Substring(2);
+            string k1 = parts[1].Substring(3);
             return int.Parse(k1);
         }
         public int convertDichvuSub_ID(string inputString)
@@ -151,6 +189,8 @@ namespace LTTQ_DoAn.ViewModel
         }
         public void insert()
         {
+            int insert_Ca = int.Parse(Cakham);
+            checkCaKham();
             LICHKHAM newLichkham = new LICHKHAM()
             {
                 MABACSI = convertBacsiSub_ID(Bacsi),
@@ -159,6 +199,7 @@ namespace LTTQ_DoAn.ViewModel
                 NGAYKHAM = DateTime.ParseExact(Ngaykham, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
                 MAPHONG = convertPhongSUB_ID(Phong),
                 NGAYLENLICH = DateTime.ParseExact(Ngaylenlich, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
+                CAKHAM  = insert_Ca,
             };
             _db.LICHKHAM.AddObject(newLichkham);
             _db.SaveChanges();
@@ -196,7 +237,10 @@ namespace LTTQ_DoAn.ViewModel
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                new MessageBoxCustom("Lỗi", err.Message,
+                    MessageType.Error,
+                    MessageButtons.OK)
+                    .ShowDialog();
                 Application.Current.MainWindow.Close(); // sau khi thêm sẽ đóng cửa sổ
             }
         }
