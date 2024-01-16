@@ -33,6 +33,17 @@
           <Property Name="MABHYT" Type="varchar" MaxLength="20" />
           <Property Name="NGAYNHAPVIEN" Type="datetime" />
         </EntityType>
+        <EntityType Name="CHITIETDONTHUOC">
+          <Key>
+            <PropertyRef Name="MADONTHUOC" />
+            <PropertyRef Name="MATHUOC" />
+          </Key>
+          <Property Name="MADONTHUOC" Type="int" Nullable="false" />
+          <Property Name="MATHUOC" Type="int" Nullable="false" />
+          <Property Name="SOLUONG" Type="float" />
+          <Property Name="SOLAN" Type="int" />
+          <Property Name="GHICHU" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="DICHVU">
           <Key>
             <PropertyRef Name="MADICHVU" />
@@ -113,10 +124,10 @@
           </Key>
           <Property Name="MATHUOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SUB_ID" Type="varchar" MaxLength="13" StoreGeneratedPattern="Computed" />
-          <Property Name="MADONTHUOC" Type="int" />
           <Property Name="GHICHU" Type="varchar(max)" />
           <Property Name="GIATIEN" Type="money" />
           <Property Name="DONVITINH" Type="nvarchar" MaxLength="30" />
+          <Property Name="TENTHUOC" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="YSI">
           <Key>
@@ -142,6 +153,30 @@
             </Principal>
             <Dependent Role="DONTHUOC">
               <PropertyRef Name="MABENHAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTDT_MADONTHUOC">
+          <End Role="DONTHUOC" Type="Self.DONTHUOC" Multiplicity="1" />
+          <End Role="CHITIETDONTHUOC" Type="Self.CHITIETDONTHUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONTHUOC">
+              <PropertyRef Name="MADONTHUOC" />
+            </Principal>
+            <Dependent Role="CHITIETDONTHUOC">
+              <PropertyRef Name="MADONTHUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTDT_MATHUOC">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="CHITIETDONTHUOC" Type="Self.CHITIETDONTHUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="MATHUOC" />
+            </Principal>
+            <Dependent Role="CHITIETDONTHUOC">
+              <PropertyRef Name="MATHUOC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -277,18 +312,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_THUOC_DONTHUOC">
-          <End Role="DONTHUOC" Type="Self.DONTHUOC" Multiplicity="0..1" />
-          <End Role="THUOC" Type="Self.THUOC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DONTHUOC">
-              <PropertyRef Name="MADONTHUOC" />
-            </Principal>
-            <Dependent Role="THUOC">
-              <PropertyRef Name="MADONTHUOC" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TRUONGKHOA">
           <End Role="YSI" Type="Self.YSI" Multiplicity="0..1" />
           <End Role="KHOA" Type="Self.KHOA" Multiplicity="*" />
@@ -304,6 +327,7 @@
         <EntityContainer Name="QUANLYBENHVIENModelStoreContainer">
           <EntitySet Name="BENHAN" EntityType="Self.BENHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BENHNHAN" EntityType="Self.BENHNHAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHITIETDONTHUOC" EntityType="Self.CHITIETDONTHUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONTHUOC" EntityType="Self.DONTHUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHOA" EntityType="Self.KHOA" Schema="dbo" store:Type="Tables" />
@@ -316,6 +340,14 @@
           <AssociationSet Name="FK_BENHAN_DONTHUOC" Association="Self.FK_BENHAN_DONTHUOC">
             <End Role="BENHAN" EntitySet="BENHAN" />
             <End Role="DONTHUOC" EntitySet="DONTHUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTDT_MADONTHUOC" Association="Self.FK_CTDT_MADONTHUOC">
+            <End Role="DONTHUOC" EntitySet="DONTHUOC" />
+            <End Role="CHITIETDONTHUOC" EntitySet="CHITIETDONTHUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTDT_MATHUOC" Association="Self.FK_CTDT_MATHUOC">
+            <End Role="THUOC" EntitySet="THUOC" />
+            <End Role="CHITIETDONTHUOC" EntitySet="CHITIETDONTHUOC" />
           </AssociationSet>
           <AssociationSet Name="FK_CHIHUY_YSI" Association="Self.FK_CHIHUY_YSI">
             <End Role="YSI" EntitySet="YSI" />
@@ -360,10 +392,6 @@
           <AssociationSet Name="FK_MAYSI_BENHAN" Association="Self.FK_MAYSI_BENHAN">
             <End Role="YSI" EntitySet="YSI" />
             <End Role="BENHAN" EntitySet="BENHAN" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THUOC_DONTHUOC" Association="Self.FK_THUOC_DONTHUOC">
-            <End Role="DONTHUOC" EntitySet="DONTHUOC" />
-            <End Role="THUOC" EntitySet="THUOC" />
           </AssociationSet>
           <AssociationSet Name="FK_TRUONGKHOA" Association="Self.FK_TRUONGKHOA">
             <End Role="YSI" EntitySet="YSI" />
@@ -410,6 +438,19 @@
           <NavigationProperty Name="LICHKHAM" Relationship="Self.FK_MABENHNHAN_LICHKHAM" FromRole="BENHNHAN" ToRole="LICHKHAM" />
           <NavigationProperty Name="PHONG" Relationship="Self.FK_MAPHONG_PHONG" FromRole="BENHNHAN" ToRole="PHONG" />
         </EntityType>
+        <EntityType Name="CHITIETDONTHUOC">
+          <Key>
+            <PropertyRef Name="MADONTHUOC" />
+            <PropertyRef Name="MATHUOC" />
+          </Key>
+          <Property Name="MADONTHUOC" Type="Int32" Nullable="false" />
+          <Property Name="MATHUOC" Type="Int32" Nullable="false" />
+          <Property Name="SOLUONG" Type="Double" />
+          <Property Name="SOLAN" Type="Int32" />
+          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DONTHUOC" Relationship="Self.FK_CTDT_MADONTHUOC" FromRole="CHITIETDONTHUOC" ToRole="DONTHUOC" />
+          <NavigationProperty Name="THUOC" Relationship="Self.FK_CTDT_MATHUOC" FromRole="CHITIETDONTHUOC" ToRole="THUOC" />
+        </EntityType>
         <EntityType Name="DICHVU">
           <Key>
             <PropertyRef Name="MADICHVU" />
@@ -431,7 +472,7 @@
           <Property Name="MABENHAN" Type="Int32" />
           <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BENHAN" Relationship="Self.FK_BENHAN_DONTHUOC" FromRole="DONTHUOC" ToRole="BENHAN" />
-          <NavigationProperty Name="THUOC" Relationship="Self.FK_THUOC_DONTHUOC" FromRole="DONTHUOC" ToRole="THUOC" />
+          <NavigationProperty Name="CHITIETDONTHUOC" Relationship="Self.FK_CTDT_MADONTHUOC" FromRole="DONTHUOC" ToRole="CHITIETDONTHUOC" />
         </EntityType>
         <EntityType Name="KHOA">
           <Key>
@@ -503,11 +544,11 @@
           </Key>
           <Property Name="MATHUOC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SUB_ID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="MADONTHUOC" Type="Int32" />
           <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="GIATIEN" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="DONVITINH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DONTHUOC" Relationship="Self.FK_THUOC_DONTHUOC" FromRole="THUOC" ToRole="DONTHUOC" />
+          <Property Name="TENTHUOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHITIETDONTHUOC" Relationship="Self.FK_CTDT_MATHUOC" FromRole="THUOC" ToRole="CHITIETDONTHUOC" />
         </EntityType>
         <EntityType Name="YSI">
           <Key>
@@ -603,6 +644,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CTDT_MADONTHUOC">
+          <End Role="DONTHUOC" Type="Self.DONTHUOC" Multiplicity="1" />
+          <End Role="CHITIETDONTHUOC" Type="Self.CHITIETDONTHUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONTHUOC">
+              <PropertyRef Name="MADONTHUOC" />
+            </Principal>
+            <Dependent Role="CHITIETDONTHUOC">
+              <PropertyRef Name="MADONTHUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTDT_MATHUOC">
+          <End Role="THUOC" Type="Self.THUOC" Multiplicity="1" />
+          <End Role="CHITIETDONTHUOC" Type="Self.CHITIETDONTHUOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THUOC">
+              <PropertyRef Name="MATHUOC" />
+            </Principal>
+            <Dependent Role="CHITIETDONTHUOC">
+              <PropertyRef Name="MATHUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MADICHVU_LICHKHAM">
           <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="0..1" />
           <End Role="LICHKHAM" Type="Self.LICHKHAM" Multiplicity="*" />
@@ -612,18 +677,6 @@
             </Principal>
             <Dependent Role="LICHKHAM">
               <PropertyRef Name="MADICHVU" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_THUOC_DONTHUOC">
-          <End Role="DONTHUOC" Type="Self.DONTHUOC" Multiplicity="0..1" />
-          <End Role="THUOC" Type="Self.THUOC" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DONTHUOC">
-              <PropertyRef Name="MADONTHUOC" />
-            </Principal>
-            <Dependent Role="THUOC">
-              <PropertyRef Name="MADONTHUOC" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -702,6 +755,7 @@
         <EntityContainer Name="QUANLYBENHVIENEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BENHAN" EntityType="Self.BENHAN" />
           <EntitySet Name="BENHNHAN" EntityType="Self.BENHNHAN" />
+          <EntitySet Name="CHITIETDONTHUOC" EntityType="Self.CHITIETDONTHUOC" />
           <EntitySet Name="DICHVU" EntityType="Self.DICHVU" />
           <EntitySet Name="DONTHUOC" EntityType="Self.DONTHUOC" />
           <EntitySet Name="KHOA" EntityType="Self.KHOA" />
@@ -735,13 +789,17 @@
             <End Role="PHONG" EntitySet="PHONG" />
             <End Role="BENHNHAN" EntitySet="BENHNHAN" />
           </AssociationSet>
+          <AssociationSet Name="FK_CTDT_MADONTHUOC" Association="Self.FK_CTDT_MADONTHUOC">
+            <End Role="DONTHUOC" EntitySet="DONTHUOC" />
+            <End Role="CHITIETDONTHUOC" EntitySet="CHITIETDONTHUOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTDT_MATHUOC" Association="Self.FK_CTDT_MATHUOC">
+            <End Role="THUOC" EntitySet="THUOC" />
+            <End Role="CHITIETDONTHUOC" EntitySet="CHITIETDONTHUOC" />
+          </AssociationSet>
           <AssociationSet Name="FK_MADICHVU_LICHKHAM" Association="Self.FK_MADICHVU_LICHKHAM">
             <End Role="DICHVU" EntitySet="DICHVU" />
             <End Role="LICHKHAM" EntitySet="LICHKHAM" />
-          </AssociationSet>
-          <AssociationSet Name="FK_THUOC_DONTHUOC" Association="Self.FK_THUOC_DONTHUOC">
-            <End Role="DONTHUOC" EntitySet="DONTHUOC" />
-            <End Role="THUOC" EntitySet="THUOC" />
           </AssociationSet>
           <AssociationSet Name="FK_MAKHOA_YSI" Association="Self.FK_MAKHOA_YSI">
             <End Role="KHOA" EntitySet="KHOA" />
@@ -801,6 +859,17 @@
                 <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
                 <ScalarProperty Name="MABHYT" ColumnName="MABHYT" />
                 <ScalarProperty Name="NGAYNHAPVIEN" ColumnName="NGAYNHAPVIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHITIETDONTHUOC">
+            <EntityTypeMapping TypeName="QUANLYBENHVIENModel.CHITIETDONTHUOC">
+              <MappingFragment StoreEntitySet="CHITIETDONTHUOC">
+                <ScalarProperty Name="MADONTHUOC" ColumnName="MADONTHUOC" />
+                <ScalarProperty Name="MATHUOC" ColumnName="MATHUOC" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="SOLAN" ColumnName="SOLAN" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -890,10 +959,10 @@
               <MappingFragment StoreEntitySet="THUOC">
                 <ScalarProperty Name="MATHUOC" ColumnName="MATHUOC" />
                 <ScalarProperty Name="SUB_ID" ColumnName="SUB_ID" />
-                <ScalarProperty Name="MADONTHUOC" ColumnName="MADONTHUOC" />
                 <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
                 <ScalarProperty Name="GIATIEN" ColumnName="GIATIEN" />
                 <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
+                <ScalarProperty Name="TENTHUOC" ColumnName="TENTHUOC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
