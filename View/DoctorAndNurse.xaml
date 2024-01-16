@@ -126,7 +126,7 @@
                     <DataGridTextColumn Header="Giới tính" Width="10*" Binding="{Binding GIOITINH}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
-                    <DataGridTextColumn Header="Ngày vào làm" Width="20*" Binding="{Binding NGAYVAOLAM}"
+                    <DataGridTextColumn Header="Ngày vào làm" Width="20*" Binding="{Binding NGAYVAOLAM, StringFormat='dd/MM/yyyy'}"
                             IsReadOnly="True" CanUserResize="False">
         </DataGridTextColumn>
         <DataGridTemplateColumn Header="Thao tác" Width="15*"
