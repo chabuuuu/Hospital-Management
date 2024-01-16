@@ -13,7 +13,9 @@ namespace LTTQ_DoAn.ViewModel
     public class FieldViewModel : BaseViewModel
     {
         QUANLYBENHVIENEntities _db;
-
+        public bool deleteVisibility = true;
+        public bool changeVisibility = true;
+        public bool addVisibility = true;
         private List<KHOA> khoa;
         private KHOA selectedkhoa;
         public ICommand ViewFieldCommand { get; }
@@ -37,7 +39,30 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(selectedkhoa));
             }
         }
-
+        public bool DeleteVisibility
+        {
+            get => deleteVisibility; set
+            {
+                deleteVisibility = value;
+                OnPropertyChanged(nameof(DeleteVisibility));
+            }
+        }
+        public bool AddVisibility
+        {
+            get => addVisibility; set
+            {
+                addVisibility = value;
+                OnPropertyChanged(nameof(AddVisibility));
+            }
+        }
+        public bool ChangeVisibility
+        {
+            get => changeVisibility; set
+            {
+                changeVisibility = value;
+                OnPropertyChanged(nameof(ChangeVisibility));
+            }
+        }
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -46,12 +71,47 @@ namespace LTTQ_DoAn.ViewModel
         public FieldViewModel()
         {
             Load();
+            Set_permission(MainViewModel._currentUserAccount.LOAITAIKHOAN);
             ViewFieldCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeFieldCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddFieldCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteFieldCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
         }
-
+        void Set_permission(string type)
+        {
+            switch (type)
+            {
+                case "Admin":
+                    Set_admin();
+                    break;
+                case "Staff":
+                    Set_staff();
+                    break;
+                case "Doctor":
+                    Set_doctor();
+                    break;
+                default:
+                    break;
+            }
+        }
+        void Set_doctor()
+        {
+            deleteVisibility = false;
+            changeVisibility = false;
+            addVisibility = false;
+        }
+        void Set_admin()
+        {
+            deleteVisibility = true;
+            changeVisibility = true;
+            addVisibility = true;
+        }
+        void Set_staff()
+        {
+            deleteVisibility = false;
+            changeVisibility = false;
+            addVisibility = false;
+        }
         private bool CanExecuteViewCommand(object? obj)
         {
             return true; //ko điều kiện

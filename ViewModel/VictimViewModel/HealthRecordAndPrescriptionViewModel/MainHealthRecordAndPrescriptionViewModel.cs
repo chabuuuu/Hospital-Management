@@ -42,6 +42,9 @@ namespace LTTQ_DoAn.ViewModel
     public class HealthRecordAndPrescriptionViewModel : BaseViewModel
     {
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
+        public bool changeVisibility = true;
+        public bool addVisibility = true;
+        private TAIKHOAN _currentUserAccount;
         private string khoa;
         private HealthRecordAndPrescription thisView;
         public ICommand ChangeHRCommand { get; }
@@ -101,7 +104,35 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Donthuoc));
             }
         }
+        public bool AddVisibility
+        {
+            get => addVisibility; set
+            {
+                addVisibility = value;
+                OnPropertyChanged(nameof(AddVisibility));
+            }
+        }
+        public bool ChangeVisibility
+        {
+            get => changeVisibility; set
+            {
+                changeVisibility = value;
+                OnPropertyChanged(nameof(ChangeVisibility));
+            }
+        }
+        public TAIKHOAN CurrentUserAccount
+        {
+            get
+            {
+                return _currentUserAccount;
+            }
 
+            set
+            {
+                _currentUserAccount = value;
+                OnPropertyChanged(nameof(CurrentUserAccount));
+            }
+        }
         private BENHNHAN benhnhan;
         private List<DonThuocType> listdonthuoc;
         private DonThuocType donthuoc;
@@ -225,12 +256,14 @@ namespace LTTQ_DoAn.ViewModel
             ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
-        public HealthRecordAndPrescriptionViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view)
+        public HealthRecordAndPrescriptionViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view, TAIKHOAN user_account)
         {
             this.thisView = view;
             Benhnhan = SelectedBenhNhan;
             findBenhAn();
             findDonThuoc();
+            CurrentUserAccount = user_account;
+            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
             AddHRCommand = new ViewModelCommand(ExecuteAddHRCommand, CanExecuteAddHRCommand);
             DeleteHRCommand = new ViewModelCommand(ExecuteDeleteHRCommand, CanExecuteDeleteHRCommand);
             ChangeHRCommand = new ViewModelCommand(ExecuteChangeHRCommand, CanExecuteChangeHRCommand);
@@ -239,7 +272,30 @@ namespace LTTQ_DoAn.ViewModel
             ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
         }
-
+        void Set_permission(string type)
+        {
+            switch (type)
+            {
+                case "Admin":
+                    Set_admin();
+                    break;
+                case "Doctor":
+                    Set_doctor();
+                    break;
+                default:
+                    break;
+            }
+        }
+        void Set_doctor()
+        {
+            changeVisibility = false;
+            addVisibility = true;
+        }
+        void Set_admin()
+        {
+            changeVisibility = true;
+            addVisibility = false;
+        }
         private bool CanExecuteExitCommand(object obj)
         {
             return true;

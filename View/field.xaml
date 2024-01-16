@@ -14,6 +14,9 @@
     <UserControl.DataContext>
         <viewmodel:FieldViewModel></viewmodel:FieldViewModel>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Border Background="White"
             CornerRadius="20">
         <Grid>
@@ -75,7 +78,8 @@
                                                 </Border>
 
                                                 <Border Style="{StaticResource borderList}"
-                                                    Margin="5 0 5 5">
+                                                    Margin="5 0 5 5"
+                                                    Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
                                                     <fa:IconImage Icon="PenToSquare" Height="20"/>
                                                     <i:Interaction.Triggers>
                                                         <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -87,7 +91,8 @@
                                                 <!--nút xóa-->
                                                 <!--thêm command xóa vào đây-->
                                                 <Border Style="{StaticResource borderList}"
-                                                    Margin="5 0 5 5">
+                                                    Margin="5 0 5 5"
+                                                    Visibility="{Binding DataContext.DeleteVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
                                                     <fa:IconImage Icon="Trash" Height="20"
                                                               Foreground="#ed2525"/>
                                                     <i:Interaction.Triggers>
@@ -126,7 +131,8 @@
                         Background="Transparent">
                 <Button 
                     Command="{Binding AddFieldCommand}"
-                    Style="{StaticResource BtnUserControl}">
+                    Style="{StaticResource BtnUserControl}"
+                    Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                     <TextBlock
                      Style="{StaticResource UserControlText}"
                      Text="Thêm khoa"

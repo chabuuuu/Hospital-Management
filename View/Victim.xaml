@@ -14,6 +14,9 @@
     <UserControl.DataContext>
         <viewModel:VictimViewModel></viewModel:VictimViewModel>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Border
         CornerRadius="20"
         Background="white">
@@ -43,20 +46,12 @@
                         </TextBox>
                         <Button 
                             Command="{Binding AddCommand}"
-                            Style="{StaticResource BtnUserControl}">
+                            Style="{StaticResource BtnUserControl}"
+                            Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
                                     Text="Thêm bệnh nhân"
                                     >
-                            </TextBlock>
-                        </Button>
-                        <Button
-                                Style="{StaticResource BtnUserControl_Delete}"
-                                Command="{Binding DeleteCommand}">
-                            <TextBlock
-                                Style="{StaticResource UserControlText}"
-                                Text="Xóa"
-                                >
                             </TextBlock>
                         </Button>
                     </StackPanel>
@@ -121,6 +116,7 @@
                                     <!--sửa thông tin cá nhân-->
                                     <RadioButton x:Name="change_btn"
                                         Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter},RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Style="{StaticResource gridOpenButton}"
                                         Tag="{StaticResource normalButton}"
                                             Margin="0 0 10 0"
@@ -131,6 +127,7 @@
                                     <!--xem bệnh án và đơn thuốc-->
                                     <RadioButton 
                                         Command="{Binding DataContext.ViewHealthRecordCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        Visibility="{Binding DataContext.ViewHealthRecordVisibility, Converter={StaticResource BoolToVisibilityConverter},RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                             ToolTip="Bệnh án và đơn thuốc">

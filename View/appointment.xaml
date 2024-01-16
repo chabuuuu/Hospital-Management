@@ -13,6 +13,9 @@
     <UserControl.DataContext>
         <viewmodel:AppointmentViewModel></viewmodel:AppointmentViewModel>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Border
         CornerRadius="20"
         Background="white">
@@ -42,7 +45,8 @@
                         </TextBox>
                         <Button 
                            Command="{Binding AddApointmentCommand}"
-                            Style="{StaticResource BtnUserControl}">
+                            Style="{StaticResource BtnUserControl}"
+                            Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
                                     Text="Thêm lịch khám"
@@ -51,7 +55,8 @@
                         </Button>
                         <Button
                             Command="{Binding DeleteApointmentCommand}"
-                            Style="{StaticResource BtnUserControl_Delete}">
+                            Style="{StaticResource BtnUserControl_Delete}"
+                            Visibility="{Binding DeleteVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
                                 Text="Xóa"
@@ -119,7 +124,8 @@
                                     <RadioButton 
                                         Command="{Binding DataContext.ChangeAppointmentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
-                                        Style="{StaticResource gridOpenButton}">
+                                        Style="{StaticResource gridOpenButton}"
+                                        Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}">
                                         <fa:IconImage Icon="PenToSquare"
                                                       Height="20"/>
                                     </RadioButton>

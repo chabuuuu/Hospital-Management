@@ -15,6 +15,9 @@
     <Window.DataContext>
         <viewmodel:HealthRecordAndPrescriptionViewModel></viewmodel:HealthRecordAndPrescriptionViewModel>
     </Window.DataContext>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
     <Border Background="White"
             BorderBrush="{StaticResource btnActivedText}"
             BorderThickness="5"
@@ -149,9 +152,10 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
-                                                        <!--thêm command sửa vào đây-->
+                                                        <!--thêm command sửa vào đây--> 
                                                         <Border Style="{StaticResource borderList}"
-                                                    Margin="5">
+                                                    Margin="5"
+                                                                Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
                                                             <fa:IconImage Icon="PenToSquare" Height="20"/>
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -187,7 +191,8 @@
                                     Width="55"
                                     BorderBrush="{StaticResource  btnActivedText}"
                                     Command="{Binding AddHRCommand}"
-                                    Background="{StaticResource btnActivedText}">
+                                    Background="{StaticResource btnActivedText}"
+                                    Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
                             </Button>
                         </StackPanel>
@@ -281,7 +286,8 @@
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
                                                         <Border Style="{StaticResource borderList}"
-                                                                Margin="5">
+                                                                Margin="5"
+                                                                Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
                                                             <fa:IconImage Icon="PenToSquare" Height="20"/>
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
@@ -319,7 +325,8 @@
                                 Width="55"
                                 Command="{Binding AddPCommand}"
                                 BorderBrush="{StaticResource  btnActivedText}"
-                                Background="{StaticResource btnActivedText}">
+                                Background="{StaticResource btnActivedText}"
+                                Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
                             </Button>
                         </StackPanel>
