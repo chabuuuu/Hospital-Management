@@ -14,6 +14,9 @@
     <UserControl.DataContext>
         <viewmodel:DoctorAndNurseViewModel></viewmodel:DoctorAndNurseViewModel>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Border
         CornerRadius="20"
         Background="white">
@@ -63,7 +66,8 @@
                         <!--nút thêm bác sĩ-->
                         <Button 
                             Command="{Binding AddCommand}"
-                            Style="{StaticResource BtnUserControl}">
+                            Style="{StaticResource BtnUserControl}"
+                            Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <TextBlock
                                     Style="{StaticResource UserControlText}"
                                     Text="Thêm y sĩ"
@@ -73,7 +77,8 @@
                         <!--nút xóa bác sĩ-->
                         <Button 
                             Command="{Binding DeleteCommand}"
-                            Style="{StaticResource BtnUserControl_Delete}">
+                            Style="{StaticResource BtnUserControl_Delete}"
+                            Visibility="{Binding DeleteVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <TextBlock
                                         Style="{StaticResource UserControlText}"
@@ -147,6 +152,7 @@
                             Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                             Tag="{StaticResource normalButton}"
                             Style="{StaticResource gridOpenButton}"
+                            Visibility="{Binding ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                                 ToolTip="Sửa thông tin">
                             <fa:IconImage Icon="PenToSquare"
                                           Height="20"/>

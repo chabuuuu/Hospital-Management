@@ -40,6 +40,10 @@
             <local:field/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewmodel:MedicineViewModel}">
+            <local:Medicine/>
+        </DataTemplate>
+
     </Window.Resources>
     <Border
         BorderBrush="DodgerBlue"
@@ -129,13 +133,22 @@
                         </RadioButton>
                         <!--Dịch vụ-->
                         <RadioButton Style="{StaticResource menuButton}"
-                                                                                                   Visibility="{Binding ServiceVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
-   
+                                    Visibility="{Binding ServiceVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                                     Tag="{StaticResource normalButton}"
                                      Command="{Binding ShowServicesViewCommand}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="ArrowDownAZ" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Dịch vụ" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <!--Thuốc-->
+                        <RadioButton Style="{StaticResource menuButton}"
+                                Visibility="{Binding MedicineVisibility, Converter={StaticResource BoolToVisibilityConverter}}" 
+                                Tag="{StaticResource normalButton}"
+                                Command="{Binding ShowMedicineViewCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Pills" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Thuốc" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
                     </StackPanel>

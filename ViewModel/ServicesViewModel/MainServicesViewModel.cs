@@ -13,7 +13,10 @@ namespace LTTQ_DoAn.ViewModel
     public class ServicesViewModel : BaseViewModel
     {
         QUANLYBENHVIENEntities _db;
-
+        public bool deleteVisibility = true;
+        public bool changeVisibility = true;
+        public bool addVisibility = true;
+        private TAIKHOAN _currentUserAccount;
         private List<DICHVU> dichvu;
         private DICHVU selecteddichvu;
         public ICommand ChangeServicesCommand { get; }
@@ -35,16 +38,91 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Selecteddichvu));
             }
         }
+        public bool DeleteVisibility
+        {
+            get => deleteVisibility; set
+            {
+                deleteVisibility = value;
+                OnPropertyChanged(nameof(DeleteVisibility));
+            }
+        }
+        public bool AddVisibility
+        {
+            get => addVisibility; set
+            {
+                addVisibility = value;
+                OnPropertyChanged(nameof(AddVisibility));
+            }
+        }
+        public bool ChangeVisibility
+        {
+            get => changeVisibility; set
+            {
+                changeVisibility = value;
+                OnPropertyChanged(nameof(ChangeVisibility));
+            }
+        }
+        public TAIKHOAN CurrentUserAccount
+        {
+            get
+            {
+                return _currentUserAccount;
+            }
+
+            set
+            {
+                _currentUserAccount = value;
+                OnPropertyChanged(nameof(CurrentUserAccount));
+            }
+        }
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
             Dichvu = _db.DICHVU.ToList();
         }
-        public ServicesViewModel() {
+        public ServicesViewModel(TAIKHOAN user_account)
+        {
             Load();
+            CurrentUserAccount = user_account;
+            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
             ChangeServicesCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             AddServicesCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteServicesCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
+        }
+        void Set_permission(string type)
+        {
+            switch (type)
+            {
+                case "Admin":
+                    Set_admin();
+                    break;
+                case "Staff":
+                    Set_staff();
+                    break;
+                case "Doctor":
+                    Set_doctor();
+                    break;
+                default:
+                    break;
+            }
+        }
+        void Set_doctor()
+        {
+            deleteVisibility = false;
+            changeVisibility = false;
+            addVisibility = false;
+        }
+        void Set_admin()
+        {
+            deleteVisibility = true;
+            changeVisibility = true;
+            addVisibility = true;
+        }
+        void Set_staff()
+        {
+            deleteVisibility = false;
+            changeVisibility = false;
+            addVisibility = false;
         }
         private bool CanExecuteChangeCommand(object? obj) {
             return true;

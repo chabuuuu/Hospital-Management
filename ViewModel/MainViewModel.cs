@@ -36,6 +36,7 @@ namespace LTTQ_DoAn.ViewModel
         private bool fieldVisibility = true;
         private bool doctorAndNurseVisibility = true;
         private bool serviceVisibility = true;
+        private bool medicineVisibility = true;
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
 
         public bool IsViewVisible
@@ -96,7 +97,9 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ShowServicesViewCommand { get; }
         public ICommand ShowFieldViewCommand { get; }
         public ICommand ShowRoomViewCommand { get; }
+        public ICommand ShowMedicineViewCommand { get; }
         public ICommand LogoutViewCommand { get; }
+
         public MainWindow Main_wd { get => main_wd; set => main_wd = value; }
         void Set_doctor()
         {
@@ -115,6 +118,7 @@ namespace LTTQ_DoAn.ViewModel
             FieldVisibility = true;
             DoctorAndNurseVisibility = true;
             ServiceVisibility = true;
+            MedicineVisibility = true;
         }        
         void Set_staff()
         {
@@ -124,6 +128,7 @@ namespace LTTQ_DoAn.ViewModel
             FieldVisibility = false;
             DoctorAndNurseVisibility = false;
             ServiceVisibility = true;
+            MedicineVisibility = true;
         }
         void Set_permission(string type)
         {
@@ -191,7 +196,14 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(ServiceVisibility));
             }
         }
-
+        public bool MedicineVisibility
+        {
+            get => medicineVisibility; set
+            {
+                medicineVisibility = value;
+                OnPropertyChanged(nameof(MedicineVisibility));
+            }
+        }
         //Dùng cái này
         public MainViewModel(MainWindow wd, TAIKHOAN user_account)
         {
@@ -209,6 +221,7 @@ namespace LTTQ_DoAn.ViewModel
             ShowRoomViewCommand = new ViewModelCommand(ExecuteShowRoomViewCommand);
             ShowFieldViewCommand = new ViewModelCommand(ExecuteShowFieldViewCommand);
             ShowServicesViewCommand = new ViewModelCommand(ExecuteShowServicesViewCommand);
+            ShowMedicineViewCommand = new ViewModelCommand(ExecuteShowMedicineViewCommand);
             LogoutViewCommand = new ViewModelCommand(ExecuteLogoutViewCommand);
             //Khởi tạo màn hình mặc định
             ExecuteShowHomeViewCommand(new object());
@@ -227,6 +240,7 @@ namespace LTTQ_DoAn.ViewModel
             ShowRoomViewCommand = new ViewModelCommand(ExecuteShowRoomViewCommand);
             ShowFieldViewCommand = new ViewModelCommand(ExecuteShowFieldViewCommand);
             ShowServicesViewCommand = new ViewModelCommand(ExecuteShowServicesViewCommand);
+            ShowMedicineViewCommand = new ViewModelCommand(ExecuteShowMedicineViewCommand);
             LogoutViewCommand = new ViewModelCommand(ExecuteLogoutViewCommand);
             //Khởi tạo màn hình mặc định
             ExecuteShowHomeViewCommand(new object());
@@ -284,19 +298,19 @@ namespace LTTQ_DoAn.ViewModel
 
         private void ExecuteShowVictimViewCommand(object obj)
         {
-            CurrentChildView = new VictimViewModel();
+            CurrentChildView = new VictimViewModel(CurrentUserAccount);
             Caption = "Bệnh nhân";
             Icon = IconChar.Bed;
-        }
+        }   
         private void ExecuteShowAppoinmentViewCommand(object obj)
         {
-            CurrentChildView = new AppointmentViewModel();
+            CurrentChildView = new AppointmentViewModel(CurrentUserAccount);
             Caption = "Lịch khám";
             Icon = IconChar.CalendarDays;
         }
         private void ExecuteShowDoctorViewCommand(object obj)
         {
-            CurrentChildView = new DoctorAndNurseViewModel();
+            CurrentChildView = new DoctorAndNurseViewModel(CurrentUserAccount);
             Caption = "Y sĩ";
             Icon = IconChar.UserNurse;
         }
@@ -308,17 +322,22 @@ namespace LTTQ_DoAn.ViewModel
         }
         private void ExecuteShowFieldViewCommand(object obj)
         {
-            CurrentChildView = new FieldViewModel();
+            CurrentChildView = new FieldViewModel(CurrentUserAccount);
             Caption = "Khoa";
             Icon = IconChar.Clone;
         }
         private void ExecuteShowServicesViewCommand(object obj)
         {
-            CurrentChildView = new ServicesViewModel();
+            CurrentChildView = new ServicesViewModel(CurrentUserAccount);
             Caption = "Dịch vụ";
             Icon = IconChar.ArrowDownAZ;
         }
-
+        private void ExecuteShowMedicineViewCommand(object obj)
+        {
+            CurrentChildView = new MedicineViewModel();
+            Caption = "Thuốc";
+            Icon = IconChar.Pills;
+        }
 
 
         /*private void LoadCurrentUserData()

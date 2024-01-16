@@ -19,6 +19,10 @@ namespace LTTQ_DoAn.ViewModel
 {
     public class VictimViewModel : BaseViewModel
     {
+        public bool viewHealthRecordVisibility = true;
+        public bool changeVisibility = true;
+        public bool addVisibility = true;
+        private TAIKHOAN _currentUserAccount;
         public ICommand ViewCommand { get; }
         public ICommand ViewHealthRecordCommand { get; }
         public ICommand ChangeCommand { get; }
@@ -40,7 +44,43 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
+        public bool ViewHealthRecordVisibility
+        {
+            get => viewHealthRecordVisibility; set
+            {
+                viewHealthRecordVisibility = value;
+                OnPropertyChanged(nameof(ViewHealthRecordVisibility));
+            }
+        }
+        public bool AddVisibility
+        {
+            get => addVisibility; set
+            {
+               addVisibility = value;
+                OnPropertyChanged(nameof(AddVisibility));
+            }
+        }
+        public bool ChangeVisibility
+        {
+            get => changeVisibility; set
+            {
+                changeVisibility = value;
+                OnPropertyChanged(nameof(ChangeVisibility));
+            }
+        }
+        public TAIKHOAN CurrentUserAccount
+        {
+            get
+            {
+                return _currentUserAccount;
+            }
 
+            set
+            {
+                _currentUserAccount = value;
+                OnPropertyChanged(nameof(CurrentUserAccount));
+            }
+        }
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -48,16 +88,52 @@ namespace LTTQ_DoAn.ViewModel
             //System.Windows.MessageBox.Show("Done");
         }
 
-        public VictimViewModel()
+        public VictimViewModel(TAIKHOAN user_account)
         {
             Load();
+            CurrentUserAccount = user_account;
+            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
             AddCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             ViewCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
             ViewHealthRecordCommand = new ViewModelCommand(ExecuteViewHealthRecordCommand, CanExecuteViewHealthRecordCommand);
         }
-
+        void Set_permission(string type)
+        {
+            switch (type)
+            {
+                case "Admin":
+                    Set_admin();
+                    break;
+                case "Staff":
+                    Set_staff();
+                    break;
+                case "Doctor":
+                    Set_doctor();
+                    break;
+                default:
+                    break;
+            }
+        }
+        void Set_doctor()
+        {
+            viewHealthRecordVisibility = true;
+            changeVisibility = false;
+            addVisibility = false;
+    }
+        void Set_admin()
+        {
+            viewHealthRecordVisibility = true;
+            changeVisibility = false;
+            addVisibility = false;
+        }
+        void Set_staff()
+        {
+            viewHealthRecordVisibility = false;
+            changeVisibility = true;
+            addVisibility = true;
+        }
         private bool CanExecuteAddCommand(object? obj)
         {
             return true;
@@ -195,7 +271,7 @@ namespace LTTQ_DoAn.ViewModel
             HealthRecordAndPrescription wd = new HealthRecordAndPrescription();
             if (SelectedItem != null)
             {
-                wd.DataContext = new HealthRecordAndPrescriptionViewModel(SelectedItem, wd);
+                wd.DataContext = new HealthRecordAndPrescriptionViewModel(SelectedItem, wd, CurrentUserAccount);
                 //cài mainwindow thành cửa số mới mở này để chút nữa đóng lại thì ta chỉ cần dùng lệnh close cho mainwindow
                 // vi dụ nút cancel ở trong AddAppointmentViewModel.cs
                 Application.Current.MainWindow = wd;

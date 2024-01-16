@@ -32,7 +32,10 @@ namespace LTTQ_DoAn.ViewModel
         private List<LichKhamType> lichkhams;
         private LichKhamType selectedItem = null;
 
-
+        public bool deleteVisibility = true;
+        public bool changeVisibility = true;
+        public bool addVisibility = true;
+        private TAIKHOAN _currentUserAccount;
         QUANLYBENHVIENEntities _db;
         public List<LichKhamType> LICHKHAMs
         {
@@ -51,7 +54,43 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
-        
+        public bool DeleteVisibility
+        {
+            get => deleteVisibility; set
+            {
+                deleteVisibility = value;
+                OnPropertyChanged(nameof(DeleteVisibility));
+            }
+        }
+        public bool AddVisibility
+        {
+            get => addVisibility; set
+            {
+                addVisibility = value;
+                OnPropertyChanged(nameof(AddVisibility));
+            }
+        }
+        public bool ChangeVisibility
+        {
+            get => changeVisibility; set
+            {
+                changeVisibility = value;
+                OnPropertyChanged(nameof(ChangeVisibility));
+            }
+        }
+        public TAIKHOAN CurrentUserAccount
+        {
+            get
+            {
+                return _currentUserAccount;
+            }
+
+            set
+            {
+                _currentUserAccount = value;
+                OnPropertyChanged(nameof(CurrentUserAccount));
+            }
+        }
         private void Load()
         {
             _db = new QUANLYBENHVIENEntities();
@@ -95,16 +134,52 @@ namespace LTTQ_DoAn.ViewModel
             LICHKHAMs = list;
         }
 
-        public AppointmentViewModel()
+        public AppointmentViewModel(TAIKHOAN user_account)
         {
             Load();
+            CurrentUserAccount = user_account;
+            Set_permission(CurrentUserAccount.LOAITAIKHOAN);
             // dựa vào class ViewModelCommand đã được định nghĩa
             AddApointmentCommand = new ViewModelCommand(ExecuteAddCommand, CanExecuteAddCommand);
             DeleteApointmentCommand = new ViewModelCommand(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             ViewAppointmentCommand = new ViewModelCommand(ExecuteViewCommand, CanExecuteViewCommand);
             ChangeAppointmentCommand = new ViewModelCommand(ExecuteChangeCommand, CanExecuteChangeCommand);
         }
-
+        void Set_permission(string type)
+        {
+            switch (type)
+            {
+                case "Admin":
+                    Set_admin();
+                    break;
+                case "Staff":
+                    Set_staff();
+                    break;
+                case "Doctor":
+                    Set_doctor();
+                    break;
+                default:
+                    break;
+            }
+        }
+        void Set_doctor()
+        {
+            deleteVisibility = false;
+            changeVisibility = false;
+            addVisibility = false;
+        }
+        void Set_admin()
+        {
+            deleteVisibility = false;
+            changeVisibility = false;
+            addVisibility = false;
+        }
+        void Set_staff()
+        {
+            deleteVisibility = true;
+            changeVisibility = true;
+            addVisibility = true;
+        }
         //tham số thứ 1 là điều kiện thực hiện command
         private bool CanExecuteAddCommand(object? obj)
         {
