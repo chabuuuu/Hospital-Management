@@ -1,0 +1,148 @@
+﻿<Window x:Class="LTTQ_DoAn.View.ChangeMedicine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
+        xmlns:local="clr-namespace:LTTQ_DoAn.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        Title="ChangeMedicine" Height="550" Width="800"
+        Background="Transparent"
+        WindowStyle="None">
+    <Window.DataContext>
+        <viewmodel:ChangeMedicineViewModel/>
+    </Window.DataContext>
+    <Border
+        CornerRadius="20"
+        Background="White"
+        BorderBrush="{StaticResource btnActivedText}"
+        BorderThickness="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+                <Button
+                    Style="{StaticResource controlButton}"
+                    FontSize="16">
+                    <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+                <Button Command="{Binding CancelCommand}"
+                    Style="{StaticResource controlButton}"
+                    FontSize="16">
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+            </StackPanel>
+            <Border Grid.Row="1" Grid.ColumnSpan ="2"
+                BorderBrush="{StaticResource btnActivedText}"
+                BorderThickness="0 0 0 2">
+                <TextBlock
+                    Margin="30 10 0 0 "
+                    Text="Sửa thông tin thuốc"
+                    FontSize="35"
+                    Foreground="{StaticResource btnActivedText}"
+                    FontFamily="Poppins"
+                    FontWeight="Medium"/>
+            </Border>
+            <Grid Grid.Row="2" Margin="30 50 0 0">
+                <StackPanel Grid.Row="1" Margin="0 -30 30 0">
+                    <WrapPanel>
+                        <StackPanel Margin="0 0 25 30">
+                            <TextBlock Style="{StaticResource TitlePersonalInfo}"
+                                Text="Tên thuốc:"/>
+                            <TextBox Style="{StaticResource TextPersonalInfo}"
+                                Text="{Binding Thuoc.TENTHUOC}"
+                                Width="250">
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="10 0 25 30">
+                            <TextBlock Style="{StaticResource TitlePersonalInfo}"
+                                Text="Đơn vị tính:"/>
+                            <ComboBox
+                                Text="{Binding Thuoc.DONVITINH}"
+                                MinWidth="120"
+                                Height="30"
+                                FontSize="15"
+                                SelectedValue="{Binding Thuoc.DONVITINH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                ItemsSource="{Binding Unit}"
+                                FontFamily="Poppins">
+                            </ComboBox>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3" Margin="30 -20 0 0" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="70*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Style="{StaticResource TitlePersonalInfo}"
+                    Text="Ghi chú:"/>
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                    Margin="0 0 0 0">
+                    <TextBox
+                        TextWrapping="Wrap"
+                        Text="{Binding Thuoc.GHICHU}"
+                        Width="500"
+                        HorizontalContentAlignment="Stretch"
+                        Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                        materialdesign:HintAssist.Hint="Ghi chú"
+                        materialdesign:TextFieldAssist.HasClearButton="True"
+                        FontSize="15"
+                        Height="140"/>
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Row="4" Margin="30 50 0 0">
+                <StackPanel Margin="0 -30 30 0">
+                    <WrapPanel>
+                        <StackPanel Margin="0 0 25 30">
+                            <TextBlock Style="{StaticResource TitlePersonalInfo}"
+                                Text="Giá tiền:"/>
+                            <TextBox Style="{StaticResource TextPersonalInfo}"
+                                Text="{Binding Thuoc.GIATIEN}"
+                                Width="200">
+                            </TextBox>
+                        </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </Grid>
+            <Image Grid.Row="3" HorizontalAlignment="Left" Stretch="Uniform" Grid.Column="1" Source="/Photo/Medicine.png"
+                Height="150"/>
+            <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal"
+                VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Command="{Binding ConfirmChangeCommand}"
+                    Width="130"
+                    Height="50"
+                    Content="Lưu"
+                    FontSize="20"
+                    Foreground="#555"
+                    Background="{StaticResource btnActivedText}"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    ToolTip="Lưu thông tin" />
+                <Button Command="{Binding CancelCommand}"
+                    Margin="40 0"
+                    Width="130"
+                    Height="50"
+                    Content="Hủy bỏ"
+                    FontSize="20"
+                    Foreground="#555"
+                    Background="#fff"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                Style="{StaticResource MaterialDesignFlatLightBgButton}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

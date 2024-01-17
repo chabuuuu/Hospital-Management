@@ -16,6 +16,9 @@
     <Compile Update="View\AddHealthRecord.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AddMedicine.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AddService.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,6 +29,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ChangeHealthRecord.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ChangeMedicine.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ChangePrescription.xaml.cs">
@@ -94,6 +100,9 @@
     <Compile Update="View\ViewField.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ViewMedicine.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ViewVictim.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -111,6 +120,9 @@
     <Page Update="View\AddHealthRecord.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\AddMedicine.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AddService.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -121,6 +133,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ChangeHealthRecord.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ChangeMedicine.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ChangePrescription.xaml">
@@ -199,6 +214,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ViewField.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewMedicine.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ViewVictim.xaml">
