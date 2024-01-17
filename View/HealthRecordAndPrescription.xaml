@@ -172,9 +172,10 @@
                             </ListView>
                         </ScrollViewer>
                         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Background="Transparent"
-                                    VerticalAlignment="Center" Grid.Column="1" Margin="737,0,0,0">
+                                    VerticalAlignment="Center" Grid.Column="1" Margin="737,0,0,0"
+                                    Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <!--thao tác thêm bệnh án-->
-                            <Button Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
+                            <Button
                                     Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
                                     Margin="0 0 30 0"
                                     Height="55"
