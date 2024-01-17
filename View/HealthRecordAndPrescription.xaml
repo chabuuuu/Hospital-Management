@@ -152,7 +152,7 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
-                                                        <!--thêm command sửa vào đây--> 
+                                                        <!--thêm command sửa vào đây-->
                                                         <Border Style="{StaticResource borderList}"
                                                     Margin="5"
                                                                 Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
@@ -160,16 +160,6 @@
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding DataContext.ChangeHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
-                                                                </i:EventTrigger>
-                                                            </i:Interaction.Triggers>
-                                                        </Border>
-                                                        <Border Style="{StaticResource borderList}"
-                                                    Margin="5">
-                                                            <fa:IconImage Icon="Trash" Height="20"
-                                                              Foreground="#ed2525"/>
-                                                            <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                                    <i:InvokeCommandAction Command="{Binding DataContext.DeleteHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>
@@ -184,7 +174,7 @@
                         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Background="Transparent"
                                     VerticalAlignment="Center" Grid.Column="1" Margin="737,0,0,0">
                             <!--thao tác thêm bệnh án-->
-                            <Button
+                            <Button Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
                                     Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
                                     Margin="0 0 30 0"
                                     Height="55"
@@ -192,7 +182,7 @@
                                     BorderBrush="{StaticResource  btnActivedText}"
                                     Command="{Binding AddHRCommand}"
                                     Background="{StaticResource btnActivedText}"
-                                    Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
+                                    >
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
                             </Button>
                         </StackPanel>
@@ -296,19 +286,6 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>
-                                                        <Border Style="{StaticResource borderList}"
-                                                                Margin="5">
-                                                            <fa:IconImage Icon="Trash" Height="20"
-                                                              Foreground="#ed2525"/>
-                                                            <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                                    <!--them command xoa vao day-->
-
-                                                                    <i:InvokeCommandAction Command="{Binding DataContext.DeletePCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
-
-                                                                </i:EventTrigger>
-                                                            </i:Interaction.Triggers>
-                                                        </Border>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
@@ -317,7 +294,8 @@
                                 </ListView.View>
                             </ListView>
                         </ScrollViewer>
-                        <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <StackPanel  Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}"
+                            Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">
                             <!--thao tác thêm đơn thuốc-->
                             <Button Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
                                 Margin="0 0 30 0"
@@ -326,7 +304,7 @@
                                 Command="{Binding AddPCommand}"
                                 BorderBrush="{StaticResource  btnActivedText}"
                                 Background="{StaticResource btnActivedText}"
-                                Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
+                                >
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
                             </Button>
                         </StackPanel>
