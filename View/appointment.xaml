@@ -78,10 +78,12 @@
                     <!--dấu # này là cột chứa checkbox của mỗi item-->
                     <DataGridCheckBoxColumn Width="5*"
                                             CanUserResize="False"
-                                            ElementStyle="{StaticResource CheckBoxStyle1}">
+                                            ElementStyle="{StaticResource CheckBoxStyle1}"
+                                            >
                         <DataGridCheckBoxColumn.HeaderTemplate>
                             <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}"
+                                          Visibility="Hidden"/>
                             </DataTemplate>
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
