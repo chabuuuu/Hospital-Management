@@ -103,7 +103,7 @@ namespace LTTQ_DoAn.ViewModel
                 throw new Exception("Bác sĩ này không tồn tại!");
             }
             int Ca = int.Parse(Cakham);
-            DateTime new_NgayKham = DateTime.ParseExact(Ngaykham, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+            DateTime new_NgayKham = (DateTime)Lichkham.NGAYKHAM;
             LICHKHAM check_trung_lich_kham = thisYsi.LICHKHAM.Where(i => i.CAKHAM == Ca && i.NGAYKHAM == new_NgayKham).FirstOrDefault();
             if (check_trung_lich_kham != null)
             {
@@ -156,6 +156,10 @@ namespace LTTQ_DoAn.ViewModel
             }
             this.BacsiList = subID;
 
+        }
+        public void loadCakham()
+        {
+            Cakham = Lichkham.CAKHAM.ToString();
         }
 
         public void loadDichvu()
@@ -241,6 +245,7 @@ namespace LTTQ_DoAn.ViewModel
             loadBenhnhan();
             loadDichvu();
             loadPhong();
+            loadCakham();
             Phong = "PHG" + Lichkham.MAPHONG.ToString() + ": " + Lichkham.PHONG.TENPHONG;
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);
