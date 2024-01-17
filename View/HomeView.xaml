@@ -34,7 +34,7 @@
                 materialdesign:HintAssist.Hint="Từ ngày"
                 materialdesign:HintAssist.Background="{StaticResource btnActivedGround}"
                 Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
-                
+
                 <DatePicker
                  SelectedDate="{Binding Chart_enddate, Mode=TwoWay}"
                  Width="150"
@@ -80,18 +80,42 @@
                             <TextBlock Text="{Binding Victim_count}"
                                FontSize="25"
                                FontWeight="Bold"/>
+                            <DockPanel Width="730">
+                                <Button 
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource BtnUserControl}" Click="Victim_Button_Click"
+                            
+                            >
+                                    <TextBlock
+                                    Style="{StaticResource UserControlText}"
+                                    Text="Xuất biểu đồ"
+                                    >
+                                    </TextBlock>
+                                </Button>
+                            </DockPanel>
+
                         </StackPanel>
+
                     </Grid>
                 </TabItem>
                 <TabItem Header="Y sĩ">
                     <Grid Background="white">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="814*"/>
+                            <ColumnDefinition Width="56*"/>
+                            <ColumnDefinition Width="179*"/>
+                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="60"/>
                         </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
+                        <Grid Grid.Row="0" Grid.ColumnSpan="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="148*"/>
+                                <ColumnDefinition Width="901*"/>
+                            </Grid.ColumnDefinitions>
                             <!--Biểu đồ -->
-                            <lvc:CartesianChart Series="{Binding DoctorNurse_collections}" x:Name="DoctorChart">
+                            <lvc:CartesianChart Series="{Binding DoctorNurse_collections}" x:Name="DoctorChart" Grid.ColumnSpan="2">
                                 <!--
                                 <lvc:CartesianChart.Series>
                                     <lvc:ColumnSeries Title="Số lượng y sĩ" Values="{Binding}" FontSize="15"/>
@@ -107,7 +131,7 @@
                                 </lvc:CartesianChart.AxisY>
                             </lvc:CartesianChart>
                         </Grid>
-                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="50 0 0 0">
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="50,0,0,0" Grid.ColumnSpan="3">
                             <TextBlock Text="Tổng số Y sĩ: "
                                        FontSize="25"
                                        FontWeight="Bold"/>
@@ -115,6 +139,19 @@
                             <TextBlock Text="{Binding Ysi_count}"
                                FontSize="25"
                                FontWeight="Bold"/>
+                            <DockPanel Width="800">
+                                <Button 
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource BtnUserControl}" Click="Doctor_Button_Click"
+                            
+                            >
+                                    <TextBlock
+                                    Style="{StaticResource UserControlText}"
+                                    Text="Xuất biểu đồ"
+                                    >
+                                    </TextBlock>
+                                </Button>
+                            </DockPanel>
                         </StackPanel>
                     </Grid>
                 </TabItem>
@@ -131,7 +168,7 @@
                             </Grid.ColumnDefinitions>
                             <!--Biểu đồ -->
                             <lvc:CartesianChart Series="{Binding Service_collections}" x:Name="MoneyChart">
-                               <!-- 
+                                <!-- 
                                 <lvc:CartesianChart.Series>
                                     <lvc:ColumnSeries Title="Doanh thu"/>
                                 </lvc:CartesianChart.Series>
@@ -177,7 +214,7 @@
                                                 <Border BorderBrush="{StaticResource btnActivedText}"
                                                     BorderThickness="2 0 0 0"
                                                     Margin="0 20 0 0"
-                                                    >   
+                                                    >
                                                     <StackPanel Orientation="Vertical" HorizontalAlignment="Left"
                                                         Margin="10 0 0 0">
                                                         <!--tên dịch vụ-->
@@ -188,7 +225,7 @@
                                                         HorizontalAlignment="Left"
                                                         VerticalAlignment="Center"/>
 
-                                                        <!--doanh thu theo dịch vụ-->   
+                                                        <!--doanh thu theo dịch vụ-->
                                                         <TextBlock Text="{Binding Doanhthu}"
                                                         Foreground="#3f3f3f"
                                                         FontSize="16"
@@ -214,6 +251,19 @@
                             <TextBlock Text=" VNĐ"
                                         FontSize="25"
                                         FontWeight="Bold"/>
+                            <DockPanel Width="600">
+                                <Button 
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource BtnUserControl}" Click="Service_Button_Click"
+                            
+                            >
+                                    <TextBlock
+                                    Style="{StaticResource UserControlText}"
+                                    Text="Xuất biểu đồ"
+                                    >
+                                    </TextBlock>
+                                </Button>
+                            </DockPanel>
                         </StackPanel>
                     </Grid>
                 </TabItem>
