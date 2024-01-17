@@ -586,7 +586,7 @@
     <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}"/>
-        <Setter Property="BorderBrush" Value="#DAE2EA"/>
+        <Setter Property="BorderBrush" Value="black"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">

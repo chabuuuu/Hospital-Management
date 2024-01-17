@@ -46,8 +46,10 @@
                  Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
             </StackPanel>
             <TabControl Grid.Row="1"
-                materialDesign:ColorZoneAssist.Foreground="{StaticResource btnActivedText}">
-                <TabItem Header="bệnh nhân" >
+                materialDesign:ColorZoneAssist.Foreground="{StaticResource btnActivedText}"
+                        materialDesign:ColorZoneAssist.Mode="Custom">
+                <TabItem Header="Bệnh nhân"
+                         >
                     <Grid Background="white"
                           >
                         <Grid.RowDefinitions>
