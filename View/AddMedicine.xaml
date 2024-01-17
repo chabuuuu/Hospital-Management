@@ -1,0 +1,135 @@
+﻿<Window x:Class="LTTQ_DoAn.View.AddMedicine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LTTQ_DoAn.View"
+        xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        Title="AddMedicine" Height="530" Width="1000"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+    <Window.DataContext>
+        <viewmodel:AddMedicineViewModel/>
+    </Window.DataContext>
+    <Border
+        CornerRadius="20"
+        Background="White"
+        BorderBrush="{StaticResource btnActivedText}"
+        BorderThickness="3">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button
+                    Style="{StaticResource controlButton}"
+                    FontSize="16">
+                    <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+                <Button Command="{Binding CancelCommand}"
+                    Style="{StaticResource controlButton}"
+                    FontSize="16">
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+            </StackPanel>
+            <Border Grid.Row="1"
+                BorderBrush="{StaticResource btnActivedText}"
+                BorderThickness="0 0 0 2">
+                <TextBlock
+                    Margin="30 10 0 0 "
+                    Text="Thêm thuốc"
+                    FontSize="40"
+                    Foreground="{StaticResource btnActivedText}"
+                    FontFamily="Poppins"
+                    FontWeight="Medium"/>
+            </Border>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <TextBox
+                    MinWidth="300"
+                    HorizontalContentAlignment="Stretch"
+                    Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                    materialdesign:HintAssist.Hint="Tên thuốc"
+                    materialdesign:TextFieldAssist.HasClearButton="True"
+                    Text="{Binding Tenthuoc}"
+                    FontSize="15"
+                    Height="55"
+                    Margin="50 0 25 0"/>
+                <ComboBox
+                    MinWidth="120"
+                    Height="55"
+                    FontSize="15"
+                    materialdesign:HintAssist.Hint="Đơn vị tính"
+                    Style="{DynamicResource MaterialDesignOutlinedComboBox }"
+                    SelectedValue="{Binding Donvitinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedValuePath="Content"
+                    Margin="25 0 25 0">
+                    <ComboBoxItem>Viên</ComboBoxItem>
+                    <ComboBoxItem>Hộp</ComboBoxItem>
+                    <ComboBoxItem>Lọ</ComboBoxItem>
+                    <ComboBoxItem>Gói</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Grid.Row="3" HorizontalAlignment="Left">
+                <!--ghi chú-->
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
+                    Margin="50 0 0 0">
+                    <TextBox
+                        TextWrapping="Wrap"
+                        Text="{Binding Ghichu}"
+                        Width="600"
+                        HorizontalContentAlignment="Stretch"
+                        Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                        materialdesign:HintAssist.Hint="Ghi chú"
+                        materialdesign:TextFieldAssist.HasClearButton="True"
+                        FontSize="15"
+                        Height="165"/>
+                </ScrollViewer>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <TextBox
+                    MinWidth="300"
+                    HorizontalContentAlignment="Stretch"
+                    Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                    materialdesign:HintAssist.Hint="Đơn giá (VND)"
+                    materialdesign:TextFieldAssist.HasClearButton="True"
+                    Text="{Binding Giatien}"
+                    FontSize="15"
+                    Height="55"
+                    Margin="50 0 25 0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Orientation="Horizontal"
+                VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Command="{Binding ConfirmAddCommand}"
+                    Width="130"
+                    Height="50"
+                    Content="Xác nhận"
+                    FontSize="20"
+                    Foreground="#f2f2f2"
+                    Background="{StaticResource btnActivedText}"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                    ToolTip="Thêm thuốc" />
+                <Button Command="{Binding CancelCommand}"
+                    Margin="40 0"
+                    Width="130"
+                    Height="50"
+                    Content="Hủy bỏ"
+                    FontSize="20"
+                    Foreground="#555"
+                    Background="#fff"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Style="{StaticResource MaterialDesignFlatLightBgButton}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

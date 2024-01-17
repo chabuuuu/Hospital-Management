@@ -12,6 +12,9 @@
     <UserControl.DataContext>
         <viewmodel:MedicineViewModel></viewmodel:MedicineViewModel>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </UserControl.Resources>
     <Border
         CornerRadius="20"
         Background="white">
@@ -30,7 +33,8 @@
                         HorizontalAlignment="Right">
                         <Button 
                             Command="{Binding AddCommand}"
-                            Style="{StaticResource BtnUserControl}">
+                            Style="{StaticResource BtnUserControl}"
+                            Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
                                 Text="Thêm thuốc">
@@ -38,7 +42,8 @@
                         </Button>
                         <Button
                             Style="{StaticResource BtnUserControl_Delete}"
-                            Command="{Binding DeleteCommand}">
+                            Command="{Binding DeleteCommand}"
+                            Visibility="{Binding DeleteVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                             <TextBlock
                                 Style="{StaticResource UserControlText}"
                                 Text="Xóa">
@@ -58,7 +63,7 @@
                 <DataGrid.Columns>
 
                     <DataGridCheckBoxColumn
-                        Width="10*"
+                        Width="7.5*"
                         CanUserResize="False"
                         ElementStyle="{StaticResource CheckBoxStyle1}">
                         <DataGridCheckBoxColumn.HeaderTemplate>
@@ -70,7 +75,7 @@
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
 
-                    <DataGridTextColumn Header="ID" Width="15*"
+                    <DataGridTextColumn Header="ID" Width="12.5*"
                         IsReadOnly="True" CanUserResize="False"
                         Binding="{Binding SUB_ID}">
                     </DataGridTextColumn>
@@ -80,10 +85,44 @@
                         Binding="{Binding TENTHUOC}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Giá tiền" Width="25*"
+                    <DataGridTextColumn Header="Giá tiền" Width="15*"
                         IsReadOnly="True" CanUserResize="False"
                         Binding="{Binding GIATIEN}">
                     </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Đơn vị " Width="10*"
+                        IsReadOnly="True" CanUserResize="False"
+                        Binding="{Binding DONVITINH}">
+                    </DataGridTextColumn>
+
+                    <DataGridTemplateColumn Width="15*" Header="Thao tác"
+                                            IsReadOnly="True" CanUserResize="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <!--Nut xem, sua-->
+                                    <RadioButton Command="{Binding DataContext.ViewCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        Tag="{StaticResource normalButton}"
+                                        Style="{StaticResource gridOpenButton}"
+                                        Margin="0 0 10 0"
+                                        ToolTip="Thông tin chi tiết">
+                                        <fa:IconImage Icon="InfoCircle"
+                                            Height="20"/>
+                                    </RadioButton>
+                                    <RadioButton
+                                        Command="{Binding DataContext.ChangeCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        Style="{StaticResource gridOpenButton}"
+                                        Tag="{StaticResource normalButton}"
+                                        Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        Margin="0 0 10 0"
+                                        ToolTip="Sửa thông tin">
+                                        <fa:IconImage Icon="PenToSquare"
+                                            Height="20"/>
+                                    </RadioButton>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
 
             </DataGrid>

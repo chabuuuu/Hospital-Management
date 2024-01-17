@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace LTTQ_DoAn.View
 {
     /// <summary>
-    /// Interaction logic for ChangeVictim.xaml
+    /// Interaction logic for ChangeMedicine.xaml
     /// </summary>
-    public partial class ChangeVictim : Window
+    public partial class ChangeMedicine : Window
     {
-        public ChangeVictim()
+        public ChangeMedicine()
         {
             InitializeComponent();
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

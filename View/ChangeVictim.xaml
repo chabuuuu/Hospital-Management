@@ -69,7 +69,7 @@
                                        />
                             <TextBox Style="{StaticResource TextPersonalInfo}"
                                      Text="{Binding Benhnhan.HOTEN}"
-                                     Width="200">
+                                     Width="200" TextChanged="TextBox_TextChanged">
                             </TextBox>
                         </StackPanel>
                   
