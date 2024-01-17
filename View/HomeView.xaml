@@ -144,14 +144,11 @@
                             <DockPanel Width="800">
                                 <Button 
                             HorizontalAlignment="Right"
-                            Style="{StaticResource BtnUserControl}" Click="Doctor_Button_Click"
-                            
+                            Style="{StaticResource BtnUserControl}" Click="Doctor_Button_Click" 
                             >
                                     <TextBlock
                                     Style="{StaticResource UserControlText}"
-                                    Text="Xuất biểu đồ"
-                                    >
-                                    </TextBlock>
+                                    Text="Xuất biểu đồ"/>
                                 </Button>
                             </DockPanel>
                         </StackPanel>
@@ -255,15 +252,12 @@
                                         FontWeight="Bold"/>
                             <DockPanel Width="600">
                                 <Button 
-                            HorizontalAlignment="Right"
-                            Style="{StaticResource BtnUserControl}" Click="Service_Button_Click"
-                            
-                            >
+                                HorizontalAlignment="Right"
+                                Style="{StaticResource BtnUserControl}" Click="Service_Button_Click"
+                                >
                                     <TextBlock
                                     Style="{StaticResource UserControlText}"
-                                    Text="Xuất biểu đồ"
-                                    >
-                                    </TextBlock>
+                                    Text="Xuất biểu đồ"/>
                                 </Button>
                             </DockPanel>
                         </StackPanel>
