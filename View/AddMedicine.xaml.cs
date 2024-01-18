@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,19 @@ namespace LTTQ_DoAn.View
         public AddMedicine()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!IsNumeric(e.Text))
+            {
+                e.Handled = true; // Ngăn chặn việc nhập nếu không phải là số
+            }
+        }
+        private bool IsNumeric(string text)
+        {
+            // Sử dụng Regex để kiểm tra xem chuỗi có chứa ký tự số không
+            return Regex.IsMatch(text, "[0-9]");
         }
     }
 }

@@ -110,7 +110,8 @@
                         <StackPanel Margin="0 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Giá tiền:"/>
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
+                            <TextBox PreviewTextInput="TextBox_PreviewTextInput"
+                                Style="{StaticResource TextPersonalInfo}"
                                 Text="{Binding Thuoc.GIATIEN}"
                                 Width="200">
                             </TextBox>

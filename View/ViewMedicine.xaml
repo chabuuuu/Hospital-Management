@@ -65,7 +65,8 @@
                                 Text="Mã thuốc:"/>
                             <TextBox Style="{StaticResource TextPersonalInfo}"
                                 Text="{Binding Thuoc.MATHUOC}"
-                                Width="80">
+                                Width="80"
+                                IsReadOnly="True">
                             </TextBox>
                         </StackPanel>
                         <StackPanel Margin="0 0 25 30">
@@ -73,7 +74,8 @@
                                 Text="Tên thuốc:"/>
                             <TextBox Style="{StaticResource TextPersonalInfo}"
                                 Text="{Binding Thuoc.TENTHUOC}"
-                                Width="250">
+                                Width="250"
+                                IsReadOnly="True">
                             </TextBox>
                         </StackPanel>
                         <StackPanel Margin="10 0 25 30">
@@ -81,7 +83,8 @@
                                 Text="Đơn vị tính:"/>
                             <TextBox Style="{StaticResource TextPersonalInfo}"
                                 Text="{Binding Thuoc.DONVITINH}"
-                                Width="100">
+                                Width="100"
+                                IsReadOnly="True">
                             </TextBox>
                         </StackPanel>
                     </WrapPanel>
@@ -105,7 +108,8 @@
                         materialdesign:HintAssist.Hint="Ghi chú"
                         materialdesign:TextFieldAssist.HasClearButton="True"
                         FontSize="15"
-                        Height="140"/>
+                        Height="140"
+                        IsReadOnly="True"/>
                 </ScrollViewer>
             </Grid>
             <Grid Grid.Row="4" Margin="30 50 0 0">
@@ -116,7 +120,8 @@
                                 Text="Giá tiền:"/>
                             <TextBox Style="{StaticResource TextPersonalInfo}"
                                 Text="{Binding Thuoc.GIATIEN}"
-                                Width="200">
+                                Width="200"
+                                IsReadOnly="True">
                             </TextBox>
                         </StackPanel>
                     </WrapPanel>
