@@ -132,7 +132,7 @@ namespace LTTQ_DoAn.ViewModel
         {
             // Tách chuỗi sử dụng phương thức Split
             string[] parts = inputString.Split(new[] { ':' }, 2);
-            string k1 = parts[0].Substring(1);
+            string k1 = parts[1].Substring(2);
             return int.Parse(k1);
         }
         private void update()
@@ -153,7 +153,8 @@ namespace LTTQ_DoAn.ViewModel
             findBenhAn(maBenhAn);
             loadDichvu();
             loadBacsi();
-            Bacsi = Benhan.YSI.SUB_ID + ": " + Benhan.YSI.HOTEN;
+            //Bacsi = Benhan.YSI.SUB_ID + ": " + Benhan.YSI.HOTEN;
+            Bacsi = Benhan.YSI.HOTEN + ": " + Benhan.YSI.SUB_ID;
             Dichvu = Benhan.DICHVU.SUB_ID + ": " + Benhan.DICHVU.TENDICHVU;
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
             ConfirmChangeCommand = new ViewModelCommand(ExecuteConfirmChangeCommand, CanExecuteConfirmChangeCommand);

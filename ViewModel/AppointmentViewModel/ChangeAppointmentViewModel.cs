@@ -105,7 +105,7 @@ namespace LTTQ_DoAn.ViewModel
             int Ca = int.Parse(Cakham);
             DateTime new_NgayKham = (DateTime)Lichkham.NGAYKHAM;
             LICHKHAM check_trung_lich_kham = thisYsi.LICHKHAM.Where(i => i.CAKHAM == Ca && i.NGAYKHAM == new_NgayKham).FirstOrDefault();
-            if (check_trung_lich_kham != null)
+            if (check_trung_lich_kham != null && Lichkham.MABENHNHAN != convertBenhnhanSub_ID(Benhnhan))
             {
                 throw new Exception("Bác sĩ này đã có lịch khám vào ca " + Cakham + " rồi!");
             }
@@ -113,7 +113,9 @@ namespace LTTQ_DoAn.ViewModel
             LICHKHAM check_trung_voi_bacsi_khac = _db.LICHKHAM.Where(k => k.CAKHAM == Ca &&
                 k.NGAYKHAM == new_NgayKham &&
                 k.MAPHONG == new_MaPhong &&
-                k.MABACSI != idBacSi).SingleOrDefault();
+                k.MABACSI != idBacSi &&
+                k.MABACSI != Lichkham.MABACSI
+                ).SingleOrDefault();
             if (check_trung_voi_bacsi_khac != null)
             {
                 throw new Exception("Ca khám vào phòng này đã được đặt trước cho bác sĩ khác");
@@ -180,14 +182,14 @@ namespace LTTQ_DoAn.ViewModel
         {
             // Tách chuỗi sử dụng phương thức Split
             string[] parts = inputString.Split(new[] { ':' }, 2);
-            string k1 = parts[0].Substring(1);
+            string k1 = parts[1].Substring(2);
             return int.Parse(k1);
         }
         public int convertBenhnhanSub_ID(string inputString)
         {
             // Tách chuỗi sử dụng phương thức Split
             string[] parts = inputString.Split(new[] { ':' }, 2);
-            string k1 = parts[0].Substring(2);
+            string k1 = parts[1].Substring(3);
             return int.Parse(k1);
         }
         public int convertDichvuSub_ID(string inputString)
