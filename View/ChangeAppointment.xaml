@@ -68,6 +68,8 @@
                                        Text="Tên bệnh nhân:"
                                        />
                             <ComboBox
+                            IsEditable="True"
+                            IsTextSearchCaseSensitive="True"
                             ItemsSource="{Binding BenhnhanList}"
                             SelectedValue="{Binding Benhnhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             MinWidth="200"
@@ -81,6 +83,8 @@
                                        Text="Tên y sĩ:"
                                        />
                             <ComboBox
+                            IsEditable="True"
+                            IsTextSearchCaseSensitive="True"
                             ItemsSource="{Binding BacsiList}"
                             SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             MinWidth="200"

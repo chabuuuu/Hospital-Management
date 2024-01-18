@@ -90,7 +90,7 @@ namespace LTTQ_DoAn.ViewModel
                     {
                         continue;
                     }
-                    subID.Add(item.SUB_ID + ": " + item.HOTEN);
+                    subID.Add(item.HOTEN + ": " + item.SUB_ID);
                 }
             }
             subID.Add("Không có trưởng khoa");

@@ -101,7 +101,7 @@ namespace LTTQ_DoAn.ViewModel
                 }
                 if (item.LOAIYSI.Substring(0, 6).Equals("Bác sĩ"))
                 {
-                    subID.Add(item.SUB_ID + ": " + item.HOTEN);
+                    subID.Add(item.HOTEN + ": " + item.SUB_ID);
                 }
             }
             this.Bacsilist = subID;

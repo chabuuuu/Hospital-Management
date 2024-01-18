@@ -76,6 +76,8 @@
                                        Text="Bác sĩ:"
                                        />
                     <ComboBox
+                        IsEditable="True"
+                        IsTextSearchCaseSensitive="True" 
                         ItemsSource="{Binding Bacsilist}"
                         SelectedItem="{Binding Bacsi}"
                         MinWidth="200"
