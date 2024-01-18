@@ -83,8 +83,8 @@
                                                         <Grid>
                                                             <Grid.RowDefinitions>
                                                                 <RowDefinition Height="40"/>
-                                                                <RowDefinition Height="50"/>
                                                                 <RowDefinition Height="150"/>
+                                                                <RowDefinition Height="50"/>
                                                                 <RowDefinition Height="40"/>
                                                             </Grid.RowDefinitions>
                                                             <!--ngày tháng khám và khoa điều trị-->
@@ -139,7 +139,14 @@
                                                                 <!--tên bác sĩ khám-->
                                                                 <TextBlock Text="{Binding MAYSI}"
                                                                            Style="{StaticResource InfoText}"
-                                                                           Margin="0 0 200 0"/>
+                                                                           Margin="0 0 170 0"/>
+                                                                <TextBlock Text="Dịch vụ: "
+                                                                            FontWeight="Bold"
+                                                                            Style="{StaticResource InfoText}"/>
+                                                                <!--dich vu-->
+                                                                <TextBlock Text="{Binding }"
+                                                                            Style="{StaticResource InfoText}"
+                                                                            Margin="0 0 170 0"/>
                                                                 <!--giá tiền khám-->
                                                                 <TextBlock Text="Chi Phí: "
                                                                            FontWeight="Bold"
@@ -177,9 +184,10 @@
                                 </ListView.View>
                             </ListView>
                         </ScrollViewer>
-                        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Background="Transparent"
-                                    VerticalAlignment="Center" Grid.Column="1" Margin="737,0,0,0"
-                                    Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Background="Transparent"
+                                    VerticalAlignment="Center" Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    >
                             <!--thao tác thêm bệnh án-->
                             <Button
                                     Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
@@ -189,8 +197,19 @@
                                     BorderBrush="{StaticResource  btnActivedText}"
                                     Command="{Binding AddHRCommand}"
                                     Background="{StaticResource btnActivedText}"
-                                    >
+                                    Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
+                            </Button>
+                            <!--nut xem lich su-->
+                            <Button
+                                    Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
+                                    Height="55"
+                                    Width="55"
+                                    BorderBrush="{StaticResource  btnActivedText}"
+                                    Command="{Binding }"
+                                    Background="{StaticResource btnActivedText}"
+                                    >
+                                <fa:IconImage Icon="History" Height="35" Width="35" />
                             </Button>
                         </StackPanel>
                     </Grid>
