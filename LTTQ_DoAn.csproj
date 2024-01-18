@@ -22,6 +22,7 @@
     <None Remove="Photo\Logo.png" />
     <None Remove="Photo\medical-team.png" />
     <None Remove="Photo\medicine.png" />
+    <None Remove="Photo\medicine_pic.png" />
     <None Remove="Photo\notification-bell.png" />
     <None Remove="Photo\patient.png" />
     <None Remove="Photo\personal-information.png" />
@@ -29,6 +30,12 @@
     <None Remove="Photo\service.png" />
     <None Remove="Photo\success.png" />
     <None Remove="QLBVModel.edmx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Photo\medicine_pic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

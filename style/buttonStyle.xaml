@@ -694,7 +694,8 @@
         <Setter Property="Height" Value="35"/>
         <Setter Property="Width" Value="35"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="CornerRadius" Value="20"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#ccc"/>

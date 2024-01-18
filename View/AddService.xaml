@@ -76,7 +76,8 @@
                     FontSize="15"
                     Height="55"/>
                     <!--giá-->
-                    <TextBox Margin="0 20 0 0"
+                    <TextBox PreviewTextInput="TextBox_PreviewTextInput"
+                    Margin="0 20 0 0"
                     Text="{Binding Gia}"
                     Width="300"
                     HorizontalContentAlignment="Stretch"

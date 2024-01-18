@@ -77,25 +77,27 @@
                                                 <DataTemplate>
                                                     <Expander HorizontalAlignment="Stretch"
                                                             Header="{Binding SUB_ID}"
+                                                            FontWeight="Bold"
                                                             Width="880"
                                                             FontSize="15">
                                                         <Grid>
                                                             <Grid.RowDefinitions>
                                                                 <RowDefinition Height="40"/>
                                                                 <RowDefinition Height="50"/>
-                                                                <RowDefinition Height="100"/>
+                                                                <RowDefinition Height="150"/>
                                                                 <RowDefinition Height="40"/>
                                                             </Grid.RowDefinitions>
                                                             <!--ngày tháng khám và khoa điều trị-->
                                                             <StackPanel Grid.Row="0" Orientation="Horizontal">
                                                                 <TextBlock Text="Ngày: "
+                                                                           FontWeight="Bold"
                                                                            Style="{StaticResource InfoText}"/>
                                                                 <TextBlock Text="{Binding NGAYKHAM}"
                                                                            Style="{StaticResource InfoText}"
                                                                            Margin="0 0 200 0"
                                                                           />
-
                                                                 <TextBlock Text="Khoa: "
+                                                                           FontWeight="Bold"
                                                                          Style="{StaticResource InfoText}"/>
                                                                 <TextBlock Text="{Binding KHOA}"
                                                                            Style="{StaticResource InfoText}"
@@ -104,7 +106,8 @@
                                                             <!--triệu chứng-->
                                                             <StackPanel Grid.Row="1" Orientation="Horizontal"
                                                                         VerticalAlignment="top">
-                                                                <TextBlock Text="Triệu chứng: " VerticalAlignment="Top"
+                                                                <TextBlock Text="Triệu chứng: " FontWeight="Bold"
+                                                                           VerticalAlignment="Top"
                                                                            Style="{StaticResource InfoText}"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                                                               HorizontalScrollBarVisibility="Disabled">
@@ -118,6 +121,7 @@
                                                             <StackPanel Grid.Row="2" Orientation="Horizontal"
                                                                         VerticalAlignment="top">
                                                                 <TextBlock Text="Kết luận: "
+                                                                           FontWeight="Bold"
                                                                            Style="{StaticResource InfoText}"
                                                                            VerticalAlignment="Top"/>
                                                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
@@ -130,6 +134,7 @@
                                                             </StackPanel>
                                                             <StackPanel Grid.Row="3" Orientation="Horizontal">
                                                                 <TextBlock Text="Bác sĩ: "
+                                                                           FontWeight="Bold"
                                                                            Style="{StaticResource InfoText}"/>
                                                                 <!--tên bác sĩ khám-->
                                                                 <TextBlock Text="{Binding MAYSI}"
@@ -137,6 +142,7 @@
                                                                            Margin="0 0 200 0"/>
                                                                 <!--giá tiền khám-->
                                                                 <TextBlock Text="Chi Phí: "
+                                                                           FontWeight="Bold"
                                                                             Style="{StaticResource InfoText}"/>
                                                                 <TextBlock Text="{Binding THANHTIEN}"
                                                                            Style="{StaticResource InfoText}"/>
@@ -216,50 +222,52 @@
                                 </ListView.ItemContainerStyle>
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Width="880">
+                                        <GridViewColumn Width="900">
                                             <GridViewColumnHeader Visibility="Collapsed"/>
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <Expander HorizontalAlignment="Stretch"
                                                             Header="{Binding SUB_IDDT}"
-
                                                             Width="880"
+                                                            FontWeight="Bold"
                                                             FontSize="15">
                                                         <Grid>
                                                             <Grid.RowDefinitions>
                                                                 <RowDefinition Height="40"/>
+                                                                <RowDefinition Height="200"/>
                                                                 <RowDefinition Height="40"/>
-                                                                <RowDefinition Height="100"/>
                                                             </Grid.RowDefinitions>
                                                             <!--y si-->
                                                             <StackPanel Grid.Row="0" Orientation="Horizontal">
                                                                 <TextBlock Text="Ngày: "
+                                                                           FontWeight="Bold"
                                                                            Style="{StaticResource InfoText}"/>
                                                                 <TextBlock Text="{Binding NGAYLAPDONTHUOC}"
                                                                            Style="{StaticResource InfoText}"
                                                                            Margin="0 0 200 0"
                                                                           />
                                                                 <TextBlock Text="Khoa: "
+                                                                           FontWeight="Bold"
                                                                             Style="{StaticResource InfoText}"/>
                                                                 <TextBlock Text="{Binding KHOA}"
                                                                            Style="{StaticResource InfoText}"
                                                                            />
                                                             </StackPanel>
                                                             <!--ghi chú-->
-                                                            <StackPanel Grid.Row="2" Orientation="Horizontal"
-                VerticalAlignment="top">
-                                                                <TextBlock Text="Ghi chu: "
-                   Style="{StaticResource InfoText}"
-                   VerticalAlignment="Top"/>
-                                                                <ScrollViewer VerticalScrollBarVisibility="Auto"
-                                                                            HorizontalScrollBarVisibility="Disabled">
-                                                                    <TextBlock Text="{Binding GHICHU}"
-                                                                            Style="{StaticResource InfoText}"/>
-                                                                </ScrollViewer>
+                                                            <StackPanel Grid.Row="1" Orientation="Horizontal"
+                                                                VerticalAlignment="top">
+                                                                <TextBlock Text="Ghi chú: "
+                                                                           FontWeight="Bold"
+                                                               Style="{StaticResource InfoText}"
+                                                               VerticalAlignment="Top"/>
+                                                                <TextBlock Text="{Binding GHICHU}"
+                                                                            Style="{StaticResource InfoText}"
+                                                                           />
                                                             </StackPanel>
                                                             <StackPanel Grid.Row="2" Orientation="Horizontal">
                                                                 <!--tên bác sĩ khám-->
                                                                 <TextBlock Text="Bác sĩ: "
+                                                                           FontWeight="Bold"
                                                                          Style="{StaticResource InfoText}"/>
                                                                 <TextBlock Text="{Binding BACSI}"
                                                                        Style="{StaticResource InfoText}"

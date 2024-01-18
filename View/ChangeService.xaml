@@ -80,7 +80,8 @@
                                        />
                         <TextBox Style="{StaticResource TextPersonalInfo}"
                                      Text="{Binding Dichvu.GIATIEN}"
-                                     Width="200">
+                                     Width="200"
+                                 PreviewTextInput="TextBox_PreviewTextInput">
                         </TextBox>
                     </StackPanel>
                     <Button Width="100"

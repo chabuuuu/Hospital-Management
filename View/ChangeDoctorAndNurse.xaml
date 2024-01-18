@@ -120,12 +120,14 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Cấp trên:"/>
                             <ComboBox
-                        MinWidth="200"
-                        Height="30"
-                        FontSize="15"
-                        ItemsSource="{Binding YsiList}"
-                        SelectedValue="{Binding Chihuy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                        />
+                            IsEditable="True"
+                            IsTextSearchCaseSensitive="True"
+                            MinWidth="200"
+                            Height="30"
+                            FontSize="15"
+                            ItemsSource="{Binding YsiList}"
+                            SelectedValue="{Binding Chihuy, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            />
                         </StackPanel>
                     </WrapPanel>
                 </StackPanel>

@@ -172,8 +172,6 @@
                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
                     />
             </StackPanel>
-            <Image Grid.Row="3" HorizontalAlignment="Left" Stretch="Uniform" Grid.Column="1" Source="/Photo/Medicine.png" Grid.RowSpan="2"
-                Height="180" Margin="-50 20 0 0"/>
         </Grid>
     </Border>
 </Window>

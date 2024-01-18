@@ -139,7 +139,8 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                        Text="Chi phí:"
                                        />
-                            <TextBox Style="{StaticResource TextPersonalInfo}"
+                            <TextBox IsReadOnly="True"
+                                    Style="{StaticResource TextPersonalInfo}"
                                      Text="{Binding Chiphi}"
                                      Width="400">
                             </TextBox>
