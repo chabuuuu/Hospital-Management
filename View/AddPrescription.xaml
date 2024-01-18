@@ -34,7 +34,7 @@
             </Grid.RowDefinitions>
             <!--nút thu nhỏ và tắt màn-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="1" Margin="269,0,0,0">
-                <Button
+                <Button Click="Button_Click"
                         Style="{StaticResource controlButton}"
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>

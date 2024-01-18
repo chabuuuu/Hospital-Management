@@ -53,7 +53,7 @@
                     Margin="30 4 0 0 "
                     >
                 </TextBlock>
-                <Button
+                <Button 
                     x:Name="bt_minimize"
                     Grid.Column="1"
                     Style="{StaticResource controlButton}"
