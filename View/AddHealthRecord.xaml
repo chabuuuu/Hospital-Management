@@ -68,6 +68,8 @@
                     Height="55"/>
                 <!--tên bác sĩ-->
                 <ComboBox
+                IsEditable="True"
+                IsTextSearchCaseSensitive="True"
                 ItemsSource="{Binding Bacsilist}"
                 SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="250"

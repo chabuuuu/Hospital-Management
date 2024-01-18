@@ -21,6 +21,7 @@
     <None Remove="Photo\LoginBackground.png" />
     <None Remove="Photo\Logo.png" />
     <None Remove="Photo\medical-team.png" />
+    <None Remove="Photo\medicine.png" />
     <None Remove="Photo\notification-bell.png" />
     <None Remove="Photo\patient.png" />
     <None Remove="Photo\personal-information.png" />

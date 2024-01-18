@@ -89,14 +89,15 @@
                                        Text="Tên trưởng khoa:"
                                        />
                         <ComboBox
-                            
-                ItemsSource="{Binding BacsiList}"
-                SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                MinWidth="300"
-                Height="55"
-                FontSize="15"
-                materialdesign:HintAssist.Hint="Trưởng khoa"
-                Margin="0 0 0 0"/>
+                        IsEditable="True"
+                        IsTextSearchCaseSensitive="True"   
+                        ItemsSource="{Binding BacsiList}"
+                        SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        MinWidth="300"
+                        Height="55"
+                        FontSize="15"
+                        materialdesign:HintAssist.Hint="Trưởng khoa"
+                        Margin="0 0 0 0"/>
                     </StackPanel>
                     <Button Width="100"
                             Command="{Binding AddImageCommand}"

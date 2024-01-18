@@ -75,6 +75,8 @@
                 Margin="50 0 25 0"/>
 
                 <ComboBox
+                IsEditable="True"
+                IsTextSearchCaseSensitive="True"
                 ItemsSource="{Binding BacsiList}"
                 SelectedValue="{Binding Bacsi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 MinWidth="300"

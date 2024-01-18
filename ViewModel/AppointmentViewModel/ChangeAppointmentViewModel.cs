@@ -127,10 +127,10 @@ namespace LTTQ_DoAn.ViewModel
             List<String> subID = new List<String>();
             foreach (var item in benhnhan)
             {
-                subID.Add(item.SUB_ID + ": " + item.HOTEN);
+                subID.Add(item.HOTEN + ": " + item.SUB_ID);
                 if (item.MABENHNHAN == Lichkham.MABENHNHAN)
                 {
-                    Benhnhan = item.SUB_ID + ": " + item.HOTEN;
+                    Benhnhan = item.HOTEN + ": " + item.SUB_ID;
                 }
             }
             this.BenhnhanList = subID;
@@ -147,10 +147,10 @@ namespace LTTQ_DoAn.ViewModel
                 }
                 if (item.LOAIYSI.Substring(0, 6).Equals("Bác sĩ"))
                 {
-                    subID.Add(item.SUB_ID + ": " + item.HOTEN);
+                    subID.Add(item.HOTEN + ": " + item.SUB_ID);
                     if (item.MAYSI == Lichkham.MABACSI)
                     {
-                        Bacsi = item.SUB_ID + ": " + item.HOTEN;
+                        Bacsi = item.HOTEN + ": " + item.SUB_ID;
                     }
                 }
             }
