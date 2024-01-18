@@ -54,8 +54,8 @@ namespace LTTQ_DoAn.ViewModel
         public ICommand ChangePCommand { get; }
         public ICommand AddPCommand { get; }
         public ICommand DeletePCommand { get; }
-
         public ICommand ExitCommand { get; }
+        public ICommand ViewHistory { get; }
         public BENHNHAN Benhnhan
         {
             get => benhnhan; set
@@ -261,6 +261,7 @@ namespace LTTQ_DoAn.ViewModel
             DeletePCommand = new ViewModelCommand(ExecuteDeletePCommand, CanExecuteDeletePCommand);
             ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
+            ViewHistory = new ViewHistoryCommand(ExecuteViewCommand, CanExecuteViewCommand);
         }
         public HealthRecordAndPrescriptionViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view, TAIKHOAN user_account)
         {
@@ -277,6 +278,7 @@ namespace LTTQ_DoAn.ViewModel
             DeletePCommand = new ViewModelCommand(ExecuteDeletePCommand, CanExecuteDeletePCommand);
             ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
+            ViewHistory = new ViewHistoryCommand(ExecuteViewCommand, CanExecuteViewCommand);
         }
         void Set_permission(string type)
         {
@@ -462,6 +464,16 @@ namespace LTTQ_DoAn.ViewModel
         private void ChangePrescription_Closed(object sender, EventArgs e)
         {
             findDonThuoc();
+        }
+
+        private bool CanExecuteViewCommand(object? obj)
+        {
+            return true;
+        }
+
+        private void ExecuteViewCommand(object sender, EventArgs e)
+        {
+            
         }
     }
 }
