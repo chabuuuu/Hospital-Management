@@ -30,7 +30,7 @@
             </Grid.RowDefinitions>
             <!--nút thu nhỏ và tắt màn-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button
+                <Button Click="Button_Click"
                         Style="{StaticResource controlButton}"  
                         FontSize="16">
                     <fa:IconImage Icon="WindowMinimize" Style="{StaticResource controlButtonIcon}"/>

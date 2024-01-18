@@ -38,9 +38,9 @@ namespace LTTQ_DoAn.View
             return Regex.IsMatch(text, "[0-9]");
         }
 
-        private void Button_Click()
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
     }
 }
