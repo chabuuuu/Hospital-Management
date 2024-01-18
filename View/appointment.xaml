@@ -118,12 +118,16 @@
                                         Command="{Binding DataContext.ViewAppointmentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Style="{StaticResource gridOpenButton}"
                                         Tag="{StaticResource normalButton}"
-                                            Margin="0 0 10 0">
+                                        Margin="0 0 5 0"
+                                        ToolTip="Chi tiết"
+                                        >
                                         <fa:IconImage Icon="InfoCircle"
                                                       Height="20"
                                                       />
                                     </RadioButton>
                                     <RadioButton 
+                                        Margin="5 0 0 0"
+                                        ToolTip="Sửa"
                                         Command="{Binding DataContext.ChangeAppointmentCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
