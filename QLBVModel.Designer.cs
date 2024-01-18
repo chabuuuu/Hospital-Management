@@ -21,6 +21,7 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_BENHAN_DONTHUOC", "BENHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.BENHAN), "DONTHUOC", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.DONTHUOC), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_DICHVU_BENHAN", "DICHVU", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.DICHVU), "BENHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.BENHAN), true)]
+[assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MABENHAN_BENHAN_HISTORY", "BENHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.BENHAN), "BENHAN_HISTORY", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.BENHAN_HISTORY), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MABENHNHAN_BENHAN", "BENHNHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.BENHNHAN), "BENHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.BENHAN), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MAYSI_BENHAN", "YSI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.YSI), "BENHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.BENHAN), true)]
 [assembly: EdmRelationshipAttribute("QUANLYBENHVIENModel", "FK_MABENHNHAN_LICHKHAM", "BENHNHAN", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(LTTQ_DoAn.BENHNHAN), "LICHKHAM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(LTTQ_DoAn.LICHKHAM), true)]
@@ -100,6 +101,22 @@ namespace LTTQ_DoAn
             }
         }
         private ObjectSet<BENHAN> _BENHAN;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BENHAN_HISTORY> BENHAN_HISTORY
+        {
+            get
+            {
+                if ((_BENHAN_HISTORY == null))
+                {
+                    _BENHAN_HISTORY = base.CreateObjectSet<BENHAN_HISTORY>("BENHAN_HISTORY");
+                }
+                return _BENHAN_HISTORY;
+            }
+        }
+        private ObjectSet<BENHAN_HISTORY> _BENHAN_HISTORY;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -287,6 +304,14 @@ namespace LTTQ_DoAn
         public void AddToBENHAN(BENHAN bENHAN)
         {
             base.AddObject("BENHAN", bENHAN);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BENHAN_HISTORY EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBENHAN_HISTORY(BENHAN_HISTORY bENHAN_HISTORY)
+        {
+            base.AddObject("BENHAN_HISTORY", bENHAN_HISTORY);
         }
     
         /// <summary>
@@ -699,6 +724,28 @@ namespace LTTQ_DoAn
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MABENHAN_BENHAN_HISTORY", "BENHAN_HISTORY")]
+        public EntityCollection<BENHAN_HISTORY> BENHAN_HISTORY
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BENHAN_HISTORY>("QUANLYBENHVIENModel.FK_MABENHAN_BENHAN_HISTORY", "BENHAN_HISTORY");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BENHAN_HISTORY>("QUANLYBENHVIENModel.FK_MABENHAN_BENHAN_HISTORY", "BENHAN_HISTORY", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MABENHNHAN_BENHAN", "BENHNHAN")]
         public BENHNHAN BENHNHAN
         {
@@ -765,6 +812,320 @@ namespace LTTQ_DoAn
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<YSI>("QUANLYBENHVIENModel.FK_MAYSI_BENHAN", "YSI", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="QUANLYBENHVIENModel", Name="BENHAN_HISTORY")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BENHAN_HISTORY : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BENHAN_HISTORY object.
+        /// </summary>
+        /// <param name="mALICHSU">Initial value of the MALICHSU property.</param>
+        public static BENHAN_HISTORY CreateBENHAN_HISTORY(global::System.Int32 mALICHSU)
+        {
+            BENHAN_HISTORY bENHAN_HISTORY = new BENHAN_HISTORY();
+            bENHAN_HISTORY.MALICHSU = mALICHSU;
+            return bENHAN_HISTORY;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MALICHSU
+        {
+            get
+            {
+                return _MALICHSU;
+            }
+            set
+            {
+                if (_MALICHSU != value)
+                {
+                    OnMALICHSUChanging(value);
+                    ReportPropertyChanging("MALICHSU");
+                    _MALICHSU = StructuralObject.SetValidValue(value, "MALICHSU");
+                    ReportPropertyChanged("MALICHSU");
+                    OnMALICHSUChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MALICHSU;
+        partial void OnMALICHSUChanging(global::System.Int32 value);
+        partial void OnMALICHSUChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> MABENHAN
+        {
+            get
+            {
+                return _MABENHAN;
+            }
+            set
+            {
+                OnMABENHANChanging(value);
+                ReportPropertyChanging("MABENHAN");
+                _MABENHAN = StructuralObject.SetValidValue(value, "MABENHAN");
+                ReportPropertyChanged("MABENHAN");
+                OnMABENHANChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _MABENHAN;
+        partial void OnMABENHANChanging(Nullable<global::System.Int32> value);
+        partial void OnMABENHANChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> MAYSI
+        {
+            get
+            {
+                return _MAYSI;
+            }
+            set
+            {
+                OnMAYSIChanging(value);
+                ReportPropertyChanging("MAYSI");
+                _MAYSI = StructuralObject.SetValidValue(value, "MAYSI");
+                ReportPropertyChanged("MAYSI");
+                OnMAYSIChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _MAYSI;
+        partial void OnMAYSIChanging(Nullable<global::System.Int32> value);
+        partial void OnMAYSIChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> MABENHNHAN
+        {
+            get
+            {
+                return _MABENHNHAN;
+            }
+            set
+            {
+                OnMABENHNHANChanging(value);
+                ReportPropertyChanging("MABENHNHAN");
+                _MABENHNHAN = StructuralObject.SetValidValue(value, "MABENHNHAN");
+                ReportPropertyChanged("MABENHNHAN");
+                OnMABENHNHANChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _MABENHNHAN;
+        partial void OnMABENHNHANChanging(Nullable<global::System.Int32> value);
+        partial void OnMABENHNHANChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> MADICHVU
+        {
+            get
+            {
+                return _MADICHVU;
+            }
+            set
+            {
+                OnMADICHVUChanging(value);
+                ReportPropertyChanging("MADICHVU");
+                _MADICHVU = StructuralObject.SetValidValue(value, "MADICHVU");
+                ReportPropertyChanged("MADICHVU");
+                OnMADICHVUChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _MADICHVU;
+        partial void OnMADICHVUChanging(Nullable<global::System.Int32> value);
+        partial void OnMADICHVUChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TRIEUCHUNG
+        {
+            get
+            {
+                return _TRIEUCHUNG;
+            }
+            set
+            {
+                OnTRIEUCHUNGChanging(value);
+                ReportPropertyChanging("TRIEUCHUNG");
+                _TRIEUCHUNG = StructuralObject.SetValidValue(value, true, "TRIEUCHUNG");
+                ReportPropertyChanged("TRIEUCHUNG");
+                OnTRIEUCHUNGChanged();
+            }
+        }
+        private global::System.String _TRIEUCHUNG;
+        partial void OnTRIEUCHUNGChanging(global::System.String value);
+        partial void OnTRIEUCHUNGChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> NGAYKHAM
+        {
+            get
+            {
+                return _NGAYKHAM;
+            }
+            set
+            {
+                OnNGAYKHAMChanging(value);
+                ReportPropertyChanging("NGAYKHAM");
+                _NGAYKHAM = StructuralObject.SetValidValue(value, "NGAYKHAM");
+                ReportPropertyChanged("NGAYKHAM");
+                OnNGAYKHAMChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _NGAYKHAM;
+        partial void OnNGAYKHAMChanging(Nullable<global::System.DateTime> value);
+        partial void OnNGAYKHAMChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> THANHTIEN
+        {
+            get
+            {
+                return _THANHTIEN;
+            }
+            set
+            {
+                OnTHANHTIENChanging(value);
+                ReportPropertyChanging("THANHTIEN");
+                _THANHTIEN = StructuralObject.SetValidValue(value, "THANHTIEN");
+                ReportPropertyChanged("THANHTIEN");
+                OnTHANHTIENChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _THANHTIEN;
+        partial void OnTHANHTIENChanging(Nullable<global::System.Decimal> value);
+        partial void OnTHANHTIENChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String KETLUAN
+        {
+            get
+            {
+                return _KETLUAN;
+            }
+            set
+            {
+                OnKETLUANChanging(value);
+                ReportPropertyChanging("KETLUAN");
+                _KETLUAN = StructuralObject.SetValidValue(value, true, "KETLUAN");
+                ReportPropertyChanged("KETLUAN");
+                OnKETLUANChanged();
+            }
+        }
+        private global::System.String _KETLUAN;
+        partial void OnKETLUANChanging(global::System.String value);
+        partial void OnKETLUANChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> CHANGED_DATE
+        {
+            get
+            {
+                return _CHANGED_DATE;
+            }
+            set
+            {
+                OnCHANGED_DATEChanging(value);
+                ReportPropertyChanging("CHANGED_DATE");
+                _CHANGED_DATE = StructuralObject.SetValidValue(value, "CHANGED_DATE");
+                ReportPropertyChanged("CHANGED_DATE");
+                OnCHANGED_DATEChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _CHANGED_DATE;
+        partial void OnCHANGED_DATEChanging(Nullable<global::System.DateTime> value);
+        partial void OnCHANGED_DATEChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("QUANLYBENHVIENModel", "FK_MABENHAN_BENHAN_HISTORY", "BENHAN")]
+        public BENHAN BENHAN
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BENHAN>("QUANLYBENHVIENModel.FK_MABENHAN_BENHAN_HISTORY", "BENHAN").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BENHAN>("QUANLYBENHVIENModel.FK_MABENHAN_BENHAN_HISTORY", "BENHAN").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BENHAN> BENHANReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BENHAN>("QUANLYBENHVIENModel.FK_MABENHAN_BENHAN_HISTORY", "BENHAN");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BENHAN>("QUANLYBENHVIENModel.FK_MABENHAN_BENHAN_HISTORY", "BENHAN", value);
                 }
             }
         }
@@ -3081,6 +3442,30 @@ namespace LTTQ_DoAn
         private global::System.String _TENTHUOC;
         partial void OnTENTHUOCChanging(global::System.String value);
         partial void OnTENTHUOCChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Double> SOLUONG
+        {
+            get
+            {
+                return _SOLUONG;
+            }
+            set
+            {
+                OnSOLUONGChanging(value);
+                ReportPropertyChanging("SOLUONG");
+                _SOLUONG = StructuralObject.SetValidValue(value, "SOLUONG");
+                ReportPropertyChanged("SOLUONG");
+                OnSOLUONGChanged();
+            }
+        }
+        private Nullable<global::System.Double> _SOLUONG;
+        partial void OnSOLUONGChanging(Nullable<global::System.Double> value);
+        partial void OnSOLUONGChanged();
 
         #endregion
 

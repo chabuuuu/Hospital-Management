@@ -19,6 +19,21 @@
           <Property Name="NGAYKHAM" Type="smalldatetime" />
           <Property Name="KETLUAN" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="BENHAN_HISTORY">
+          <Key>
+            <PropertyRef Name="MALICHSU" />
+          </Key>
+          <Property Name="MALICHSU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MABENHAN" Type="int" />
+          <Property Name="MAYSI" Type="int" />
+          <Property Name="MABENHNHAN" Type="int" />
+          <Property Name="MADICHVU" Type="int" />
+          <Property Name="TRIEUCHUNG" Type="nvarchar(max)" />
+          <Property Name="NGAYKHAM" Type="smalldatetime" />
+          <Property Name="THANHTIEN" Type="money" />
+          <Property Name="KETLUAN" Type="nvarchar(max)" />
+          <Property Name="CHANGED_DATE" Type="datetime" />
+        </EntityType>
         <EntityType Name="BENHNHAN">
           <Key>
             <PropertyRef Name="MABENHNHAN" />
@@ -124,10 +139,11 @@
           </Key>
           <Property Name="MATHUOC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SUB_ID" Type="varchar" MaxLength="13" StoreGeneratedPattern="Computed" />
-          <Property Name="GHICHU" Type="varchar(max)" />
+          <Property Name="GHICHU" Type="nvarchar(max)" />
           <Property Name="GIATIEN" Type="money" />
           <Property Name="DONVITINH" Type="nvarchar" MaxLength="30" />
           <Property Name="TENTHUOC" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOLUONG" Type="float" />
         </EntityType>
         <EntityType Name="YSI">
           <Key>
@@ -213,6 +229,18 @@
             </Principal>
             <Dependent Role="LICHKHAM">
               <PropertyRef Name="MABACSI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MABENHAN_BENHAN_HISTORY">
+          <End Role="BENHAN" Type="Self.BENHAN" Multiplicity="0..1" />
+          <End Role="BENHAN_HISTORY" Type="Self.BENHAN_HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENHAN">
+              <PropertyRef Name="MABENHAN" />
+            </Principal>
+            <Dependent Role="BENHAN_HISTORY">
+              <PropertyRef Name="MABENHAN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -326,6 +354,7 @@
         </Association>
         <EntityContainer Name="QUANLYBENHVIENModelStoreContainer">
           <EntitySet Name="BENHAN" EntityType="Self.BENHAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BENHAN_HISTORY" EntityType="Self.BENHAN_HISTORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BENHNHAN" EntityType="Self.BENHNHAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CHITIETDONTHUOC" EntityType="Self.CHITIETDONTHUOC" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
@@ -360,6 +389,10 @@
           <AssociationSet Name="FK_MABACSI_LICHKHAM" Association="Self.FK_MABACSI_LICHKHAM">
             <End Role="YSI" EntitySet="YSI" />
             <End Role="LICHKHAM" EntitySet="LICHKHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MABENHAN_BENHAN_HISTORY" Association="Self.FK_MABENHAN_BENHAN_HISTORY">
+            <End Role="BENHAN" EntitySet="BENHAN" />
+            <End Role="BENHAN_HISTORY" EntitySet="BENHAN_HISTORY" />
           </AssociationSet>
           <AssociationSet Name="FK_MABENHNHAN_BENHAN" Association="Self.FK_MABENHNHAN_BENHAN">
             <End Role="BENHNHAN" EntitySet="BENHNHAN" />
@@ -418,8 +451,25 @@
           <Property Name="KETLUAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DONTHUOC" Relationship="Self.FK_BENHAN_DONTHUOC" FromRole="BENHAN" ToRole="DONTHUOC" />
           <NavigationProperty Name="DICHVU" Relationship="Self.FK_DICHVU_BENHAN" FromRole="BENHAN" ToRole="DICHVU" />
+          <NavigationProperty Name="BENHAN_HISTORY" Relationship="Self.FK_MABENHAN_BENHAN_HISTORY" FromRole="BENHAN" ToRole="BENHAN_HISTORY" />
           <NavigationProperty Name="BENHNHAN" Relationship="Self.FK_MABENHNHAN_BENHAN" FromRole="BENHAN" ToRole="BENHNHAN" />
           <NavigationProperty Name="YSI" Relationship="Self.FK_MAYSI_BENHAN" FromRole="BENHAN" ToRole="YSI" />
+        </EntityType>
+        <EntityType Name="BENHAN_HISTORY">
+          <Key>
+            <PropertyRef Name="MALICHSU" />
+          </Key>
+          <Property Name="MALICHSU" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MABENHAN" Type="Int32" />
+          <Property Name="MAYSI" Type="Int32" />
+          <Property Name="MABENHNHAN" Type="Int32" />
+          <Property Name="MADICHVU" Type="Int32" />
+          <Property Name="TRIEUCHUNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYKHAM" Type="DateTime" />
+          <Property Name="THANHTIEN" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="KETLUAN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CHANGED_DATE" Type="DateTime" />
+          <NavigationProperty Name="BENHAN" Relationship="Self.FK_MABENHAN_BENHAN_HISTORY" FromRole="BENHAN_HISTORY" ToRole="BENHAN" />
         </EntityType>
         <EntityType Name="BENHNHAN">
           <Key>
@@ -544,10 +594,11 @@
           </Key>
           <Property Name="MATHUOC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SUB_ID" Type="String" MaxLength="13" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GIATIEN" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="DONVITINH" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="TENTHUOC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOLUONG" Type="Double" />
           <NavigationProperty Name="CHITIETDONTHUOC" Relationship="Self.FK_CTDT_MATHUOC" FromRole="THUOC" ToRole="CHITIETDONTHUOC" />
         </EntityType>
         <EntityType Name="YSI">
@@ -593,6 +644,18 @@
             </Principal>
             <Dependent Role="BENHAN">
               <PropertyRef Name="MADICHVU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MABENHAN_BENHAN_HISTORY">
+          <End Role="BENHAN" Type="Self.BENHAN" Multiplicity="0..1" />
+          <End Role="BENHAN_HISTORY" Type="Self.BENHAN_HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BENHAN">
+              <PropertyRef Name="MABENHAN" />
+            </Principal>
+            <Dependent Role="BENHAN_HISTORY">
+              <PropertyRef Name="MABENHAN" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -754,6 +817,7 @@
         </Association>
         <EntityContainer Name="QUANLYBENHVIENEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BENHAN" EntityType="Self.BENHAN" />
+          <EntitySet Name="BENHAN_HISTORY" EntityType="Self.BENHAN_HISTORY" />
           <EntitySet Name="BENHNHAN" EntityType="Self.BENHNHAN" />
           <EntitySet Name="CHITIETDONTHUOC" EntityType="Self.CHITIETDONTHUOC" />
           <EntitySet Name="DICHVU" EntityType="Self.DICHVU" />
@@ -772,6 +836,10 @@
           <AssociationSet Name="FK_DICHVU_BENHAN" Association="Self.FK_DICHVU_BENHAN">
             <End Role="DICHVU" EntitySet="DICHVU" />
             <End Role="BENHAN" EntitySet="BENHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MABENHAN_BENHAN_HISTORY" Association="Self.FK_MABENHAN_BENHAN_HISTORY">
+            <End Role="BENHAN" EntitySet="BENHAN" />
+            <End Role="BENHAN_HISTORY" EntitySet="BENHAN_HISTORY" />
           </AssociationSet>
           <AssociationSet Name="FK_MABENHNHAN_BENHAN" Association="Self.FK_MABENHNHAN_BENHAN">
             <End Role="BENHNHAN" EntitySet="BENHNHAN" />
@@ -844,6 +912,22 @@
                 <ScalarProperty Name="TRIEUCHUNG" ColumnName="TRIEUCHUNG" />
                 <ScalarProperty Name="NGAYKHAM" ColumnName="NGAYKHAM" />
                 <ScalarProperty Name="KETLUAN" ColumnName="KETLUAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BENHAN_HISTORY">
+            <EntityTypeMapping TypeName="QUANLYBENHVIENModel.BENHAN_HISTORY">
+              <MappingFragment StoreEntitySet="BENHAN_HISTORY">
+                <ScalarProperty Name="MALICHSU" ColumnName="MALICHSU" />
+                <ScalarProperty Name="MABENHAN" ColumnName="MABENHAN" />
+                <ScalarProperty Name="MAYSI" ColumnName="MAYSI" />
+                <ScalarProperty Name="MABENHNHAN" ColumnName="MABENHNHAN" />
+                <ScalarProperty Name="MADICHVU" ColumnName="MADICHVU" />
+                <ScalarProperty Name="TRIEUCHUNG" ColumnName="TRIEUCHUNG" />
+                <ScalarProperty Name="NGAYKHAM" ColumnName="NGAYKHAM" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="KETLUAN" ColumnName="KETLUAN" />
+                <ScalarProperty Name="CHANGED_DATE" ColumnName="CHANGED_DATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -963,6 +1047,7 @@
                 <ScalarProperty Name="GIATIEN" ColumnName="GIATIEN" />
                 <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
                 <ScalarProperty Name="TENTHUOC" ColumnName="TENTHUOC" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

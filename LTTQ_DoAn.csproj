@@ -33,16 +33,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Photo\medicine_pic.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
     <EntityDeploy Include="QLBVModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>QLBVModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Photo\medicine_pic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
