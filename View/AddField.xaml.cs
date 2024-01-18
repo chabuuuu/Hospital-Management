@@ -35,5 +35,10 @@ namespace LTTQ_DoAn.View
                 Field_Image.Source = new BitmapImage(new Uri(ofd.FileName));
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
     }
 }
