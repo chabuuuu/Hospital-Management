@@ -32,10 +32,6 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="200"/>
-            </Grid.ColumnDefinitions>
             <!--nút thu nhỏ và tắt màn-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button
@@ -148,7 +144,7 @@
                 Margin="50 0 0 0"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="6" Orientation="Horizontal"  Grid.ColumnSpan="2"
+            <StackPanel Grid.Row="6" Orientation="Horizontal"
                         VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Command="{Binding ConfirmAddCommand}"
                     Width="130"
