@@ -46,7 +46,7 @@
                 PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
                 Grid.Row="2">
                 <ListView x:Name="listView1" HorizontalAlignment="Stretch" 
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled" d:ItemsSource="{d:SampleData ItemCount=5}"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Benhanhistorylist}"
                 >
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -64,7 +64,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Expander HorizontalAlignment="Stretch"
-                                                Header="{Binding SUB_ID}"
+                                                Header="{Binding CHANGED_DATE}"
                                                 FontWeight="Bold"
                                                 Width="870"
                                                 FontSize="15">
@@ -87,7 +87,7 @@
                                                     <TextBlock Text="Ngày sửa: "
                                                                 FontWeight="Bold"
                                                                 Style="{StaticResource InfoText}"/>
-                                                    <TextBlock Text="{Binding NGAYKHAM}"
+                                                    <TextBlock Text="{Binding CHANGED_DATE}"
                                                             Style="{StaticResource InfoText}"
                                                             Margin="0 0 30 0"
                                                             />
@@ -140,7 +140,7 @@
                                                     <TextBlock Text="Dịch vụ: "
                                                                 FontWeight="Bold"
                                                                 Style="{StaticResource InfoText}"/>
-                                                    <TextBlock Text="{Binding }"
+                                                    <TextBlock Text="{Binding DICHVU}"
                                                                 Style="{StaticResource InfoText}"
                                                                 Margin="0 0 30 0"/>
                                                     <!--giá tiền khám-->

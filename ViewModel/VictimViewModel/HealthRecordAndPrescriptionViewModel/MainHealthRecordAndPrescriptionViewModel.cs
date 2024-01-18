@@ -288,7 +288,13 @@ namespace LTTQ_DoAn.ViewModel
 
         private void ExecuteViewHistoryCommand(object obj)
         {
-            throw new NotImplementedException();
+            ViewHistoryPrescrip wd = new ViewHistoryPrescrip();
+            if (Benhan != null)
+            {
+                wd.DataContext = new HealthRecordHistoryViewModel(Benhan.MABENHAN);
+                System.Windows.Application.Current.MainWindow = wd;
+                wd.ShowDialog();
+            }
         }
 
         void Set_permission(string type)

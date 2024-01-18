@@ -12,6 +12,17 @@ using MaterialDesignThemes.Wpf;
 
 namespace LTTQ_DoAn.ViewModel
 {
+    public class BenhAnBackupType
+    {
+        public int MABENHAN { get; set; }
+        public int MABENHNHAN { get; set; }
+        public int MADICHVU { get; set; }
+        public DateTime NGAYKHAM { get; set; }
+        public string TRIEUCHUNG { get; set; }
+        public string KETLUAN { get; set; }
+        public int MAYSI { get; set; }
+        public decimal THANHTIEN { get; set; }
+    }
     public class ChangeHealthRecordViewModel : BaseViewModel
     {
         QUANLYBENHVIENEntities _db = new QUANLYBENHVIENEntities();
@@ -19,6 +30,7 @@ namespace LTTQ_DoAn.ViewModel
         private string dichvu;
         private string chiphi;
         private string bacsi;
+        private BenhAnBackupType benhan_history;
         private List<String> dichvulist;
         private List<String> bacsilist;
         public List<String> DichVuList
@@ -79,6 +91,15 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Benhan));
             }
         }
+
+        public BenhAnBackupType Benhan_history
+        {
+            get => benhan_history; set
+            {
+                benhan_history = value;
+            }
+        }
+
         public void loadDichvu()
         {
             List<DICHVU> dichvu = _db.DICHVU.ToList();
@@ -148,9 +169,42 @@ namespace LTTQ_DoAn.ViewModel
             updateBenhan.KETLUAN = Benhan.KETLUAN;
             _db.SaveChanges();
         }
+        private void createHistory()
+        {
+            BENHAN_HISTORY newBenhAn_History = new BENHAN_HISTORY()
+            {
+                MABENHAN = Benhan_history.MABENHAN,
+                MAYSI = Benhan_history.MAYSI,
+                MADICHVU = Benhan_history.MADICHVU,
+                NGAYKHAM = Benhan_history.NGAYKHAM,
+                MABENHNHAN = Benhan_history.MABENHNHAN,
+                THANHTIEN = Benhan_history.THANHTIEN,
+                TRIEUCHUNG = Benhan_history.TRIEUCHUNG,
+                KETLUAN = Benhan_history.KETLUAN,
+                CHANGED_DATE = DateTime.Now,
+            };
+            _db.BENHAN_HISTORY.AddObject(newBenhAn_History);
+            _db.SaveChanges();
+        }
+        private void createBenhAn_backup()
+        {
+            BenhAnBackupType benhan_backup = new BenhAnBackupType()
+            {
+                MABENHAN = Benhan.MABENHAN,
+                MABENHNHAN = (int)Benhan.MABENHNHAN,
+                MADICHVU = (int)Benhan.MADICHVU,
+                NGAYKHAM = (DateTime)Benhan.NGAYKHAM,
+                TRIEUCHUNG = Benhan.TRIEUCHUNG,
+                KETLUAN = Benhan.KETLUAN,
+                MAYSI = (int)Benhan.MAYSI,
+                THANHTIEN = (int)Benhan.THANHTIEN,
+            };
+            Benhan_history = benhan_backup;
+        }
         public ChangeHealthRecordViewModel(int maBenhAn)
         {
             findBenhAn(maBenhAn);
+            createBenhAn_backup();
             loadDichvu();
             loadBacsi();
             //Bacsi = Benhan.YSI.SUB_ID + ": " + Benhan.YSI.HOTEN;
@@ -178,6 +232,7 @@ namespace LTTQ_DoAn.ViewModel
             try
             {
                 update();
+                createHistory();
                 new MessageBoxCustom("Thông báo", "Sửa thông tin bệnh án thành công!",
                     MessageType.Success,
                     MessageButtons.OK)

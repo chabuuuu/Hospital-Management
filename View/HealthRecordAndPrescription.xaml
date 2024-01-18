@@ -183,7 +183,7 @@
                                                             <fa:IconImage Icon="History" Height="20"/>
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
-                                                                    <i:InvokeCommandAction Command="{Binding }"/>
+                                                                    <i:InvokeCommandAction Command="{Binding DataContext.ViewHistory, RelativeSource={RelativeSource AncestorType=ListView}}"/>
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>
