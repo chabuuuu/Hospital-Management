@@ -37,5 +37,10 @@ namespace LTTQ_DoAn.View
             // Sử dụng Regex để kiểm tra xem chuỗi có chứa ký tự số không
             return Regex.IsMatch(text, "[0-9]");
         }
+
+        private void Button_Click()
+        {
+
+        }
     }
 }

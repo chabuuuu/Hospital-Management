@@ -26,7 +26,7 @@ namespace LTTQ_DoAn.View
 
         private void bt_minimize_Click(object sender, RoutedEventArgs e)
         {
-            
+            WindowState = WindowState.Minimized;
         }
     }
 }

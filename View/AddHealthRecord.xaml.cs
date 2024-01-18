@@ -32,5 +32,10 @@ namespace LTTQ_DoAn.View
                 BieuHien.CaretIndex = BieuHien.Text.Length;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
     }
 }
