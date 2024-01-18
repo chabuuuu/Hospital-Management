@@ -23,5 +23,10 @@ namespace LTTQ_DoAn.View
         {
             InitializeComponent();
         }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }
