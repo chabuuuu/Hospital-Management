@@ -144,7 +144,7 @@
                                                                             FontWeight="Bold"
                                                                             Style="{StaticResource InfoText}"/>
                                                                 <!--dich vu-->
-                                                                <TextBlock Text="{Binding }"
+                                                                <TextBlock Text="{Binding DICHVU}"
                                                                             Style="{StaticResource InfoText}"
                                                                             Margin="0 0 50 0"/>
                                                                 <!--giá tiền khám-->

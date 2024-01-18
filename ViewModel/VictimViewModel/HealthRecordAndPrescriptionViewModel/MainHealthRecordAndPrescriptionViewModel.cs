@@ -27,6 +27,7 @@ namespace LTTQ_DoAn.ViewModel
         public string KETLUAN { get; set; }
         public string MAYSI { get; set; }
         public string THANHTIEN { get; set; }
+        public string DICHVU { get; set; }
     }
     public class DonThuocType
     {
@@ -156,6 +157,7 @@ namespace LTTQ_DoAn.ViewModel
                 TRIEUCHUNG = item.TRIEUCHUNG,
                 KETLUAN = item.KETLUAN,
                 MAYSI = findBacSi(item.MAYSI),
+                DICHVU = findDichVu(item.MADICHVU),
                 //THANHTIEN = item.THANHTIEN.ToString()
                 THANHTIEN = (item.DICHVU.GIATIEN + item.DONTHUOC
                            .Sum(k => k.CHITIETDONTHUOC
@@ -181,7 +183,21 @@ namespace LTTQ_DoAn.ViewModel
             }
             return "M" + maBacSi.ToString() + ": " + tenBacSi;
         }
-
+        private string findDichVu(int? maDichVu)
+        {
+            if (maDichVu == null)
+            {
+                return "";
+            }
+            string? tenDichVu = (from m in _db.DICHVU
+                                 where m.MADICHVU == maDichVu
+                                 select m.TENDICHVU).First();
+            if (tenDichVu == null)
+            {
+                return "";
+            }
+            return tenDichVu;
+        }
         private string findKhoa(int? maYsi)
         {
             if (maYsi == null)
