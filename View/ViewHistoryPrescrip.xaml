@@ -82,14 +82,14 @@
                                                                 Style="{StaticResource InfoText}"/>
                                                     <TextBlock Text="{Binding NGAYKHAM}"
                                                                 Style="{StaticResource InfoText}"
-                                                                Margin="0 0 110 0"
+                                                                Margin="0 0 30 0"
                                                                 />
                                                     <TextBlock Text="Ngày sửa: "
                                                                 FontWeight="Bold"
                                                                 Style="{StaticResource InfoText}"/>
                                                     <TextBlock Text="{Binding NGAYKHAM}"
                                                             Style="{StaticResource InfoText}"
-                                                            Margin="0 0 110 0"
+                                                            Margin="0 0 30 0"
                                                             />
 
                                                     <TextBlock Text="Khoa: "
@@ -135,14 +135,14 @@
                                                     <!--tên bác sĩ khám-->
                                                     <TextBlock Text="{Binding MAYSI}"
                                                                 Style="{StaticResource InfoText}"
-                                                                Margin="0 0 170 0"/>
+                                                                Margin="0 0 30 0"/>
                                                     <!--dich vu-->
                                                     <TextBlock Text="Dịch vụ: "
                                                                 FontWeight="Bold"
                                                                 Style="{StaticResource InfoText}"/>
-                                                    <TextBlock Text="{Binding MAYSI}"
+                                                    <TextBlock Text="{Binding }"
                                                                 Style="{StaticResource InfoText}"
-                                                                Margin="0 0 170 0"/>
+                                                                Margin="0 0 30 0"/>
                                                     <!--giá tiền khám-->
                                                     <TextBlock Text="Chi Phí: "
                                                                 FontWeight="Bold"

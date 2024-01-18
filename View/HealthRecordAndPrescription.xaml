@@ -139,14 +139,14 @@
                                                                 <!--tên bác sĩ khám-->
                                                                 <TextBlock Text="{Binding MAYSI}"
                                                                            Style="{StaticResource InfoText}"
-                                                                           Margin="0 0 170 0"/>
+                                                                           Margin="0 0 50 0"/>
                                                                 <TextBlock Text="Dịch vụ: "
                                                                             FontWeight="Bold"
                                                                             Style="{StaticResource InfoText}"/>
                                                                 <!--dich vu-->
                                                                 <TextBlock Text="{Binding }"
                                                                             Style="{StaticResource InfoText}"
-                                                                            Margin="0 0 170 0"/>
+                                                                            Margin="0 0 50 0"/>
                                                                 <!--giá tiền khám-->
                                                                 <TextBlock Text="Chi Phí: "
                                                                            FontWeight="Bold"
@@ -167,12 +167,23 @@
                                                     <StackPanel Orientation="Horizontal" Margin="0 6 0 0">
                                                         <!--thêm command sửa vào đây-->
                                                         <Border Style="{StaticResource borderList}"
-                                                    Margin="5"
+                                                                Margin="5"
                                                                 Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
                                                             <fa:IconImage Icon="PenToSquare" Height="20"/>
                                                             <i:Interaction.Triggers>
                                                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                                                     <i:InvokeCommandAction Command="{Binding DataContext.ChangeHRCommand, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </Border>
+                                                        <!--command xem lich su-->
+                                                        <Border Style="{StaticResource borderList}"
+                                                                Margin="5 5 0 5"
+                                                                Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=ListView}}">
+                                                            <fa:IconImage Icon="History" Height="20"/>
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                                                    <i:InvokeCommandAction Command="{Binding }"/>
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </Border>
@@ -199,17 +210,6 @@
                                     Background="{StaticResource btnActivedText}"
                                     Visibility="{Binding AddVisibility, Converter={StaticResource BoolToVisibilityConverter}}">
                                 <fa:IconImage Icon="Add" Height="35" Width="35" />
-                            </Button>
-                            <!--nut xem lich su-->
-                            <Button
-                                    Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}"
-                                    Height="55"
-                                    Width="55"
-                                    BorderBrush="{StaticResource  btnActivedText}"
-                                    Command="{Binding }"
-                                    Background="{StaticResource btnActivedText}"
-                                    >
-                                <fa:IconImage Icon="History" Height="35" Width="35" />
                             </Button>
                         </StackPanel>
                     </Grid>
