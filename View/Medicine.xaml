@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LTTQ_DoAn.View"
              xmlns:viewmodel="clr-namespace:LTTQ_DoAn.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="644" d:DesignWidth="1049"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <UserControl.DataContext>
@@ -61,28 +61,31 @@
                 SelectedItem="{Binding SelectedItem}"
                 Height="Auto">
                 <DataGrid.Columns>
-
                     <DataGridCheckBoxColumn
-                        Width="7.5*"
+                        Width="5*"
                         CanUserResize="False"
                         ElementStyle="{StaticResource CheckBoxStyle1}">
                         <DataGridCheckBoxColumn.HeaderTemplate>
                             <DataTemplate>
                                 <CheckBox 
                                     Style="{StaticResource CheckBoxStyle1}"
-                                    IsChecked="False"/>
+                                    Visibility="Hidden"/>
                             </DataTemplate>
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
-
-                    <DataGridTextColumn Header="ID" Width="12.5*"
+                    <DataGridTextColumn Header="ID" Width="10*"
                         IsReadOnly="True" CanUserResize="False"
                         Binding="{Binding SUB_ID}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Tên thuốc" Width="40*"
+                    <DataGridTextColumn Header="Tên thuốc" Width="30*"
                         IsReadOnly="True" CanUserResize="False"
                         Binding="{Binding TENTHUOC}">
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Số lượng" Width="15*"
+                        IsReadOnly="True" CanUserResize="False"
+                        Binding="{Binding }">
                     </DataGridTextColumn>
 
                     <DataGridTextColumn Header="Giá tiền" Width="15*"
@@ -90,7 +93,7 @@
                         Binding="{Binding GIATIEN}">
                     </DataGridTextColumn>
 
-                    <DataGridTextColumn Header="Đơn vị " Width="10*"
+                    <DataGridTextColumn Header="Đơn vị" Width="10*"
                         IsReadOnly="True" CanUserResize="False"
                         Binding="{Binding DONVITINH}">
                     </DataGridTextColumn>
