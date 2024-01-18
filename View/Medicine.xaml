@@ -108,7 +108,7 @@
                                         Tag="{StaticResource normalButton}"
                                         Style="{StaticResource gridOpenButton}"
                                         Margin="0 0 10 0"
-                                        ToolTip="Thông tin chi tiết">
+                                        ToolTip="Chi tiết">
                                         <fa:IconImage Icon="InfoCircle"
                                             Height="20"/>
                                     </RadioButton>
@@ -118,7 +118,7 @@
                                         Tag="{StaticResource normalButton}"
                                         Visibility="{Binding DataContext.ChangeVisibility, Converter={StaticResource BoolToVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                         Margin="0 0 10 0"
-                                        ToolTip="Sửa thông tin">
+                                        ToolTip="Sửa">
                                         <fa:IconImage Icon="PenToSquare"
                                             Height="20"/>
                                     </RadioButton>
