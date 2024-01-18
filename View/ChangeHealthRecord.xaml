@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        Title="ChangeHealthRecord"  Height="630" Width="1000"
+        Title="ChangeHealthRecord"  MinHeight="700" Width="1000"
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize">
@@ -115,7 +115,11 @@
                                        />
                             <TextBox Style="{StaticResource TextPersonalInfo}"
                                      Text="{Binding Benhan.TRIEUCHUNG}"
-                                     Width="600">
+                                     Width="600"
+                                     MinHeight="150"
+                                     PreviewKeyDown="TextBox_PreviewKeyDown"
+                                     x:Name="BieuHien"
+                                     TextWrapping="Wrap">
                             </TextBox>
                         </StackPanel>
                         <!--kết luận-->
@@ -123,13 +127,13 @@
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                        Text="Kết luận:"
                                        />
-                            <TextBox Name="conclude_textbox" 
+                            <TextBox 
                                 Style="{StaticResource TextPersonalInfo}"
                                      Text="{Binding Benhan.KETLUAN}"
                                      MaxLines="10"
                                      TextWrapping="Wrap"
                                      Width="600"
-                                     TextChanged="TextBox_TextChanged"
+                                     PreviewKeyDown="TextBox_PreviewKeyDown"
                                      AcceptsReturn="True"
                                      MinHeight="25">
                             </TextBox>
