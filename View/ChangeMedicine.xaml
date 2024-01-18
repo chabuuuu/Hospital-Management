@@ -118,7 +118,7 @@
                     </WrapPanel>
                 </StackPanel>
             </Grid>
-            <Image Grid.Row="3" HorizontalAlignment="Left" Stretch="Uniform" Grid.Column="1" Source="/Photo/Medicine.png"
+            <Image Grid.Row="3" HorizontalAlignment="Left" Stretch="Uniform" Grid.Column="1" Source="/Photo/Medicine_pic.png"
                 Height="150"/>
             <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal"
                 VerticalAlignment="Top" HorizontalAlignment="Right">

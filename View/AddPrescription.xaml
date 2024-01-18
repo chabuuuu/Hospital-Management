@@ -97,7 +97,8 @@
                     materialdesign:HintAssist.Hint="Loại thuốc"
                     Style="{DynamicResource MaterialDesignOutlinedComboBox }"
                     Margin="0 0 25 0"/>
-                <TextBox Margin="0 0 25 0"
+                <TextBox PreviewTextInput="TextBox_PreviewTextInput"
+                    Margin="0 0 25 0"
                     Text="{Binding Soluong}"
                     Width="120"
                     HorizontalContentAlignment="Stretch"
@@ -106,7 +107,8 @@
                     FontSize="15"
                     Height="55"/>
                 <!--So luong thuoc-->
-                <TextBox Margin="0 0 25 0"
+                <TextBox PreviewTextInput="TextBox_PreviewTextInput"
+                    Margin="0 0 25 0"
                     Text="{Binding Solan}"
                     Width="150"
                     HorizontalContentAlignment="Stretch"

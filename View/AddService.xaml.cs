@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace LTTQ_DoAn.View
 {
@@ -33,6 +34,19 @@ namespace LTTQ_DoAn.View
             {
                 Service_Image.Source = new BitmapImage(new Uri(ofd.FileName));
             }
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!IsNumeric(e.Text))
+            {
+                e.Handled = true; // Ngăn chặn việc nhập nếu không phải là số
+            }
+        }
+        private bool IsNumeric(string text)
+        {
+            // Sử dụng Regex để kiểm tra xem chuỗi có chứa ký tự số không
+            return Regex.IsMatch(text, "[0-9]");
         }
     }
 }
