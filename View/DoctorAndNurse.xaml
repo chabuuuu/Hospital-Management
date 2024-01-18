@@ -91,14 +91,14 @@
                 </Grid>
             </Border>
             <DataGrid x:Name="DoctorList" Grid.Row="1"
-          VerticalAlignment="top"
-          Style="{DynamicResource DataGridStyle1}"
-          CellStyle="{DynamicResource DataGridCellStyle1}"
-          RowStyle="{DynamicResource DataGridRowStyle1}"
-          ItemsSource="{Binding Nurse_doctor}"
-          SelectedItem="{Binding SelectedItem}"
-          Height="Auto"
-          >
+                      VerticalAlignment="top"
+                      Style="{DynamicResource DataGridStyle1}"
+                      CellStyle="{DynamicResource DataGridCellStyle1}"
+                      RowStyle="{DynamicResource DataGridRowStyle1}"
+                      ItemsSource="{Binding Nurse_doctor}"
+                      SelectedItem="{Binding SelectedItem}"
+                      Height="Auto"
+                      >
     <DataGrid.Columns>
         <!--dấu # này là cột chứa checkbox của mỗi item-->
         <DataGridCheckBoxColumn Width="5*"
