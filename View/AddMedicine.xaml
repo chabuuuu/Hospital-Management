@@ -97,6 +97,7 @@
             </StackPanel>
             <StackPanel Grid.Row="4" Orientation="Horizontal">
                 <TextBox
+                    PreviewTextInput="TextBox_PreviewTextInput"
                     MinWidth="300"
                     HorizontalContentAlignment="Stretch"
                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"
