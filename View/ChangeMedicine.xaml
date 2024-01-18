@@ -67,7 +67,7 @@
                                 Width="250">
                             </TextBox>
                         </StackPanel>
-                        <StackPanel Margin="10 0 25 30">
+                        <StackPanel Margin="25 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Đơn vị tính:"/>
                             <ComboBox
@@ -99,7 +99,6 @@
                         Width="500"
                         HorizontalContentAlignment="Stretch"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                        materialdesign:HintAssist.Hint="Ghi chú"
                         materialdesign:TextFieldAssist.HasClearButton="True"
                         FontSize="15"
                         Height="140"/>
@@ -115,6 +114,15 @@
                                 Style="{StaticResource TextPersonalInfo}"
                                 Text="{Binding Thuoc.GIATIEN}"
                                 Width="200">
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="25 0 25 30">
+                            <TextBlock Style="{StaticResource TitlePersonalInfo}"
+                                Text="Số lượng:"/>
+                            <TextBox PreviewTextInput="TextBox_PreviewTextInput"
+                                Style="{StaticResource TextPersonalInfo}"
+                                Text="{Binding Thuoc.GIATIEN}"
+                                Width="150">
                             </TextBox>
                         </StackPanel>
                     </WrapPanel>

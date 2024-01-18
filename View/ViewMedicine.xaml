@@ -69,7 +69,7 @@
                                 IsReadOnly="True">
                             </TextBox>
                         </StackPanel>
-                        <StackPanel Margin="0 0 25 30">
+                        <StackPanel Margin="25 0 25 30">
                             <TextBlock Style="{StaticResource TitlePersonalInfo}"
                                 Text="Tên thuốc:"/>
                             <TextBox Style="{StaticResource TextPersonalInfo}"
@@ -105,7 +105,6 @@
                         Width="500"
                         HorizontalContentAlignment="Stretch"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                        materialdesign:HintAssist.Hint="Ghi chú"
                         materialdesign:TextFieldAssist.HasClearButton="True"
                         FontSize="15"
                         Height="140"
@@ -121,6 +120,16 @@
                             <TextBox Style="{StaticResource TextPersonalInfo}"
                                 Text="{Binding Thuoc.GIATIEN}"
                                 Width="200"
+                                IsReadOnly="True">
+                            </TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="25 0 0 30">
+                            <TextBlock Style="{StaticResource TitlePersonalInfo}"
+                                Text="Số lượng:"/>
+                            <TextBox
+                                Style="{StaticResource TextPersonalInfo}"
+                                
+                                Width="150"
                                 IsReadOnly="True">
                             </TextBox>
                         </StackPanel>
