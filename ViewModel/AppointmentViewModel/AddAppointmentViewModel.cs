@@ -170,7 +170,7 @@ namespace LTTQ_DoAn.ViewModel
         {
             // Tách chuỗi sử dụng phương thức Split
             string[] parts = inputString.Split(new[] { ':' }, 2);
-            string k1 = parts[0].Substring(1);
+            string k1 = parts[1].Substring(2);
             return int.Parse(k1);
         }
         public int convertBenhnhanSub_ID(string inputString)
