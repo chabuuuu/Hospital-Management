@@ -261,7 +261,7 @@ namespace LTTQ_DoAn.ViewModel
             DeletePCommand = new ViewModelCommand(ExecuteDeletePCommand, CanExecuteDeletePCommand);
             ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
-            ViewHistory = new ViewHistoryCommand(ExecuteViewCommand, CanExecuteViewCommand);
+            ViewHistory = new ViewModelCommand(ExecuteViewHistoryCommand, CanExecuteViewHistoryCommand);
         }
         public HealthRecordAndPrescriptionViewModel(BENHNHAN SelectedBenhNhan, HealthRecordAndPrescription view, TAIKHOAN user_account)
         {
@@ -278,8 +278,19 @@ namespace LTTQ_DoAn.ViewModel
             DeletePCommand = new ViewModelCommand(ExecuteDeletePCommand, CanExecuteDeletePCommand);
             ChangePCommand = new ViewModelCommand(ExecuteChangePCommand, CanExecuteChangePCommand);
             ExitCommand = new ViewModelCommand(ExecuteExitCommand, CanExecuteExitCommand);
-            ViewHistory = new ViewHistoryCommand(ExecuteViewCommand, CanExecuteViewCommand);
+            ViewHistory = new ViewModelCommand(ExecuteViewHistoryCommand, CanExecuteViewHistoryCommand);
         }
+
+        private bool CanExecuteViewHistoryCommand(object obj)
+        {
+            return true;
+        }
+
+        private void ExecuteViewHistoryCommand(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
         void Set_permission(string type)
         {
             switch (type)
@@ -466,14 +477,6 @@ namespace LTTQ_DoAn.ViewModel
             findDonThuoc();
         }
 
-        private bool CanExecuteViewCommand(object? obj)
-        {
-            return true;
-        }
 
-        private void ExecuteViewCommand(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
