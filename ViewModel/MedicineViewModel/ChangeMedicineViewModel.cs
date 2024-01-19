@@ -45,10 +45,11 @@ namespace LTTQ_DoAn.ViewModel
             THUOC updateThuoc = (from m in _db.THUOC
                                        where m.MATHUOC == Thuoc.MATHUOC
                                        select m).Single();
-            updateThuoc.TENTHUOC = updateThuoc.TENTHUOC;
-            updateThuoc.GIATIEN = updateThuoc.GIATIEN;
-            updateThuoc.GHICHU = updateThuoc.GHICHU;
-            updateThuoc.DONVITINH = updateThuoc.DONVITINH;
+            updateThuoc.TENTHUOC = Thuoc.TENTHUOC;
+            updateThuoc.GIATIEN = Thuoc.GIATIEN;
+            updateThuoc.GHICHU = Thuoc.GHICHU;
+            updateThuoc.DONVITINH = Thuoc.DONVITINH;
+            updateThuoc.SOLUONG = Thuoc.SOLUONG;
             _db.SaveChanges();
         }
         public ChangeMedicineViewModel()

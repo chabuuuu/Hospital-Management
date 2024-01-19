@@ -51,11 +51,21 @@ namespace LTTQ_DoAn.ViewModel
                 OnPropertyChanged(nameof(Giatien));
             }
         }
+
+        public double Soluong
+        {
+            get => soluong; set
+            {
+                soluong = value;
+                OnPropertyChanged(nameof(Soluong));
+            }
+        }
+
         private string tenthuoc = null;
         private string giatien = null;
         private string ghichu = null;
         private string donvitinh = null;
-
+        private double soluong;
 
 
 
@@ -71,7 +81,8 @@ namespace LTTQ_DoAn.ViewModel
                 TENTHUOC = Tenthuoc,
                 GIATIEN = decimal.Parse(Giatien),
                 GHICHU= Ghichu,
-                DONVITINH = Donvitinh
+                DONVITINH = Donvitinh,
+                SOLUONG = Soluong,
             };
             _db.THUOC.AddObject(newThuoc);
             _db.SaveChanges();

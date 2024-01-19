@@ -128,7 +128,7 @@
                                 Text="Số lượng:"/>
                             <TextBox
                                 Style="{StaticResource TextPersonalInfo}"
-                                
+                                Text="{Binding Thuoc.SOLUONG}"
                                 Width="150"
                                 IsReadOnly="True">
                             </TextBox>
