@@ -160,8 +160,12 @@ namespace LTTQ_DoAn.ViewModell
                  };
                  _db.CHITIETDONTHUOC.AddObject(newCTDT);
                  _db.SaveChanges();
-             }
-         }
+                //Trừ bớt số lượng trong kho của thuốc
+                THUOC updateThuoc = getThuoc(item.Mathuoc);
+                updateThuoc.SOLUONG = updateThuoc.SOLUONG - item.Soluong;
+                _db.SaveChanges();
+            }
+        }
         
         public void loadBenhan()
         {
@@ -267,7 +271,7 @@ namespace LTTQ_DoAn.ViewModell
                 Solan = Solan
             };
             InsertThuocList.Add(new_insertThuoc);*/
-            if (Ghichu == null)
+            if (Ghichu == null || Ghichu == "")
             {
                 Ghichu = addThuoc;
             }
@@ -324,6 +328,13 @@ namespace LTTQ_DoAn.ViewModell
                 {
                     throw new Exception("Không tìm thấy loại thuốc MED" + maThuoc);
                 }
+                if (new_soluong > newThuoc.SOLUONG)
+                {
+                    throw new Exception("Số lượng trong kho của thuốc " + newThuoc.TENTHUOC 
+                        + " không đủ để thêm vào đơn thuốc\n" +
+                        "Trong kho: " + newThuoc.SOLUONG + 
+                        "\nĐơn thuốc: " + new_soluong);
+                }
                 InsertThuoc new_insertThuoc = new InsertThuoc()
                 {
                     Mathuoc = newThuoc.MATHUOC,
@@ -372,24 +383,25 @@ namespace LTTQ_DoAn.ViewModell
         private void ExecuteAddCommand(object? obj)
         {
             try {
+                convertGhiChuToCTDT();     //Chuyển Ghi Chú thành List Object các Thuốc
                 insert();
-                convertGhiChuToCTDT();
                 insertThuoc();
+                new MessageBoxCustom("Thông báo", "Thêm đơn thuốc mới thành công cho bệnh nhân: \n"
+    + Benhnhan.SUB_ID + ": " + Benhnhan.HOTEN,
+    MessageType.Success,
+    MessageButtons.OK)
+    .ShowDialog();
+                Application.Current.MainWindow.Close();
             }
             catch (Exception e)
             {
-                new MessageBoxCustom("Loi", "Có lỗi xảy ra"
+                new MessageBoxCustom("Lỗi", "Có lỗi xảy ra: "
     + e.Message,
     MessageType.Error,
     MessageButtons.OK)
     .ShowDialog();
             }
-            new MessageBoxCustom("Thông báo", "Thêm đơn thuốc mới thành công cho bệnh nhân: \n"
-                + Benhnhan.SUB_ID + ": " + Benhnhan.HOTEN,
-                MessageType.Success,
-                MessageButtons.OK)
-                .ShowDialog();
-            Application.Current.MainWindow.Close();
+
         }
 
     }

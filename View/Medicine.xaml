@@ -85,7 +85,7 @@
 
                     <DataGridTextColumn Header="Số lượng" Width="15*"
                         IsReadOnly="True" CanUserResize="False"
-                        Binding="{Binding }">
+                        Binding="{Binding SOLUONG}">
                     </DataGridTextColumn>
 
                     <DataGridTextColumn Header="Giá tiền" Width="15*"

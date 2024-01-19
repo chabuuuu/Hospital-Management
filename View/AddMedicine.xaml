@@ -73,12 +73,14 @@
                     SelectedValue="{Binding Donvitinh, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     SelectedValuePath="Content"
                     Margin="25 0 25 0">
+                    <ComboBoxItem>Vỉ</ComboBoxItem>
                     <ComboBoxItem>Viên</ComboBoxItem>
                     <ComboBoxItem>Hộp</ComboBoxItem>
                     <ComboBoxItem>Lọ</ComboBoxItem>
                     <ComboBoxItem>Gói</ComboBoxItem>
                 </ComboBox>
                 <TextBox
+                    Text="{Binding Soluong}"
                     MinWidth="200"
                     HorizontalContentAlignment="Stretch"
                     Style="{DynamicResource MaterialDesignOutlinedTextBox}"

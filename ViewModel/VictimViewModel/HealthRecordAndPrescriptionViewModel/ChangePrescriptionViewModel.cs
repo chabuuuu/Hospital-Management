@@ -141,8 +141,16 @@ namespace LTTQ_DoAn.ViewModel
                                  select m).ToList();
             foreach (var item in deleteList)
             {
+                double soluong_increase = (double)item.SOLUONG;
+                //Xóa tất cả các chi tiết đơn thuốc cũ
                 _db.CHITIETDONTHUOC.DeleteObject(item);
                 _db.SaveChanges();
+                //Tăng trở lại số lượng thuốc trong kho
+                THUOC thuoc_increase = getThuoc(item.MATHUOC);
+                if (thuoc_increase != null)
+                {
+                    thuoc_increase.SOLUONG = thuoc_increase.SOLUONG + soluong_increase;
+                }
             }     
         }
         public void insertThuoc()
@@ -157,6 +165,10 @@ namespace LTTQ_DoAn.ViewModel
                     SOLUONG = item.Soluong,
                 };
                 _db.CHITIETDONTHUOC.AddObject(newCTDT);
+                _db.SaveChanges();
+                //Trừ bớt số lượng trong kho của thuốc
+                THUOC updateThuoc = getThuoc(item.Mathuoc);
+                updateThuoc.SOLUONG = updateThuoc.SOLUONG - item.Soluong;
                 _db.SaveChanges();
             }
         }
@@ -297,6 +309,17 @@ namespace LTTQ_DoAn.ViewModel
             int soLan = int.Parse(next_split);
             return soLan;
         }
+        private CHITIETDONTHUOC findCTDT(int madonthuoc, int mathuoc)
+        {
+            CHITIETDONTHUOC ctdt = (from m in _db.CHITIETDONTHUOC
+                           where m.MATHUOC == mathuoc && m.MADONTHUOC == madonthuoc
+                           select m).SingleOrDefault();
+            if (ctdt != null)
+            {
+                return ctdt;
+            }
+            return null;
+        }
         public void convertGhiChuToCTDT()
         {
             if (Ghichu == null)
@@ -321,6 +344,27 @@ namespace LTTQ_DoAn.ViewModel
                 if (newThuoc == null)
                 {
                     throw new Exception("Không tìm thấy loại thuốc MED" + maThuoc);
+                }
+                CHITIETDONTHUOC oldCTDT = findCTDT(Donthuoc.MADONTHUOC, newThuoc.MATHUOC);
+                if (oldCTDT != null)
+                {
+                    if (new_soluong > (newThuoc.SOLUONG + oldCTDT.SOLUONG))
+                    {
+                        throw new Exception("Số lượng trong kho của thuốc " + newThuoc.TENTHUOC
+                            + " không đủ để thêm vào đơn thuốc\n" +
+                            "Trong kho: " + newThuoc.SOLUONG +
+                            "\nĐơn thuốc: " + new_soluong);
+                    }
+                }
+                else
+                {
+                    if (new_soluong > newThuoc.SOLUONG )
+                    {
+                        throw new Exception("Số lượng trong kho của thuốc " + newThuoc.TENTHUOC
+                            + " không đủ để thêm vào đơn thuốc\n" +
+                            "Trong kho: " + newThuoc.SOLUONG +
+                            "\nĐơn thuốc: " + new_soluong);
+                    }
                 }
                 InsertThuoc new_insertThuoc = new InsertThuoc()
                 {
@@ -382,8 +426,8 @@ namespace LTTQ_DoAn.ViewModel
         {
             try
             {
-                update();
                 convertGhiChuToCTDT();
+                update();
                 deleteAllCTDT();
                 insertThuoc();
                 new MessageBoxCustom("Thông báo", "Sửa thông tin đơn thuốc thành công!",
