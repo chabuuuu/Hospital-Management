@@ -128,7 +128,6 @@
                         Text="{Binding Chiphi}"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
                         materialdesign:HintAssist.Hint="Chi phí (VNĐ)"
-                        materialdesign:TextFieldAssist.HasClearButton="True"
                         FontSize="15"
                         Height="55"/>
                     </StackPanel>
