@@ -105,7 +105,6 @@
                         Width="500"
                         HorizontalContentAlignment="Stretch"
                         Style="{DynamicResource MaterialDesignOutlinedTextBox}"
-                        materialdesign:TextFieldAssist.HasClearButton="True"
                         FontSize="15"
                         Height="140"
                         IsReadOnly="True"/>

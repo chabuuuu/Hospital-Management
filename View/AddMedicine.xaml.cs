@@ -42,5 +42,15 @@ namespace LTTQ_DoAn.View
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                note.Text += Environment.NewLine;
+                note.CaretIndex = note.Text.Length;
+            }
+        }
     }
 }
