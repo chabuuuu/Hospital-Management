@@ -1,4 +1,5 @@
 ﻿using LTTQ_DoAn.View;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using static LTTQ_DoAn.ViewModel.HomeViewModel;
 
 namespace LTTQ_DoAn.ViewModel
 {
@@ -20,23 +22,99 @@ namespace LTTQ_DoAn.ViewModel
         public string MAYSI { get; set; }
         public string THANHTIEN { get; set; }
         public string DICHVU { get; set; }
+        public int MABENHNHAN { get; set; }
+        public int MADICHVU { get; set; }
         
         public DateTime CHANGED_DATE { get; set; }
     }
     public class HealthRecordHistoryViewModel : BaseViewModel
     {
         private BENHAN benhan;
+        private BenhAnHistoryType benhanhistory;
         private List<BenhAnHistoryType> benhanhistorylist;
         private List<BENHAN_HISTORY> benhanHistory;
         public HealthRecordHistoryViewModel() { }
         public ICommand CancelCommand { get; }
+        public ICommand RecoveryCommand { get; }
 
         public HealthRecordHistoryViewModel(int MaBenhAnSelected) { 
             findBenhAn(MaBenhAnSelected);
             load();
             findBenhAn_History();
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand, CanExecuteCancelCommand);
+            RecoveryCommand = new ViewModelCommand(ExecuteRecoveryCommand, CanExecuteRecoveryCommand);
+        }
+        public int convertDichvuSub_ID(string inputString)
+        {
+            // Tách chuỗi sử dụng phương thức Split
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            string k1 = parts[0].Substring(2);
+            return int.Parse(k1);
+        }
+        public int convertBacsiSub_ID(string inputString)
+        {
+            // Tách chuỗi sử dụng phương thức Split
+            string[] parts = inputString.Split(new[] { ':' }, 2);
+            string k1 = parts[0].Substring(1);
+            return int.Parse(k1);
+        }
+        private void update()
+        {
+            BENHAN updateBenhan = (from m in _db.BENHAN
+                                   where m.MABENHAN == Benhanhistory.MABENHAN
+                                   select m).Single();
+            updateBenhan.MAYSI = convertBacsiSub_ID(Benhanhistory.MAYSI);
+            updateBenhan.MABENHNHAN = Benhanhistory.MABENHNHAN;
+            updateBenhan.MADICHVU = Benhanhistory.MADICHVU;
+            updateBenhan.THANHTIEN = Decimal.Parse(Benhanhistory.THANHTIEN);
+            updateBenhan.TRIEUCHUNG = Benhanhistory.TRIEUCHUNG;
+            updateBenhan.KETLUAN = Benhanhistory.KETLUAN;
+            _db.SaveChanges();
+        }
+        
+        private void createHistory()
+        {
+            BENHAN_HISTORY newBenhAn_History = new BENHAN_HISTORY()
+            {
+                MABENHAN = Benhan.MABENHAN,
+                MAYSI = Benhan.MAYSI,
+                MADICHVU = Benhan.MADICHVU,
+                NGAYKHAM = Benhan.NGAYKHAM,
+                MABENHNHAN = Benhan.MABENHNHAN,
+                THANHTIEN = Benhan.THANHTIEN,
+                TRIEUCHUNG = Benhan.TRIEUCHUNG,
+                KETLUAN = Benhan.KETLUAN,
+                CHANGED_DATE = DateTime.Now,
+            };
+            _db.BENHAN_HISTORY.AddObject(newBenhAn_History);
+            _db.SaveChanges();
+        }
+        private bool CanExecuteRecoveryCommand(object obj)
+        {
+            return true;
+        }
 
+        private void ExecuteRecoveryCommand(object obj)
+        {
+            try{
+                createHistory();
+                update();
+                new MessageBoxCustom("Thông báo", "Đã khôi phục bệnh án bị thay đổi vào: " 
+                    + Benhanhistory.CHANGED_DATE.ToString() 
+                    + " thành công",
+                    MessageType.Success,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                Application.Current.MainWindow.Close();
+            }catch(Exception ex)
+            {
+                new MessageBoxCustom("Lỗi", ex.Message,
+                    MessageType.Error,
+                    MessageButtons.OK)
+                    .ShowDialog();
+                //MessageBox.Show(err.Message);
+                Application.Current.MainWindow.Close();
+            }
         }
 
         private bool CanExecuteCancelCommand(object obj)
@@ -140,6 +218,8 @@ namespace LTTQ_DoAn.ViewModel
                     MAYSI = findBacSi(item.MAYSI),
                     DICHVU = findDichVu(item.MADICHVU),
                     THANHTIEN = item.THANHTIEN.ToString(),
+                    MABENHNHAN = (int)item.MABENHNHAN,
+                    MADICHVU = (int)item.MADICHVU,
                     CHANGED_DATE = (DateTime)item.CHANGED_DATE,
                 };
                 list.Add(benhan_history);
@@ -161,6 +241,15 @@ namespace LTTQ_DoAn.ViewModel
             {
                 benhanhistorylist = value;
                 OnPropertyChanged(nameof (Benhanhistorylist));
+            }
+        }
+
+        public BenhAnHistoryType Benhanhistory
+        {
+            get => benhanhistory; set
+            {
+                benhanhistory = value;
+                OnPropertyChanged(nameof(Benhanhistory));
             }
         }
     }
