@@ -95,7 +95,8 @@
                 <!--ghi chú-->
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
                     Margin="50 0 0 0">
-                    <TextBox
+                    <TextBox x:Name="note"
+                        PreviewKeyDown="TextBox_PreviewKeyDown"
                         TextWrapping="Wrap"
                         Text="{Binding Ghichu}"
                         Width="600"
