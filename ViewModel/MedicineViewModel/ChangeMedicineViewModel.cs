@@ -38,7 +38,7 @@ namespace LTTQ_DoAn.ViewModel
         }
 
         private THUOC thuoc = null;
-        private List<String> unit = new List<string>() { "Viên", "Hộp", "Gói", "Lọ" };
+        private List<String> unit = new List<string>() { "Viên", "Hộp", "Gói", "Lọ", "Vỉ" };
         private string donvi;
         private void update()
         {

@@ -121,7 +121,7 @@
                                 Text="Số lượng:"/>
                             <TextBox PreviewTextInput="TextBox_PreviewTextInput"
                                 Style="{StaticResource TextPersonalInfo}"
-                                Text="{Binding Thuoc.GIATIEN}"
+                                Text="{Binding Thuoc.SOLUONG}"
                                 Width="150">
                             </TextBox>
                         </StackPanel>
