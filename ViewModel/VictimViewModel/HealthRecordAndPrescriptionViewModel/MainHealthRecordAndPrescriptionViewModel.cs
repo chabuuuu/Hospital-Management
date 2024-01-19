@@ -305,12 +305,18 @@ namespace LTTQ_DoAn.ViewModel
         private void ExecuteViewHistoryCommand(object obj)
         {
             ViewHistoryPrescrip wd = new ViewHistoryPrescrip();
+            wd.Closed += ViewHistory_Closed;
             if (Benhan != null)
             {
                 wd.DataContext = new HealthRecordHistoryViewModel(Benhan.MABENHAN);
                 System.Windows.Application.Current.MainWindow = wd;
                 wd.ShowDialog();
             }
+        }
+
+        private void ViewHistory_Closed(object sender, EventArgs e)
+        {
+            findBenhAn();
         }
 
         void Set_permission(string type)

@@ -48,6 +48,7 @@
                 Grid.Row="2">
                 <ListView x:Name="listView1" HorizontalAlignment="Stretch" 
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Benhanhistorylist}"
+                                                                SelectedItem="{Binding Benhanhistory}"
                 >
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -150,6 +151,17 @@
                                                                 Style="{StaticResource InfoText}"/>
                                                     <TextBlock Text="{Binding THANHTIEN}"
                                                                 Style="{StaticResource InfoText}"/>
+                                                    <Button 
+                                                        Margin="30,0,0,0"
+                                                        Command="{Binding DataContext.RecoveryCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                        Style="{StaticResource BtnUserControl}"
+                                                        >
+                                                        <TextBlock
+                                    Style="{StaticResource UserControlText}"
+                                    Text="Khôi phục"
+                                    >
+                                                        </TextBlock>
+                                                    </Button>
                                                 </StackPanel>
                                             </Grid>
                                         </Expander>
