@@ -382,8 +382,8 @@ namespace LTTQ_DoAn.ViewModel
         {
             try
             {
-                update();
                 convertGhiChuToCTDT();
+                update();
                 deleteAllCTDT();
                 insertThuoc();
                 new MessageBoxCustom("Thông báo", "Sửa thông tin đơn thuốc thành công!",
