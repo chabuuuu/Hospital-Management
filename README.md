@@ -1,7 +1,7 @@
 # PHẦN MỀM QUẢN LÝ BỆNH VIỆN
 ## Nhóm 21 UIT - ĐỒ ÁN MÔN LẬP TRÌNH TRỰC QUAN
 
-[![N|Solid](https://www.freeiconspng.com/thumbs/hospital-icon/ambulance-cross-hospital-icon-11.png)](https://www.freeiconspng.com/thumbs/hospital-icon/ambulance-cross-hospital-icon-11.png)
+[![N|Solid]([https://www.freeiconspng.com/thumbs/hospital-icon/ambulance-cross-hospital-icon-11.png](https://github.com/chabuuuu/UIT_LTTQ_DoAn/blob/main/Photo/Screenshot%202024-01-21%20110246.png?raw=true))](https://www.freeiconspng.com/thumbs/hospital-icon/ambulance-cross-hospital-icon-11.png)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
